@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <title>Tutorial 1: Getting Started</title>
+    <script src='cytoscape.min.js'></script>
+    <script src='js/cytoscape.js'></script>
+    <script src='js/export.js'></script>
+    <script src='js/component.js'></script>
+    <script src='js/mech.js'></script>
+    <link rel="stylesheet" type="text/css" href="css/cytoscape.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div id="cy"></div>
+    <div id="alink"></div>
+    <div id="anode"></div>
+    <script>
+        var cy = cy_create(document.getElementById('cy'))
+        comp_sLink(document.getElementById('alink'),"")
+        comp_sNode(document.getElementById('anode'))
+    </script>
+</body>
+</html>
