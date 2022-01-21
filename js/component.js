@@ -160,10 +160,10 @@ function comp_aNode(){
     if(no_err) {
         console.log("addnode")
         cy.add({
-        group: 'nodes',
-        data: { id: name,
-                color: color
-        },
+            group: 'nodes',
+            data: { id: name,
+                    color: color
+            },
             //position: { x: 200, y: 200 }
         });
     }
