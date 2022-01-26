@@ -22,7 +22,7 @@
 
 function comp_sLink(container,fields) {
     var html = ""
-    if(fields == undefined || fields == "") { fields = "point axis norm sa1 sa2 name point"}
+    if(fields == undefined || fields == "") { fields = "point axis norm sa1 sa2 name point spec"}
     fields = fields.split(' '); //unused for now
 
     var prop = mech_linkProp()
@@ -35,11 +35,11 @@ function comp_sLink(container,fields) {
 
     container.innerHTML = html //need to create this before accessing it
 
-    rLink()
+    rLink(fields)
 }
 
 //refresh fields when link change (required parameters are not the same)
-function rLink() {
+function rLink(fields) {
 
     var nodes = comp_nodeList()
 
@@ -49,7 +49,7 @@ function rLink() {
     //create needed fields
     //get type of link
     var prop = mech_linkProp() //dict with type of link and required properties
-    var fields = prop[type]
+    //var fields = prop[type]
 
     //first standard fields
     html+="</br></br><input id=\"link_name\" placeholder=\"Name\"></input>"
@@ -87,14 +87,15 @@ function rLink() {
         }
     }
     //some links have a different play between axis like rotule by ball bearings (axial play is != radial play)
-    html+= "</br></br><label>Jeu de la liaison</label></br>"
-    html += " X <input class=\"small-input\" id=\"link_play_x\" type=\"number\" placeholder=\"Jeu/2\">"
-    html += " Y <input class=\"small-input\" id=\"link_play_y\" type=\"number\" placeholder=\"Jeu/2\">"
-    html += " Z <input class=\"small-input\" id=\"link_play_z\" type=\"number\" placeholder=\"Jeu/2\">"
-    //tolerance (based on iso specifications)
-    html += "</br></br><label>Spécification</label></br>"
-    html += "<input class=\"small-input\" id=\"link_spec_x\" type=\"number\" placeholder=\"Spec/2 direction x\">"
-
+    if (fields.indexOf("spec") != -1) {
+        html+= "</br></br><label>Jeu de la liaison</label></br>"
+        html += " X <input class=\"small-input\" id=\"link_play_x\" type=\"number\" placeholder=\"Jeu/2\">"
+        html += " Y <input class=\"small-input\" id=\"link_play_y\" type=\"number\" placeholder=\"Jeu/2\">"
+        html += " Z <input class=\"small-input\" id=\"link_play_z\" type=\"number\" placeholder=\"Jeu/2\">"
+        //tolerance (based on iso specifications)
+        html += "</br></br><label>Spécification</label></br>"
+        html += "<input class=\"small-input\" id=\"link_spec_x\" type=\"number\" placeholder=\"Spec/2 direction x\">"
+    }
     html += "</br><div class=\"error\" id=\"link_err\"></div>"
     html += "</br></br><input value=\"Valider\" type=\"button\" onclick=\"comp_aLink()\" /></form>"
     var div = document.getElementById("div_link_params")
