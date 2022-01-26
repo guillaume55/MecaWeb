@@ -32,7 +32,7 @@ function findCycles() {
                 cy2 = JSON.stringify(cycles[j].sort())
                 if(cy1 == cy2) { j-=1; i-=1; cycles.splice(i,1) }
             }
-        }
+        }/*********** PAS FINI et peut bugger **************/
     }
 
 
@@ -50,22 +50,83 @@ function write_eq(edges) {
     //console.log(get_cf())
     //begin with 2 node cycle to find some I (mainly on resultantes)
     cycles = [['P3','P2'],['P3','P5'],['P3','P4'],['P1','P2','P3','P4'],['P1','P2','P3','P4']]
+
+    //transport everything to the FC point
+
+
     for(let i=0; i< cycles.length; i++) {
+        //find resulting cycle of the 2 mobilities
         if(cycles[i].length == 2) {
-            console.log("ici")
-            get_mobilities_from_edge(cycles[i])
-            //au même pt !
+            //find all edges between two nodes
+            ed = get_edges_from_nodes(cycles[i][0], cycles[i][1])
+            //get every edge between these two nodes
+            var eq = ["I","I","I","I","I","I"]
+            for(e of ed) {    //[sub-ass1, sub-ass2, jointType, point]
+                console.log("****** EDGE ******", e);
+                /***************  RESULTANTES ***********/
+                //console.log("type------->",e[2])
+                var mob = get_mobilities_from_edge(e['type']);
+                //on transforme les 1 et 0 en composantes alpha, beta, gamma, u, v, w
+                for(let j=0; j<6; j++) {
+                    if(mob[i]== 0) //un degré de liaison
+                    {
+                        //remplacer par la composante
+                        //ICIIIIIIIII
+                    }
+                }
+                //resultantes x, y and z
+                //inversion des translations et des rotations
+                for(let i=3; i<6; i++) {
+                    if(mob[i-3] == 1) {console.log("mobilite")}
+                    else if(eq[i] == "I") { eq[i] = mob[i-3] }
+                    else if(eq[i] != "I" && mob[i-3] == 1) {                    console.log("isostatisme")/*do nothing but avoid else statement*/ }
+                    //a vérifier, hyperstatique avec rot + AP x (2 SE et deux liaisons en //)
+                    //Heummmm, plutôt insoluble que hyperstatique car h dépend des mobilités de sortie du mécanisme
+                    //A vérifier mais probablment faux ou moyen moyen
+                    else { console.log("Hyperstatisme !") }
+                }
+
+                /*************  MOMENTS  **************/
+                //let's fight with moments
+                /*
+                var cf_params = get_cf()
+                //deplacement du moment au point de la CF
+                var m = mechmath_babar(e[3], cf_params['point'], [mob[3],mob[4],mob[5]],[mob[0],mob[1],mob[2]])
+                console.log("BABAR=>",m)
+
+                for(let i=0; i<3; i++) {
+                    console.log("point------->",m[i])
+
+                }*/
+            }
+
+            //AU MEME PT
+
             //////////// REPRENDRE ICI /////// commencer par trouver les I (mobilités) des cycles à deux noeuds )
         }
     }
+}
+function write_eq_V2(edges) {
+    cycles = [['P3','P2'],['P3','P5'],['P3','P4'],['P1','P2','P3','P4'],['P1','P2','P3','P4']]
 
+    //do the job for each cycle
+    for(let i=0; i< cycles.length; i++) {
+        if(cycles[i].length == 2) { //cycle with two nodes can have a different behavior
+            //find all edges between two nodes
+            var edges_between = get_edges_from_nodes(cycles[i][0], cycles[i][1])
+        }
+    }
+}
+
+
+function write_resultantes(edges_bet) {
 
 }
 
-//TODO Je me suis arreté ici
-function get_mobilities_from_edge(edge){
+//return mobilities Tx,y,z and Rx, y, z from the name of the linkage
+function get_mobilities_from_edge(type){
     mob = mech_links()
-    return mob[get_type_from_edge(edge)]
+    return mob[type]
 }
 
 //from stackoverflow

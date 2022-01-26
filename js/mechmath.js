@@ -1,4 +1,4 @@
-function mechmath_babar(ba, resultante, moment)
+function mechmath_babar(source_point, target_point, resultante, moment)
 {
 /*a torsor is a french mathematical tool define as
     {Resultante,
@@ -14,7 +14,8 @@ function mechmath_babar(ba, resultante, moment)
     /*for(let i=0; i<3; i++) {
         if(sourcePoint[i] < targetPoint[i]) {ab[i] *= -1}
     }*/
-
+    //Chasles relation MA = MO + OA
+    var ba = [(-source_point[0]+target_point[0])*-1,(-source_point[1]+target_point[1])*-1,(-source_point[2]+target_point[2])*-1]
 
     moment[0] = `${moment[0]} + (${ba[1]}*${resultante[2]}) -  (${ba[2]}*${resultante[1]})`
     moment[1] = `${moment[1]} + (${ba[2]}*${resultante[0]}) -  (${ba[0]}*${resultante[2]})`
@@ -23,10 +24,6 @@ function mechmath_babar(ba, resultante, moment)
     return moment
 }
 
-//return the signed distance between two point used to transport the moment. Not easy as it seems
-function mechmath_ba(pointB, pointA) {
-
-}
 
 function _mechmath_hDegree (nb_of_edge, nb_of_nodes) {
 

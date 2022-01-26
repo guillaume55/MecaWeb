@@ -27,11 +27,10 @@
     <div class="tab">
         <button class="tablinks" onclick="openTab(event, 'anode')">Sous-ensembles</button>
         <button class="tablinks" onclick="openTab(event, 'alink')">Liaisons</button>
-        <button class="tablinks" onclick="openTab(event, 'acf')">Conditions fonctionnelles</button>
+
     </div>
     <div id="alink" class="tabcontent"></div>
     <div id="anode" class="tabcontent"></div>
-    <div id="acf" class="tabcontent">cf</div>
     <script>
         var cy = cy_create(document.getElementById('cy'))
         comp_sLink(document.getElementById('alink'),"")

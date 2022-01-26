@@ -13,7 +13,11 @@ function cy_create(c) {
         source: 'P3',
         target: 'P2',
         label: 'J1-LA',
-        type: 'LA x'
+        type: 'PG x',
+        point:[10,20,30],
+        specSource: 0.2,
+        specTarget: 0.2,
+        play: 0.2
       }
     },
     {
@@ -22,7 +26,11 @@ function cy_create(c) {
         source: 'P3',
         target: 'P2',
         label: 'J1-AP',
-        type: 'AP x'
+        type: 'AP x',
+        point:[40,50,60],
+        specSource: 0.2,
+        specTarget: 0.2,
+        play: 0.2
       }
     },
     {
@@ -31,7 +39,11 @@ function cy_create(c) {
         source: 'P3',
         target: 'P4',
         label: 'J2-LA',
-        type: 'La x'
+        type: 'LA x',
+        point:[70,80,90],
+        specSource: 0.2,
+        specTarget: 0.2,
+        play: 0.2
       }
     },
     {
@@ -40,7 +52,11 @@ function cy_create(c) {
         source: 'P3',
         target: 'P4',
         label: 'J2-AP',
-        type: 'AP x'
+        type: 'AP x',
+        point:[10,20,30],
+        specSource: 0.2,
+        specTarget: 0.2,
+        play: 0.2
       }
     },
     {
@@ -49,7 +65,11 @@ function cy_create(c) {
         source: 'P3',
         target: 'P5',
         label: 'J3-AP',
-        type: 'AP x'
+        type: 'AP x',
+        point:[40,50,60],
+        specSource: 0.2,
+        specTarget: 0.2,
+        play: 0.2
       }
     },
     {
@@ -58,7 +78,11 @@ function cy_create(c) {
         source: 'P3',
         target: 'P5',
         label: 'J3-LA',
-        type: 'La x'
+        type: 'LA x',
+        point:[70,80,90],
+        specSource: 0.2,
+        specTarget: 0.2,
+        play: 0.2
       }
     },
     {
@@ -66,7 +90,11 @@ function cy_create(c) {
         id: 'J4',
         source: 'P2',
         target: 'P1',
-        label: 'J4'
+        label: 'J4',
+        point:[10,20,30],
+        specSource: 0.2,
+        specTarget: 0.2,
+        play: 0.2
       }
     },
     {
@@ -74,7 +102,11 @@ function cy_create(c) {
         id: 'J5',
         source: 'P4',
         target: 'P1',
-        label: 'J5'
+        label: 'J5',
+        point:[40,50,60],
+        specSource: 0.2,
+        specTarget: 0.2,
+        play: 0.2
       }
     },
     {
@@ -82,7 +114,8 @@ function cy_create(c) {
         id: 'CF',
         source: 'P5',
         target: 'P1',
-        label: 'CF'
+        label: 'CF',
+        point:[70,80,90]
       }
     }
 
@@ -130,6 +163,7 @@ function extract_graph(){
 }
 
 //must be shorten. No internet, have to recycle
+/*
 function get_type_from_edge(edge){
     var edges = cy.edges()
 
@@ -141,10 +175,25 @@ function get_type_from_edge(edge){
         }
     }
     return 'error'
+}*/
+
+function get_edges_from_nodes(node1, node2){
+    var edges = cy.edges()
+    var res = []
+    for(let i=0; i<edges.length;i++) {
+        var json = cy.data(edges[i].json())
+        var source = json.data()['data']['source']
+        var target = json.data()['data']['target']
+        var type = json.data()['data']['type']
+        var point = json.data()['data']['point']
+        if((source == node1 && target == node2) || (source == node2 && target == node1) ) { res.push(json.data()['data']) }
+    }
+    return res
 }
 
 function get_cf(){
     var val = 0.1
     var axis = "v"
-    return {val: val, axis: axis}
+    var point = [10,20,30]
+    return {val: val, axis: axis, point:point}
 }
