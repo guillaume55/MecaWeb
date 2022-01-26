@@ -9,11 +9,11 @@ function cy_create(c) {
     { data: { id: 'P5', color:'#559933', shape:'ellipse'} },
     {
       data: {
-        id: 'J1-LA',
+        id: 'J1_LA',
         source: 'P3',
         target: 'P2',
-        label: 'J1-LA',
-        type: 'PG x',
+        label: 'J1_LA',
+        type: 'LA x',
         point:[10,20,30],
         specSource: 0.2,
         specTarget: 0.2,
@@ -22,10 +22,10 @@ function cy_create(c) {
     },
     {
       data: {
-        id: 'J1-AP',
+        id: 'J1_AP',
         source: 'P3',
         target: 'P2',
-        label: 'J1-AP',
+        label: 'J1_AP',
         type: 'AP x',
         point:[40,50,60],
         specSource: 0.2,
@@ -35,10 +35,10 @@ function cy_create(c) {
     },
     {
       data: {
-        id: 'J2-LA',
+        id: 'J2_LA',
         source: 'P3',
         target: 'P4',
-        label: 'J2-LA',
+        label: 'J2_LA',
         type: 'LA x',
         point:[70,80,90],
         specSource: 0.2,
@@ -48,10 +48,10 @@ function cy_create(c) {
     },
     {
       data: {
-        id: 'J2-AP',
+        id: 'J2_AP',
         source: 'P3',
         target: 'P4',
-        label: 'J2-AP',
+        label: 'J2_AP',
         type: 'AP x',
         point:[10,20,30],
         specSource: 0.2,
@@ -61,10 +61,10 @@ function cy_create(c) {
     },
     {
       data: {
-        id: 'J3-AP',
+        id: 'J3_AP',
         source: 'P3',
         target: 'P5',
-        label: 'J3-AP',
+        label: 'J3_AP',
         type: 'AP x',
         point:[40,50,60],
         specSource: 0.2,
@@ -74,10 +74,10 @@ function cy_create(c) {
     },
     {
       data: {
-        id: 'J3-LA',
+        id: 'J3_LA',
         source: 'P3',
         target: 'P5',
-        label: 'J3-LA',
+        label: 'J3_LA',
         type: 'LA x',
         point:[70,80,90],
         specSource: 0.2,

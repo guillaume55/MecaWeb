@@ -4,7 +4,7 @@
  *TODO prevent two sub ass with the same name for creating links
  * function comp_rNodeList issue with string comparison
  *
- *
+ *TODO get mobilités pilotées
  *
  *
  *
@@ -110,8 +110,12 @@ var no_err = 1
     var source = document.getElementById('link_sa1').value
     var target = document.getElementById('link_sa2').value
 
+
     var err = document.getElementById('link_err')
+    err.innerHTML= ''
+    //TODO
     if(0) { no_err = 0; err.innerHTML= 'Le nom existe déjà' } //if name already exists
+    if(name.search("I") != -1 || source.search("I") !=-1 || target.search("I") != -1) { no_err = 0; err.innerHTML= 'Merci d\'éviter le I majuscule' }
     if(name == "") { no_err = 0; err.innerHTML= 'Veuillez entrez un nom' }
 
     if(no_err) {

@@ -1,5 +1,7 @@
 var graph = []
 let cycles = []
+let I_to_replace = { 'I_alpha_J2_LA':"0"} //I stands for unknown. if we find their value, they will be logged here
+
 
 function findCycles() {
     //graph = [[1,2],[1,2],[1,3],[2,3]]
@@ -108,25 +110,162 @@ function write_eq(edges) {
 }
 function write_eq_V2(edges) {
     cycles = [['P3','P2'],['P3','P5'],['P3','P4'],['P1','P2','P3','P4'],['P1','P2','P3','P4']]
+    let fc = get_cf();
 
     //do the job for each cycle
     for(let i=0; i< cycles.length; i++) {
         if(cycles[i].length == 2) { //cycle with two nodes can have a different behavior
             //find all edges between two nodes
             var edges_between = get_edges_from_nodes(cycles[i][0], cycles[i][1])
+            console.log("edge b", edges_between)
+            write_resultantes_two_nodes(edges_between)
+
+        }
+    }
+    //2 for loops because it will be easier to solve equations if we know more things
+    for(let i=0; i< cycles.length; i++) {
+        if(cycles[i].length == 2) { //cycle with two nodes can have a different behavior
+            write_moments_two_nodes(edges_between, fc)
         }
     }
 }
 
+//TODO what we have to do mathematically if there is 3 links between 2 nodes ?
+function write_resultantes_two_nodes(edges_bet) {
+    //sum each link
+    //let equation = ["","",""];
+    let components = ["alpha", "beta", "gamma"]
+    if(edges_bet.length > 2) { console.log(`Maybe there is an error, because ${edges_bet.length} are between 2 nodes`) }
 
-function write_resultantes(edges_bet) {
-
+    //I_to_replace
+    var mob0 = get_mobilities_from_edge(edges_bet[0]['type'])
+    var mob1 = get_mobilities_from_edge(edges_bet[1]['type'])
+    console.log(mob0, mob1)
+    for(let j=3; j<6; j++) { //for the rotations
+        if(mob0[j] == 1 && mob1[j]==1) //mobility
+        {   console.log(edges_bet[0]['id'], edges_bet[1]['id'], "A mobility remains")   }
+        else if( mob0[j] == 1 && mob1[j] == 0 ) {  //Imob0 found, save it's value for futur use
+            I_to_replace[`I_${components[j-3]}_${edges_bet[0]['id']}`] =`${components[j-3]}_${edges_bet[1]['id']}`
+        } else if( mob0[j] == 0 && mob1[j] == 1 ) {  //same idea as previous if
+            I_to_replace[`I_${components[j-3]}_${edges_bet[1]['id']}`] = `${components[j-3]}_${edges_bet[0]['id']}`
+        }
+        else {  //something == somethingElse, hyperstatic, can't be solved with this method
+            console.log(`Error: Model is hyperstatic ${edges_bet[0]['id']}, ${edges_bet[1]['id']}`)
+        }
+    }
 }
+
+//should be at the same point, the fc (= cf) point
+function write_moments_two_nodes(edges_bet, cf) {
+
+    if(edges_bet.length > 2) { console.log(`Maybe there is an error, because ${edges_bet.length} are between 2 nodes`) }
+    let mob0 = mobs_to_components(get_mobilities_from_edge(edges_bet[0]['type']),edges_bet[0]['id'])
+    let mob1 = mobs_to_components(get_mobilities_from_edge(edges_bet[1]['type']),edges_bet[1]['id'])
+    console.log(mob0, mob1)
+
+    //move everything to the same point
+    let m0 = mechmath_babar(edges_bet[0]['point'], cf['point'], [mob0[3],mob0[4],mob0[5]],[mob0[0],mob0[1],mob0[2]])
+    let m1 = mechmath_babar(edges_bet[1]['point'], cf['point'], [mob1[3],mob1[4],mob1[5]],[mob1[0],mob1[1],mob1[2]])
+    mob0 = replace_with_known_comp(m0)  //TODO A tester Ne fonctionne pas
+    mob1 = replace_with_known_comp(m1)
+    console.log("BABAR=>",m0, m1)
+    for(let j=0; j<3; j++) { //for the translations (aka moment)
+        //if there is only one I, the unknown terme can be found
+
+        //solve_oneI() //resoudre l'equation si un seul I //TODO ICIIIIIIIII
+    }
+}
+
+//take mobility array (0 and 1 and change to "alpha", "beta", "gamma","u", "v", "w"
+function mobs_to_components(mob, linkName) {
+    let comp = ["u", "v", "w","alpha", "beta", "gamma"] //be careful, reversed
+    let res = []
+    for(let i=0; i<6; i++) {
+        let str = ""
+        if(mob[i] == 1) {str += "I_" }
+        str += `${comp[i]}_${linkName}`
+        res.push(str)
+    }
+    return res
+}
+
 
 //return mobilities Tx,y,z and Rx, y, z from the name of the linkage
 function get_mobilities_from_edge(type){
     mob = mech_links()
     return mob[type]
+}
+
+//solve the equation if there is only one missing terme
+//TODO
+function solve_oneI(/*equation*/){
+    //split does not reconize type if _ instead of #
+    let equation = "v_J2_LA+(60*I_alpha_J2_LA)-(60*gamma_J2_LA)".replaceAll("_","#");
+
+    let res = equation.replaceAll("-", "+(-1)*").split("+");
+
+    let unknown_multiply = []
+    let unknown = ""
+    console.log(res)
+    let nb_I = 0;
+    let I_index  = 0;
+    //ensure that there is only one I
+    for(let i=0; i<res.length; i++) {
+        if(res[i].search('I#') != -1) {
+            nb_I += 1;
+            I_index = i
+            console.log("unknown index ", I_index)
+            //find the 'I' thing //may be multiplied to something
+            unknown_multiply = res[i].replaceAll('(','').replaceAll(')','').split("*")
+            for(let j=0; j< unknown_multiply.length; j++) {
+                if(unknown_multiply[j].search('I#') != -1) {
+                    unknown = unknown_multiply[j]
+                    console.log("unknown", unknown)
+                }
+            }
+
+        }
+    }
+    //console.log(
+    //write the symbolic equation
+    if(nb_I == 1) {
+        let str = "(-1)*("
+        for(let i=0; i< res.length; i++) {
+            if(i != I_index) {
+                str += `${res[i]}`
+                if(i < (res.length-1) ) { str += "+"; }
+            }
+
+        }
+        str += ")"
+        //if something multiply the 'I' thing. No division expeted
+        if(unknown_multiply.length > 1) //there was a *I_thing
+        {
+
+            str += `/(${res[I_index].replaceAll(unknown,"1")})`
+        }
+
+        I_to_replace[res[I_index]] = str.replaceAll("#","_");
+        console.log(str)
+    }
+
+}
+
+//replace already found component in equations
+//TODO Is it working ? NOOOOOOO
+function replace_with_known_comp(equations)  {
+    console.log("I replace", I_to_replace)
+    console.log('before', equations)
+
+    for(let i=0; i<equations.length; i++) {
+        for(var key in I_to_replace) {
+            equations[i] = equations[i].replaceAll(key, I_to_replace[key] );
+            //console.log("replacing", key, "by", I_to_replace[key])
+        }
+
+    }
+    console.log('after', equations)
+    return equations
 }
 
 //from stackoverflow
@@ -158,6 +297,7 @@ function findNewCycles(path) {
     }
   }
 }
+
 
 function invert(path) {
   return rotateToSmallest([...path].reverse())
