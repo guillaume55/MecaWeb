@@ -1,7 +1,8 @@
 var graph = []
 let cycles = []
-let I_to_replace = { 'I_alpha_J2_LA':"0"} //I stands for unknown. if we find their value, they will be logged here
-
+//helico let I_to_replace = { 'I_alpha_J2_LA':"0", 'I_alpha_J1_LA':"0", "I_alpha_J3_LA":"0","I_alpha_J4_ROT":"0"} //I stands for unknown. if we find their value, they will be logged here
+//boitier
+I_to_replace = { 'I_gamma_ARBRE_CARTER_LA1':"0", 'I_gamma_ARBRE_CARTER_LA2':"0", 'I_gamma_SAT_ARBRE_LA':'0','I_gamma_SAT_ARBRE_ROT':'0' } //c'est vrai ce mensonsonge ?
 
 function findCycles() {
     //graph = [[1,2],[1,2],[1,3],[2,3]]
@@ -26,16 +27,16 @@ function findCycles() {
         }
     }
     //remove redundant cycles
+    /*
     for(let i=0; i< cycles.length; i++) {
         for(let j=0; j< cycles.length; j++) {
             if(j != i) {
-                console.log(cycles.length)
                 cy1 = JSON.stringify(cycles[i].sort())
                 cy2 = JSON.stringify(cycles[j].sort())
                 if(cy1 == cy2) { j-=1; i-=1; cycles.splice(i,1) }
             }
         }/*********** PAS FINI et peut bugger **************/
-    }
+    //}
 
 
   for (cycle of cycles) {
@@ -43,97 +44,106 @@ function findCycles() {
   }
 }
 
-//ATtention !!! au meme pt !
-function write_eq(edges) {
-    /*for(let i=0; i< cycles.length; i++) {
-        console.log(cycles[i])
-    }*/
+function write_eq_V2(edges) {
+    //helico --> cycles = [['P3','P2'],['P3','P5'],['P3','P4'],['P1','P2','P3','P4'],['P1','P5','P3','P4']]
+    //boitier arriere
+    cycles = [['Arbre','Carter',],['Arbre','Sat'],['Sat', 'Carter', 'Arbre'],['Sat','Carter']]
+    let fc = get_cf();
+    let equations = [] //add mobilities
 
-    //console.log(get_cf())
-    //begin with 2 node cycle to find some I (mainly on resultantes)
-    cycles = [['P3','P2'],['P3','P5'],['P3','P4'],['P1','P2','P3','P4'],['P1','P2','P3','P4']]
-
-    //transport everything to the FC point
-
-
+    //find 6 equations for each cycle
     for(let i=0; i< cycles.length; i++) {
-        //find resulting cycle of the 2 mobilities
-        if(cycles[i].length == 2) {
-            //find all edges between two nodes
-            ed = get_edges_from_nodes(cycles[i][0], cycles[i][1])
-            //get every edge between these two nodes
-            var eq = ["I","I","I","I","I","I"]
-            for(e of ed) {    //[sub-ass1, sub-ass2, jointType, point]
-                console.log("****** EDGE ******", e);
-                /***************  RESULTANTES ***********/
-                //console.log("type------->",e[2])
-                var mob = get_mobilities_from_edge(e['type']);
-                //on transforme les 1 et 0 en composantes alpha, beta, gamma, u, v, w
-                for(let j=0; j<6; j++) {
-                    if(mob[i]== 0) //un degré de liaison
-                    {
-                        //remplacer par la composante
-                        //ICIIIIIIIII
-                    }
-                }
-                //resultantes x, y and z
-                //inversion des translations et des rotations
-                for(let i=3; i<6; i++) {
-                    if(mob[i-3] == 1) {console.log("mobilite")}
-                    else if(eq[i] == "I") { eq[i] = mob[i-3] }
-                    else if(eq[i] != "I" && mob[i-3] == 1) {                    console.log("isostatisme")/*do nothing but avoid else statement*/ }
-                    //a vérifier, hyperstatique avec rot + AP x (2 SE et deux liaisons en //)
-                    //Heummmm, plutôt insoluble que hyperstatique car h dépend des mobilités de sortie du mécanisme
-                    //A vérifier mais probablment faux ou moyen moyen
-                    else { console.log("Hyperstatisme !") }
-                }
-
-                /*************  MOMENTS  **************/
-                //let's fight with moments
-                /*
-                var cf_params = get_cf()
-                //deplacement du moment au point de la CF
-                var m = mechmath_babar(e[3], cf_params['point'], [mob[3],mob[4],mob[5]],[mob[0],mob[1],mob[2]])
-                console.log("BABAR=>",m)
-
-                for(let i=0; i<3; i++) {
-                    console.log("point------->",m[i])
-
-                }*/
+        //find all edges between two nodes
+        let edges_between=[]
+        if(cycles[i].length < 3) {
+            edges_between = get_edges_from_nodes(cycles[i][0], cycles[i][1])
+            //add to I_to_replace the numerical values of some I
+            //compute_numerical_tol_val(edges_between);
+        }
+        else {
+            c = [...cycles[i]]
+            c.push(c[0]) //close the cycle
+            for(let j=1; j<c.length; j++) {
+                ed = get_edges_from_nodes(c[j-1], c[j])
+                edges_between.push(ed[0]) //we need only one link between two nodes
             }
 
-            //AU MEME PT
+        }
+        //remove equations with only one I, solve it now
+        console.log(equations)
+        equations = solve_oneI(equations)
+        equations = equations.concat(write_eq_for_cycle(edges_between, fc))
+        //start to solve if possible
+        equations = replace_with_known_comp(equations)
 
-            //////////// REPRENDRE ICI /////// commencer par trouver les I (mobilités) des cycles à deux noeuds )
+    }
+    //console.log(equations)
+    //var coeffs = nerdamer.coeffs('3*x^2+1', 'x');
+    //console.log("coef", coeffs)
+    console.log('iIiiii', I_to_replace)
+    console.log("eq", equations)
+    equations = replace_with_known_comp(equations)
+    console.log("-->",equations)
+    //on peut donc chercher notre CF selon l'axe voulu
+    let solved = nerdamer.solveEquations(equations[4], "I_v_CF")
+    var coeffs = nerdamer.coeffs(equations[4], "I_v_CF");
+    console.log(solved.toString())
+    coeffs.each(function(e, i) {
+        console.log('coeff #'+i+': ', nerdamer(e).add('t').toString());
+    });
+
+
+
+}
+
+function solve_oneI(eq) {
+    for(let i=0; i<eq.length; i++) {
+        //we can solve if there is only one I
+        if(eq[i].match(/I_/g) !== null) { //see line bellow
+            if(eq[i].match(/I_/g).length < 2 ) { //bug because we try to find length of null if eq => 0+0+0=0
+                //find which terme is unknown
+                let sp = eq[i].split(/[+,-,=,*,/,\s,(,)]+/);
+                for(let j=0; j<sp.length; j++)  {
+                    sp[j] = sp[j].toString()
+
+                    if(sp[j].search("I_") != -1) {
+                        console.log(eq[i])
+                        if(I_to_replace[sp[j]] === undefined) {
+                            let solved = nerdamer.solve(eq[i], sp[j]);
+                            let res = solved.toString().replaceAll("[","").replaceAll("]","")
+                            //let res = solved['symbol']['elements'][0]['value']
+
+                            I_to_replace[sp[j]] = res;
+                            eq.splice(i)
+                            i = i-1
+                            console.log("------111111")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    //console.log("itoreplace",I_to_replace)
+    //console.log("eq",eq)
+    return eq
+}
+
+//contresens,sert à l'analyse statistique
+function compute_numerical_tol_val(edges) {
+    for(let i=0; i<edges.length; i++) {
+        let mob = get_mobilities_from_edge(edges_bet[i]['type'])
+        for(let j=0; j<6; j++) {
+            if(mob[j] == 0) { //we know the max tolerance values
+
+            }
         }
     }
 }
-function write_eq_V2(edges) {
-    cycles = [['P3','P2'],['P3','P5'],['P3','P4'],['P1','P2','P3','P4'],['P1','P2','P3','P4']]
-    let fc = get_cf();
 
-    //do the job for each cycle
-    for(let i=0; i< cycles.length; i++) {
-        if(cycles[i].length == 2) { //cycle with two nodes can have a different behavior
-            //find all edges between two nodes
-            var edges_between = get_edges_from_nodes(cycles[i][0], cycles[i][1])
-            console.log("edge b", edges_between)
-            write_resultantes_two_nodes(edges_between)
-
-        }
-    }
-    //2 for loops because it will be easier to solve equations if we know more things
-    for(let i=0; i< cycles.length; i++) {
-        if(cycles[i].length == 2) { //cycle with two nodes can have a different behavior
-            write_moments_two_nodes(edges_between, fc)
-        }
-    }
-}
-
-//TODO what we have to do mathematically if there is 3 links between 2 nodes ?
+//we will find I_xxx = xxx, instead of adding a new equation, we will replace I_xxx by its value later
 function write_resultantes_two_nodes(edges_bet) {
     //sum each link
-    //let equation = ["","",""];
+
     let components = ["alpha", "beta", "gamma"]
     if(edges_bet.length > 2) { console.log(`Maybe there is an error, because ${edges_bet.length} are between 2 nodes`) }
 
@@ -155,9 +165,43 @@ function write_resultantes_two_nodes(edges_bet) {
     }
 }
 
+function write_eq_for_cycle(edges_bet,cf) {
+    //sum each link
+    let equations = []
+    let mob = []
+
+    for(let i=0; i<edges_bet.length; i++)  {
+        console.log(edges_bet[i]['type'],edges_bet[i]['id'])
+        mob.push(mobs_to_components(get_mobilities_from_edge(edges_bet[i]['type']),edges_bet[i]['id']))
+    }
+
+    for(let j=3; j<6; j++) { //resultantes aka rotations alpha beta gamma
+        let str = ""
+        for(let k=0; k<mob.length; k++)  {
+            str += mob[k][j]
+            if(k<mob.length-1) {  str+= "+";  }
+        }
+        str += "=0"
+        equations.push(str)
+    }
+    for(let j=0; j<3; j++) { //moments aka translation u v w
+        let str ="";
+        for(let k=0; k<mob.length; k++)  {
+            //str += mob[k][j]
+            //make the addition at the fc point
+            let babar = mechmath_babar(edges_bet[k]['point'], cf['point'], [mob[k][3],mob[k][4],mob[k][5]],[mob[k][0],mob[k][1],mob[k][2]])
+            str += babar[j]
+            if(k<mob.length-1) {  str+= "+";  }
+        }
+        str += "=0"
+        equations.push(str)
+    }
+    return equations
+}
+/*
 //should be at the same point, the fc (= cf) point
 function write_moments_two_nodes(edges_bet, cf) {
-
+    let equations = []
     if(edges_bet.length > 2) { console.log(`Maybe there is an error, because ${edges_bet.length} are between 2 nodes`) }
     let mob0 = mobs_to_components(get_mobilities_from_edge(edges_bet[0]['type']),edges_bet[0]['id'])
     let mob1 = mobs_to_components(get_mobilities_from_edge(edges_bet[1]['type']),edges_bet[1]['id'])
@@ -166,15 +210,18 @@ function write_moments_two_nodes(edges_bet, cf) {
     //move everything to the same point
     let m0 = mechmath_babar(edges_bet[0]['point'], cf['point'], [mob0[3],mob0[4],mob0[5]],[mob0[0],mob0[1],mob0[2]])
     let m1 = mechmath_babar(edges_bet[1]['point'], cf['point'], [mob1[3],mob1[4],mob1[5]],[mob1[0],mob1[1],mob1[2]])
-    mob0 = replace_with_known_comp(m0)  //TODO A tester Ne fonctionne pas
+    mob0 = replace_with_known_comp(m0)
     mob1 = replace_with_known_comp(m1)
     console.log("BABAR=>",m0, m1)
     for(let j=0; j<3; j++) { //for the translations (aka moment)
         //if there is only one I, the unknown terme can be found
-
-        //solve_oneI() //resoudre l'equation si un seul I //TODO ICIIIIIIIII
+        //if(str.match(/I_/g).length > 1 ) {
+            //solve_oneI()
+        //}
     }
-}
+
+
+}*/
 
 //take mobility array (0 and 1 and change to "alpha", "beta", "gamma","u", "v", "w"
 function mobs_to_components(mob, linkName) {
@@ -193,20 +240,19 @@ function mobs_to_components(mob, linkName) {
 //return mobilities Tx,y,z and Rx, y, z from the name of the linkage
 function get_mobilities_from_edge(type){
     mob = mech_links()
+    if (mob[type] == undefined) {console.log("Unknown linkage",mob[type]);}
     return mob[type]
 }
-
+/*
 //solve the equation if there is only one missing terme
-//TODO
-function solve_oneI(/*equation*/){
+function solve_oneI(equation){
     //split does not reconize type if _ instead of #
-    let equation = "v_J2_LA+(60*I_alpha_J2_LA)-(60*gamma_J2_LA)".replaceAll("_","#");
+    equation = equation.replaceAll("_","#");
 
     let res = equation.replaceAll("-", "+(-1)*").split("+");
 
     let unknown_multiply = []
     let unknown = ""
-    console.log(res)
     let nb_I = 0;
     let I_index  = 0;
     //ensure that there is only one I
@@ -214,13 +260,11 @@ function solve_oneI(/*equation*/){
         if(res[i].search('I#') != -1) {
             nb_I += 1;
             I_index = i
-            console.log("unknown index ", I_index)
             //find the 'I' thing //may be multiplied to something
             unknown_multiply = res[i].replaceAll('(','').replaceAll(')','').split("*")
             for(let j=0; j< unknown_multiply.length; j++) {
                 if(unknown_multiply[j].search('I#') != -1) {
                     unknown = unknown_multiply[j]
-                    console.log("unknown", unknown)
                 }
             }
 
@@ -241,22 +285,15 @@ function solve_oneI(/*equation*/){
         //if something multiply the 'I' thing. No division expeted
         if(unknown_multiply.length > 1) //there was a *I_thing
         {
-
             str += `/(${res[I_index].replaceAll(unknown,"1")})`
         }
 
         I_to_replace[res[I_index]] = str.replaceAll("#","_");
-        console.log(str)
     }
-
 }
-
+*/
 //replace already found component in equations
-//TODO Is it working ? NOOOOOOO
 function replace_with_known_comp(equations)  {
-    console.log("I replace", I_to_replace)
-    console.log('before', equations)
-
     for(let i=0; i<equations.length; i++) {
         for(var key in I_to_replace) {
             equations[i] = equations[i].replaceAll(key, I_to_replace[key] );
@@ -264,9 +301,37 @@ function replace_with_known_comp(equations)  {
         }
 
     }
-    console.log('after', equations)
     return equations
 }
+
+function extract_graph(){
+    var edges = cy.edges()
+    var res = []
+    for(let i=0; i<edges.length;i++) {
+        var json = cy.data(edges[i].json())
+        var source = json.data()['data']['source']
+        var target = json.data()['data']['target']
+        res.push([source, target])
+    }
+    return res
+}
+
+function get_edges_from_nodes(node1, node2){
+    var edges = cy.edges()
+    var res = []
+    for(let i=0; i<edges.length;i++) {
+        var json = cy.data(edges[i].json())
+        var source = json.data()['data']['source']
+        var target = json.data()['data']['target']
+        var type = json.data()['data']['type']
+        var point = json.data()['data']['point']
+        if((source == node1 && target == node2) || (source == node2 && target == node1) ) { res.push(json.data()['data']) }
+    }
+    return res
+}
+
+
+
 
 //from stackoverflow
 //https://stackoverflow.com/questions/12367801/finding-all-cycles-in-undirected-graphs
@@ -298,7 +363,7 @@ function findNewCycles(path) {
   }
 }
 
-
+//from stackoverflow too
 function invert(path) {
   return rotateToSmallest([...path].reverse())
 }

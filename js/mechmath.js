@@ -17,9 +17,18 @@ function mechmath_babar(source_point, target_point, resultante, moment)
     //Chasles relation MA = MO + OA
     var ba = [(-source_point[0]+target_point[0])*-1,(-source_point[1]+target_point[1])*-1,(-source_point[2]+target_point[2])*-1]
 
-    moment[0] = `${moment[0]} + (${ba[1]}*${resultante[2]}) -  (${ba[2]}*${resultante[1]})`
-    moment[1] = `${moment[1]} + (${ba[2]}*${resultante[0]}) -  (${ba[0]}*${resultante[2]})`
-    moment[2] = `${moment[2]} + (${ba[0]}*${resultante[1]}) -  (${ba[1]}*${resultante[0]})`
+    moment[0] = `${moment[0]}`
+    if(ba[1] != 0) { moment[0] += `+ (${ba[1]}*${resultante[2]})` }
+    if(ba[2] != 0) { moment[0] += `- (${ba[2]}*${resultante[1]})` }
+
+    moment[1] = `${moment[1]}`
+    if(ba[2] != 0) { moment[1] += `+ (${ba[2]}*${resultante[0]})` }
+    if(ba[0] != 0) { moment[1] += `- (${ba[0]}*${resultante[2]})` }
+
+    moment[2] = `${moment[2]}`
+    if(ba[0] != 0) { moment[2] += `+ (${ba[0]}*${resultante[1]})` }
+    if(ba[1] != 0) { moment[2] += `- (${ba[1]}*${resultante[0]})` }
+
 
     return moment
 }

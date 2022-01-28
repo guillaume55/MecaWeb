@@ -87,10 +87,11 @@ function cy_create(c) {
     },
     {
       data: {
-        id: 'J4',
+        id: 'J4_ROT',
         source: 'P2',
         target: 'P1',
-        label: 'J4',
+        label: 'J4_ROT',
+        type: 'Rot',
         point:[10,20,30],
         specSource: 0.2,
         specTarget: 0.2,
@@ -99,10 +100,11 @@ function cy_create(c) {
     },
     {
       data: {
-        id: 'J5',
+        id: 'J5_LA',
         source: 'P4',
         target: 'P1',
-        label: 'J5',
+        label: 'J5_LA',
+        type: 'LA x',
         point:[40,50,60],
         specSource: 0.2,
         specTarget: 0.2,
@@ -115,7 +117,8 @@ function cy_create(c) {
         source: 'P5',
         target: 'P1',
         label: 'CF',
-        point:[70,80,90]
+        point:[70,80,90],
+        type: 'FC'
       }
     }
 
@@ -150,17 +153,7 @@ function cy_create(c) {
 
 }
 
-function extract_graph(){
-    var edges = cy.edges()
-    var res = []
-    for(let i=0; i<edges.length;i++) {
-        var json = cy.data(edges[i].json())
-        var source = json.data()['data']['source']
-        var target = json.data()['data']['target']
-        res.push([source, target])
-    }
-    return res
-}
+
 
 //must be shorten. No internet, have to recycle
 /*
@@ -176,21 +169,6 @@ function get_type_from_edge(edge){
     }
     return 'error'
 }*/
-
-function get_edges_from_nodes(node1, node2){
-    var edges = cy.edges()
-    var res = []
-    for(let i=0; i<edges.length;i++) {
-        var json = cy.data(edges[i].json())
-        var source = json.data()['data']['source']
-        var target = json.data()['data']['target']
-        var type = json.data()['data']['type']
-        var point = json.data()['data']['point']
-        if((source == node1 && target == node2) || (source == node2 && target == node1) ) { res.push(json.data()['data']) }
-    }
-    return res
-}
-
 function get_cf(){
     var val = 0.1
     var axis = "v"

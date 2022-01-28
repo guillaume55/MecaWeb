@@ -21,23 +21,24 @@ function mech_links(){
     links['G z']=[0,0,1,0,0,0];
     links['LA x']=[1,0,0,1,1,1];
     links['LA y']=[0,1,0,1,1,1];
-    links['LA Z']=[0,0,1,1,1,1];
+    links['LA z']=[0,0,1,1,1,1];
     links['Rot']=[0,0,0,1,1,1];
     links['Ponct x']=[0,1,1,1,1,1];
     links['Ponct y']=[1,0,1,1,1,1];
-    links['Ponct Z']=[1,1,0,1,1,1];
+    links['Ponct z']=[1,1,0,1,1,1];
     links['AP x']=[0,1,1,1,0,0];
     links['AP y']=[1,0,1,0,1,0];
-    links['AP Z']=[1,1,0,0,0,1];
+    links['AP z']=[1,1,0,0,0,1];
     links['Doigt x']=[1,0,0,1,1,1];
     links['Doigt y']=[0,1,0,1,1,1];
-    links['Doigt Z']=[0,0,1,1,1,1];
+    links['Doigt z']=[0,0,1,1,1,1];
     links['LR axe x norm y']=[1,0,1,1,1,0];
     links['LR axe x norm z']=[1,1,0,1,0,1];
     links['LR axe y norm x']=[0,1,1,1,1,0];
     links['LR axe y norm z']=[1,1,0,0,1,1];
     links['LR axe z norm x']=[0,1,1,1,0,1];
     links['LR axe z norm y']=[1,0,1,0,1,1];
+    links['FC'] = [1,1,1,1,1,1];
 
     return links
 }
