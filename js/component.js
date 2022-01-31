@@ -14,6 +14,8 @@
  *
  * ********************************************************************/
 
+
+
 /**************************  LINKS *******************/
 //Show link windows
 //fields is a string with space separated elements to indicate which fields are needed. call comp_sLink(container) or comp_sLink(container,"") to show all
@@ -66,7 +68,7 @@ function rLink(fields) {
     html += "<select id=\"link_sa2\" onchange=\"\">"+sel_sa+"</select>"
 
 
-    for(let i=0; i<fields.length;i++) {
+    for(let i=0; i<prop.length;i++) {
         if(fields[i] == "axis") {
             html+= "</br></br><label>Axe</label></br>"
             html+=" X <input class=\"small-input\" id=\"link_axis_x\" type=\"number\" value=\"1\">"

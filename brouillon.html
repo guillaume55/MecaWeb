@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<script src='js/nerdamer-all.min.js'></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+
+var knownValues = {x:'x^2+1'};
+console.log(nerdamer('x^2+2*(cos(x)+x*x)', knownValues ));
+
+</script>
+</body>
+</html>
+
+<!--
+        "value": "2*cos(1+x^2)+3*(1+x^2)^2",
+
+-->

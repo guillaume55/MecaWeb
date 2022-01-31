@@ -131,7 +131,7 @@ function get_type_from_edge(edge){
 
 function get_cf(){
     var val = 0.1
-    var axis = "v"
+    var axis = "I_v_CF"
     var point = [0,0,0]
     return {val: val, axis: axis, point:point}
 }

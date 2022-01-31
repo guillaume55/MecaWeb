@@ -2,13 +2,13 @@ var graph = []
 let cycles = []
 //helico let I_to_replace = { 'I_alpha_J2_LA':"0", 'I_alpha_J1_LA':"0", "I_alpha_J3_LA":"0","I_alpha_J4_ROT":"0"} //I stands for unknown. if we find their value, they will be logged here
 //boitier
-I_to_replace = { 'I_gamma_ARBRE_CARTER_LA1':"0", 'I_gamma_ARBRE_CARTER_LA2':"0", 'I_gamma_SAT_ARBRE_LA':'0','I_gamma_SAT_ARBRE_ROT':'0' } //c'est vrai ce mensonsonge ?
+//I_to_replace = { 'I_gamma_ARBRE_CARTER_LA1':"0", 'I_gamma_ARBRE_CARTER_LA2':"0", 'I_gamma_SAT_ARBRE_LA':'0','I_gamma_SAT_ARBRE_ROT':'0' } //c'est vrai ce mensonsonge ?
+//boitier
+let I_to_replace = { 'I_gamma_ARBRE_CARTER_LA1':"0" }
 
 function findCycles() {
     //graph = [[1,2],[1,2],[1,3],[2,3]]
     graph = extract_graph()
-
-
 
     for (const edge of graph) {
         for (const node of edge) {
@@ -44,6 +44,9 @@ function findCycles() {
   }
 }
 
+//try to find the best solution by finding all the equations
+//not optimal, see v3
+/*
 function write_eq_V2(edges) {
     //helico --> cycles = [['P3','P2'],['P3','P5'],['P3','P4'],['P1','P2','P3','P4'],['P1','P5','P3','P4']]
     //boitier arriere
@@ -92,7 +95,103 @@ function write_eq_V2(edges) {
         console.log('coeff #'+i+': ', nerdamer(e).add('t').toString());
     });
 
+}*/
 
+function write_eq_V3(edges) {
+    //helico --> cycles = [['P3','P2'],['P3','P5'],['P3','P4'],['P1','P2','P3','P4'],['P1','P5','P3','P4']]
+    //boitier arriere
+    cycles = [['Arbre','Carter',],['Arbre','Sat'],['Sat', 'Carter', 'Arbre'],['Sat','Carter']]
+    let fc = get_cf();
+    let equations = [] //add mobilities
+
+    //let target =
+    //find 6 equations for each cycle
+    for(let i=0; i< cycles.length; i++) {
+        //find all edges between two nodes
+        let edges_between=[]
+        if(cycles[i].length < 3) {
+            edges_between = get_edges_from_nodes(cycles[i][0], cycles[i][1])
+            //add to I_to_replace the numerical values of some I
+            //compute_numerical_tol_val(edges_between);
+        }
+        else {
+            c = [...cycles[i]]
+            c.push(c[0]) //close the cycle
+            for(let j=1; j<c.length; j++) {
+                ed = get_edges_from_nodes(c[j-1], c[j])
+                edges_between.push(ed[0]) //we need only one link between two nodes
+            }
+
+        }
+        for(let k=0; k<1; k++){ //mainly for the last loop
+            //remove equations with only one I, solve it now
+            equations = solve_oneI(equations)
+
+            equations = equations.concat(write_eq_for_cycle(edges_between, fc))
+            //start to solve if possible
+            equations = replace_with_known_comp(equations)
+        }
+
+    }
+
+    //start searching a way to find the functionnal condition
+    for(k=0; k<equations.length;k++){
+            //console.log("I_", count_I(equations[k]), extract_I(equations[k]))
+            if(equations[k].search(fc['axis']) != -1) {
+                console.log("this is this equations !", equations[k])
+                find_child_eq(equations, fc['axis'])
+            }
+    }
+    console.log(equations)
+    //var sol = nerdamer.solveEquation(equations,fc['axis']);
+}
+
+function count_I (eq) {
+    return eq.match(/I_/g).length
+}
+
+function extract_I(eq) {
+    let I_things = [];
+    sp = eq.split(/[+,-,=,*,/,\s,(,)]+/);
+    for(let j=0; j<sp.length; j++)  {
+        sp[j] = sp[j].toString()
+
+        if(sp[j].search("I_") != -1) {
+            I_things.push(sp[j])
+        }
+    }
+    return I_things;
+}
+
+//check if all termes are known in the equation
+function still_contains_I(eq)
+{
+}
+
+//the aim if to find the "terme". I_xxx are unknown. Create a tree that we will explore to find the value of terme
+function find_child_eq(eqs, terme){
+    let eq_with_it = [] //it means the "terme"
+
+    let branches = []
+    let I_already_visited = {} //helps to not loop forever
+
+    for(let i=0; i<eqs.length; i++){
+        if(eqs[i].search(terme) != -1) {
+            let res = extract_I(eqs[i])
+            if(res.length == 1) { //can be solved now, end of the branch
+                console.log("canbesolved")
+            }
+
+            if(res.length >= 2) {  //we will have to dig deeper
+
+                for(r of res) {
+
+                }
+                eq_with_it.push(eqs[i])
+            }
+
+        }
+    }
 
 }
 
@@ -100,8 +199,10 @@ function solve_oneI(eq) {
     for(let i=0; i<eq.length; i++) {
         //we can solve if there is only one I
         if(eq[i].match(/I_/g) !== null) { //see line bellow
-            if(eq[i].match(/I_/g).length < 2 ) { //bug because we try to find length of null if eq => 0+0+0=0
+            let termes = extract_I(eq[i])
+            if(termes.length < 2 ) { //bug because we try to find length of null if eq => 0+0+0=0
                 //find which terme is unknown
+                //replace sp[x] with "termes", cleaner and shorter
                 let sp = eq[i].split(/[+,-,=,*,/,\s,(,)]+/);
                 for(let j=0; j<sp.length; j++)  {
                     sp[j] = sp[j].toString()
@@ -111,7 +212,6 @@ function solve_oneI(eq) {
                         if(I_to_replace[sp[j]] === undefined) {
                             let solved = nerdamer.solve(eq[i], sp[j]);
                             let res = solved.toString().replaceAll("[","").replaceAll("]","")
-                            //let res = solved['symbol']['elements'][0]['value']
 
                             I_to_replace[sp[j]] = res;
                             eq.splice(i)
@@ -126,18 +226,6 @@ function solve_oneI(eq) {
     //console.log("itoreplace",I_to_replace)
     //console.log("eq",eq)
     return eq
-}
-
-//contresens,sert à l'analyse statistique
-function compute_numerical_tol_val(edges) {
-    for(let i=0; i<edges.length; i++) {
-        let mob = get_mobilities_from_edge(edges_bet[i]['type'])
-        for(let j=0; j<6; j++) {
-            if(mob[j] == 0) { //we know the max tolerance values
-
-            }
-        }
-    }
 }
 
 //we will find I_xxx = xxx, instead of adding a new equation, we will replace I_xxx by its value later
@@ -198,30 +286,6 @@ function write_eq_for_cycle(edges_bet,cf) {
     }
     return equations
 }
-/*
-//should be at the same point, the fc (= cf) point
-function write_moments_two_nodes(edges_bet, cf) {
-    let equations = []
-    if(edges_bet.length > 2) { console.log(`Maybe there is an error, because ${edges_bet.length} are between 2 nodes`) }
-    let mob0 = mobs_to_components(get_mobilities_from_edge(edges_bet[0]['type']),edges_bet[0]['id'])
-    let mob1 = mobs_to_components(get_mobilities_from_edge(edges_bet[1]['type']),edges_bet[1]['id'])
-    console.log(mob0, mob1)
-
-    //move everything to the same point
-    let m0 = mechmath_babar(edges_bet[0]['point'], cf['point'], [mob0[3],mob0[4],mob0[5]],[mob0[0],mob0[1],mob0[2]])
-    let m1 = mechmath_babar(edges_bet[1]['point'], cf['point'], [mob1[3],mob1[4],mob1[5]],[mob1[0],mob1[1],mob1[2]])
-    mob0 = replace_with_known_comp(m0)
-    mob1 = replace_with_known_comp(m1)
-    console.log("BABAR=>",m0, m1)
-    for(let j=0; j<3; j++) { //for the translations (aka moment)
-        //if there is only one I, the unknown terme can be found
-        //if(str.match(/I_/g).length > 1 ) {
-            //solve_oneI()
-        //}
-    }
-
-
-}*/
 
 //take mobility array (0 and 1 and change to "alpha", "beta", "gamma","u", "v", "w"
 function mobs_to_components(mob, linkName) {
@@ -243,55 +307,7 @@ function get_mobilities_from_edge(type){
     if (mob[type] == undefined) {console.log("Unknown linkage",mob[type]);}
     return mob[type]
 }
-/*
-//solve the equation if there is only one missing terme
-function solve_oneI(equation){
-    //split does not reconize type if _ instead of #
-    equation = equation.replaceAll("_","#");
 
-    let res = equation.replaceAll("-", "+(-1)*").split("+");
-
-    let unknown_multiply = []
-    let unknown = ""
-    let nb_I = 0;
-    let I_index  = 0;
-    //ensure that there is only one I
-    for(let i=0; i<res.length; i++) {
-        if(res[i].search('I#') != -1) {
-            nb_I += 1;
-            I_index = i
-            //find the 'I' thing //may be multiplied to something
-            unknown_multiply = res[i].replaceAll('(','').replaceAll(')','').split("*")
-            for(let j=0; j< unknown_multiply.length; j++) {
-                if(unknown_multiply[j].search('I#') != -1) {
-                    unknown = unknown_multiply[j]
-                }
-            }
-
-        }
-    }
-    //console.log(
-    //write the symbolic equation
-    if(nb_I == 1) {
-        let str = "(-1)*("
-        for(let i=0; i< res.length; i++) {
-            if(i != I_index) {
-                str += `${res[i]}`
-                if(i < (res.length-1) ) { str += "+"; }
-            }
-
-        }
-        str += ")"
-        //if something multiply the 'I' thing. No division expeted
-        if(unknown_multiply.length > 1) //there was a *I_thing
-        {
-            str += `/(${res[I_index].replaceAll(unknown,"1")})`
-        }
-
-        I_to_replace[res[I_index]] = str.replaceAll("#","_");
-    }
-}
-*/
 //replace already found component in equations
 function replace_with_known_comp(equations)  {
     for(let i=0; i<equations.length; i++) {

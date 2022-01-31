@@ -27,19 +27,30 @@
     <div class="tab">
         <button class="tablinks" onclick="openTab(event, 'anode')">Sous-ensembles</button>
         <button class="tablinks" onclick="openTab(event, 'alink')">Liaisons</button>
-
+        <button class="tablinks" onclick="openTab(event, 'export')">Exporter</button>
     </div>
     <div id="alink" class="tabcontent"></div>
     <div id="anode" class="tabcontent"></div>
+    <div id="export" class="tabcontent"></div>
     <script>
         var cy = cy_create(document.getElementById('cy'))
         comp_sLink(document.getElementById('alink'),"sa1 sa2 name")
         comp_sNode(document.getElementById('anode'))
+        export_button(document.getElementById('export'))
+
+        $('#cy').on('mouseout', function (e) {
+            console.log(e);
+        });
+
+        /*cy.pan({
+        x: 100,
+        y: 100
+        });*/
 
         //console.log([5,0,10],[10,0,0], ["a","b","c"], ["u","v","w"]))
         //console.log(mechmath_babar([20,30,10],[10,20,0], ["a","b","c"], ["u","v","w"]))
         //findCycles()
-        write_eq_V2(/*edge*/)
+        //write_eq_V2(/*edge*/)
     </script>
 </body>
 </html>
