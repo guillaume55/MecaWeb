@@ -1,7 +1,7 @@
 /*****************************************************************
  * Insert a component such as add link or add cf, add edge
  *
- *TODO prevent two sub ass with the same name for creating links
+ *
  * function comp_rNodeList issue with string comparison
  *
  *TODO get mobilités pilotées
@@ -54,13 +54,14 @@ function rLink(fields) {
     //var fields = prop[type]
 
     //first standard fields
+    html+="<input id=\"link_toedit\" class=\"hidden\"></input>"
     html+="</br></br><input id=\"link_name\" placeholder=\"Name\"></input>"
     html+= "</br><label>Sous-ensembles</label></br>"
 
     //populate selects
     var sel_sa = ""
     var sa = comp_nodeList()
-    console.log(sa,"sa")
+
     for(let i=0; i<sa.length;i++) {
         sel_sa += "<option value=\""+sa[i]+"\">"+sa[i]+"</option>"
     }
@@ -107,45 +108,68 @@ function rLink(fields) {
 
 //add link to graph
 function comp_aLink(){
-var no_err = 1
-    var name = document.getElementById('link_name').value
+    var no_err = 1
+    var link_edit = document.getElementById('link_toedit').value
+    var name = document.getElementById('link_name').value.trim()
     var source = document.getElementById('link_sa1').value
     var target = document.getElementById('link_sa2').value
 
 
     var err = document.getElementById('link_err')
     err.innerHTML= ''
-    //TODO
-    if(0) { no_err = 0; err.innerHTML= 'Le nom existe déjà' } //if name already exists
-    if(name.search("I") != -1 || source.search("I") !=-1 || target.search("I") != -1) { no_err = 0; err.innerHTML= 'Merci d\'éviter le I majuscule' }
-    if(name == "") { no_err = 0; err.innerHTML= 'Veuillez entrez un nom' }
+    if(link_edit == "") {
+        console.log('create_link')
+        //if name already exists
+        var edges = comp_linkList()  // get all names
+        if(edges.indexOf(name.trim()) != -1) { no_err = 0; err.innerHTML= 'Le nom existe déjà' }
+        if(name.search("I") != -1 || source.search("I") !=-1 || target.search("I") != -1) { no_err = 0; err.innerHTML= 'Merci d\'éviter le I majuscule' }
+        if(name == "") { no_err = 0; err.innerHTML= 'Veuillez entrez un nom' }
+        if(source == target) { no_err = 0; err.innerHTML= 'Les deux sous-ensembles ne peuvent être les mêmes' }
 
-    if(no_err) {
-        cy.add({
-        group: 'edges',
-        data: { id: name,
-                source: source,
-                target: target,
-                label: name,
-                color: 'red'
-        },
-            //position: { x: 200, y: 200 }
-        });
+        if(no_err) {
+            cy.add({
+            group: 'edges',
+            data: { id: name,
+                    source: source,
+                    target: target,
+                    label: name,
+                    color: 'red'
+            },
+                //position: { x: 200, y: 200 }
+            });
+        }
+    } else if (no_err) { //edit link //TODO other fields
+        console.log('edit_link')
+        elt = cy.getElementById(link_edit)
+        elt.data('id', name)
+        elt.data('source', source)
+        elt.data('target', target)
+        elt.data('label',name)
+        document.getElementById('link_toedit').value = "" //reset edition mode
     }
 
 }
 
 function comp_linkList() {
-
+    var edges = cy.edges()
+    var res = []
+    for(let i=0; i<edges.length;i++) {
+        var json = cy.data(edges[i].json())
+        var data = json.data()['data']['id']
+        res.push(data)
+    }
+    return res
 }
 
-/**************************  SUb-assemblies *******************/
+/**************************  Sub-assemblies *******************/
 function comp_sNode(container) {
     var html = "<form><label>Sous-ensemble</label>"
+    html += "<input id=\"node_toedit\" class=\"hidden\"/>"
     html += "</br><input id=\"node_name\" placeholder=\"carter\"/>"
     html += "</br><div class=\"error\" id=\"node_err\"></div>"
     let color = Math.floor(Math.random() * 0xFFFFFF).toString(16);
-    html += "</br><input id=\"node_color\" value=\"#"+color+"\"/>"
+    if(color.length <6) { color += "6" } //sometimes only 5 digit are shown, maybe first 0
+    html += "</br><input id=\"node_color\" value=\"#"+color+"\" style=\"color:#"+color+";\" onchange=\"show_color_realtime('node_color')\" onkeyup = \"this.onchange();\"/>"
     html += "</br></br><input type=\"button\" value=\"Valider\" onclick=\"comp_aNode()\" />"
     html += "</form>"
 
@@ -157,26 +181,54 @@ function comp_sNode(container) {
 function comp_aNode(){
 
     var no_err = 1
-    var color = document.getElementById('node_color').value //have to check if color is html
-    var name = document.getElementById('node_name').value
+    var node_edit = document.getElementById('node_toedit').value
 
-    var err = document.getElementById('node_err')
-    if(0) { no_err = 0; err.innerHTML= 'Le nom existe déjà' } //if name already exists
+    var color = document.getElementById('node_color').value.trim().slice(0,7) //have to check if color is html
+    var name = document.getElementById('node_name').value.trim()
+
+    let err = document.getElementById('node_err');
+
     if(name == "") { no_err = 0; err.innerHTML= 'Veuillez entrez un nom' }
 
-    if(no_err) {
-        console.log("addnode")
-        cy.add({
-            group: 'nodes',
-            data: { id: name,
-                    color: color
-            },
-            //position: { x: 200, y: 200 }
-        });
-    }
+    if(node_edit == "") { //create node
+        console.log('create_node')
+        //check if node exists
+        var nodes = comp_nodeList()
+        if(nodes.indexOf(name) != -1) { no_err = 0; err.innerHTML= 'Le nom existe déjà' }
 
-    //refresh node list
-    comp_rNodeList('link_sa1','link_sa2')
+
+
+        if(no_err) {
+            try {
+                cy.add({
+                    group: 'nodes',
+                    data: { id: name,
+                            color: color,
+                            shape: 'ellipse',
+                            width: (15+10*name.length)+"px"
+                    },
+                });
+            }
+            catch(err){
+                console.log(err)
+
+            }
+
+            comp_sNode(document.getElementById('anode'))  //refresh color
+
+
+        }
+
+        //refresh node list
+        comp_rNodeList('link_sa1','link_sa2')
+    } else if (no_err) { //edit node but still no error
+        console.log('edit node')
+        elt = cy.getElementById(node_edit)
+        elt.data('id', name)
+        elt.data('color', color)
+        elt.data('label',name)
+        document.getElementById('node_toedit').value = "" //leave edition mode
+    }
 
 }
 
@@ -227,4 +279,68 @@ function comp_nodeList() {
         res.push(data)
     }
     return res
+}
+
+/*******************  EDIT  *********************/
+function edit_tab(container, elt_id) {
+
+    var html = "Cliquez sur l'élément à modifier</br></br>"
+
+    if(elt_id !== undefined) {
+        elt = cy.getElementById(elt_id)
+        console.log(elt)
+        if(elt.isNode()){ html += "Sous-ensemble "; }
+        else { html += "Liaison " }
+        html += elt_id.toString() +" "
+        html += `<input type="button" onclick="fill_edit_elt('${elt_id.trim()}') " class="edit_button"/>`
+        html += `<input type="button" onclick="remove_elt('${elt_id.trim()}')" class="del_button"/>`
+    }
+
+    container.innerHTML = html //need to create this before accessing it
+}
+
+function fill_edit_elt(elt_id)
+{
+    let name = elt_id.toString().trim();
+    elt = cy.getElementById(name)
+    if(elt.isNode()){
+        openTab(event, 'anode')
+        document.getElementById("node_name").value = name
+        let color = elt.data('color');
+
+        document.getElementById("node_color").value = color;
+        document.getElementById("node_color").style.color = color;
+        document.getElementById("node_toedit").value = name;
+
+    }
+    else {
+        openTab(event, 'alink')
+
+        document.getElementById("link_toedit").value = name;  //edit mode
+        //fill saved data
+        //name
+
+        document.getElementById("link_name").value = elt.data("label")
+        //sub assemblies
+        document.getElementById("link_sa1").value = elt.data("target").toString().trim()
+        document.getElementById("link_sa2").value = elt.data("source").toString().trim()
+
+        //add type
+
+        //and other fields
+        //TODO //completer
+        /*if(elt.data[fields["axis"]] != undefined) { // a verifier
+            document.getElementById("link_axis_x").value = elt.data[fields["axis"][0]]
+            document.getElementById("link_axis_y").value = elt.data[fields["axis"][1]]
+            document.getElementById("link_axis_z").value = elt.data[fields["axis"][2]]
+
+        }*/
+
+    }
+
+}
+
+function remove_elt(elt_id) {
+    elt = cy.getElementById(elt_id)
+    cy.remove(elt)
 }

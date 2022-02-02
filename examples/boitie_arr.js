@@ -2,9 +2,9 @@ function cy_create(c) {
   var cy = cytoscape({
   container: c,
   elements: [
-    { data: { id: 'Sat', color:'#5599FF', shape:'ellipse'} },
-    { data: { id: 'Arbre', color:'#fa9411', shape:'ellipse'} },
-    { data: { id: 'Carter', color:'#b24622', shape:'ellipse'} },
+    { data: { id: 'Sat', color:'#5599FF', shape:'ellipse', width:'40px'} },
+    { data: { id: 'Arbre', color:'#fa9411', shape:'ellipse', width:'50px'} },
+    { data: { id: 'Carter', color:'#b24622', shape:'ellipse', width:'60px'} },
     {
       data: {
         id: 'SAT_ARBRE_LA',
@@ -91,7 +91,8 @@ function cy_create(c) {
             'background-color': 'data(color)',
             label: 'data(id)',
             'text-valign': 'center',
-            'text-halign': 'center'
+            'text-halign': 'center',
+            'width': "data(width)"
         }
     },
     {

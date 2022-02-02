@@ -7,16 +7,16 @@ function export_button(container,fields){
     html += "<div>"
     for(let i=0; i<fields.length;i++) {
         if(fields[i] == "png") {
-            html += "<input type='button' onclick='export_callback(\"png\")' value='Png'></input>"
+            html += "<input type='button' class='export_but' onclick='export_callback(\"png\")' value='Png'></input>"
         }
         else if(fields[i] == "jpg") {
-            html += "<input type='button' onclick='export_callback(\"jpg\")' value='Jpg'></input>"
+            html += "<input type='button' class='export_but' onclick='export_callback(\"jpg\")' value='Jpg'></input>"
         }
         else if(fields[i] == "json") {
-            html += "<input type='button' onclick='export_callback(\"json\")' value='Json (Cytoscape)'></input>"
+            html += "<input type='button' class='export_but' onclick='export_callback(\"json\")' value='Json (Cytoscape)'></input>"
         }
         else if(fields[i] == "pdf") {
-            html += "<input type='button' onclick='export_callback(\"pdf\")' value='Pdf'></input>"
+            html += "<input type='button' class='export_but' onclick='export_callback(\"pdf\")' value='Pdf'></input>"
         }
     }
 
@@ -32,12 +32,10 @@ function export_callback(format) {
     if(format == 'png'){
         data = cy.png();
         filename = 'graph.png';
-
     }
     else if (format == 'json'){
         data = cy.json();
         filename = 'graph.json';
-
     }
     else {
         data = cy.jpg();

@@ -2,7 +2,7 @@ function cy_create(c) {
   var cy = cytoscape({
   container: c,
   elements: [
-    { data: { id: 'Bati', color:'#5599FF', shape:'ellipse'} },
+    { data: { id: 'Bati', color:'#5599FF', shape:'ellipse', width:'50px'} },
 
 
 
@@ -15,7 +15,8 @@ function cy_create(c) {
             'background-color': 'data(color)',
             label: 'data(id)',
             'text-valign': 'center',
-            'text-halign': 'center'
+            'text-halign': 'center',
+            'width': "data(width)"
         }
     },
     {

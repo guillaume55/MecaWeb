@@ -5,13 +5,13 @@
 <!doctype html>
 <html>
 <head>
-    <title>Tutorial 1: Getting Started</title>
+    <title>Graph</title>
     <!--from the web-->
     <script src='js/cytoscape.min.js'></script>
     <script src='js/math.js'></script>
     <!--<script src='js/gausselimination.js'></script>-->
     <!-- from this project-->
-    <script src='js/init_graph.js'></script>
+    <script src='examples/helico.js'></script>
     <script src='js/computecycles.js'></script>
     <script src='js/export.js'></script>
     <script src='js/component.js'></script>
@@ -20,6 +20,8 @@
     <script src='js/ui.js'></script>
     <link rel="stylesheet" type="text/css" href="css/cytoscape.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="UTF-8">
+
 </head>
 
 <body>
@@ -27,19 +29,31 @@
     <div class="tab">
         <button class="tablinks" onclick="openTab(event, 'anode')">Sous-ensembles</button>
         <button class="tablinks" onclick="openTab(event, 'alink')">Liaisons</button>
+        <button class="tablinks" onclick="openTab(event, 'edit')">Editer</button>
         <button class="tablinks" onclick="openTab(event, 'export')">Exporter</button>
     </div>
     <div id="alink" class="tabcontent"></div>
     <div id="anode" class="tabcontent"></div>
+    <div id="edit" class="tabcontent"></div>
     <div id="export" class="tabcontent"></div>
     <script>
         var cy = cy_create(document.getElementById('cy'))
         comp_sLink(document.getElementById('alink'),"sa1 sa2 name")
         comp_sNode(document.getElementById('anode'))
+        edit_tab(document.getElementById('edit'), undefined)
         export_button(document.getElementById('export'))
 
-        $('#cy').on('mouseout', function (e) {
-            console.log(e);
+        cy.on('tap', 'node', function(evt){
+            var node = evt.target;
+            openTab(event, 'edit')
+            console.log( 'tapped ' + node.id() );
+            edit_tab(document.getElementById('edit'), node.id())
+        });
+        cy.on('tap', 'edge', function(evt){
+            var edge = evt.target;
+            openTab(event, 'edit')
+            console.log( 'tapped ' + edge.id() );
+            edit_tab(document.getElementById('edit'), edge.id())
         });
 
         /*cy.pan({

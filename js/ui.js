@@ -12,3 +12,21 @@ function openTab(evt, tabName) {
   evt.currentTarget.className += " active";
 }
 
+function show_color_realtime(id) {
+    let element = document.getElementById(id)
+    let color = element.value.trim().slice(0, 7);
+    console.log(color.length, color)
+    if(color.search('#') == 0) //html color
+    {
+        console.log("updatecolor", color)
+        element.style.color = color;
+    }
+    /*if(color.length >6) {
+        color = element.value.slice(0, 6)
+        element.value = color
+        element.style.color = color;
+    }*/
+
+
+
+}

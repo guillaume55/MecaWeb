@@ -42,3 +42,33 @@
   border: 1px solid #ccc;
   border-top: none;
 }
+
+.edit_button {
+    margin: 5px;
+    background: url(../img/edit.png) left no-repeat;
+    width: 50px;
+    height: 50px;
+    border: none;
+
+}
+.del_button {
+    margin: 5px;
+    background: url(../img/trash.png) left no-repeat;
+    width: 50px;
+    height: 50px;
+    border: none;
+
+}
+
+.del_button:hover, .edit_button:hover {
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.export_but {
+    margin: 5px;
+}
+
+.hidden {
+    display: none;
+}
