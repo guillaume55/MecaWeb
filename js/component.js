@@ -113,6 +113,7 @@ function comp_aLink(){
     var name = document.getElementById('link_name').value.trim()
     var source = document.getElementById('link_sa1').value
     var target = document.getElementById('link_sa2').value
+    let type = document.getElementById('select_link_type').value
 
 
     var err = document.getElementById('link_err')
@@ -133,19 +134,22 @@ function comp_aLink(){
                     source: source,
                     target: target,
                     label: name,
-                    color: 'red'
+                    color: 'blue', //does nothing
+                    type: type
             },
                 //position: { x: 200, y: 200 }
             });
         }
     } else if (no_err) { //edit link //TODO other fields
-        console.log('edit_link')
+        console.log('edit_link', elt.data('target'))
         elt = cy.getElementById(link_edit)
         elt.data('id', name)
-        elt.data('source', source)
-        elt.data('target', target)
+        elt.data('source', source) //TODO, does not work
+        elt.data('target', target) //TODO, does not work
         elt.data('label',name)
         document.getElementById('link_toedit').value = "" //reset edition mode
+        console.log('edit_link', elt.data('target'),target)
+        console.log(elt.data())
     }
 
 }
@@ -324,6 +328,8 @@ function fill_edit_elt(elt_id)
         //sub assemblies
         document.getElementById("link_sa1").value = elt.data("target").toString().trim()
         document.getElementById("link_sa2").value = elt.data("source").toString().trim()
+        document.getElementById("select_link_type").value = elt.data("type").split(" ")[0]
+        console.log("type", elt.data("type"))
 
         //add type
 
