@@ -1,11 +1,4 @@
 
-//helico let I_to_replace = { 'I_alpha_J2_LA':"0", 'I_alpha_J1_LA':"0", "I_alpha_J3_LA":"0","I_alpha_J4_ROT":"0"} //I stands for unknown. if we find their value, they will be logged here
-//boitier
-//I_to_replace = { 'I_gamma_ARBRE_CARTER_LA1':"0", 'I_gamma_ARBRE_CARTER_LA2':"0", 'I_gamma_SAT_ARBRE_LA':'0','I_gamma_SAT_ARBRE_ROT':'0' } //c'est vrai ce mensonsonge ?
-//boitier
-
-
-let I_to_replace = { 'I_gamma_ARBRE_CARTER_LA1':"0" }
 
 function findCycles() {
     //graph = [[1,2],[1,2],[1,3],[2,3]]

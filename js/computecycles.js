@@ -58,7 +58,8 @@ function write_eq_V2(edges) {
 function write_eq_V3(edges) {
     //helico --> cycles = [['P3','P2'],['P3','P5'],['P3','P4'],['P1','P2','P3','P4'],['P1','P5','P3','P4']]
     //boitier arriere
-    cycles = [['Arbre','Carter',],['Arbre','Sat'],['Sat', 'Carter', 'Arbre'],['Sat','Carter']]
+    //cycles = [['Arbre','Carter',],['Arbre','Sat'],['Sat', 'Carter', 'Arbre'],['Sat','Carter']]
+    cycles = findCycles();
     let fc = get_cf();
     let equations = [] //add mobilities
 
