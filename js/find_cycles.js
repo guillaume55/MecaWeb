@@ -6,6 +6,7 @@
 
 
 let I_to_replace = { 'I_gamma_ARBRE_CARTER_LA1':"0" }
+
 function findCycles() {
     //graph = [[1,2],[1,2],[1,3],[2,3]]
     graph = extract_graph()
@@ -44,9 +45,10 @@ function findCycles() {
   }
 }
 
+
 //from stackoverflow
 //https://stackoverflow.com/questions/12367801/finding-all-cycles-in-undirected-graphs
-//This function has a min nb of nodes = 3
+//This function has a min nb of nodes = 3 (to find a cycle)
 function findNewCycles(path) {
   const start_node = path[0]
   let next_node = null
