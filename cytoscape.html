@@ -12,6 +12,7 @@
     <script src='js/nerdamer-all.min.js'></script>
     <!-- from this project-->
     <!--<script src='examples/helico.js'></script>-->
+    <script src='js/find_cycles.js'></script>
     <script src='examples/boitie_arr.js'></script>
     <script src='js/computecycles.js'></script>
     <script src='js/export.js'></script>
@@ -36,6 +37,8 @@
     <div id="anode" class="tabcontent"></div>
     <div id="acf" class="tabcontent">cf</div>
     <script>
+        var graph = []
+        let cycles = []
         var cy = cy_create(document.getElementById('cy'))
         comp_sLink(document.getElementById('alink'),"")
         comp_sNode(document.getElementById('anode'))

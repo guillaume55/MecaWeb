@@ -33,7 +33,8 @@ function mechmath_babar(source_point, target_point, resultante, moment)
     return moment
 }
 
+//quick formula to find if the model is hyperstatic or not
+function mechmath_hDegree_quick (nb_of_edge, nb_of_nodes) {
 
-function _mechmath_hDegree (nb_of_edge, nb_of_nodes) {
 
 }
