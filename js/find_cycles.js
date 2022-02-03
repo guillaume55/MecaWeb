@@ -2,6 +2,7 @@
 
 function findCycles() {
     //graph = [[1,2],[1,2],[1,3],[2,3]]
+    cycles = [] //empty cycles 
     graph = extract_graph()
 
     for (const edge of graph) {
@@ -75,9 +76,11 @@ function rotateToSmallest(path) {
 
 //modified to avoid same cycles but in different order, add .sort() two times
 function isNew(path) {
-  const p = JSON.stringify(path.sort())
+  //if(path[0] == "P1" && path[1] == "P3" && path[2] == "P4")
+  //  console.log("isnew", path)
+  const p = JSON.stringify([...path].sort()) 
   for (const cycle of cycles) {
-    if (p === JSON.stringify(cycle.sort())) {
+    if (p === JSON.stringify([...cycle].sort())){ 
       return false
     }
   }

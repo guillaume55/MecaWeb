@@ -54,6 +54,32 @@ function write_eq_V2(edges) {
     });
 
 }*/
+function writeRawEquations(){
+    let fc = get_cf();
+    let equations = [] //add mobilities
+    for(let i=0; i< cycles.length; i++) {
+        console.log(cycles[i])
+        //find all edges between two nodes
+        let edges_between=[]
+        //cycle of more than 3 nodes (different behavior)
+        if(cycles[i].length < 3) {
+            edges_between = get_edges_from_nodes(cycles[i][0], cycles[i][1])
+            //add to I_to_replace the numerical values of some I
+        }
+        else { //cycle of two nodes
+            c = [...cycles[i]]
+            c.push(c[0]) //close the cycle
+            for(let j=1; j<c.length; j++) {
+                ed = get_edges_from_nodes(c[j-1], c[j])
+                edges_between.push(ed[0]) //we need only one link between two nodes
+            }
+        }
+        console.log("edges_bet",edges_between)
+        equations = equations.concat(write_eq_for_cycle(edges_between, fc))
+    }
+    console.log(equations)
+}
+
 
 function write_eq_V3(edges) {
     //helico --> cycles = [['P3','P2'],['P3','P5'],['P3','P4'],['P1','P2','P3','P4'],['P1','P5','P3','P4']]
@@ -218,7 +244,8 @@ function write_eq_for_cycle(edges_bet,cf) {
     let mob = []
 
     for(let i=0; i<edges_bet.length; i++)  {
-        console.log(edges_bet[i]['type'],edges_bet[i]['id'])
+        //console.log("-->",edges_bet[i], edges_bet)
+        //console.log("---->",edges_bet[i]['type'])
         mob.push(mobs_to_components(get_mobilities_from_edge(edges_bet[i]['type']),edges_bet[i]['id']))
     }
 
