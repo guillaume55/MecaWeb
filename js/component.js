@@ -295,7 +295,7 @@ function edit_tab(container, elt_id) {
         console.log(elt)
         if(elt.isNode()){ html += "Sous-ensemble "; }
         else { html += "Liaison " }
-        html += elt_id.toString() +" "
+        html += elt_id.toString() +"</br>"
         html += `<input type="button" onclick="fill_edit_elt('${elt_id.trim()}') " class="edit_button"/>`
         html += `<input type="button" onclick="remove_elt('${elt_id.trim()}')" class="del_button"/>`
     }
