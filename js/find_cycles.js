@@ -15,36 +15,25 @@ function findCycles() {
         for (const node of edge) {
             findNewCycles([node])//This function has a min nb of nodes = 3
         }
-        //add 2 nodes cycles
-        for(const edge2 of graph) {
-            if( (edge[1] == edge2[1] || edge[1] == edge2[0]) && (edge[0] == edge2[1] || edge[0] == edge2[0]) && (edge.length == 2 && edge2.length ==2) ) {//a two node cycle
-                var add = 1;
-                for(c of cycles) { //if cycle if already in list may be removed because of bellow code about redundant cycles
-
-                    if( (edge[1] == c[1] || edge[1] == c[0]) && (edge[0] == c[1] || edge[0] == c[0]) ) {add=0;}
-                }
-                if(add == 1) { cycles.push([edge[0],edge[1]]); }
-            }
-        }
     }
-    //remove redundant cycles
-    /*
-    for(let i=0; i< cycles.length; i++) {
-        for(let j=0; j< cycles.length; j++) {
-            if(j != i) {
-                cy1 = JSON.stringify(cycles[i].sort())
-                cy2 = JSON.stringify(cycles[j].sort())
-                if(cy1 == cy2) { j-=1; i-=1; cycles.splice(i,1) }
-            }
-        }/*********** PAS FINI et peut bugger **************/
-    //}
-
-
   for (cycle of cycles) {
     console.log(cycle.join(','))
   }
 }
 
+function get_edges_from_nodes(node1, node2){
+    var edges = cy.edges()
+    var res = []
+    for(let i=0; i<edges.length;i++) {
+        var json = cy.data(edges[i].json())
+        var source = json.data()['data']['source']
+        var target = json.data()['data']['target']
+        var type = json.data()['data']['type']
+        var point = json.data()['data']['point']
+        if((source == node1 && target == node2) || (source == node2 && target == node1) ) { res.push(json.data()['data']) }
+    }
+    return res
+}
 
 //from stackoverflow
 //https://stackoverflow.com/questions/12367801/finding-all-cycles-in-undirected-graphs
@@ -65,14 +54,18 @@ function findNewCycles(path) {
       sub = [next_node].concat(path)
       // explore extended path
       findNewCycles(sub)
-    } else if (path.length > 2 && next_node === path[path.length - 1]) {
+    } 
+    //small modification from stackoverflow code, added ability to find cycle between 2 nodes
+    else if( (path.length > 2 && next_node === path[path.length - 1]) || (path.length == 2 && get_edges_from_nodes(path[0], path[1]).length > 1) ){
       // cycle found
+      //console.log("path", path)
       const p = rotateToSmallest(path)
       const inv = invert(p)
       if (isNew(p) && isNew(inv)) {
         cycles.push(p)
       }
     }
+
   }
 }
 
@@ -87,10 +80,11 @@ function rotateToSmallest(path) {
   return path.slice(n).concat(path.slice(0, n))
 }
 
+//modified to avoid same cycles but in different order, add .sort() two times
 function isNew(path) {
-  const p = JSON.stringify(path)
+  const p = JSON.stringify(path.sort())
   for (const cycle of cycles) {
-    if (p === JSON.stringify(cycle)) {
+    if (p === JSON.stringify(cycle.sort())) {
       return false
     }
   }

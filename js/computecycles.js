@@ -290,19 +290,7 @@ function extract_graph(){
     return res
 }
 
-function get_edges_from_nodes(node1, node2){
-    var edges = cy.edges()
-    var res = []
-    for(let i=0; i<edges.length;i++) {
-        var json = cy.data(edges[i].json())
-        var source = json.data()['data']['source']
-        var target = json.data()['data']['target']
-        var type = json.data()['data']['type']
-        var point = json.data()['data']['point']
-        if((source == node1 && target == node2) || (source == node2 && target == node1) ) { res.push(json.data()['data']) }
-    }
-    return res
-}
+
 
 
 
