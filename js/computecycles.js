@@ -78,47 +78,27 @@ function writeRawEquations(){
         equations = equations.concat(write_eq_for_cycle(edges_between, fc))
     }
     console.log(equations)
+    return equations
 }
 
 
-function write_eq_V3(edges) {
-    //helico --> cycles = [['P3','P2'],['P3','P5'],['P3','P4'],['P1','P2','P3','P4'],['P1','P5','P3','P4']]
-    //boitier arriere
-    //cycles = [['Arbre','Carter',],['Arbre','Sat'],['Sat', 'Carter', 'Arbre'],['Sat','Carter']]
-    cycles = findCycles();
-    let fc = get_cf();
-    let equations = [] //add mobilities
-
-    //let target =
-    //find 6 equations for each cycle
-    for(let i=0; i< cycles.length; i++) {
-        //find all edges between two nodes
-        let edges_between=[]
-        if(cycles[i].length < 3) {
-            edges_between = get_edges_from_nodes(cycles[i][0], cycles[i][1])
-            //add to I_to_replace the numerical values of some I
-            //compute_numerical_tol_val(edges_between);
-        }
-        else {
-            c = [...cycles[i]]
-            c.push(c[0]) //close the cycle
-            for(let j=1; j<c.length; j++) {
-                ed = get_edges_from_nodes(c[j-1], c[j])
-                edges_between.push(ed[0]) //we need only one link between two nodes
-            }
-
-        }
-        for(let k=0; k<1; k++){ //mainly for the last loop
-            //remove equations with only one I, solve it now
-            equations = solve_oneI(equations)
-
-            equations = equations.concat(write_eq_for_cycle(edges_between, fc))
-            //start to solve if possible
-            equations = replace_with_known_comp(equations)
-        }
-
+function reduce_equations() {
+    let equations = writeRawEquations()
+    //console.log(JSON.stringify(equations))
+    console.log(equations)
+    for(let i=0; i<1; i++) {
+        
+        //remove equations with only one I, solve it now
+        equations = solve_oneI(equations)
+        //equations = equations.concat(write_eq_for_cycle(edges_between, fc))
+        //start to solve if possible
+        equations = replace_with_known_comp(equations)
+        
     }
-
+    console.log(I_to_replace)
+    console.log(equations)
+    
+    /*
     //start searching a way to find the functionnal condition
     for(k=0; k<equations.length;k++){
             //console.log("I_", count_I(equations[k]), extract_I(equations[k]))
@@ -127,7 +107,7 @@ function write_eq_V3(edges) {
                 find_child_eq(equations, fc['axis'])
             }
     }
-    console.log(equations)
+    console.log(equations)*/
     //var sol = nerdamer.solveEquation(equations,fc['axis']);
 }
 
@@ -151,6 +131,7 @@ function extract_I(eq) {
 //check if all termes are known in the equation
 function still_contains_I(eq)
 {
+    //not the longest function yet
 }
 
 //the aim if to find the "terme". I_xxx are unknown. Create a tree that we will explore to find the value of terme
@@ -174,20 +155,22 @@ function find_child_eq(eqs, terme){
                 }
                 eq_with_it.push(eqs[i])
             }
-
         }
     }
-
 }
 
+//find equations with only one unknown (aka I_xxx). 
+//Remove the equation from the list
+//Store the value of this unknown terme to be replaced later
 function solve_oneI(eq) {
     for(let i=0; i<eq.length; i++) {
         //we can solve if there is only one I
         if(eq[i].match(/I_/g) !== null) { //see line bellow
-            let termes = extract_I(eq[i])
-            if(termes.length < 2 ) { //bug because we try to find length of null if eq => 0+0+0=0
+            let terms = extract_I(eq[i])
+            console.log(terms)
+            if(terms.length < 2 ) { //bug because we try to find length of null if eq => 0+0+0=0
                 //find which terme is unknown
-                //replace sp[x] with "termes", cleaner and shorter
+                //replace sp[x] with "terms", cleaner and shorter
                 let sp = eq[i].split(/[+,-,=,*,/,\s,(,)]+/);
                 for(let j=0; j<sp.length; j++)  {
                     sp[j] = sp[j].toString()
@@ -212,7 +195,7 @@ function solve_oneI(eq) {
     //console.log("eq",eq)
     return eq
 }
-
+/*
 //we will find I_xxx = xxx, instead of adding a new equation, we will replace I_xxx by its value later
 function write_resultantes_two_nodes(edges_bet) {
     //sum each link
@@ -237,7 +220,9 @@ function write_resultantes_two_nodes(edges_bet) {
         }
     }
 }
-
+*/
+//take one cycle and write 6 equations (Rx, y, z, Tx, y, z) for it
+//At the fonctionnal condition point for Translation as it depends of the point
 function write_eq_for_cycle(edges_bet,cf) {
     //sum each link
     let equations = []
@@ -298,7 +283,7 @@ function get_mobilities_from_edge(type){
 function replace_with_known_comp(equations)  {
     for(let i=0; i<equations.length; i++) {
         for(var key in I_to_replace) {
-            equations[i] = equations[i].replaceAll(key, I_to_replace[key] );
+            equations[i] = equations[i].replaceAll(key, `(${I_to_replace[key]})` );
             //console.log("replacing", key, "by", I_to_replace[key])
         }
 
@@ -306,6 +291,8 @@ function replace_with_known_comp(equations)  {
     return equations
 }
 
+//return the nodes to which the edge are linked
+//used to get cycles
 function extract_graph(){
     var edges = cy.edges()
     var res = []
