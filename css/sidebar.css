@@ -1,0 +1,28 @@
+.sidebar-item{
+	display:flex;
+	flex-direction:row;
+}
+
+.sidebar-text{
+	max-width:100%;
+	overflow:hidden;
+	transition : ease-in-out 0.5s;
+	max-width: 0px;
+}
+#sidebar{
+	background-color:#5B6F79;
+	max-width:25%;
+	color: white;
+	display:flex;
+	flex-direction:column;
+	transition : ease-in-out 0.5s;
+	margin-left:0%;
+	margin-top:0%;
+}
+
+#burger{
+	border:none;
+	background-color:#00000000;
+	color: white;
+	max-width:25px;
+}
