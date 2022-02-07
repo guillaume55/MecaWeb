@@ -4,7 +4,9 @@
    <head>
       <title>Composeur de liaisons</title>
       <meta charset="UTF-8">
+      <link rel="stylesheet" href="css/sidebar.css">
    </head>
+   <script src='js/sidebar.js'></script>
 
    <script>
         //recupère les paramètres
@@ -233,6 +235,15 @@
       </script>
 
    <body>
+        <iframe id="help" src="htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/cuts.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
+        <!-- SIDEBAR -->
+        <div id="mySidebar" class="sidebar">
+            <div id="sidebar-btn" onclick="toggleSidebar()">☰</div>
+            <div id="sidebar-content"></div>
+            <script>appendToSidebar("sidebar-content");</script>
+        </div>
+
+    <div id="main">
       <table id="table_liaisons">
         <tr>
             <th>Liaison</th>
@@ -258,7 +269,7 @@
         </tr>
       </table>
       <div ><table id="hint" style="display:none;"></table></div>
-     <div class="github"><img src="img/github.png"/>View on github</div>
+    </div>
      <script>
         new_row()
         new_row()

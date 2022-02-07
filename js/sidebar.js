@@ -2,12 +2,16 @@ let sidebar_items = [["img/graph.png", "Graphs","joint-graph.html"],["img/tol.pn
 ["img/link.png", "Liaisons composées", "joint-composition.html"]];
 
 function appendToSidebar(container) {
-    let html = document.getElementById(container).innerHTML;
-    for(let i=0; i<sidebar_items.length; i++){
-        html += `<div class="sidebar-item"><a href="${sidebar_items[i][2]}"><img class="sidebar-logo" src="${sidebar_items[i][0]}"/><div class="sidebar-text">${sidebar_items[i][1]}</div></a></div>`
+    if (window==window.top){ //do not show sidebar if embed in an Iframe
+        let html = document.getElementById(container).innerHTML;
+        for(let i=0; i<sidebar_items.length; i++){
+            html += `<div class="sidebar-item"><a href="${sidebar_items[i][2]}"><img class="sidebar-logo" src="${sidebar_items[i][0]}"/><div class="sidebar-text">${sidebar_items[i][1]}</div></a></div>`
+        }
+        document.getElementById(container).innerHTML = html;
     }
-    document.getElementById(container).innerHTML = html;
-
+    else{ //hide sidebar
+        document.getElementById("mySidebar").style.display = "none"
+    }
 }
 
 function toggleSidebar(){
