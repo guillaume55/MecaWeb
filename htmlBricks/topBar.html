@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script src="script.js"></script>
+    <base target="_parent"> <!--open links in parent-->
+  </head>
+  <body>
+    <div class="topBar">
+        <a id="helpPage">Help ?</a>
+        <a id="website">Website</a>
+        <a href="github.com" id="gitRepo"><img src="../img/github.png">View on GitHub</a>
+    </div>
+    <style>
+        body{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .topBar{
+            display: flex;
+            justify-content: space-between;
+            margin-left:30%;
+            width: 70%;
+
+        }
+        img {
+            width: 20px;
+        }
+
+        .topBar a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+    <script>
+        function getParamValue(paramName)
+        {
+            var url = window.location.search.substring(1); //get rid of "?" in querystring
+            var qArray = url.split('&'); //get key-value pairs
+            for (var i = 0; i < qArray.length; i++) 
+            {
+                var pArr = qArray[i].split('='); //split key and value
+                if (pArr[0] == paramName) 
+                    return pArr[1]; //return value
+            }
+        }
+        var p = getParamValue('gitRepo');
+        document.getElementById("gitRepo").href = p;
+        p = getParamValue('helpPage');
+        document.getElementById("helpPage").href = p;
+        p = getParamValue('website');
+        document.getElementById("website").href = p;
+
+
+    </script>
+  </body>
+</html>

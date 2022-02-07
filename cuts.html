@@ -24,15 +24,17 @@
         }
     </script>
     
+    <iframe id="help" src="htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&website=https://guillaume55.github.io/MecaWeb/cuts.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
+
     <br>
+
     <!----------------  BAR --------------------------->
     <div id="bars-div">
-        All "height" parameters should be equals for now if you use angle cuts
     <div class="table-responsive col-md-10 section" class="barDiv" id="init_bar">
         <div class = "section-title"><div>Raw Bar </div><button class="del-button" onclick="del_entry(this)">Delete</button></div>
         <div class ="fields">
             <div class="field">Length in mm <input name="length" class="barLength" value="6000" ></input></div>
-            <div class="field">Height in mm<input name="height" class="barHeight" value="30"></input></div>
+            <div class="field" title='All "height" parameters should be equals for now if you use angle cuts'>Height in mm<input name="height" class="barHeight" value="30"></input></div>
         </div>
     </div></div>
     <button class="add-button" onclick="add_bar()">Add Bar</button>
@@ -55,7 +57,7 @@
     
     <!--------------- RES --------------->
     <div class="table-responsive col-md-10 section" id="res-section">
-        <div class = "section-title"><div>Results</div><button id="submit" class="button" onclick ="compute()">Calculer</button></div>
+        <div class = "section-title"><div>Results</div><button id="submit" class="button" onclick ="compute()">Calculate</button></div>
         <div id="resDiv"></div>
     </div>
             
