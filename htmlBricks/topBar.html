@@ -2,13 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <script src="script.js"></script>
     <base target="_parent"> <!--open links in parent-->
   </head>
   <body>
     <div class="topBar">
-        <a id="helpPage">Help ?</a>
-        <a id="website">Website</a>
+        <a id="helpPage">? Help</a>
+        <a id="dowload" download>⭳ Download</a>
         <a href="github.com" id="gitRepo"><img src="../img/github.png">View on GitHub</a>
     </div>
     <style>
@@ -47,8 +46,8 @@
         document.getElementById("gitRepo").href = p;
         p = getParamValue('helpPage');
         document.getElementById("helpPage").href = p;
-        p = getParamValue('website');
-        document.getElementById("website").href = p;
+        p = getParamValue('download');
+        document.getElementById("download").href = p;
 
 
     </script>
