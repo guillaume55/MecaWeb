@@ -1,3 +1,7 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 #header {
     padding: 15px;
     width:102%;
@@ -7,6 +11,7 @@
     display: flex;
     justify-content:space-between;
 }
+
 #header a {
     text-decoration: none;
     color: #70c4f5;
@@ -27,8 +32,8 @@
 
 .section-title{
     padding: 5px; 
-    color: #ed505b;
-    background-color: #fce5e6;
+    color: aliceblue;
+    background-color: rgb(35, 58, 66);
     margin-bottom: 10px;
     margin-left:-10%;
     padding-left:12%;
@@ -45,12 +50,33 @@ input{
     width: 40%;
 }
 
+.del-button {
+    background-color: aliceblue;
+    color: rgb(182, 40, 40);
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    
+}
+
+.button {
+    background-color: aliceblue;
+    color: rgb(40, 106, 182);
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .add-button{
     margin-left: 45%;
     margin-top: 4vh;
-    font-weight: bolder;
+    font-weight: bold;
     font-size: 22px;
-    color: #70c4f5;
+    color: aliceblue;
+    background-color: rgb(35, 58, 66);
+   
+    cursor: pointer;
+    border-radius: 4px;
 }
 
 .fields{
@@ -63,14 +89,16 @@ input{
 .res-bar{
     width: 90%;
     margin-left:5%;
-    height: 4vh;
-    background-color: #cc0000;
+    height: 30px;
+    background-color: aliceblue;
     display: flex;
+    color: rgb(206, 168, 163);
+    font-size: smaller;
 }
 
 .res-cut{
-    height: 4vh;
-    background-color: #6699ff;
+    height: 28px;
+    background-color: rgb(35, 58, 66);
     border: 1px solid gray;
 
 }

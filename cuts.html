@@ -3,17 +3,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Dynamic Editable HTML Table using Javascript, Jquery and Bootstrap with add, edit, and Delete Options</title>
+    <title>Cuts</title>
     <!-- CSS files-->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/cuts.css">
+	<link rel="stylesheet" href="css/cuts.css">
    </head>
     
   <body>
-    <div id="header">
-        <a href ="" ><img src ="" alt="&#x2913" style="width:32px;"> Download</a><a href="">Where to cut ?</a><a href ="" >GitHub</a>
-    </div>
    <script>
         function del_entry(button){
             const div = button.parentNode.parentNode;
@@ -40,7 +35,7 @@
             <div class="field">Height in mm<input name="height" class="barHeight" value="30"></input></div>
         </div>
     </div></div>
-    <button class="add-button" onclick="add_bar()"><img alt="+ ">Add Bar</button>
+    <button class="add-button" onclick="add_bar()">Add Bar</button>
 
     <!----------------  CUT --------------------------->
     <div id="cuts-div">
@@ -53,7 +48,7 @@
         </div>
      <div class="div-cut-shape"><div class="cut-shape1"></div><div class="cut-shape2"></div></div>
     </div></div>
-    <button class="add-button" onclick="add_cut()"><img alt="+ ">Add Cut</button>
+    <button class="add-button" onclick="add_cut()">Add Cut</button>
     
 
 <!---------------  SendButton -------------->
@@ -67,7 +62,7 @@
 
     <!--JS Files-->
 
-<script type="text/javascript" src="/js/cuts/fitCuts.js"></script>
+<script type="text/javascript" src="js/cuts/fitCuts.js"></script>
 <script>
     function shape_cut(elt){
         angle = elt.value.toString()
