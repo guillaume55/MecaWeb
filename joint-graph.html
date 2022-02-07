@@ -20,19 +20,24 @@
     <script src='js/mech.js'></script>
     <script src='js/mechmath.js'></script>
     <script src='js/ui.js'></script>
+    <script src='js/sidebar.js'></script>
     <link rel="stylesheet" type="text/css" href="css/cytoscape.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css">
     <meta charset="UTF-8">
 
 </head>
 
 <body>
-    <div class="workspace-row">
-        <object class="sidebar-container" type="text/html" data="sidebar.html"></object>
-        <div id="cy"></div>
+    <!-- SIDEBAR -->
+    <div id="mySidebar" class="sidebar">
+        <div id="sidebar-btn" onclick="toggleSidebar()">☰</div>
+        <div id="sidebar-content"></div>
+        <script>appendToSidebar("sidebar-content");</script>
+
     </div>
-    <div class="workspace-col">
-        
+    <div id="main">
+        <div id="cy"></div>
         <div class="tab">
             <button class="tablinks" onclick="openTab(event, 'anode')">Sous-ensembles</button>
             <button class="tablinks" onclick="openTab(event, 'alink')">Liaisons</button>
@@ -45,48 +50,49 @@
         <div id="edit" class="tabcontent"></div>
         <div id="export" class="tabcontent"></div>
     </div>
-        <script>
-            var graph = []
-            let cycles = []
+    
+    <script>
+        var graph = []
+        let cycles = []
 
-            //helico 
-            let I_to_replace = { 'I_alpha_J2_LA':"0", 'I_alpha_J1_LA':"0", "I_alpha_J3_LA":"0","I_alpha_J4_ROT":"0"} //I stands for unknown. if we find their value, they will be logged here
-            //boitier
-            //I_to_replace = { 'I_gamma_ARBRE_CARTER_LA1':"0", 'I_gamma_ARBRE_CARTER_LA2':"0", 'I_gamma_SAT_ARBRE_LA':'0','I_gamma_SAT_ARBRE_ROT':'0' } //c'est vrai ce mensonsonge ?
-            //boitier
-            //let I_to_replace = { 'I_gamma_ARBRE_CARTER_LA1':"0" }
+        //helico 
+        let I_to_replace = { 'I_alpha_J2_LA':"0", 'I_alpha_J1_LA':"0", "I_alpha_J3_LA":"0","I_alpha_J4_ROT":"0"} //I stands for unknown. if we find their value, they will be logged here
+        //boitier
+        //I_to_replace = { 'I_gamma_ARBRE_CARTER_LA1':"0", 'I_gamma_ARBRE_CARTER_LA2':"0", 'I_gamma_SAT_ARBRE_LA':'0','I_gamma_SAT_ARBRE_ROT':'0' } //c'est vrai ce mensonsonge ?
+        //boitier
+        //let I_to_replace = { 'I_gamma_ARBRE_CARTER_LA1':"0" }
 
-            var cy = cy_create(document.getElementById('cy'))
-            comp_sLink(document.getElementById('alink'),"sa1 sa2 name")
-            comp_sNode(document.getElementById('anode'))
-            edit_tab(document.getElementById('edit'), undefined)
-            export_button(document.getElementById('export'))
+        var cy = cy_create(document.getElementById('cy'))
+        comp_sLink(document.getElementById('alink'),"sa1 sa2 name")
+        comp_sNode(document.getElementById('anode'))
+        edit_tab(document.getElementById('edit'), undefined)
+        export_button(document.getElementById('export'))
 
-            cy.on('tap', 'node', function(evt){
-                var node = evt.target;
-                openTab(event, 'edit')
-                console.log( 'tapped ' + node.id() );
-                edit_tab(document.getElementById('edit'), node.id())
-            });
-            cy.on('tap', 'edge', function(evt){
-                var edge = evt.target;
-                openTab(event, 'edit')
-                console.log( 'tapped ' + edge.id() );
-                edit_tab(document.getElementById('edit'), edge.id())
-            });
+        cy.on('tap', 'node', function(evt){
+            var node = evt.target;
+            openTab(event, 'edit')
+            console.log( 'tapped ' + node.id() );
+            edit_tab(document.getElementById('edit'), node.id())
+        });
+        cy.on('tap', 'edge', function(evt){
+            var edge = evt.target;
+            openTab(event, 'edit')
+            console.log( 'tapped ' + edge.id() );
+            edit_tab(document.getElementById('edit'), edge.id())
+        });
 
-            findCycles()
-            reduce_equations()
-            /*cy.pan({
-            x: 100,
-            y: 100
-            });*/
+        findCycles()
+        reduce_equations()
+        /*cy.pan({
+        x: 100,
+        y: 100
+        });*/
 
-            //console.log([5,0,10],[10,0,0], ["a","b","c"], ["u","v","w"]))
-            //console.log(mechmath_babar([20,30,10],[10,20,0], ["a","b","c"], ["u","v","w"]))
-            //findCycles()
-            //write_eq_V2(/*edge*/)
-        </script>
+        //console.log([5,0,10],[10,0,0], ["a","b","c"], ["u","v","w"]))
+        //console.log(mechmath_babar([20,30,10],[10,20,0], ["a","b","c"], ["u","v","w"]))
+        //findCycles()
+        //write_eq_V2(/*edge*/)
+    </script>
     
 </body>
 </html>
