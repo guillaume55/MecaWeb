@@ -1,6 +1,8 @@
 .sidebar-item{
 	display:flex;
 	flex-direction:row;
+    padding: 5px;
+    border-top: 1px solid #37444b;
 }
 
 .sidebar-text{
@@ -16,8 +18,8 @@
 	display:flex;
 	flex-direction:column;
 	transition : ease-in-out 0.5s;
-	margin-left:0%;
-	margin-top:0%;
+    margin-top: -2.6%;
+    margin-left: -2.6%;
 }
 
 #burger{
@@ -25,4 +27,8 @@
 	background-color:#00000000;
 	color: white;
 	max-width:25px;
+    font-size: larger;
+    padding: 5px;
+    
 }
+

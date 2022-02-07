@@ -3,7 +3,7 @@
 }
 
 .error {
-    color: red;
+    color: rgba(255, 0, 0, 0.76);
 }
 
 /* Style the tab */
@@ -73,4 +73,21 @@
 
 .hidden {
     display: none;
+}
+
+.workspace-row{
+  display: flex;
+  flex-direction: row;
+}
+.workspace-col{
+  display: flex;
+  flex-direction: column;
+}
+body{
+  margin: 0px;
+  padding: 0px;
+}
+
+.sidebar-container{
+  width: 10%;
 }
