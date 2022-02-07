@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="css/sidebar.css">
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" type="text/css" href="css/cuts.css">
+
+  </head>
+  <body>
+    <script src='js/lib/math.js'></script>
+    <script src='js/sidebar.js'></script>
+    <script src='js/graph/ui.js'></script>
+    <script src='js/transmission/transmission.js'></script>
+    
+
+    <!-- Help message & github-->
+    <iframe id="help" src="htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/transmission.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
+    <!-- SIDEBAR -->
+    <div id="mySidebar" class="sidebar">
+        <div id="sidebar-btn" onclick="toggleSidebar()">☰</div>
+        <div id="sidebar-content"></div>
+        <script>appendToSidebar("sidebar-content");</script>
+    </div>
+
+    <div id="main">
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'screw')">Screw</button>
+            <button class="tablinks" onclick="openTab(event, 'pulley')">Pulley</button>
+            <button class="tablinks" onclick="openTab(event, 'stepper')">Stepper motor</button>
+            </div>
+        <div id="screw" class="tabcontent">
+            <div class="item section">
+                <div class="section-title">Torque and Force</div>
+                <label>Screw pitch (mm)</label></br>
+                <input id="screw-pitch" type="number" class="small-input" value="4"/></br>
+                <label>Efficiency</label></br>
+                <input id="screw-efficiency" type="number" value="0.9" class="small-input"/></br>
+                <label>Torque (N.m) or Force (N)</label></br>
+                <input id="screw-torque" type="number" class="small-input" placeholder="Torque (N.m)" onchange="computeForce()"/>
+                <label>N.m</label></br>
+                <input id="screw-force" type="number" class="small-input" placeholder="Force (N)" onchange="computeTorque()"/>
+                <label>N</label></br>
+            </div>
+            </br></br>
+            <div class="item section">
+                <div class="section-title">Speed</div>
+                <label>Screw pitch (mm)</label></br>
+                <input id="screw-pitch-speed" type="number" class="small-input" value="4"/></br>
+                <label>Speed (Rotative)</label></br>
+                <input id="screw-rpm" type="number" class="small-input" onchange="computeSpeed('rpm')" value="0"/>
+                <label>rpm</label></br>
+                <!--<input type="button" onclick="computeSpeed()"/>-->
+                <input id="screw-rads" type="number" class="small-input" onchange="computeSpeed('rads')" value="0"/>
+                <label>rad/s</label></br>
+                <label>Speed (Linear)</label></br>
+                <input id="screw-mmmin" type="number" class="small-input" onchange="computeSpeed('mmmin')" value="0"/>
+                <label> mm/min</label></br>
+                <input id="screw-mms" type="number" class="small-input" onchange="computeSpeed('mms')" value="0"/>
+                <label>mm/s</label>
+            </div>
+        </div>
+        <div id="pulley" class="tabcontent"></div>
+        <div id="stepper" class="tabcontent"></div>
+    </div>
+    <script>openTab(event, 'screw')</script>
+
+
+    
+  </body>
+</html>
