@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="css/sidebar.css">
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" type="text/css" href="css/cuts.css">
+      <link rel="stylesheet" href="css/table.css">
+
+  </head>
+  <body>
+    <script src='js/sidebar.js'></script>
+    <script src='js/fits/fits.js'></script>
+    <script src='js/fits/fitsToHtml.js'></script>
+    <script src='js/graph/ui.js'></script>
+
+    <!-- Help message & github-->
+    <iframe id="help" src="htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/fits.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
+    <!-- SIDEBAR -->
+    <div id="mySidebar" class="sidebar">
+        <div id="sidebar-btn" onclick="toggleSidebar()">☰</div>
+        <div id="sidebar-content"></div>
+        <script>appendToSidebar("sidebar-content");</script>
+    </div>
+
+    <div id="main">
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'tab_table')">Tableaux</button>
+            <button class="tablinks" onclick="openTab(event, 'tab_calc')">Calculateur</button>
+            <button class="tablinks" onclick="openTab(event, 'tab_pivot')">Pivots</button>
+            </div>
+        <div id="tab_table" class="tabcontent">
+            <h3>Arbres</h3>
+            <div id="shaft_div"></div>
+            <h3>Alésages</h3>
+            <div id="bore_div"></div>
+            <script>
+                //openTab(event, 'tab_table')
+                fitsToTable("shaft_div",shaftFit())
+                fitsToTable("bore_div",boreFit())
+            </script>
+        </div>
+        <div id="tab_calc" class="tabcontent"></div>
+        <div id="tab_pivot" class="tabcontent"></div>
+    </div>
+
+    
+  </body>
+</html>

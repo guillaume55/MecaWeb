@@ -1,5 +1,5 @@
 let sidebar_items = [["img/graph.png", "Graphs","joint-graph.html"],["img/tol.png", "Graphs","cytoscape.html"], ["img/cut.png", "CF", "cuts.html"],
-["img/link.png", "Liaisons composées", "joint-composition.html"],["img/gears.png", "Transmission", "transmission.html"],["img/struct.png", "Structures", "structure.html"]];
+["img/link.png", "Liaisons composées", "joint-composition.html"],["img/gears.png", "Transmission", "transmission.html"],["img/struct.png", "Structures", "structure.html"],["img/fits.png", "Ajustements", "fits.html"]];
 
 function appendToSidebar(container) {
     if (window==window.top){ //do not show sidebar if embed in an Iframe
@@ -19,11 +19,9 @@ function toggleSidebar(){
     console.log(state)
     if (state.search("☰") != -1) {//closed
         openNav();
-        console.log("opening navbar")
     }
     else {
         closeNav();
-        console.log("closing navbar")
     }
 }
 
