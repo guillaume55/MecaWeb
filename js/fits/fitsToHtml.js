@@ -22,7 +22,7 @@ function fitsToTable(div,data){
     //loop --> all keys -->
 
     let dim = [1,3,6,10,18,30,50,80,120,180,250]
-    for(let i=0; i<20; i++) {
+    for(let i=0; i<10; i++) {
         tr = document.createElement("TR");
         let td1 = document.createElement("TD");
         let text1 = document.createTextNode(dim[i]+0.001+"\n"+dim[i+1]+"mm");
@@ -30,6 +30,7 @@ function fitsToTable(div,data){
         tr.appendChild(td1);
         for(k of Object.keys(data)){   
             let td = document.createElement("TD");
+            console.log(i)
             let text = document.createTextNode(data[k][i][0]+"\n"+data[k][i][1]);
             td.appendChild(text);
             tr.appendChild(td);
