@@ -291,3 +291,68 @@ function getFits(type){
     }
     return Object.keys(aj);
 }
+
+function computeClearance(){
+    //inputs
+    let sel_bore = document.getElementById("c_select_bore").value;
+    let sel_shaft = document.getElementById("c_select_shaft").value;
+    let diam = parseFloat(document.getElementById("c_diam").value);
+    
+    let index =0;
+    for(d of [3,6,10,18,30,50,80,120,180,250]){
+        if(diam>d) index += 1;
+    }
+    let bore = boreFit()[sel_bore][index];
+    let shaft = shaftFit()[sel_shaft][index];
+    console.log(bore, shaft)
+    //outputs
+    
+    let min_s = diam+shaft[0]*0.001
+    let max_s = diam+shaft[1]*0.001
+    let min_b = diam+bore[0]*0.001
+    let max_b = diam+bore[1]*0.001
+    
+    document.getElementById("c_bore_it").innerText = `${shaft[0]}µm, ${shaft[1]}µm`;
+    document.getElementById("c_shaft_it").innerText = `${bore[0]}µm, ${bore[1]}µm`;
+    document.getElementById("c_bore_int").innerText = `Min : ${min_b}, Max : ${max_b}`;
+    document.getElementById("c_shaft_int").innerText = `Min : ${min_s}, Max : ${max_s}`;
+    min = roundDec(min_b-max_s,3); //min clearance
+    max = roundDec(max_b-min_s,3); //max clearance
+
+    //at least an undefined value
+    if(!isNaN(shaft[0]) && !isNaN(shaft[1]) && !isNaN(bore[0]) && !isNaN(bore[1])){
+        res = `Min : ${min}µm, Max :${max}µm`
+        
+    }else{
+        res = "At least a non normalised IT, cannot compute"
+    }
+    document.getElementById("c_result").innerHTML = res;
+
+    
+}
+
+function computePivot(diam){
+    let e = parseFloat(document.getElementById("pivot_entraxe").value);
+    let l = parseFloat(document.getElementById("pivot_bearing_length").value);
+
+    //outputs
+    //if L/D > 1.5 --> usually a pivot, else if < 0.6, usualy a linéaire annulaire 
+    let ld = roundDec(l/d,2)
+    document.getElementById("pivot_ld").innerText = ld;
+    <tr><td>L/D : </td><td id="pivot_ld"></td></tr>
+
+    //alpha rot, angle de rotulage
+    let aRotMin = 
+    let aRotMax = 
+    let aRotAvg = 
+    
+    
+    /*
+    <tr><td>α rot (min)</td><td id="pivot_alphaMin"></td></tr>
+    <tr><td>α rot (max)</td><td id="pivot_alphaMax"></td></tr>
+    <tr><td>α rot (avg)</td><td id="pivot_alphaAvg"></td></tr>
+    <tr><td>L/D max LA </td><td id="pivot_ld_LA"></td></tr>
+    <tr><td>L/D min PG </td><td id="pivot_ld_PG"></td></tr>
+    <tr><td>Can be considered as</td><td id="pivot_type"></td>
+*/
+}
