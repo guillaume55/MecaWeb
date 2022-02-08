@@ -39,3 +39,19 @@ function fitsToTable(div,data){
     
 
 }
+
+function populateFitsSelect(selectId,data) {
+    let s= document.getElementById(selectId);
+    for(k of Object.keys(data)){   
+        var option = document.createElement("option");
+        option.text = k;
+        s.add(option);
+    }
+
+}
+
+function togglePivot(chkbox){
+    let checked = document.getElementById(chkbox).checked;
+    document.getElementById('pivot_div').style.display = checked ? "block" : "none";
+    
+}
