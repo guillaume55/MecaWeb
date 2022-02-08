@@ -307,52 +307,71 @@ function computeClearance(){
     console.log(bore, shaft)
     //outputs
     
-    let min_s = diam+shaft[0]*0.001
-    let max_s = diam+shaft[1]*0.001
-    let min_b = diam+bore[0]*0.001
-    let max_b = diam+bore[1]*0.001
+    let max_s = diam+shaft[0]*0.001
+    let min_s = diam+shaft[1]*0.001
+    let max_b = diam+bore[0]*0.001
+    let min_b = diam+bore[1]*0.001
     
-    document.getElementById("c_bore_it").innerText = `${shaft[0]}µm, ${shaft[1]}µm`;
-    document.getElementById("c_shaft_it").innerText = `${bore[0]}µm, ${bore[1]}µm`;
+    document.getElementById("c_shaft_it").innerText = `${shaft[0]}µm, ${shaft[1]}µm`;
+    document.getElementById("c_bore_it").innerText = `${bore[0]}µm, ${bore[1]}µm`;
     document.getElementById("c_bore_int").innerText = `Min : ${min_b}, Max : ${max_b}`;
     document.getElementById("c_shaft_int").innerText = `Min : ${min_s}, Max : ${max_s}`;
-    min = roundDec(min_b-max_s,3); //min clearance
-    max = roundDec(max_b-min_s,3); //max clearance
-
+    
+    //radial gap
+    let min = roundDec(min_b-max_s,3); //min clearance
+    let max = roundDec(max_b-min_s,3); //max clearance
+    let avg = roundDec((min+max)/2,3); //avg clearance
     //at least an undefined value
     if(!isNaN(shaft[0]) && !isNaN(shaft[1]) && !isNaN(bore[0]) && !isNaN(bore[1])){
-        res = `Min : ${min}µm, Max :${max}µm`
+        res = `Clearance in µm</br><table><tr><th>Min</th><th>Avg</th><th>Max</th></tr><tr><td>${min}</td><td>${avg}</td><td>${max}</td></tr></table>`
         
     }else{
         res = "At least a non normalised IT, cannot compute"
     }
     document.getElementById("c_result").innerHTML = res;
 
+    //if(document.getElementById("is_pivot").checked)
+        computePivot(diam,min_s,max_s,min_b,max_b)
     
 }
 
-function computePivot(diam){
+//formulas from CETIM excel sheet
+function computePivot(diam,min_s,max_s,min_b,max_b){
     let e = parseFloat(document.getElementById("pivot_entraxe").value);
     let l = parseFloat(document.getElementById("pivot_bearing_length").value);
 
     //outputs
     //if L/D > 1.5 --> usually a pivot, else if < 0.6, usualy a linéaire annulaire 
-    let ld = roundDec(l/d,2)
+    let ld = roundDec(l/diam,2)
     document.getElementById("pivot_ld").innerText = ld;
-    <tr><td>L/D : </td><td id="pivot_ld"></td></tr>
 
-    //alpha rot, angle de rotulage
-    let aRotMin = 
-    let aRotMax = 
-    let aRotAvg = 
-    
-    
-    /*
-    <tr><td>α rot (min)</td><td id="pivot_alphaMin"></td></tr>
-    <tr><td>α rot (max)</td><td id="pivot_alphaMax"></td></tr>
-    <tr><td>α rot (avg)</td><td id="pivot_alphaAvg"></td></tr>
-    <tr><td>L/D max LA </td><td id="pivot_ld_LA"></td></tr>
-    <tr><td>L/D min PG </td><td id="pivot_ld_PG"></td></tr>
-    <tr><td>Can be considered as</td><td id="pivot_type"></td>
-*/
+    //alpha rot, angle de rotulage in min of arc
+    console.log(min_b, "mb")
+    let radialPlayMin = min_b-max_s; //not sure 
+    let radialPlayMax = max_b-min_s;
+    let radialPlayAvg = roundDec((radialPlayMax+radialPlayMin)/2,3);
+    let aRotMin = roundDec(math.atan(radialPlayMin/(l*0.8))*180/math.pi*60,1);
+    let aRotMax = roundDec(math.atan(radialPlayMax/(l*0.8))*180/math.pi*60,1);
+    let aRotAvg = roundDec(math.atan(radialPlayAvg/(l*0.8))*180/math.pi*60,1);
+    document.getElementById("pivot_alphaMin").innerHTML = aRotMin;
+    document.getElementById("pivot_alphaMax").innerHTML = aRotMax;
+    document.getElementById("pivot_alphaAvg").innerHTML = aRotAvg;
+
+    //pivot or not 
+    let ld_LA = roundDec(radialPlayMin/(math.tan(20/60*math.pi/180)*diam)/0.8);
+    let ld_PG = roundDec(radialPlayMax/(math.tan(5/60*math.pi/180)*diam)/0.8);
+    let type = "Not defined"
+    if(aRotMax < 5.0001)
+        type = "Pivot glissant"
+    else if(aRotMin > 19.9999)
+        type = "Linéaire annulaire"
+    document.getElementById("pivot_ld_LA").innerText = ld_LA;
+    document.getElementById("pivot_ld_PG").innerText = ld_PG;
+    document.getElementById("pivot_type").innerText = type;
+
+    //max localisation TODO, not working properly
+    let AvgRadialSpaceCompensatedonOtherBearing = e*math.tan(radialPlayAvg/60*math.pi/180); //sorry for this one, hope your have a good IDE
+
+    let AvgCompensatedLocalisation = roundDec(2*AvgRadialSpaceCompensatedonOtherBearing,3);
+    //document.getElementById("pivot_maxLoc").innerHTML = AvgCompensatedLocalisation;
 }
