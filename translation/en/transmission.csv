@@ -14,3 +14,6 @@ Distance,Distance
 Initial speed,Initial speed
 Final speed,Final speed
 Accel,Accel
+Can't reach at time,Can't reach at time
+Time to reach max speed,Time to reach max speed
+Total time of the movement,Total time of the movement

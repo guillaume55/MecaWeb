@@ -79,8 +79,8 @@ function speedCurve(){
     
     let totalTime = roundDec( 2*ta + tf,5)
 
-    let table = `<table class='table'><tr><td>Distance to reach max speed (same unit as distance provided)</td><td>${roundDec(dist_accel,3)}</td></tr><tr><td>Time to reach max speed (s)</td><td>${dist_flat > 0 ? roundDec(ta,3) : "Can't reach at time"}</td></tr>`
-    table += `<tr><td>Total time of the movement (s)</td><td>${totalTime}</td></tr></table>`
+    let table = `<table class='table'><tr><td>${T['Distance to reach max speed (same unit as distance provided)']}</td><td>${roundDec(dist_accel,3)}</td></tr><tr><td>${T['Time to reach max speed']} (s)</td><td>${dist_flat > 0 ? roundDec(ta,3) : T["Can't reach at time"]}</td></tr>`
+    table += `<tr><td>${T['Total time of the movement']} (s)</td><td>${totalTime}</td></tr></table>`
     document.getElementById("curve_div").innerHTML = table;
 
     //plot curve

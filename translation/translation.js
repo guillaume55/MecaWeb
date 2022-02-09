@@ -1,5 +1,5 @@
 var reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
-
+let T = {} //all the translation
 function translate(){
     args = parseUrl()
     if(args['lang']==undefined){
@@ -75,10 +75,12 @@ function parseCsv() {
             L[item[0]] = item[1]
         }
         translateReplace(L)
+        T=L  //store translations in T
     }
 }
 
 function translateReplace(L){
+    
     html = document.body.innerHTML;
     for(k of Object.keys(L)) {
         html = html.replaceAll("{"+k+"}",L[k])
