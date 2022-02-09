@@ -173,7 +173,7 @@ function comp_sNode(container) {
     html += "</br><div class=\"error\" id=\"node_err\"></div>"
     let color = Math.floor(Math.random() * 0xFFFFFF).toString(16);
     if(color.length <6) { color += "6" } //sometimes only 5 digit are shown, maybe first 0
-    html += "</br><input id=\"node_color\" value=\"#"+color+"\" style=\"color:#"+color+";\" onchange=\"show_color_realtime('node_color')\" onkeyup = \"this.onchange();\"/>"
+    html += "</br><input id=\"node_color\" type='color' value=\"#"+color+"\" style=\"color:#"+color+";\" onchange=\"show_color_realtime('node_color')\" onkeyup = \"this.onchange();\"/>"
     html += "</br></br><input type=\"button\" value=\"Valider\" onclick=\"comp_aNode()\" />"
     html += "</form>"
 
