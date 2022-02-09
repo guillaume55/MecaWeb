@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <title>Title</title>
+    <title>Fits</title>
       <meta charset="UTF-8">
       <link rel="stylesheet" href="css/sidebar.css">
       <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -16,7 +16,7 @@
     <script src='js/fits/fitsToHtml.js'></script>
     <script src='js/graph/ui.js'></script>
     <script src='js/simple_math_tools.js'></script>
-
+    <script src='translation/translation.js'></script>
 
     <!-- Help message & github-->
     <iframe id="help" src="htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/fits.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
@@ -29,8 +29,8 @@
 
     <div id="main">
         <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'tab_table')">Tableaux</button>
-            <button class="tablinks" onclick="openTab(event, 'tab_calc')">Calculateur</button>
+            <button class="tablinks" onclick="openTab(event, 'tab_table')">{Table}</button>
+            <button class="tablinks" onclick="openTab(event, 'tab_calc')">{Calculator}</button>
             </div>
         <div id="tab_table" class="tabcontent">
             <h3>Arbres</h3>
@@ -45,28 +45,28 @@
         </div>
         <div id="tab_calc" class="tabcontent">
             <div class="item section">
-                <div class="section-title">Clearance(Not working yet)</div>
-                <label>Alésage</label></br>
+                <div class="section-title">{Clearance}</div>
+                <label>{Bore}</label></br>
                 <select id="c_select_bore" onchange="computeClearance()"></select>
                 <label id="c_bore_it"></label></br>
                 <label id="c_bore_int"></label>
                 </br></br>
-                <label>Arbre</label></br>
+                <label>{Shaft}</label></br>
                 <select id="c_select_shaft"onchange="computeClearance()"></select>
                 <label id="c_shaft_it"></label></br>
                 <label id="c_shaft_int"></label></br></br>
-                <label>Diamètre</label>
+                <label>{Diameter}</label>
                 <input id="c_diam" type="number" value="20" class="small-input" onchange="computeClearance()"/>mm</br>
                 
                 <label id ="c_result" ></label></br>
 
                 <!--pivot-->
                 <input type="checkbox" id="is_pivot" onchange="togglePivot('is_pivot')"/>
-                <label>Pivot par deux bagues</label></br> 
+                <label>{Pivot by two bearings}</label></br> 
                 <div id ="pivot_div" class="hidden">
-                    <label>Entraxe entre les bagues</label></br>
+                    <label>{Distance between the bearings}</label></br>
                     <input id="pivot_entraxe" type ="number" value="20" class="small-input"/>mm</br>
-                    <label>Bearing length</label></br>
+                    <label>{Bearing length}</label></br>
                     <input id="pivot_bearing_length" type ="number" value="20" class="small-input"/>mm</br></br>
 
                     <!--Results-->
@@ -75,16 +75,17 @@
                         <tr><td>α rot (min)</td><td id="pivot_alphaMin"></td></tr>
                         <tr><td>α rot (max)</td><td id="pivot_alphaMax"></td></tr>
                         <tr><td>α rot (avg)</td><td id="pivot_alphaAvg"></td></tr>
-                        <tr><td>L/D max to have LA </td><td id="pivot_ld_LA"></td></tr>
-                        <tr><td>L/D min to have PG </td><td id="pivot_ld_PG"></td></tr>
-                        <tr><td>Can be considered as</td><td id="pivot_type"></td></tr>
-                        <tr><td>Max recommended localisation ⌖</td><td id="pivot_maxLoc"></td></tr>
+                        <tr><td>{L/D max to have LA} </td><td id="pivot_ld_LA"></td></tr>
+                        <tr><td>{L/D min to have PG} </td><td id="pivot_ld_PG"></td></tr>
+                        <tr><td>{Can be considered as}</td><td id="pivot_type"></td></tr>
+                        <tr><td>{Max recommended localisation} ⌖</td><td id="pivot_maxLoc"></td></tr>
                     </table>
                 </div>
             </div>
             <script>
                 populateFitsSelect("c_select_shaft",shaftFit())
                 populateFitsSelect("c_select_bore",boreFit())
+                translate()
             </script>
         </div>
 
