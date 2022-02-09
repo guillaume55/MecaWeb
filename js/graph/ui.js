@@ -9,7 +9,8 @@ function openTab(evt, tabName) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
   document.getElementById(tabName).style.display = "block";
-  evt.currentTarget.className += " active";
+  if(evt != undefined)
+    evt.currentTarget.className += " active";
 }
 
 function show_color_realtime(id) {
@@ -21,12 +22,4 @@ function show_color_realtime(id) {
         console.log("updatecolor", color)
         element.style.color = color;
     }
-    /*if(color.length >6) {
-        color = element.value.slice(0, 6)
-        element.value = color
-        element.style.color = color;
-    }*/
-
-
-
 }
