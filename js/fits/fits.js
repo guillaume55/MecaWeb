@@ -323,10 +323,10 @@ function computeClearance(){
     let avg = roundDec((min+max)/2,3); //avg clearance
     //at least an undefined value
     if(!isNaN(shaft[0]) && !isNaN(shaft[1]) && !isNaN(bore[0]) && !isNaN(bore[1])){
-        res = `Clearance in µm</br><table><tr><th>Min</th><th>Avg</th><th>Max</th></tr><tr><td>${min}</td><td>${avg}</td><td>${max}</td></tr></table>`
+        res = `${T['Clearance in']} µm</br><table><tr><th>Min</th><th>Avg</th><th>Max</th></tr><tr><td>${min}</td><td>${avg}</td><td>${max}</td></tr></table>`
         
     }else{
-        res = "At least a non normalised IT, cannot compute"
+        res = T["At least a non normalised IT: cannot compute"]
     }
     document.getElementById("c_result").innerHTML = res;
 
@@ -360,11 +360,11 @@ function computePivot(diam,min_s,max_s,min_b,max_b){
     //pivot or not 
     let ld_LA = roundDec(radialPlayMin/(math.tan(20/60*math.pi/180)*diam)/0.8);
     let ld_PG = roundDec(radialPlayMax/(math.tan(5/60*math.pi/180)*diam)/0.8);
-    let type = "Not defined"
+    let type = T["Not defined"]
     if(aRotMax < 5.0001)
-        type = "Pivot glissant"
+        type = T["Sliding pivot"]
     else if(aRotMin > 19.9999)
-        type = "Linéaire annulaire"
+        type = T["Linéaire annulaire"]
     document.getElementById("pivot_ld_LA").innerText = ld_LA;
     document.getElementById("pivot_ld_PG").innerText = ld_PG;
     document.getElementById("pivot_type").innerText = type;
