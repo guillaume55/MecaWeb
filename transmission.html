@@ -31,19 +31,19 @@
 
     <div id="main">
         <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'screw')">{Screw}</button>
-            <button class="tablinks" onclick="openTab(event, 'pulley')">{Pulley}</button>
+            <button class="tablinks" onclick="openTab(event, 'screw')">{Screw/nut}</button>
+            <button class="tablinks" onclick="openTab(event, 'pulley')">{Pulley/belt}</button>
             <button class="tablinks" onclick="openTab(event, 'stepper')">{Stepper motor}</button>
             <button class="tablinks" onclick="openTab(event, 'accel')">{Accel curves}</button>
             </div>
         <div id="screw" class="tabcontent">
             <div class="item section">
-                <div class="section-title">L['Torque and Force</div>
+                <div class="section-title">{Torque and Force}</div>
                 <label>{Screw pitch} (mm)</label></br>
                 <input id="screw-pitch" type="number" class="small-input" value="4"/></br>
                 <label>{Efficiency}</label></br>
                 <input id="screw-efficiency" type="number" value="0.9" class="small-input"/></br>
-                <label>{Torque} (N.m) or {Force} (N)</label></br>
+                <label>{Torque} (N.m) {or Force} (N)</label></br>
                 <input id="screw-torque" type="number" class="small-input" placeholder="Torque (N.m)" onchange="computeForce()"/>
                 <label>N.m</label></br>
                 <input id="screw-force" type="number" class="small-input" placeholder="Force (N)" onchange="computeTorque()"/>
@@ -51,16 +51,16 @@
             </div>
             </br></br>
             <div class="item section">
-                <div class="section-title">Speed</div>
-                <label>Screw pitch (mm)</label></br>
+                <div class="section-title">{Speed}</div>
+                <label>{Screw pitch} (mm)</label></br>
                 <input id="screw-pitch-speed" type="number" class="small-input" value="4"/></br>
-                <label>Speed (Rotative)</label></br>
+                <label>{Speed} ({Rotative})</label></br>
                 <input id="screw-rpm" type="number" class="small-input" onchange="computeSpeed('rpm')" value="0"/>
                 <label>rpm</label></br>
                 <!--<input type="button" onclick="computeSpeed()"/>-->
                 <input id="screw-rads" type="number" class="small-input" onchange="computeSpeed('rads')" value="0"/>
                 <label>rad/s</label></br>
-                <label>Speed (Linear)</label></br>
+                <label>{Speed} ({Linear})</label></br>
                 <input id="screw-mmmin" type="number" class="small-input" onchange="computeSpeed('mmmin')" value="0"/>
                 <label> mm/min</label></br>
                 <input id="screw-mms" type="number" class="small-input" onchange="computeSpeed('mms')" value="0"/>
@@ -72,13 +72,13 @@
         <div id="accel" class="tabcontent">
             <div class="item section">
                 <div class="section-title">Accel curve</div></br>
-                <label>𝛿Distance (mm)</label></br>
+                <label>𝛿{Distance} (mm)</label></br>
                 <input id="curve_dist" type="number" class="small-input" value="50" onchange="speedCurve()"/></br></br>
-                <label>Initial speed (mm/s)</label></br>
+                <label>{Initial speed} (mm/s)</label></br>
                 <input id="curve_speedInit" type="number" class="small-input" onchange="speedCurve()" value="0"/></br></br>
-                <label>Final speed (mm/s)</label></br>
+                <label>{Final speed} (mm/s)</label></br>
                 <input id="curve_speedFinal" type="number" class="small-input" onchange="speedCurve()" value="50"/></br></br>
-                <label>Accel (mm/s²)</label></br>
+                <label>{Accel} (mm/s²)</label></br>
                 <input id="curve_accel" type="number" class="small-input" onchange="speedCurve()" value="50"/></br></br>
                 
                 <!--Output-->
@@ -89,9 +89,7 @@
     </div>
     <script>openTab(undefined, 'screw')</script>
     <script>
-        getLang("https://guillaume55.github.io/MecaWeb/translation/fr/transmission.csv")
-        translate("fr")
-    
+        translate()  
     </script>
 
     

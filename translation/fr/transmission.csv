@@ -1,5 +1,5 @@
 Screw/nut,Transmission par vis
-Pulley/belt,Poulies/courroie,
+Pulley/belt,Poulies/courroie
 Stepper motor,Moteurs pas à pas
 Accel curves,Courbes d'accelération
 Torque and Force,Torque and Force
@@ -13,4 +13,4 @@ Linear,Linéaire
 Distance,Distance
 Initial speed,Vitesse initiale
 Final speed,Vitesse finale
-Accel, Accelération
+Accel,Accelération
