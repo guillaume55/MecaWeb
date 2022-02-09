@@ -31,19 +31,19 @@
 
     <div id="main">
         <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'screw')">Screw</button>
-            <button class="tablinks" onclick="openTab(event, 'pulley')">Pulley</button>
-            <button class="tablinks" onclick="openTab(event, 'stepper')">Stepper motor</button>
-            <button class="tablinks" onclick="openTab(event, 'accel')">Accel curves</button>
+            <button class="tablinks" onclick="openTab(event, 'screw')">{Screw}</button>
+            <button class="tablinks" onclick="openTab(event, 'pulley')">{Pulley}</button>
+            <button class="tablinks" onclick="openTab(event, 'stepper')">{Stepper motor}</button>
+            <button class="tablinks" onclick="openTab(event, 'accel')">{Accel curves}</button>
             </div>
         <div id="screw" class="tabcontent">
             <div class="item section">
-                <div class="section-title">Torque and Force</div>
-                <label>Screw pitch (mm)</label></br>
+                <div class="section-title">L['Torque and Force</div>
+                <label>{Screw pitch} (mm)</label></br>
                 <input id="screw-pitch" type="number" class="small-input" value="4"/></br>
-                <label>Efficiency</label></br>
+                <label>{Efficiency}</label></br>
                 <input id="screw-efficiency" type="number" value="0.9" class="small-input"/></br>
-                <label>Torque (N.m) or Force (N)</label></br>
+                <label>{Torque} (N.m) or {Force} (N)</label></br>
                 <input id="screw-torque" type="number" class="small-input" placeholder="Torque (N.m)" onchange="computeForce()"/>
                 <label>N.m</label></br>
                 <input id="screw-force" type="number" class="small-input" placeholder="Force (N)" onchange="computeTorque()"/>
@@ -87,8 +87,12 @@
             </div>
         </div>
     </div>
-    <script>openTab(event, 'screw')</script>
-
+    <script>openTab(undefined, 'screw')</script>
+    <script>
+        getLang("https://guillaume55.github.io/MecaWeb/translation/fr/transmission.csv")
+        translate("fr")
+    
+    </script>
 
     
   </body>

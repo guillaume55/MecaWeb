@@ -1,5 +1,5 @@
 var reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
-let lang = {}
+let L = {}
 
 function getLang(url){
     
@@ -25,8 +25,15 @@ function displayContents() {
         let lines = text.split(/\r\n|\n/);
         for(l of lines){
             var item = l.split(",")
-            lang[item[0]] = item[1]
+            L[item[0]] = item[1]
         }
-        console.log(lang)
     }
+}
+
+function translate(language){
+    html = document.getElementsByTagName("BODY")[0].innerHTML;
+    for(k of Object.keys(L)) {
+        html.replaceAll(k,L[k])
+    }
+
 }
