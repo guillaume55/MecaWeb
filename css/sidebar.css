@@ -34,14 +34,16 @@
     margin-left: 9%;
 }
 
-.sidebar-item {
+.sidebar-item a, .sidebar-item{
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     
 }
 .sidebar-text {
     display: none;
-    
+    font-size: small;
+    width: 60%;
 }
 .sidebar a {
     text-decoration: none;

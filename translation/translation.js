@@ -1,7 +1,8 @@
 var reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
 
 function translate(){
-    var lang = document.cookie['lang']
+    var lang = getLangCookie()
+    console.log("translating to ", lang)
     if(lang == undefined) {
         lang = (navigator.language || navigator.userLanguage).split("-")[0];
     }
@@ -22,6 +23,21 @@ function translate(){
         reader.onreadystatechange = parseCsv;
         reader.send(null);
     }
+}
+
+
+function getLangCookie(){
+    c = getCookiesAsJson()
+    console.log(document.cookie)
+    return c['lang']
+
+}
+//from https://gist.github.com/rendro/525bbbf85e84fa9042c2
+function getCookiesAsJson(){
+    Object.fromEntries(document.cookie.split('; ').map(c => {
+        const [ key, ...v ] = c.split('=');
+        return [ key, v.join('=') ];
+    }));
 }
 
 function parseCsv() {

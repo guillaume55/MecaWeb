@@ -7,6 +7,7 @@ function appendToSidebar(container) {
         for(let i=0; i<sidebar_items.length; i++){
             html += `<div class="sidebar-item"><a href="${sidebar_items[i][2]}"><img class="sidebar-logo" src="${sidebar_items[i][0]}"/><div class="sidebar-text">${sidebar_items[i][1]}</div></a></div>`
         }
+        html += add_lang()
         document.getElementById(container).innerHTML = html;
     }
     else{ //hide sidebar
@@ -14,9 +15,24 @@ function appendToSidebar(container) {
     }
 }
 
+function add_lang(){
+    let available_languages = [["Français","fr"], ["English","en"]]
+    let select = "<select onchange='changeLang(this.value)'>"
+    for(o of available_languages){
+        select += `<option value=${o[1]}>${o[0]}</option>`
+    }
+    select += "</select>"
+    var html = `<div class="sidebar-item"><img class="sidebar-logo" src="img/lang.png"/><div class="sidebar-text">${select}</div></div>`
+    return html
+}
+
+function changeLang(value){
+    document.cookie = "lang="+value;
+    translate("en");
+}
+
 function toggleSidebar(){
     let state = document.getElementById("sidebar-btn").innerHTML;
-    console.log(state)
     if (state.search("☰") != -1) {//closed
         openNav();
     }
