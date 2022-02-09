@@ -6,10 +6,12 @@
       <link rel="stylesheet" href="css/sidebar.css">
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <link rel="stylesheet" type="text/css" href="css/cuts.css">
+      <link rel="stylesheet" type="text/css" href="css/table.css">
 
   </head>
   <body>
     <script src='js/lib/math.js'></script>
+    <script src='js/lib/Chart.js'></script>
     <script src='js/sidebar.js'></script>
     <script src='js/graph/ui.js'></script>
     <script src='js/simple_math_tools.js'></script>
@@ -30,6 +32,7 @@
             <button class="tablinks" onclick="openTab(event, 'screw')">Screw</button>
             <button class="tablinks" onclick="openTab(event, 'pulley')">Pulley</button>
             <button class="tablinks" onclick="openTab(event, 'stepper')">Stepper motor</button>
+            <button class="tablinks" onclick="openTab(event, 'accel')">Accel curves</button>
             </div>
         <div id="screw" class="tabcontent">
             <div class="item section">
@@ -64,6 +67,23 @@
         </div>
         <div id="pulley" class="tabcontent"></div>
         <div id="stepper" class="tabcontent"></div>
+        <div id="accel" class="tabcontent">
+            <div class="item section">
+                <div class="section-title">Accel curve</div></br>
+                <label>𝛿Distance (mm)</label></br>
+                <input id="curve_dist" type="number" class="small-input" value="50" onchange="speedCurve()"/></br></br>
+                <label>Initial speed (mm/s)</label></br>
+                <input id="curve_speedInit" type="number" class="small-input" onchange="speedCurve()" value="0"/></br></br>
+                <label>Final speed (mm/s)</label></br>
+                <input id="curve_speedFinal" type="number" class="small-input" onchange="speedCurve()" value="50"/></br></br>
+                <label>Accel (mm/s²)</label></br>
+                <input id="curve_accel" type="number" class="small-input" onchange="speedCurve()" value="50"/></br></br>
+                
+                <!--Output-->
+                <div id="curve_div"></div>
+                <canvas id="curve_chart" style="width:100%;max-width:700px"></canvas>
+            </div>
+        </div>
     </div>
     <script>openTab(event, 'screw')</script>
 

@@ -62,3 +62,54 @@ function getInput(id) {
     return inp;
 }
 
+function speedCurve(){
+    let vi = parseFloat(document.getElementById('curve_speedInit').value);
+    let vf = parseFloat(document.getElementById('curve_speedFinal').value);
+    let a = parseFloat(document.getElementById('curve_accel').value);
+    let d = parseFloat(document.getElementById('curve_dist').value);
+    console.log(vi,vf,a,d)
+
+    //time to do the movement
+    let ta = (vf - vi) / a //time spent on accel
+    let dist_accel = vi * ta + 0.5 * a * ta * ta
+    let dist_flat = d - dist_accel * 2
+    let tf = dist_flat / vf //length (s) of the flat part
+    if(dist_flat <= 0) //can't reach max speed at time
+        tf = 0
+    
+    let totalTime = roundDec( 2*ta + tf,5)
+
+    let table = `<table class='table'><tr><td>Distance to reach max speed (same unit as distance provided)</td><td>${roundDec(dist_accel,3)}</td></tr><tr><td>Time to reach max speed (s)</td><td>${dist_flat > 0 ? roundDec(ta,3) : "Can't reach at time"}</td></tr>`
+    table += `<tr><td>Total time of the movement (s)</td><td>${totalTime}</td></tr></table>`
+    document.getElementById("curve_div").innerHTML = table;
+
+    //plot curve
+    let x = [0,roundDec(ta,3),roundDec(ta+tf,3),roundDec(totalTime,3)]
+    let data = [{x:x[0],y:vi},{x:x[1],y:vf},{x:x[2],y:vf},{x:x[3],y:vi}]
+    let color = "rgba(0,0,200,0.5)";
+    if(dist_flat < 0){ //can't reach max speed at time
+        tf = 0
+        x = [0,roundDec(ta,3),roundDec(totalTime,3)]
+        data = [{x:x[0],y:vi},{x:x[1],y:vf},{x:x[3],y:vi}]
+        color = "rgba(200,0,0,0.8)";
+    }
+    
+    var myChart = new Chart("curve_chart", {
+        type: "line",
+        data: {
+            
+            labels: x,
+            datasets: [{
+                label: 'Speed',
+                fill: false,
+                pointRadius: 1,
+                borderColor: color,
+                data: data,
+                lineTension: 0, 
+            }]
+        },
+        options:{
+           
+        }
+      });
+}
