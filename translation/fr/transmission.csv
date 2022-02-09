@@ -17,3 +17,4 @@ Accel,Accelération
 Can't reach at time,N'atteint jamais la vitesse maximale
 Time to reach max speed,Temps pour atteindre la vitesse maximale
 Total time of the movement,Durée du mouvement
+Distance to reach max speed (same unit as distance provided),Distance pour atteindre la vitesse maximale (même unité que la distance entrée)

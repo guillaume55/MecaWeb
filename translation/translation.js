@@ -76,6 +76,7 @@ function parseCsv() {
         }
         translateReplace(L)
         T=L  //store translations in T
+        console.log(T)
     }
 }
 
