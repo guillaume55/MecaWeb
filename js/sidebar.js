@@ -16,8 +16,8 @@ function appendToSidebar(container) {
 }
 
 function add_lang(){
-    let available_languages = [["Français","fr"], ["English","en"]]
-    let select = "<select onchange='changeLang(this.value)'>"
+    let available_languages = [["",""],["Français","fr"], ["English","en"]]
+    let select = "<select onchange='translateRefresh(this.value)'>"
     for(o of available_languages){
         select += `<option value=${o[1]}>${o[0]}</option>`
     }

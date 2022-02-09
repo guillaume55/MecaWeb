@@ -30,7 +30,6 @@ function fitsToTable(div,data){
         tr.appendChild(td1);
         for(k of Object.keys(data)){   
             let td = document.createElement("TD");
-            console.log(i)
             let text = document.createTextNode(data[k][i][0]+"\n"+data[k][i][1]);
             td.appendChild(text);
             tr.appendChild(td);

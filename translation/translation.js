@@ -1,11 +1,14 @@
 var reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
 
 function translate(){
-    var lang = getLangCookie()
-    console.log("translating to ", lang)
-    if(lang == undefined) {
-        lang = (navigator.language || navigator.userLanguage).split("-")[0];
-    }
+    args = parseUrl()
+    if(args['lang']==undefined){
+        try{var lang = getLangCookie()}
+        catch{console.log("Chrome does not store local cookies")}
+        console.log("translating to ", lang)
+        if(lang == undefined) 
+            lang = (navigator.language || navigator.userLanguage).split("-")[0];
+    }else{lang=args['lang']}
     //get name of the windows
     var currenturl = window.location.pathname.split("/")
     var htmlfile = currenturl[currenturl.length-1].split(".")[0]
@@ -25,6 +28,9 @@ function translate(){
     }
 }
 
+function translateRefresh(language){
+    window.location.href = window.location.pathname+"?lang="+language
+}
 
 function getLangCookie(){
     c = getCookiesAsJson()
@@ -38,6 +44,25 @@ function getCookiesAsJson(){
         const [ key, ...v ] = c.split('=');
         return [ key, v.join('=') ];
     }));
+}
+
+function parseUrl(){
+    args = {}
+    if(document.location.toString().indexOf('?') !== -1) {
+        var query = document.location
+                       .toString()
+                       // get the query string
+                       .replace(/^.*?\?/, '')
+                       // and remove any existing hash string (thanks, @vrijdenker)
+                       .replace(/#.*$/, '')
+                       .split('&');
+    
+        for(var i=0, l=query.length; i<l; i++) {
+           var aux = decodeURIComponent(query[i]).split('=');
+           args[aux[0]] = aux[1];
+        }
+    }
+    return args
 }
 
 function parseCsv() {
@@ -54,7 +79,6 @@ function parseCsv() {
 }
 
 function translateReplace(L){
-    
     html = document.body.innerHTML;
     for(k of Object.keys(L)) {
         html = html.replaceAll("{"+k+"}",L[k])
