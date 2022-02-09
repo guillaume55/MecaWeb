@@ -1,4 +1,4 @@
-let sidebar_items = [["img/graph.png", "Graphs","joint-graph.html"],["img/tol.png", "Graphs","cytoscape.html"], ["img/cut.png", "CF", "cuts.html"],
+let sidebar_items = [["img/graph.png", "Graphs","joint-graph.html"],["img/tol.png", "Tolerancing","tolerancing.html"], ["img/cut.png", "CF", "cuts.html"],
 ["img/link.png", "Liaisons composées", "joint-composition.html"],["img/gears.png", "Transmission", "transmission.html"],["img/struct.png", "Structures", "structure.html"],["img/fits.png", "Ajustements", "fits.html"]];
 
 function appendToSidebar(container) {

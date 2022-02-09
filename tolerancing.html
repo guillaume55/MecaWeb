@@ -5,7 +5,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Tutorial 1: Getting Started</title>
+    <title>Tolerancing</title>
     <!--from the web-->
     <script src='js/lib/cytoscape.min.js'></script>
     <script src='js/lib/math.js'></script>
@@ -20,22 +20,37 @@
     <script src='js/graph/mech.js'></script>
     <script src='js/graph/mechmath.js'></script>
     <script src='js/graph/ui.js'></script>
+    <script src='translation/translation.js'></script>
     <link rel="stylesheet" type="text/css" href="css/cytoscape.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta charset="UTF-8">
 </head>
 
 <body>
-    <div id="cy"></div>
-    <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'anode')">Sous-ensembles</button>
-        <button class="tablinks" onclick="openTab(event, 'alink')">Liaisons</button>
-        <button class="tablinks" onclick="openTab(event, 'acf')">Conditions fonctionnelles</button>
-        <button class="tablinks" onclick="openTab(event, 'amob')">Mobilités pilotées</button>
+    <!-- TOPBAR -->
+    <iframe id="help" src="htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/cuts.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
+
+    <!-- SIDEBAR -->
+    <div id="mySidebar" class="sidebar">
+        <div id="sidebar-btn" onclick="toggleSidebar()">☰</div>
+        <div id="sidebar-content"></div>
+        <script>appendToSidebar("sidebar-content");</script>
     </div>
-    <div id="alink" class="tabcontent"></div>
-    <div id="anode" class="tabcontent"></div>
-    <div id="acf" class="tabcontent">cf</div>
+
+    <div id="main">
+        <div id="cy"></div>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'anode')">{Sub-assemblies}</button>
+            <button class="tablinks" onclick="openTab(event, 'alink')">{Links}</button>
+            <button class="tablinks" onclick="openTab(event, 'acf')">{Functionnal conditions}</button>
+            <button class="tablinks" onclick="openTab(event, 'amob')">{Commanded inputs}</button>
+        </div>
+        <div id="alink" class="tabcontent"></div>
+        <div id="anode" class="tabcontent"></div>
+        <div id="acf" class="tabcontent">cf</div>
+        <div id="amob" class="tabcontent">mobs</div>
+    </div>
+
     <script>
         var graph = []
         let cycles = []
@@ -49,5 +64,6 @@
         write_eq_V3(/*edge*/)
         //solve_oneI("v_J2_LA+(60*I_alpha_J2_LA)-(60*gamma_J2_LA)")
     </script>
+    <script>translate()</script>
 </body>
 </html>
