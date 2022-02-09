@@ -23,6 +23,7 @@
     <script src='translation/translation.js'></script>
     <link rel="stylesheet" type="text/css" href="css/cytoscape.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css">
     <meta charset="UTF-8">
 </head>
 
@@ -34,7 +35,7 @@
     <div id="mySidebar" class="sidebar">
         <div id="sidebar-btn" onclick="toggleSidebar()">☰</div>
         <div id="sidebar-content"></div>
-        <script>appendToSidebar("sidebar-content");</script>
+        <script>//appendToSidebar("sidebar-content");</script>
     </div>
 
     <div id="main">
@@ -52,6 +53,8 @@
     </div>
 
     <script>
+        
+        
         var graph = []
         let cycles = []
         var cy = cy_create(document.getElementById('cy'))
@@ -61,9 +64,9 @@
         //console.log([5,0,10],[10,0,0], ["a","b","c"], ["u","v","w"]))
         //console.log(mechmath_babar([20,30,10],[10,20,0], ["a","b","c"], ["u","v","w"]))
         //findCycles()
-        write_eq_V3(/*edge*/)
+        //write_eq_V3(/*edge*/)
         //solve_oneI("v_J2_LA+(60*I_alpha_J2_LA)-(60*gamma_J2_LA)")
-    </script>
-    <script>translate()</script>
+        </script>
+    
 </body>
 </html>
