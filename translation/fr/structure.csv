@@ -1,4 +1,5 @@
-ArcB,
+ArcB,Arc-Boutement
+Buckling,Flambage
 Units can be mm or m or whatever. D and L should have the same unit,Les unités n'importent pas tant qu'elles sont identiques
 Friction coefficient,Coefficient de friction
 Length of the bearing,Longueur du guidage

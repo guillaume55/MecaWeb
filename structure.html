@@ -40,7 +40,7 @@
                         <div>
                             <label>{Units can be mm or m or whatever. D and L should have the same unit}</label></br></br>
                             <label>{Friction coefficient} f</label></br>
-                            <select id="arcB_selectCoef" onchange="selectArcB(this.value)"></select></br>
+                            <select id="arcB_selectCoef" onchange="selectArcB(this.value);computeArcB()"></select></br>
                             
                             <input id="arcB_coef" type="number" value="0.1" min="0" onchange="computeArcB()"/></br></br>
                             <label>{Length of the bearing} L</label></br>
