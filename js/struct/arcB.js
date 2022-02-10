@@ -24,7 +24,7 @@ function getFriction(){
                          "steel-bronze-dry":0.19,"steel-steel-lub":0.11,
                          "steel-bronze-dry":0.19,"steel-bronze-lub":0.11,
                          "steel-graphite-dry":0.20,
-                         "steel-polyethylene-dry":0.30,"steel-PTFE-dry":0.4,
+                         "steel-polyethylene-dry":0.30,"steel-PTFE-dry":0.04,
                          "steel-polyurethane-dry":0.50,"steel-polyurethane-lub":0.20}
     return coef_friction
 }
