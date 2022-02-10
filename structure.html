@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>{Structure}</title>
       <meta charset="UTF-8">
       <link rel="stylesheet" href="css/sidebar.css">
       <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -84,35 +84,35 @@
                 </div>
                 <div id="buckling_beamHeight_div">
                     <label>{Beam height}</label>
-                    <input type="number" id="buckling_beamHeight" value="50" min="0" onchange="computeInertia()"/>mm</br>
+                    <input type="number" id="buckling_beamHeight" value="40" min="0" onchange="computeInertia()"/>mm</br>
                 </div>
                 <div id="buckling_beamWidth_div">
                     <label>{Beam width}</label>
-                    <input type="number" id="buckling_beamWidth" value="50" min="0" onchange="computeInertia()"/>mm</br>
+                    <input type="number" id="buckling_beamWidth" value="20" min="0" onchange="computeInertia()"/>mm</br>
                 </div>
                 <div id="buckling_beamDiam_div">
                     <label>{Beam diam}</label>
-                    <input type="number" id="buckling_beamDiam" value="50" min="0" onchange="computeInertia()"/>mm</br>
+                    <input type="number" id="buckling_beamDiam" value="20" min="0" onchange="computeInertia()"/>mm</br>
                 </div>
                 <div id="buckling_beamThick_div">
                     <label>{Beam thickness}</label>
-                    <input type="number" id="buckling_beamThick" value="50" min="0" onchange="computeInertia()"/>mm</br>
+                    <input type="number" id="buckling_beamThick" value="2" min="0" onchange="computeInertia()"/>mm</br>
                 </div>
                 <label id="buckling_resInertia"></label><label>mm^4</label>
 
-            </div>
+            
                 
                 <div class="item section">
                     <div class="section-title">{Characteristics}</div>
                     <label>{Beam length}</label></br>
-                    <input id="buckling_length" type="number" value="50" min="0" onchange="computeArcB()"/>mm</br>
+                    <input id="buckling_length" type="number" value="500" min="0" onchange="computeArcB()"/>mm</br>
                     <label>{Material}</label></br>
                     <label>{Wikipedia says: Do not choose a steel with a high elastic limit the reduce buckling}</label></br>
                     <select id="buckling_material" onchange="selectYoung(this.value)"></select></br>
                     <label>{Young's Modulus}</label></br>
-                    <input id="buckling_young" type="number" value="50" min="0" onchange="computeArcB()"/>GPa</br>
+                    <input id="buckling_young" type="number" value="210" min="0" onchange="computeArcB()"/>GPa</br>
                     <label>{Load}</label></br>
-                    <input id="buckling_force" type="number" value="50" min="0" onchange="computeArcB()"/>kiloNewtons</br>
+                    <input id="buckling_force" type="number" value="5000" min="0" onchange="computeArcB()"/>kiloNewtons</br>
                 </div>
                 <div class="item section">
                     <div class="section-title">{Mounting}</div>
@@ -136,7 +136,7 @@
                             <label>Coef 1</label>
                         </div>
                         <div class="radio-button" onclick="document.getElementById('buckling_mounting4').click()">
-                            <label>{Pinned} - {Pinned}</label>
+                            <label>{Fixed} - {Fixed}</label>
                             <img src="img/flambage_fixedFixed.png"/>
                             <input type="radio" id="buckling_mounting4" name="bucklingMoutingType" value="0.5">
                             <label>Coef 0.5</label>

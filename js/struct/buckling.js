@@ -6,15 +6,14 @@ function computeBuckling(){
     let width = parseFloat(document.getElementById("buckling_beamWidth").value);
     let height = parseFloat(document.getElementById("buckling_beamHeight").value);
     let diam = parseFloat(document.getElementById("buckling_beamDiam").value);
-
-    let mounting = getRadio('buckling_mounting')
-
+    
+    let mounting = parseFloat(getRadio('bucklingMoutingType'))
     let inertia = computeInertia()
 
     //units !!! in newton
-    let eulerCriticalLoad = (Math.PI^2 * young*1000 * inertia)/len^2
-
-    document.getElementById('buckling_eulerCritical').innerHTML = eulerCriticalLoad
+    let eulerCriticalLoad = (Math.PI*Math.PI * young*1000 * inertia)/(Math.pow(len*mounting,2))
+    console.log(young, inertia,len,mounting)
+    document.getElementById('buckling_eulerCritical').innerHTML = roundDec(eulerCriticalLoad,2)
 }
 
 function selectYoung(val){
@@ -78,24 +77,26 @@ function computeInertia(){
     let diam = parseFloat(document.getElementById("buckling_beamDiam").value);
 
     let beamType = getRadio("bucklingSection")
-    console.log(beamType)
+    console.log(beamType, thickness,width,height,diam)
+
+
     let inertia = 0
 
     if(beamType == "circ") {
-        inertia = (Math.PI*diam^4)/64
+        inertia = (Math.PI*Math.pow(diam,4))/64
     }
-    if(beamType == "circ_pipe") {
-        inertia = (Math.PI*diam^4)/64 - (Math.PI*(diam-thickness*2)^4)/64
+    else if(beamType == "circ_pipe") {
+        inertia = (Math.PI*Math.pow(diam,4))/64 - (Math.PI*Math.pow((diam-thickness*2),4))/64
     }
-    if(beamType == "rect") {
-        inertia = (width*height^3)/12
+    else if(beamType == "rect") {
+        inertia = (width*Math.pow(height,3))/12
     }
-    if(beamType == "rect_pipe") {
-        inertia = (width*height^3)/12-inertia - ((width-thickness*2)*(height-thickness*2)^3)/12
+    else if(beamType == "rect_pipe") {
+        inertia = (width*Math.pow(height,3))/12-inertia - ((width-thickness*2)*Math.pow((height-thickness*2),3))/12
     }
 
-    document.getElementById('buckling_resInertia').innerHTML = roundDec(inertia)
-    document.getElementById('buckling_resInertia2').innerHTML = roundDec(inertia)
+    document.getElementById('buckling_resInertia').innerHTML = roundDec(inertia,2)
+    document.getElementById('buckling_resInertia2').innerHTML = roundDec(inertia,2)
     return inertia
 }
 
