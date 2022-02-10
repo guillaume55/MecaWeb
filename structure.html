@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="css/sidebar.css">
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      
+      <link rel="stylesheet" type="text/css" href="css/cuts.css">
+      <link rel="stylesheet" type="text/css" href="css/struct.css">
+      <link rel="stylesheet" type="text/css" href="css/table.css">
+  </head>
+  <body>
+    <script src='js/sidebar.js'></script>
+    <script src='js/struct/arcB.js'></script>
+    <script src='js/struct/buckling.js'></script>
+    <script src='js/graph/ui.js'></script>
+    <script src='js/simple_math_tools.js'></script>
+
+    <!-- Help message & github-->
+    <iframe id="help" src="htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/transmission.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
+    <!-- SIDEBAR -->
+    <div id="mySidebar" class="sidebar">
+        <div id="sidebar-btn" onclick="toggleSidebar()">☰</div>
+        <div id="sidebar-content"></div>
+        <script>appendToSidebar("sidebar-content");</script>
+    </div>
+
+    <div id="main">
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'tab_arcB')">{ArcB}</button>
+            <button class="tablinks" onclick="openTab(event, 'tab_buckling')">{Buckling}</button>
+        </div>
+        <div id="tab_arcB" class="tabcontent">
+            <div class="item section">
+                <div class="section-title">{ArcB}</div>
+                <label>{Units can be mm or m or whatever. D and L should have the same unit}</label></br></br>
+                <label>{Friction coefficient} f</label></br>
+                <select id="arcB_selectCoef" onchange="selectArcB(this.value)"></select></br>
+                
+                <input id="arcB_coef" type="number" value="0.1" min="0" onchange="computeArcB()"/></br></br>
+                <label>{Length of the bearing} L</label></br>
+                <input id="arcB_length" type="number" value="20" min="0" onchange="computeArcB()"/></br></br>
+                <label>{Distance with the force} D</label></br>
+                <input id="arcB_bl" type="number" value="50" min="0" onchange="computeArcB()"/></br>
+                <label id="resArcB"></label></br></br>
+                <label>{Formula}</label></br>
+                <label>{Sliding if} D<(L/2*f}</label>
+            </div>
+        </div>
+        <div id="tab_buckling" class="tabcontent"></div>
+        <div class="item section">
+            <div class="section-title">{Beam}</div>
+            <div class="radios">
+                <div class="radio-button" onclick="document.getElementById('buckling_section1').click(); showBeamParams('rect')">
+                    <label>{Rectangular}</label>
+                    <img src="img/rect.png"/>
+                    <input type="radio" id="buckling_section1" name="bucklingSection" value="rect" checked>
+                </div>
+                <div class="radio-button" onclick="document.getElementById('buckling_section2').click(); showBeamParams('rect_pipe')">
+                    <label>{Rectangular pipe}</label>
+                    <img src="img/rectTube.png"/>
+                    <input type="radio" id="buckling_section2" name="bucklingSection" value="rect_pipe">
+                </div>
+                <div class="radio-button" onclick="document.getElementById('buckling_section3').click(); showBeamParams('circ')">
+                    <label>{Circular}</label>
+                    <img src="img/round.png"/>
+                    <input type="radio" id="buckling_section3" name="bucklingSection" value="circ">
+                </div>
+                <div class="radio-button" onclick="document.getElementById('buckling_section4').click(); showBeamParams('circ_pipe')">
+                    <label>{Circular pipe}</label>
+                    <img src="img/roundTube.png"/>
+                    <input type="radio" id="buckling_section4" name="bucklingSection" value="circ_pipe">
+                </div>
+            </div>
+            <div id="buckling_beamHeight_div">
+                <label>{Beam height}</label>
+                <input type="number" id="buckling_beamHeight" value="50" min="0" onchange="computeInertia()"/>mm</br>
+            </div>
+            <div id="buckling_beamWidth_div">
+                <label>{Beam width}</label>
+                <input type="number" id="buckling_beamWidth" value="50" min="0" onchange="computeInertia()"/>mm</br>
+            </div>
+            <div id="buckling_beamDiam_div">
+                <label>{Beam diam}</label>
+                <input type="number" id="buckling_beamDiam" value="50" min="0" onchange="computeInertia()"/>mm</br>
+            </div>
+            <div id="buckling_beamThick_div">
+                <label>{Beam thickness}</label>
+                <input type="number" id="buckling_beamThick" value="50" min="0" onchange="computeInertia()"/>mm</br>
+            </div>
+            <label id="buckling_resInertia"></label><label>mm^4</label>
+
+        </div>
+            
+            <div class="item section">
+                <div class="section-title">{Characteristics}</div>
+                <label>{Beam length}</label></br>
+                <input id="buckling_length" type="number" value="50" min="0" onchange="computeArcB()"/>mm</br>
+                <label>{Material}</label></br>
+                <label>{Wikipedia says: Do not choose a steel with a high elastic limit the reduce buckling}</label></br>
+                <select id="buckling_material" onchange="selectYoung(this.value)"></select></br>
+                <label>{Young's Modulus}</label></br>
+                <input id="buckling_young" type="number" value="50" min="0" onchange="computeArcB()"/>GPa</br>
+                <label>{Load}</label></br>
+                <input id="buckling_force" type="number" value="50" min="0" onchange="computeArcB()"/>kiloNewtons</br>
+            </div>
+            <div class="item section">
+                <div class="section-title">{Mounting}</div>
+                <div class="radios">
+                    <div class="radio-button" onclick="document.getElementById('buckling_mounting1').click()">
+                        <label>{Fixed} - {Free}</label>
+                        <img src="img/flambage_fixedFree.png"/>
+                        <input type="radio" id="buckling_mounting1" name="bucklingMoutingType" value="2" checked="true">
+                        <label>Coef 2</label>
+                    </div>
+                    <div class="radio-button" onclick="document.getElementById('buckling_mounting2').click()">
+                        <label>{Fixed} - {Pinned}</label>
+                        <img src="img/flambage_fixedRot.png"/>
+                        <input type="radio" id="buckling_mounting2" name="bucklingMoutingType" value="0.699">
+                        <label>Coef 0.7</label>
+                    </div>
+                    <div class="radio-button" onclick="document.getElementById('buckling_mounting3').click()">
+                        <label>{Pinned} - {Pinned}</label>
+                        <img src="img/flambage_RotRot.png"/>
+                        <input type="radio" id="buckling_mounting3" name="bucklingMoutingType" value="1">
+                        <label>Coef 1</label>
+                    </div>
+                    <div class="radio-button" onclick="document.getElementById('buckling_mounting4').click()">
+                        <label>{Pinned} - {Pinned}</label>
+                        <img src="img/flambage_fixedFixed.png"/>
+                        <input type="radio" id="buckling_mounting4" name="bucklingMoutingType" value="0.5">
+                        <label>Coef 0.5</label>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="item section">
+                <div class="section-title">{Results}<input type="button" onclick="computeBuckling()" value="Compute"/></div>
+                <table>
+                    <tr><th>{Moment of inertia} (mm^4)</th><td id="buckling_resInertia2"></td></tr>
+                    <tr><th>{Euler's critical load} (N)</th><td id="buckling_eulerCritical"></td></tr>
+                </table>
+            </div>
+        </div>
+    <script>
+        fillSelect("arcB_selectCoef", getFriction())
+        fillSelectGroup("buckling_material", getMaterials())
+        showBeamParams("rect")
+        computeArcB()
+        document.getElementsByClassName('tablinks')[0].click() //open tab
+    </script>
+    
+    </body>
+</html>

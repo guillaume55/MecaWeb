@@ -25,8 +25,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1"
-     inkscape:cx="300"
-     inkscape:cy="550.5"
+     inkscape:cx="203"
+     inkscape:cy="566.5"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
      inkscape:window-x="-9"
@@ -239,6 +239,76 @@
          y="65.210152"
          transform="rotate(31.599109)" />
     </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3713-83">
+      <rect
+         style="fill:#badd8c;stroke:#badd8c;stroke-width:1.563;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect3715-1"
+         width="21.188683"
+         height="11.130183"
+         x="13.18029"
+         y="65.210152"
+         transform="rotate(31.599109)" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3713-9-9">
+      <rect
+         style="fill:#badd8c;stroke:#badd8c;stroke-width:1.563;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect3715-2-3"
+         width="21.188683"
+         height="11.130183"
+         x="13.18029"
+         y="65.210152"
+         transform="rotate(31.599109)" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3713-5">
+      <rect
+         style="fill:#badd8c;stroke:#badd8c;stroke-width:1.563;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect3715-8"
+         width="21.188683"
+         height="11.130183"
+         x="13.18029"
+         y="65.210152"
+         transform="rotate(31.599109)" />
+    </clipPath>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_5-3-8"
+       id="pattern3677-6-0"
+       patternTransform="matrix(0.31346715,0,0,0.31033096,-50.361922,55.8958)" />
+    <pattern
+       inkscape:collect="always"
+       patternUnits="userSpaceOnUse"
+       width="6"
+       height="1"
+       patternTransform="translate(0,0) scale(10,10)"
+       id="Strips1_5-3-8"
+       inkscape:stockid="Stripes 1:5"
+       inkscape:isstock="true">
+      <rect
+         style="fill:black;stroke:none"
+         x="0"
+         y="-0.5"
+         width="1"
+         height="2"
+         id="rect2639-8-0" />
+    </pattern>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3713-9-4">
+      <rect
+         style="fill:#badd8c;stroke:#badd8c;stroke-width:1.563;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect3715-2-0"
+         width="21.188683"
+         height="11.130183"
+         x="13.18029"
+         y="65.210152"
+         transform="rotate(31.599109)" />
+    </clipPath>
   </defs>
   <g
      inkscape:label="Calque 1"
@@ -300,6 +370,68 @@
        style="fill:none;stroke:#565756;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1,2.1;stroke-opacity:1;stroke-dashoffset:0"
        d="m 23.774631,76.340331 c 7.422153,22.761699 5.257899,43.968849 0,64.674319"
        id="path1089-2"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb\img\flambage_fixedFixed.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <g
+       id="g3903-9"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb\img\flambage_fixedFixed.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       transform="translate(-53.672551,0.86000867)"
+       style="fill:none;stroke:none">
+      <rect
+         style="fill:none;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect850-0-7-59"
+         width="21.188681"
+         height="11.130183"
+         x="13.180294"
+         y="65.210144" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:none;stroke-width:3.096;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect850-0-6-9-7"
+         width="58.530182"
+         height="30.437664"
+         x="-44.797955"
+         y="59.248634"
+         transform="rotate(-31.599109)"
+         clip-path="url(#clipPath3713-5)" />
+    </g>
+    <g
+       id="g3903-4-3"
+       transform="translate(-53.672551,76.664517)"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb\img\flambage_fixedFixed.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200">
+      <rect
+         style="fill:none;stroke:#badd8c;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect850-0-7-0-5"
+         width="21.188681"
+         height="11.130183"
+         x="13.180294"
+         y="65.210144" />
+      <rect
+         style="fill:url(#pattern3677-6-0);fill-opacity:1;stroke:#88dd8c;stroke-width:3.096;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect850-0-6-9-8-19"
+         width="58.530182"
+         height="30.437664"
+         x="-44.797955"
+         y="59.248634"
+         transform="rotate(-31.599109)"
+         clip-path="url(#clipPath3713-9-4)" />
+    </g>
+    <path
+       style="fill:#4d4d4d;stroke:#565756;stroke-width:1.465;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -29.89792,77.200337 V 141.87466"
+       id="path1089-24"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb\img\flambage_fixedFixed.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       style="fill:none;stroke:#565756;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1, 2.1;stroke-dashoffset:0;stroke-opacity:1"
+       d="m -29.89792,77.200337 c 7.422153,22.7617 5.257899,43.968853 0,64.674323"
+       id="path1089-2-4"
        sodipodi:nodetypes="cc"
        inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb\img\flambage_fixedFixed.png"
        inkscape:export-xdpi="200"

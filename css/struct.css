@@ -1,0 +1,18 @@
+.radio-button {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border: 2px solid gray;
+    padding:5px;
+    margin: 5px;
+    width: 50%;
+    width: 150px;;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.radios{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

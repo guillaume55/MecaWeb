@@ -92,3 +92,15 @@ body{
 .sidebar-container{
   width: 10%;
 }
+
+.item img {
+  width : 24%;
+  max-width: 30px;
+  
+}
+
+.item label, .item input,.item select{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
