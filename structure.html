@@ -16,6 +16,7 @@
     <script src='js/struct/buckling.js'></script>
     <script src='js/graph/ui.js'></script>
     <script src='js/simple_math_tools.js'></script>
+    <script src='translation/translation.js'></script>
 
     <!-- Help message & github-->
     <iframe id="help" src="htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/transmission.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
@@ -45,7 +46,7 @@
                 <input id="arcB_bl" type="number" value="50" min="0" onchange="computeArcB()"/></br>
                 <label id="resArcB"></label></br></br>
                 <label>{Formula}</label></br>
-                <label>{Sliding if} D<(L/2*f}</label>
+                <label>{Sliding if} D<(L/2*f)</label>
             </div>
         </div>
         <div id="tab_buckling" class="tabcontent"></div>
@@ -148,6 +149,7 @@
         fillSelectGroup("buckling_material", getMaterials())
         showBeamParams("rect")
         computeArcB()
+        translate()
         document.getElementsByClassName('tablinks')[0].click() //open tab
     </script>
     

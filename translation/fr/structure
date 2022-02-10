@@ -1,0 +1,27 @@
+ArcB,
+Units can be mm or m or whatever. D and L should have the same unit,Les unités n'importent pas tant qu'elles sont identiques
+Friction coefficient,Coefficient de friction
+Length of the bearing,Longueur du guidage
+Distance with the force,Bras de levier avec la force
+Formula,Formule
+Sliding if,Coulissant si
+Rectangular,Rectangulaire
+Circular,Circulaire
+Circular pipe,Tube circulaire
+Rectangular pipe,Tube rectangulaire
+Beam height,Hauteur du profilé
+Beam width,Largeur du profilé
+Beam diam,Diamètre
+Beam thickness,Epaisseur
+Beam length,Longueur du profilé
+Material,Materiau
+Wikipedia says: Do not choose a steel with a high elastic limit the reduce buckling,Wikipedia conseille de ne pas choisir un acier avec une haute limite élastique pour réduire le flambage
+Young's Modulus,Module de Young
+Load,Charge
+Mounting,Type de montage
+Fixed,Encastré
+Free,Libre
+Pinned,Rotulé
+Results,Resultats
+Moment of inertia,Moment d'inertie
+Euler's critical load,Charge critique d'euler

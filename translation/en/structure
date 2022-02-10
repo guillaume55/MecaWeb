@@ -1,0 +1,27 @@
+ArcB,Buckling
+Units can be mm or m or whatever. D and L should have the same unit,Units can be mm or m or whatever. D and L should have the same unit
+Friction coefficient,Friction coefficient
+Length of the bearing,Length of the bearing
+Distance with the force,Distance with the force
+Formula,Formula
+Sliding if,Sliding if
+Rectangular,Rectangular
+Circular,Circular
+Circular pipe,Circular pipe
+Rectangular pipe,Rectangular pipe
+Beam height,Beam height
+Beam width,Beam width
+Beam diam,Beam diameter
+Beam thickness,Beam thickness
+Beam length,Beam length
+Material,Material
+Wikipedia says: Do not choose a steel with a high elastic limit the reduce buckling,Wikipedia says: Do not choose a steel with a high elastic limit the reduce buckling
+Young's Modulus,Young's Modulus
+Load,Load
+Mounting,Mounting
+Fixed,Fixed
+Free,Free
+Pinned,Pinned
+Results,Results
+Moment of inertia,Moment of inertia
+Euler's critical load,Euler's critical load
