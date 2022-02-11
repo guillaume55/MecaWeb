@@ -42,24 +42,23 @@
         <div id="tab_arcB" class="tabcontent">
             <div class="item section" >
                 <div class="section-title">{ArcB}</div>
-                    <div  style="display:flex; flex-wrap: wrap;">
-                        <div>
-                            <label>{Units can be mm or m or whatever. D and L should have the same unit}</label></br></br>
-                            <label>{Friction coefficient} f</label></br>
-                            <select id="arcB_selectCoef" onchange="selectArcB(this.value);computeArcB()"></select></br>
-                            
-                            <input id="arcB_coef" type="number" value="0.1" min="0" onchange="computeArcB()"/></br></br>
-                            <label>{Length of the bearing} L</label></br>
-                            <input id="arcB_length" type="number" value="20" min="0" onchange="computeArcB()"/></br></br>
-                            <label>{Distance with the force} D</label></br>
-                            <input id="arcB_bl" type="number" value="50" min="0" onchange="computeArcB()"/></br>
-                            <label id="resArcB"></label></br></br>
-                            <label>{Formula}</label></br>
-                            <label>{Sliding if} D<(L/2*f)</label>
-                        </div>
-                        <div><img src="img/arcB.png" style="width:50%;max-width: 300px;min-width: 200px;"></div>
-                    </div>
+
+                <div  style="display:flex; flex-wrap: wrap;">
+                    
+                    <label>{Units can be mm or m or whatever. D and L should have the same unit}</label></br></br>
+                    <label>{Friction coefficient} f</label></br>
+                    <select id="arcB_selectCoef" onchange="selectArcB(this.value);computeArcB()"></select></br>
+                    
+                    <input id="arcB_coef" type="number" value="0.1" min="0" onchange="computeArcB()"/></br></br>
+                    <label>{Length of the bearing} L</label></br>
+                    <input id="arcB_length" type="number" value="20" min="0" onchange="computeArcB()"/></br></br>
+                    <label>{Distance with the force} D</label></br>
+                    <input id="arcB_bl" type="number" value="50" min="0" onchange="computeArcB()"/></br>
+                    <label id="resArcB"></label></br></br>
+                    <label>{Formula}</label></br>
+                    <label>{Sliding if} D<(L/2*f)</label>
                 </div>
+                <div><img src="img/arcB.png" style="width:50%;max-width: 300px;min-width: 200px;"></div>
             </div>
         </div>
         <!--------------- Buckling--------------->
@@ -267,6 +266,7 @@
                 </table>
             </div>
         </div><!--end flexion tab-->
+    </div> <!--end main-->
     <script>
         fillSelect("arcB_selectCoef", getFriction())
         fillSelectGroup("buckling_material", getMaterials())
