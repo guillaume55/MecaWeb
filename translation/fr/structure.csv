@@ -29,3 +29,12 @@ Euler's critical load,Charge critique d'euler
 Characteristics,Caractéristiques
 Structure,Structure
 Beam,Poutre
+or,ou
+Structure,Structure
+Max displacement,Flèche maximale
+Encastré with point concentrated force,Encastrée et charge ponctuelle
+Encastré with distributed force,Encastrée er charge répartie
+2 points concentrated force,Appui 2 points et charge ponctuelle
+2 points distributed force,Appui 2 points et charge répartie
+Distance,Distance
+Flexion,Flexion

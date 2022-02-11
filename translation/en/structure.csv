@@ -29,3 +29,12 @@ Euler's critical load,Euler's critical load
 Characteristics,Characteristics
 Structure,Structure
 Beam,Beam
+or,or
+Structure,Structure
+Max displacement,Max displacement
+Encastré with point concentrated force,Encastré with point concentrated load
+Encastré with distributed force,Encastré with distributed load
+2 points concentrated force,2 points concentrated load
+2 points distributed force,2 points distributed load
+Distance,Distance
+Flexion,Flexion
