@@ -20,7 +20,7 @@ function computeBuckling(){
 function showBeamParams(beamType, prefix) {
     prefix = prefix.trim()
     if(beamType.search("rect")!=-1) {
-        document.getElementById(prefix+"_Height_div").style.display="Block";
+        document.getElementById(prefix+"_beamHeight_div").style.display="Block";
         document.getElementById(prefix+"_beamWidth_div").style.display="Block";
         document.getElementById(prefix+"_beamDiam_div").style.display="none";
     }
