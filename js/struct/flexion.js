@@ -1,3 +1,7 @@
+function computeFlexion(){
+    computeDisplacement()
+}
+
 function computeDisplacement(){
     let len = parseFloat(document.getElementById('flexion_length').value);
     let young = parseFloat(document.getElementById('flexion_young').value);

@@ -211,45 +211,47 @@
                 <select id="flexion_material" onchange="selectYoung(this.value,'flexion_young')"></select></br>
                 <label>{Young's Modulus}</label></br>
                 <input id="flexion_young" type="number" value="210" min="0"/>GPa</br>
-                <label>{Load}</label></br>
+                <label>{Load} F {or} q</label></br>
                 <input id="flexion_force" type="number" value="5000" min="0"/>kiloNewtons</br>
-                <label>{a}</label></br>
-                <input id="flexion_force" type="number" value="5000" min="0"/>kiloNewtons</br>
+                <div id="flexion_a_div">
+                    <label>{Distance} a</label></br>
+                    <input id="flexion_a" type="number" value="200" min="0" syle="display:none;"/>mm</br>
+                </div>
             </div>
             <div class="item section">
                 <div class="section-title">{Mounting}</div>
                 <div class="radios">
-                    <div class="radio-button" onclick="document.getElementById('flexion_mounting1').click()">
+                    <div class="radio-button" onclick="document.getElementById('flexion_mounting1').click();document.getElementById('flexion_a_div').style.display='none'">
                         <img src="img/flexion_F.png"/>
                         <input type="radio" id="flexion_mounting1" name="flexionMoutingType" value="encas_concen" checked="true">
                         <label>{Encastré with point concentrated force}</label>
                     </div>
-                    <div class="radio-button" onclick="document.getElementById('flexion_mounting2').click()">
+                    <div class="radio-button" onclick="document.getElementById('flexion_mounting2').click(); document.getElementById('flexion_a_div').style.display='block'">
                         <img src="img/flexion_F_ab.png"/>
                         <input type="radio" id="flexion_mounting2" name="flexionMoutingType" value="encas_concen_ab">
                         <label>{Encastré with point concentrated force}</label>
                     </div>
-                    <div class="radio-button" onclick="document.getElementById('flexion_mounting3').click()">
+                    <div class="radio-button" onclick="document.getElementById('flexion_mounting3').click();document.getElementById('flexion_a_div').style.display='none'">
                         <img src="img/flexion_Q.png"/>
                         <input type="radio" id="flexion_mounting3" name="flexionMoutingType" value="encas_distri">
                         <label>{Encastré with distributed force}</label>
                     </div>
-                    <div class="radio-button" onclick="document.getElementById('flexion_mounting4').click()">
+                    <div class="radio-button" onclick="document.getElementById('flexion_mounting4').click();document.getElementById('flexion_a_div').style.display='block'">
                         <img src="img/flexionQ_ab.png"/>
-                        <input type="radio" id="flexion_mounting4" name="flexionMoutingType" value="encas_distri">
+                        <input type="radio" id="flexion_mounting4" name="flexionMoutingType" value="encas_distri_ab">
                         <label>{Encastré with distributed force}</label>
                     </div>
-                    <div class="radio-button" onclick="document.getElementById('flexion_mounting5').click()">
+                    <div class="radio-button" onclick="document.getElementById('flexion_mounting5').click();document.getElementById('flexion_a_div').style.display='none'">
                         <img src="img/flexion_F_2pts.png"/>
                         <input type="radio" id="flexion_mounting5" name="flexionMoutingType" value="2pts_concen">
                         <label>{2 points concentrated force}</label>
                     </div>
-                    <div class="radio-button" onclick="document.getElementById('flexion_mounting6').click()">
+                    <div class="radio-button" onclick="document.getElementById('flexion_mounting6').click();document.getElementById('flexion_a_div').style.display='block'">
                         <img src="img/flexion_F_2pts_ab.png"/>
                         <input type="radio" id="flexion_mounting6" name="flexionMoutingType" value="2pts_concen_ab">
                         <label>{2 points concentrated force}</label>
                     </div>
-                    <div class="radio-button" onclick="document.getElementById('flexion_mounting7').click()">
+                    <div class="radio-button" onclick="document.getElementById('flexion_mounting7').click();document.getElementById('flexion_a_div').style.display='none'">
                         <img src="img/flexion_Q_2pts.png"/>
                         <input type="radio" id="flexion_mounting7" name="flexionMoutingType" value="2pts_distri">
                         <label>{2 points distributed force}</label>
