@@ -10,11 +10,11 @@ Rectangular,Rectangulaire
 Circular,Circulaire
 Circular pipe,Tube circulaire
 Rectangular pipe,Tube rectangulaire
-Beam height,Hauteur du profilé
-Beam width,Largeur du profilé
+Beam height,Hauteur de la poutre
+Beam width,Largeur de la poutre
 Beam diam,Diamètre
 Beam thickness,Epaisseur
-Beam length,Longueur du profilé
+Beam length,Longueur de la poutre
 Material,Materiau
 Wikipedia says: Do not choose a steel with a high elastic limit the reduce buckling,Wikipedia conseille de ne pas choisir un acier avec une haute limite élastique pour réduire le flambage
 Young's Modulus,Module de Young
@@ -33,8 +33,13 @@ or,ou
 Structure,Structure
 Max displacement,Flèche maximale
 Encastré with point concentrated force,Encastrée et charge ponctuelle
-Encastré with distributed force,Encastrée er charge répartie
+Encastré with distributed force,Encastrée et charge répartie
 2 points concentrated force,Appui 2 points et charge ponctuelle
 2 points distributed force,Appui 2 points et charge répartie
 Distance,Distance
 Flexion,Flexion
+Linear q on beam,Charge linéique q
+Young's modulus,Module de young
+Beam Length,Longueur de la poutre
+Force f on beam,Force f sur la poutre
+Lowest point,Abscisse du point le plus bas

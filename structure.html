@@ -21,6 +21,7 @@
     <script src='js/struct/inertia.js'></script>
     <script src='js/struct/materials.js'></script>
     <script src='js/getValues.js'></script>
+    <script src='js/ui.js'></script>
 
     <!-- Help message & github-->
     <iframe id="help" src="htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/transmission.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
@@ -117,7 +118,7 @@
                 <label>{Young's Modulus}</label></br>
                 <input id="buckling_young" type="number" value="210" min="0"/>GPa</br>
                 <label>{Load}</label></br>
-                <input id="buckling_force" type="number" value="5000" min="0"/>kiloNewtons</br>
+                <input id="buckling_force" type="number" value="5000" min="0"/>Newtons</br>
             </div>
             <div class="item section">
                 <div class="section-title">{Mounting}</div>
@@ -210,48 +211,52 @@
                 <select id="flexion_material" onchange="selectYoung(this.value,'flexion_young')"></select></br>
                 <label>{Young's Modulus}</label></br>
                 <input id="flexion_young" type="number" value="210" min="0"/>GPa</br>
-                <label>{Load} F {or} q</label></br>
-                <input id="flexion_force" type="number" value="5000" min="0"/>kiloNewtons</br>
-                <div id="flexion_a_div">
+                <label>{Load} F</label></br>
+                <input id="flexion_force" type="number" value="5000" min="0" onchange="flexion_refreshQ(this.value)"/>Newtons</br>
+                <div id="flexion_q_div" style="display:none;">
+                    <label>{Linear load} q</label></br>
+                    <input id="flexion_q" type="number" value="10000" min="0" syle="display:none;" onchange="flexion_refreshF(this.value)"/>mm</br>
+                </div>
+                <div id="flexion_a_div" style="display:none;">
                     <label>{Distance} a</label></br>
-                    <input id="flexion_a" type="number" value="200" min="0" syle="display:none;"/>mm</br>
+                    <input id="flexion_a" type="number" value="200" min="0"/>mm</br>
                 </div>
             </div>
             <div class="item section">
                 <div class="section-title">{Mounting}</div>
                 <div class="radios">
-                    <div class="radio-button" onclick="document.getElementById('flexion_mounting1').click();document.getElementById('flexion_a_div').style.display='none'">
-                        <img src="img/flexion_F.png"/>
+                    <div class="radio-button" onclick="document.getElementById('flexion_mounting1').click();hideElt('flexion_a_div');hideElt('flexion_q_div');unlockF()">
+                        <img src="img/flexion_F.png" style="width:200px; max-width: 200px;"/>
                         <input type="radio" id="flexion_mounting1" name="flexionMoutingType" value="encas_concen" checked="true">
                         <label>{Encastré with point concentrated force}</label>
                     </div>
-                    <div class="radio-button" onclick="document.getElementById('flexion_mounting2').click(); document.getElementById('flexion_a_div').style.display='block'">
-                        <img src="img/flexion_F_ab.png"/>
+                    <div class="radio-button" onclick="document.getElementById('flexion_mounting2').click();showElt('flexion_a_div');hideElt('flexion_q_div');unlockF()">
+                        <img src="img/flexion_F_ab.png" style="width:200px; max-width: 200px;"/>
                         <input type="radio" id="flexion_mounting2" name="flexionMoutingType" value="encas_concen_ab">
                         <label>{Encastré with point concentrated force}</label>
                     </div>
-                    <div class="radio-button" onclick="document.getElementById('flexion_mounting3').click();document.getElementById('flexion_a_div').style.display='none'">
-                        <img src="img/flexion_Q.png"/>
+                    <div class="radio-button" onclick="document.getElementById('flexion_mounting3').click();hideElt('flexion_a_div');showElt('flexion_q_div');lockF()">
+                        <img src="img/flexion_Q.png" style="width:200px; max-width: 200px;"/>
                         <input type="radio" id="flexion_mounting3" name="flexionMoutingType" value="encas_distri">
                         <label>{Encastré with distributed force}</label>
                     </div>
-                    <div class="radio-button" onclick="document.getElementById('flexion_mounting4').click();document.getElementById('flexion_a_div').style.display='block'">
-                        <img src="img/flexionQ_ab.png"/>
+                    <div class="radio-button" onclick="document.getElementById('flexion_mounting4').click();showElt('flexion_a_div');showElt('flexion_q_div');lockF()">
+                        <img src="img/flexionQ_ab.png" style="width:200px; max-width: 200px;"/>
                         <input type="radio" id="flexion_mounting4" name="flexionMoutingType" value="encas_distri_ab">
                         <label>{Encastré with distributed force}</label>
                     </div>
-                    <div class="radio-button" onclick="document.getElementById('flexion_mounting5').click();document.getElementById('flexion_a_div').style.display='none'">
-                        <img src="img/flexion_F_2pts.png"/>
+                    <div class="radio-button" onclick="document.getElementById('flexion_mounting5').click();hideElt('flexion_a_div');hideElt('flexion_q_div');unlockF()">
+                        <img src="img/flexion_F_2pts.png" style="width:200px; max-width: 200px;"/>
                         <input type="radio" id="flexion_mounting5" name="flexionMoutingType" value="2pts_concen">
                         <label>{2 points concentrated force}</label>
                     </div>
-                    <div class="radio-button" onclick="document.getElementById('flexion_mounting6').click();document.getElementById('flexion_a_div').style.display='block'">
-                        <img src="img/flexion_F_2pts_ab.png"/>
+                    <div class="radio-button" onclick="document.getElementById('flexion_mounting6').click();showElt('flexion_a_div');hideElt('flexion_q_div');unlockF()">
+                        <img src="img/flexion_F_2pts_ab.png" style="width:200px; max-width: 200px;"/>
                         <input type="radio" id="flexion_mounting6" name="flexionMoutingType" value="2pts_concen_ab">
                         <label>{2 points concentrated force}</label>
                     </div>
-                    <div class="radio-button" onclick="document.getElementById('flexion_mounting7').click();document.getElementById('flexion_a_div').style.display='none'">
-                        <img src="img/flexion_Q_2pts.png"/>
+                    <div class="radio-button" onclick="document.getElementById('flexion_mounting7').click();hideElt('flexion_a_div');showElt('flexion_q_div');lockF()">
+                        <img src="img/flexion_Q_2pts.png" style="width:200px; max-width: 200px;"/>
                         <input type="radio" id="flexion_mounting7" name="flexionMoutingType" value="2pts_distri">
                         <label>{2 points distributed force}</label>
                     </div>
@@ -261,8 +266,14 @@
             <div class="item section">
                 <div class="section-title">{Results}<input type="button" onclick="computeFlexion()" value="Compute"/></div>
                 <table>
-                    <tr><th>{Moment of inertia} (mm^4)</th><td id="flexion_resInertia2"></td></tr>
+                    <tr><th>{Beam Length} (m)</th><td id="res_flexionLength"></td></tr>
+                    <tr><th>{Force f on beam} (N)</th><td id="res_flexionForce"></td></tr>
+                    <tr><th>{Linear q on beam} (N/m)</th><td id="res_flexionQ"></td></tr>
+                    <tr><th>{Young's modulus} (Gpa)</th><td id="res_flexionYoung"></td></tr>
+                    <tr><th>{Distance} a (m)</th><td id="res_flexionA"></td></tr>
+                    <tr><th>{Moment of inertia} (mm^4)</th><td id="res_flexionInertia"></td></tr>
                     <tr><th>{Max displacement} (mm)</th><td id="flexion_maxDisp"></td></tr>
+                    <tr><th>{Lowest point} (m)</th><td id="res_flexionLowest"></td></tr>
                 </table>
             </div>
         </div><!--end flexion tab-->

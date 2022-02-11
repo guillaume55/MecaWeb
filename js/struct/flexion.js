@@ -3,41 +3,56 @@ function computeFlexion(){
 }
 
 function computeDisplacement(){
-    let len = parseFloat(document.getElementById('flexion_length').value);
-    let young = parseFloat(document.getElementById('flexion_young').value);
-    let load = parseFloat(document.getElementById('flexion_force').value);
-    let a = parseFloat(document.getElementById("flexion_a").value);
+    let len = parseFloat(document.getElementById('flexion_length').value)/1000;
+    let young = parseFloat(document.getElementById('flexion_young').value)*1000000000;
+    let f = parseFloat(document.getElementById('flexion_force').value);
+    let q = parseFloat(document.getElementById('flexion_q').value);
+    let a = parseFloat(document.getElementById("flexion_a").value)/1000;
     
-    let mounting = parseFloat(getRadio('flexionMoutingType'))
-    let inertia = computeInertia()
+    let mounting = getRadio('flexionMoutingType')
+    let inertia = flexion_computeInertia()/1000000000000
 
     //units !!! in newton
     let maxDisp = 0;
     let xf = "L/2"
     //formulas from Guide de Mécanique, Jean Louis Fanchon, RDM - Formulaire (page 400 of 2008 édition) ISBN 978-2-09-160711-5
-    if(mounting == "encas_concen"){
-        maxDisp = -(load*Math.pow(len,3))/(3*young*inertia);
-    }else if(mounting == "encas_concen_ab"){
-        maxDisp = -(load*Math.pow(a,2)*(3*len-a))/(6*young*inertia);
+    if(mounting == "encas_concen"){ 
+        maxDisp = -(f*Math.pow(len,3))/(3*young*inertia);
+        xf = "L"
+    }else if(mounting == "encas_concen_ab"){  
+        maxDisp = -(f*Math.pow(a,2)*(3*len-a))/(6*young*inertia);
+        xf = "L"
     }else if(mounting == "encas_distri"){
-        maxDisp = -(load*Math.pow(a,4))/(8*young*inertia);
+        maxDisp = -(q*Math.pow(len,4))/(8*young*inertia);
+        xf = "L"
     }else if(mounting == "encas_distri_ab"){
-        maxDisp = -(load*Math.pow(a,3)*(4*len-a))/(24*young*inertia);
+        maxDisp = -(q*Math.pow(a,3)*(4*len-a))/(24*young*inertia);
+        xf = "L"
     }
-    else if(mounting == "2pts_concen"){
-        maxDisp = -(load*Math.pow(len,3))/(48*young*inertia);
-    }else if(mounting == "2pts_concen_ab"){
+    else if(mounting == "2pts_concen"){  
+        maxDisp = -(f*Math.pow(len,3))/(48*young*inertia);
+    }else if(mounting == "2pts_concen_ab"){  //this formula is from omni calculator
         let b = len-a;
-        let up = load*b*Math.sqrt(len*len-b*b, 3/2)
-        let down = 
+        //let up = f*b*Math.sqrt(len*len-b*b, 3/2)
+        //let down = 9*Math.sqrt(3)*young*inertia*len
+        let up = f*b*(3*len*len-4*b*b)
+        let down = 48*young*inertia
         maxDisp = up/down;
         xf = Math.sqrt((len*len-b*b)/3)   //pont with max disp       
     }else if(mounting == "2pts_distri"){
-        maxDisp = -(5*load*Math.pow(len,4))/(384*young*inertia);
+        maxDisp = -(5*q*Math.pow(len,4))/(384*young*inertia);
     }
    
     console.log(young, inertia,len,mounting)
-    document.getElementById('flexion_maxDisp').innerHTML = roundDec(maxDisp,8)
+    document.getElementById('res_flexionLowest').innerHTML = xf
+
+    document.getElementById('res_flexionLength').innerHTML = len
+    document.getElementById('res_flexionForce').innerHTML = f
+    document.getElementById('res_flexionYoung').innerHTML = roundDec(young/1000000000,2)
+    document.getElementById('res_flexionQ').innerHTML = mounting.search("distri") != -1 ? q : "X"
+    document.getElementById('res_flexionInertia').innerHTML = roundDec(inertia*1000000000000,2)
+    document.getElementById('res_flexionA').innerHTML = mounting.search("ab") != -1 ? a : "X"
+    document.getElementById('flexion_maxDisp').innerHTML = roundDec(maxDisp*1000,8)
 }
 
 
@@ -53,7 +68,25 @@ function flexion_computeInertia(){
     let inertia = inertiaMoment(beamType, diam, thickness, width, height)
     
     document.getElementById('flexion_resInertia').innerHTML = roundDec(inertia,2)
-    document.getElementById('flexion_resInertia2').innerHTML = roundDec(inertia,2)
     return inertia
 }
 
+function flexion_refreshQ(f){
+    let len = parseFloat(document.getElementById('flexion_length').value)/1000;
+    document.getElementById('flexion_q').value = roundDec(f/len,2)
+}
+
+function flexion_refreshF(q){
+    let len = parseFloat(document.getElementById('flexion_length').value)/1000;
+    document.getElementById('flexion_force').value = roundDec(q*len,2)
+}
+
+function lockF(){
+    console.log("locked")
+    document.getElementById('flexion_force').setAttribute("readonly",'true');
+}
+
+function unlockF(){
+    console.log("unlocked")
+    document.getElementById('flexion_force').removeAttribute("readonly");
+}
