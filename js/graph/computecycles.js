@@ -1,7 +1,16 @@
-
-
-
-
+function provisoireReplaceNonI(eq){
+    var newEq = []
+    for(e of eq){
+        var variables = tol_getVariables(e)
+        for(v of variables) {
+            if(v.search("I_")==-1){
+                e = e.replaceAll(v,"0.2")
+            }
+        }
+        newEq.push(e)
+    }
+    return newEq
+}
 //try to find the best solution by finding all the equations
 //not optimal, see v3
 /*
@@ -58,7 +67,7 @@ function writeRawEquations(){
     let fc = get_cf();
     let equations = [] //add mobilities
     for(let i=0; i< cycles.length; i++) {
-        console.log(cycles[i])
+        //console.log(cycles[i])
         //find all edges between two nodes
         let edges_between=[]
         //cycle of more than 3 nodes (different behavior)
@@ -74,10 +83,9 @@ function writeRawEquations(){
                 edges_between.push(ed[0]) //we need only one link between two nodes
             }
         }
-        console.log("edges_bet",edges_between)
+        //console.log("edges_bet",edges_between)
         equations = equations.concat(write_eq_for_cycle(edges_between, fc))
     }
-    console.log(equations)
     return equations
 }
 
@@ -85,7 +93,6 @@ function writeRawEquations(){
 function reduce_equations() {
     let equations = writeRawEquations()
     //console.log(JSON.stringify(equations))
-    console.log(equations)
     for(let i=0; i<1; i++) {
         
         //remove equations with only one I, solve it now
@@ -93,8 +100,10 @@ function reduce_equations() {
         //equations = equations.concat(write_eq_for_cycle(edges_between, fc))
         //start to solve if possible
         equations = replace_with_known_comp(equations)
+        tol_fillOutputsEq(equations)
         
     }
+
     console.log(I_to_replace)
     console.log(equations)
     
@@ -135,14 +144,14 @@ function still_contains_I(eq)
 }
 
 //the aim if to find the "terme". I_xxx are unknown. Create a tree that we will explore to find the value of terme
-function find_child_eq(eqs, terme){
+function find_child_eq(eqs, term){
     let eq_with_it = [] //it means the "terme"
 
     let branches = []
     let I_already_visited = {} //helps to not loop forever
 
     for(let i=0; i<eqs.length; i++){
-        if(eqs[i].search(terme) != -1) {
+        if(eqs[i].search(term) != -1) {
             let res = extract_I(eqs[i])
             if(res.length == 1) { //can be solved now, end of the branch
                 console.log("canbesolved")
@@ -167,7 +176,6 @@ function solve_oneI(eq) {
         //we can solve if there is only one I
         if(eq[i].match(/I_/g) !== null) { //see line bellow
             let terms = extract_I(eq[i])
-            console.log(terms)
             if(terms.length < 2 ) { //bug because we try to find length of null if eq => 0+0+0=0
                 //find which terme is unknown
                 //replace sp[x] with "terms", cleaner and shorter
@@ -184,7 +192,7 @@ function solve_oneI(eq) {
                             I_to_replace[sp[j]] = res;
                             eq.splice(i)
                             i = i-1
-                            console.log("------111111")
+                            console.log("********",sp[j],res," in ",eq[i])
                         }
                     }
                 }
@@ -271,7 +279,6 @@ function mobs_to_components(mob, linkName) {
     return res
 }
 
-
 //return mobilities Tx,y,z and Rx, y, z from the name of the linkage
 function get_mobilities_from_edge(type){
     mob = mech_links()
@@ -283,7 +290,10 @@ function get_mobilities_from_edge(type){
 function replace_with_known_comp(equations)  {
     for(let i=0; i<equations.length; i++) {
         for(var key in I_to_replace) {
-            equations[i] = equations[i].replaceAll(key, `(${I_to_replace[key]})` );
+            if(key.search("CF")==-1){ //do not replace what we are looking for
+                equations[i] = equations[i].replaceAll(key, `(${I_to_replace[key]})` );
+                console.log("replacing ",key," by ", I_to_replace[key]," in ", eq[i])
+            }
             //console.log("replacing", key, "by", I_to_replace[key])
         }
 
@@ -304,9 +314,3 @@ function extract_graph(){
     }
     return res
 }
-
-
-
-
-
-

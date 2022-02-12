@@ -1,25 +1,36 @@
 <!--
     TODO keep a track of the number of nodes excluding cf and on the blocked mobilities when we add a link
+    BE CAREFUL when replacing components of equations 
+    for example if replacing I_gamma_ARBRE_CARTER_LA, it will affect I_gamma_ARBRE_CARTER_LA2 !!!
 -->
 
 <!doctype html>
 <html>
 <head>
-    <title>Tolerancing</title>
+    <title>{
+        
+    }</title>
     <!--from the web-->
     <script src='js/lib/cytoscape.min.js'></script>
     <script src='js/lib/math.js'></script>
     <script src='js/lib/nerdamer-all.min.js'></script>
+    <script type="text/javascript" src="js/lib/coffeequate.min.js"></script>
+
     <!-- from this project-->
     <!--<script src='examples/helico.js'></script>-->
     <script src='js/graph/find_cycles.js'></script>
     <script src='examples/boitie_arr.js'></script>
-    <script src='js/graph/computecycles.js'></script>
+    <!--<script src='js/graph/computecycles.js'></script>-->
+    <script src='js/graph/compute_cycles.js'></script>
     <script src='js/graph/export.js'></script>
     <script src='js/graph/component.js'></script>
     <script src='js/graph/mech.js'></script>
     <script src='js/graph/mechmath.js'></script>
     <script src='js/graph/ui.js'></script>
+    <script src='js/sidebar.js'></script>
+    <script src='js/simple_math_tools.js'></script>
+    <script src='js/graph/tol_html.js'></script>
+    <script src='js/graph/equation_tree.js'></script>
     <script src='translation/translation.js'></script>
     <link rel="stylesheet" type="text/css" href="css/cytoscape.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -29,13 +40,13 @@
 
 <body>
     <!-- TOPBAR -->
-    <iframe id="help" src="htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/cuts.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
-
+    <!--<iframe id="help" src="htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/cuts.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
+    -->
     <!-- SIDEBAR -->
     <div id="mySidebar" class="sidebar">
         <div id="sidebar-btn" onclick="toggleSidebar()">☰</div>
         <div id="sidebar-content"></div>
-        <script>//appendToSidebar("sidebar-content");</script>
+        <script>appendToSidebar("sidebar-content");</script>
     </div>
 
     <div id="main">
@@ -45,11 +56,18 @@
             <button class="tablinks" onclick="openTab(event, 'alink')">{Links}</button>
             <button class="tablinks" onclick="openTab(event, 'acf')">{Functionnal conditions}</button>
             <button class="tablinks" onclick="openTab(event, 'amob')">{Commanded inputs}</button>
+            <button class="tablinks" onclick="openTab(event, 'outputs')">{Outputs}</button>
         </div>
         <div id="alink" class="tabcontent"></div>
         <div id="anode" class="tabcontent"></div>
         <div id="acf" class="tabcontent">cf</div>
         <div id="amob" class="tabcontent">mobs</div>
+        <div id="outputs" class="tabcontent">
+            <h4>{Cycles}</h4></br>
+            <label id="cycles"></label>
+            <h4>{Equations}</h4></br>
+            <label id="equations"></label>
+        </div>
     </div>
 
     <script>
@@ -62,13 +80,27 @@
         comp_sLink(document.getElementById('alink'),"")
         comp_sNode(document.getElementById('anode'))
 
+        I_to_replace = {"I_gamma_ARBRE_CARTER_LA1":0}
+
         //console.log([5,0,10],[10,0,0], ["a","b","c"], ["u","v","w"]))
         //console.log(mechmath_babar([20,30,10],[10,20,0], ["a","b","c"], ["u","v","w"]))
-        //findCycles()
-        //write_eq_V3(/*edge*/)
+        findCycles()
+        let eq = writeRawEquations()
+        console.log(eq)
+        tol_fillOutputsCycle(cycles)
+        tol_fillOutputsEq(eq)
+        eq = reduceNbOfEquations(eq)
+        tol_fillOutputsEq(eq)
+       // console.log("itoreplace", I_to_replace)
+        
+        solveSystem(eq, "I_v_CF")
+        //makeTreeFromEquations(eq,"I_v_CF")
         //solve_oneI("v_J2_LA+(60*I_alpha_J2_LA)-(60*gamma_J2_LA)")
-
-        </script>
+        //eq = provisoireReplaceNonI(eq)
+        //tol_fillOutputsEq(eq)
+        //sol = nerdamer.solveEquations(eq);
+        //console.log(sol)
+    </script>
     
 </body>
 </html>

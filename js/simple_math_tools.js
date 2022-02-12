@@ -11,3 +11,9 @@ function linspace(start, stop, num, endpoint = true) {
 	const step = (stop - start) / div;
 	return Array.from({length: num}, (_, i) => start + step * i);
 }
+
+//return variables involved in equation. need coffeequate
+function getVariables(expr) {
+    let x = CQ(expr).getAllVariables() 
+    return x
+}

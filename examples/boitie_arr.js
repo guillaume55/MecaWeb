@@ -103,9 +103,7 @@ function cy_create(c) {
             //'stacking': 'auto bend'
             'curve-style': 'bezier',
             "edge-text-rotation": "autorotate"
-
         }
-
     }
     ]
 });
