@@ -47,13 +47,14 @@
                 <div style="display:flex; justify-content:center;">
                     <div class="section-content">
                         
-                        <label>{Units can be mm or m or whatever. D and L should have the same unit}</label></br></br>
+                        <label>{Units can be mm or m or whatever. D and L should have the same unit}</label>
                         <label>{Friction coefficient} f</label>
-
-                        <select id="arcB_selectCoef" onchange="selectArcB(this.value);computeArcB()"></select>
-                    </br>
-                        <div class="input-unit">
-                            <input id="arcB_coef" type="number" value="0.1" min="0" onchange="computeArcB()"/><span>Ø</span>
+                        <div style="display: flex;">
+                            <select id="arcB_selectCoef" onchange="selectArcB(this.value);computeArcB()"></select>
+                            <span style="width: 20px;"> </span>
+                            <div class="input-unit">
+                                <input id="arcB_coef" type="number" value="0.1" min="0" onchange="computeArcB()"/><span>Ø</span>
+                            </div>
                         </div></br>
 
                         <label>{Length of the bearing} L</label>
@@ -69,7 +70,8 @@
                         <label>
                             <label>{Result} :</label>
                             <label id="resArcB"></label>
-                        </label>
+                        </label></br>
+
                         <label>{Formula}</label>
                         <label>{Sliding if} D<(L/2*f)</label>
                     </div>
@@ -144,7 +146,6 @@
                         <input id="buckling_length" type="number" value="500" min="0"/><span>mm</span>
                     </div>
                     <label>{Material}</label>
-                    <label>{Wikipedia says: Do not choose a steel with a high elastic limit the reduce buckling}</label>
                     <select id="buckling_material" onchange="selectYoung(this.value,'buckling_young')"></select>
                     <label>{Young's Modulus}</label>
                     <div class="input-unit">
@@ -155,6 +156,7 @@
                     <div class="input-unit">
                         <input id="buckling_force" type="number" value="5000" min="0"/><span>N</span>
                     </div>
+                    <label>{Wikipedia says: Do not choose a steel with a high elastic limit the reduce buckling}</label>
                 </div>
             </div>
             <div class="item section">
@@ -189,8 +191,8 @@
             <div class="item section">
                 <div class="section-title">{Results}<input type="button" onclick="computeBuckling()" value="Compute"/></div>
                 <table>
-                    <tr><th>{Moment of inertia} (mm^4)</th><td id="buckling_resInertia2"></td></tr>
-                    <tr><th>{Euler's critical load} (N)</th><td id="buckling_eulerCritical"></td></tr>
+                    <tr><th>{Moment of inertia}</th><td id="buckling_resInertia2"></td><td>mm<sup>4</sup></td></tr>
+                    <tr><th>{Euler's critical load}</th><td id="buckling_eulerCritical"></td><td>N</td></tr>
                 </table>
             </div>
         </div><!--end buckling tab-->
@@ -331,14 +333,14 @@
             <div class="item section">
                 <div class="section-title">{Results}<input type="button" onclick="computeFlexion()" value="Compute"/></div>
                 <table>
-                    <tr><th>{Beam Length} (m)</th><td id="res_flexionLength"></td></tr>
-                    <tr><th>{Force f on beam} (N)</th><td id="res_flexionForce"></td></tr>
-                    <tr><th>{Linear q on beam} (N/m)</th><td id="res_flexionQ"></td></tr>
-                    <tr><th>{Young's modulus} (Gpa)</th><td id="res_flexionYoung"></td></tr>
-                    <tr><th>{Distance} a (m)</th><td id="res_flexionA"></td></tr>
-                    <tr><th>{Moment of inertia} (mm^4)</th><td id="res_flexionInertia"></td></tr>
-                    <tr><th>{Max displacement} (mm)</th><td id="flexion_maxDisp"></td></tr>
-                    <tr><th>{Lowest point} (m)</th><td id="res_flexionLowest"></td></tr>
+                    <tr><th>{Beam Length} (m)</th><td id="res_flexionLength"></td><td>m</td></tr>
+                    <tr><th>{Force f on beam} (N)</th><td id="res_flexionForce"></td><td>N</td></tr>
+                    <tr><th>{Linear q on beam} (N/m)</th><td id="res_flexionQ"></td><td>N/m</td></tr>
+                    <tr><th>{Young's modulus} (Gpa)</th><td id="res_flexionYoung"></td><td>GPa</td></tr>
+                    <tr><th>{Distance} a (m)</th><td id="res_flexionA"></td><td>m</td></tr>
+                    <tr><th>{Moment of inertia} (mm^4)</th><td id="res_flexionInertia"></td><td>mm<sup>4</sup></td></tr>
+                    <tr><th>{Max displacement} (mm)</th><td id="flexion_maxDisp"></td><td>mm</td></tr>
+                    <tr><th>{Lowest point} (m)</th><td id="res_flexionLowest"></td><td>m</td></tr>
                 </table>
             </div>
         </div><!--end flexion tab-->
