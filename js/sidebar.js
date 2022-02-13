@@ -22,7 +22,7 @@ function add_lang(){
         select += `<option value=${o[1]}>${o[0]}</option>`
     }
     select += "</select>"
-    var html = `<div class="sidebar-item"><img class="sidebar-logo" src="img/lang.png"/><div class="sidebar-text">${select}</div></div>`
+    var html = `<div class="sidebar-item" onclick='openNav();'><img class="sidebar-logo" src="img/lang.png"/><div class="sidebar-text">${select}</div></div>`
     return html
 }
 
