@@ -44,22 +44,38 @@
             <div class="item section" >
                 <div class="section-title">{ArcB}</div>
 
-                <div  style="display:flex; flex-wrap: wrap;">
-                    
-                    <label>{Units can be mm or m or whatever. D and L should have the same unit}</label></br></br>
-                    <label>{Friction coefficient} f</label></br>
-                    <select id="arcB_selectCoef" onchange="selectArcB(this.value);computeArcB()"></select></br>
-                    
-                    <input id="arcB_coef" type="number" value="0.1" min="0" onchange="computeArcB()"/></br></br>
-                    <label>{Length of the bearing} L</label></br>
-                    <input id="arcB_length" type="number" value="20" min="0" onchange="computeArcB()"/></br></br>
-                    <label>{Distance with the force} D</label></br>
-                    <input id="arcB_bl" type="number" value="50" min="0" onchange="computeArcB()"/></br>
-                    <label id="resArcB"></label></br></br>
-                    <label>{Formula}</label></br>
-                    <label>{Sliding if} D<(L/2*f)</label>
+                <div style="display:flex; justify-content:center;">
+                    <div class="section-content">
+                        
+                        <label>{Units can be mm or m or whatever. D and L should have the same unit}</label></br></br>
+                        <label>{Friction coefficient} f</label>
+
+                        <select id="arcB_selectCoef" onchange="selectArcB(this.value);computeArcB()"></select>
+                    </br>
+                        <div class="input-unit">
+                            <input id="arcB_coef" type="number" value="0.1" min="0" onchange="computeArcB()"/><span>Ø</span>
+                        </div></br>
+
+                        <label>{Length of the bearing} L</label>
+                        <div class="input-unit">
+                            <input id="arcB_length" type="number" value="20" min="0" onchange="computeArcB()"/><span>mm or m</span>
+                        </div></br>
+
+                        <label>{Distance with the force} D</label>
+                        <div class="input-unit">
+                            <input id="arcB_bl" type="number" value="50" min="0" onchange="computeArcB()"/><span>mm or m</span>
+                        </div></br>
+
+                        <label>
+                            <label>{Result} :</label>
+                            <label id="resArcB"></label>
+                        </label>
+                        <label>{Formula}</label>
+                        <label>{Sliding if} D<(L/2*f)</label>
+                    </div>
+
+                    <div style="display:flex; align-items:center"><img src="img/arcB.png" style="width:50%;max-width: 300px;min-width: 200px;"></div>
                 </div>
-                <div><img src="img/arcB.png" style="width:50%;max-width: 300px;min-width: 200px;"></div>
             </div>
         </div>
         <!--------------- Buckling--------------->
@@ -88,37 +104,58 @@
                         <input type="radio" id="buckling_section4" name="bucklingSection" value="circ_pipe">
                     </div>
                 </div>
-                <div id="buckling_beamHeight_div">
-                    <label>{Beam height}</label>
-                    <input type="number" id="buckling_beamHeight" value="40" min="0" onchange="buckling_computeInertia()"/>mm</br>
+                <div class="section-content">
+                    <div id="buckling_beamHeight_div">
+                        <label>{Beam height}</label></br>
+                        <div class="input-unit">
+                        <input type="number" id="buckling_beamHeight" value="40" min="0" onchange="buckling_computeInertia()"/><span>mm</span>
+                        </div>
+                    </div>
+                    <div id="buckling_beamWidth_div">
+                        <label>{Beam width}</label></br>
+                        <div class="input-unit">
+                        <input type="number" id="buckling_beamWidth" value="20" min="0" onchange="buckling_computeInertia()"/><span>mm</span>
+                        </div>
+                        </div>
+                    </div>
+                    <div id="buckling_beamDiam_div">
+                        <label>{Beam diam}</label></br>
+                        <div class="input-unit">
+                        <input type="number" id="buckling_beamDiam" value="20" min="0" onchange="buckling_computeInertia()"/><span>mm</span>
+                        </div>
+                    </div>
+                    <div id="buckling_beamThick_div">
+                        <label>{Beam thickness}</label></br>
+                        <div class="input-unit">
+                        <input type="number" id="buckling_beamThick" value="2" min="0" onchange="buckling_computeInertia()"/><span>mm</span>
+                        </div>
+                    </div>
+                    <label id="buckling_resInertia"></label><label>mm^4</label>
                 </div>
-                <div id="buckling_beamWidth_div">
-                    <label>{Beam width}</label>
-                    <input type="number" id="buckling_beamWidth" value="20" min="0" onchange="buckling_computeInertia()"/>mm</br>
-                </div>
-                <div id="buckling_beamDiam_div">
-                    <label>{Beam diam}</label>
-                    <input type="number" id="buckling_beamDiam" value="20" min="0" onchange="buckling_computeInertia()"/>mm</br>
-                </div>
-                <div id="buckling_beamThick_div">
-                    <label>{Beam thickness}</label>
-                    <input type="number" id="buckling_beamThick" value="2" min="0" onchange="buckling_computeInertia()"/>mm</br>
-                </div>
-                <label id="buckling_resInertia"></label><label>mm^4</label>
+                
             </div>
             
                 
             <div class="item section">
                 <div class="section-title">{Characteristics}</div>
-                <label>{Beam length}</label></br>
-                <input id="buckling_length" type="number" value="500" min="0"/>mm</br>
-                <label>{Material}</label></br>
-                <label>{Wikipedia says: Do not choose a steel with a high elastic limit the reduce buckling}</label></br>
-                <select id="buckling_material" onchange="selectYoung(this.value,'buckling_young')"></select></br>
-                <label>{Young's Modulus}</label></br>
-                <input id="buckling_young" type="number" value="210" min="0"/>GPa</br>
-                <label>{Load}</label></br>
-                <input id="buckling_force" type="number" value="5000" min="0"/>Newtons</br>
+                <div class="section-content">
+                    <label>{Beam length}</label>
+                    <div class="input-unit">
+                        <input id="buckling_length" type="number" value="500" min="0"/><span>mm</span>
+                    </div>
+                    <label>{Material}</label>
+                    <label>{Wikipedia says: Do not choose a steel with a high elastic limit the reduce buckling}</label>
+                    <select id="buckling_material" onchange="selectYoung(this.value,'buckling_young')"></select>
+                    <label>{Young's Modulus}</label>
+                    <div class="input-unit">
+                        <input id="buckling_young" type="number" value="210" min="0"/><span>GPa</span>
+                    </div>
+                    <label>{Load}</label>
+
+                    <div class="input-unit">
+                        <input id="buckling_force" type="number" value="5000" min="0"/><span>N</span>
+                    </div>
+                </div>
             </div>
             <div class="item section">
                 <div class="section-title">{Mounting}</div>
@@ -183,43 +220,47 @@
                         <input type="radio" id="flexion_section4" name="flexionSection" value="circ_pipe">
                     </div>
                 </div>
-                <div id="flexion_beamHeight_div">
-                    <label>{Beam height}</label>
-                    <input type="number" id="flexion_beamHeight" value="40" min="0" onchange="flexion_computeInertia()"/>mm</br>
+                <div class="section-content">
+                    <div id="flexion_beamHeight_div">
+                        <label>{Beam height}</label></br>
+                        <input type="number" id="flexion_beamHeight" value="40" min="0" onchange="flexion_computeInertia()"/>mm</br>
+                    </div>
+                    <div id="flexion_beamWidth_div">
+                        <label>{Beam width}</label></br>
+                        <input type="number" id="flexion_beamWidth" value="20" min="0" onchange="flexion_computeInertia()"/>mm</br>
+                    </div>
+                    <div id="flexion_beamDiam_div">
+                        <label>{Beam diam}</label></br>
+                        <input type="number" id="flexion_beamDiam" value="20" min="0" onchange="flexion_computeInertia()"/>mm</br>
+                    </div>
+                    <div id="flexion_beamThick_div">
+                        <label>{Beam thickness}</label></br>
+                        <input type="number" id="flexion_beamThick" value="2" min="0" onchange="flexion_computeInertia()"/>mm</br>
+                    </div>
+                    <label id="flexion_resInertia"></label><label>mm^4</label>
                 </div>
-                <div id="flexion_beamWidth_div">
-                    <label>{Beam width}</label>
-                    <input type="number" id="flexion_beamWidth" value="20" min="0" onchange="flexion_computeInertia()"/>mm</br>
-                </div>
-                <div id="flexion_beamDiam_div">
-                    <label>{Beam diam}</label>
-                    <input type="number" id="flexion_beamDiam" value="20" min="0" onchange="flexion_computeInertia()"/>mm</br>
-                </div>
-                <div id="flexion_beamThick_div">
-                    <label>{Beam thickness}</label>
-                    <input type="number" id="flexion_beamThick" value="2" min="0" onchange="flexion_computeInertia()"/>mm</br>
-                </div>
-                <label id="flexion_resInertia"></label><label>mm^4</label>
             </div>
             
                 
             <div class="item section">
                 <div class="section-title">{Characteristics}</div>
-                <label>{Beam length}</label></br>
-                <input id="flexion_length" type="number" value="500" min="0"/>mm</br>
-                <label>{Material}</label></br>
-                <select id="flexion_material" onchange="selectYoung(this.value,'flexion_young')"></select></br>
-                <label>{Young's Modulus}</label></br>
-                <input id="flexion_young" type="number" value="210" min="0"/>GPa</br>
-                <label>{Load} F</label></br>
-                <input id="flexion_force" type="number" value="5000" min="0" onchange="flexion_refreshQ(this.value)"/>Newtons</br>
-                <div id="flexion_q_div" style="display:none;">
-                    <label>{Linear load} q</label></br>
-                    <input id="flexion_q" type="number" value="10000" min="0" syle="display:none;" onchange="flexion_refreshF(this.value)"/>mm</br>
-                </div>
-                <div id="flexion_a_div" style="display:none;">
-                    <label>{Distance} a</label></br>
-                    <input id="flexion_a" type="number" value="200" min="0"/>mm</br>
+                <div class="section-content">
+                    <label>{Beam length}</label></br>
+                    <input id="flexion_length" type="number" value="500" min="0"/>mm</br>
+                    <label>{Material}</label></br>
+                    <select id="flexion_material" onchange="selectYoung(this.value,'flexion_young')"></select></br>
+                    <label>{Young's Modulus}</label></br>
+                    <input id="flexion_young" type="number" value="210" min="0"/>GPa</br>
+                    <label>{Load} F</label></br>
+                    <input id="flexion_force" type="number" value="5000" min="0" onchange="flexion_refreshQ(this.value)"/>Newtons</br>
+                    <div id="flexion_q_div" style="display:none;">
+                        <label>{Linear load} q</label></br>
+                        <input id="flexion_q" type="number" value="10000" min="0" syle="display:none;" onchange="flexion_refreshF(this.value)"/>mm</br>
+                    </div>
+                    <div id="flexion_a_div" style="display:none;">
+                        <label>{Distance} a</label></br>
+                        <input id="flexion_a" type="number" value="200" min="0"/>mm</br>
+                    </div>
                 </div>
             </div>
             <div class="item section">

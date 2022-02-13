@@ -1,5 +1,6 @@
 .small-input {
-    width: 60px;
+    width: 100px;
+    margin: auto;
 }
 
 .error {
@@ -99,8 +100,52 @@ body{
   
 }
 
-.item label, .item input,.item select{
+/*.item label,.item select{
   display: flex;
   flex-direction: column;
   align-items: center;
+}*/
+
+.section-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.compute-button{
+  /*width: 120px;*/
+  padding: 5px;
+}
+
+.input-unit{
+  color:#495057;
+  line-height: 1.5;
+  font-size: 1rem;
+  font-weight: 400;
+  /*height: 15px;*/
+}
+
+.input-unit input{
+  border: 1px solid #ced4da;
+  width:60%;
+  margin: 0;
+  border-radius:0.25rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  height: 100%;
+  padding: 10px;
+}
+
+.input-unit span{
+  border: 1px solid #ced4da;
+  width:20%;
+  margin: 0;
+  margin-left:-1px;
+  margin-top:1px;
+  border-radius:0.25rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: #e9ecef;
+  padding: 5px;
 }

@@ -37,51 +37,94 @@
         <div id="screw" class="tabcontent">
             <div class="item section">
                 <div class="section-title">{Torque and Force}</div>
-                <label>{Screw pitch} (mm)</label></br>
-                <input id="screw-pitch" type="number" class="small-input" value="4"/></br>
-                <label>{Efficiency}</label></br>
-                <input id="screw-efficiency" type="number" value="0.9" class="small-input"/></br>
-                <label>{Torque} (N.m) {or Force} (N)</label></br>
-                <input id="screw-torque" type="number" class="small-input" placeholder="Torque (N.m)" onchange="computeForce()"/>
-                <label>N.m</label></br>
-                <input id="screw-force" type="number" class="small-input" placeholder="Force (N)" onchange="computeTorque()"/>
-                <label>N</label></br>
+                <div class="section-content">
+                    
+                    <label>{Screw pitch} (mm)</label>
+                    <div class="input-unit">
+                        <input id="screw-pitch" type="number" min="0" value="4"/><span>mm</span>
+                    </div>
+                
+                    <label>{Efficiency}</label>
+                    <div class="input-unit">
+                        <input id="screw-efficiency" type="number" value="0.9" min="0" max="1"/><span>Ø</span>
+                    </div>
+
+                    <label>{Torque} {or Force}</label>
+                    <div class="input-unit">
+                        <input id="screw-torque" type="number" min="0" placeholder="Torque" onchange="computeForce()"/><span>N.m</span>
+                    </div>
+                    <input type="button" value="{Compute torque}" onclick="computeForce()" class="compute-button"/></br>
+                
+                    <div class="input-unit">
+                        <input id="screw-force" type="number" min="0" placeholder="Force (N)" onchange="computeTorque()"/><span>N</span>
+                    </div>
+                    <input type="button" value="{Compute force}" onclick="computeTorque()" class="compute-button"/></br>
+                    
+                </div>
             </div>
             </br></br>
             <div class="item section">
                 <div class="section-title">{Speed}</div>
-                <label>{Screw pitch} (mm)</label></br>
-                <input id="screw-pitch-speed" type="number" class="small-input" value="4"/></br>
-                <label>{Speed} ({Rotative})</label></br>
-                <input id="screw-rpm" type="number" class="small-input" onchange="computeSpeed('rpm')" value="0"/>
-                <label>rpm</label></br>
+                <div class="section-content">
+                    <label>{Screw pitch}</label>
+                    <div class="input-unit">
+                        <input id="screw-pitch-speed" type="number" min="0" value="4"/><span>mm</span>
+                    </div></br>
+                
+                    <label>{Speed} ({Rotative})</label>
+                    <div class="input-unit">
+                        <input id="screw-rpm" type="number" min="0" onchange="computeSpeed('rpm')" value="0"/><span>rpm</span>
+                    </div></br>
+                
                 <!--<input type="button" onclick="computeSpeed()"/>-->
-                <input id="screw-rads" type="number" class="small-input" onchange="computeSpeed('rads')" value="0"/>
-                <label>rad/s</label></br>
-                <label>{Speed} ({Linear})</label></br>
-                <input id="screw-mmmin" type="number" class="small-input" onchange="computeSpeed('mmmin')" value="0"/>
-                <label> mm/min</label></br>
-                <input id="screw-mms" type="number" class="small-input" onchange="computeSpeed('mms')" value="0"/>
-                <label>mm/s</label>
+                    <div class="input-unit">
+                        <input id="screw-rads" type="number" min="0" onchange="computeSpeed('rads')" value="0"/><span>rad/s</span>
+                    </div>       </br> 
+                
+                    <label>{Speed} ({Linear})</label>
+                    <div class="input-unit">
+                        <input id="screw-mmmin" type="number" min="0" onchange="computeSpeed('mmmin')" value="0"/><span>mm/min</span>
+                    </div></br>
+                    
+                    <div class="input-unit">
+                        <input id="screw-mms" type="number" min="0" onchange="computeSpeed('mms')" value="0"/><span>mm/s</span>
+                    </div>
+                    
+
+                </div>
             </div>
         </div>
         <div id="pulley" class="tabcontent"></div>
         <div id="stepper" class="tabcontent"></div>
         <div id="accel" class="tabcontent">
             <div class="item section">
-                <div class="section-title">Accel curve</div></br>
-                <label>𝛿{Distance} (mm)</label></br>
-                <input id="curve_dist" type="number" class="small-input" value="50" onchange="speedCurve()"/></br></br>
-                <label>{Initial speed} (mm/s)</label></br>
-                <input id="curve_speedInit" type="number" class="small-input" onchange="speedCurve()" value="0"/></br></br>
-                <label>{Final speed} (mm/s)</label></br>
-                <input id="curve_speedFinal" type="number" class="small-input" onchange="speedCurve()" value="50"/></br></br>
-                <label>{Accel} (mm/s²)</label></br>
-                <input id="curve_accel" type="number" class="small-input" onchange="speedCurve()" value="50"/></br></br>
-                
-                <!--Output-->
-                <div id="curve_div"></div>
-                <canvas id="curve_chart" style="width:100%;max-width:700px"></canvas>
+                <div class="section-title">{Accel curve}</div>
+                <div class="section-content">
+                    <label>{Distance}</label>
+                    <div class="input-unit">
+                        <input id="curve_dist" type="number" min="0" value="50" onchange="speedCurve()"/><span>𝛿 mm</span>
+                    </div></br>
+
+                    <label>{Initial speed}</label>
+                    <div class="input-unit">
+                        <input id="curve_speedInit" type="number"  min="0" onchange="speedCurve()" value="0"/><span>mm/s</span>
+                    </div></br>
+
+                    <label>{Final speed}</label>
+                    <div class="input-unit">
+                        <input id="curve_speedFinal" type="number" min="0" onchange="speedCurve()" value="50"/><span>mm/s</span>
+                    </div></br>
+
+                    <label>{Accel}</label>
+                    <div class="input-unit">
+                    <input id="curve_accel" type="number" min="0" onchange="speedCurve()" value="50"/><span>mm/s²</span>
+                    </div></br>
+
+                    <input type="button" value="{Compute force}" onclick="speedCurve()" class="compute-button"/></br>
+                    <!--Output-->
+                    <div id="curve_div"></div>
+                    <canvas id="curve_chart" style="width:100%;max-width:700px; max-height: 50vh;"></canvas>
+                </div>
                 <script></script>
             </div>
         </div>
