@@ -157,4 +157,5 @@ select{
   border-radius:0.25rem;
   background-color: #e9ecef;
   padding: 5px;
+  min-width:100px;
 }

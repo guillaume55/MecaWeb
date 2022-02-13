@@ -48,40 +48,55 @@
         <div id="tab_calc" class="tabcontent">
             <div class="item section">
                 <div class="section-title">{Clearance}</div>
-                <label>{Bore}</label></br>
-                <select id="c_select_bore" onchange="computeClearance()"></select>
-                <label id="c_bore_it"></label></br>
-                <label id="c_bore_int"></label>
-                </br></br>
-                <label>{Shaft}</label></br>
-                <select id="c_select_shaft"onchange="computeClearance()"></select>
-                <label id="c_shaft_it"></label></br>
-                <label id="c_shaft_int"></label></br></br>
-                <label>{Diameter}</label>
-                <input id="c_diam" type="number" value="20" class="small-input" onchange="computeClearance()"/>mm</br>
-                
-                <label id ="c_result" ></label></br>
+                <div class="section-content">
+                    <label>{Bore}</label>
+                    <select id="c_select_bore" onchange="computeClearance()"></select>
+                    <label id="c_bore_it"></label>
+                    <label id="c_bore_int"></label>
+                    
+                    </br>
+                    <label>{Shaft}</label>
+                    <select id="c_select_shaft"onchange="computeClearance()"></select>
+                    <label id="c_shaft_it"></label>
+                    <label id="c_shaft_int"></label>
+                    </br>
 
-                <!--pivot-->
-                <input type="checkbox" id="is_pivot" onchange="togglePivot('is_pivot')"/>
-                <label>{Pivot by two bearings}</label></br> 
-                <div id ="pivot_div" class="hidden">
-                    <label>{Distance between the bearings}</label></br>
-                    <input id="pivot_entraxe" type ="number" value="20" class="small-input"/>mm</br>
-                    <label>{Bearing length}</label></br>
-                    <input id="pivot_bearing_length" type ="number" value="20" class="small-input"/>mm</br></br>
+                    <label>{Diameter}</label>
+                    <div class="input-unit">
+                        <input id="c_diam" type="number" value="20" onchange="computeClearance()"/><span>mm</span>
+                    </div></br>
+                    
+                    <label id ="c_result" ></label></br>
 
-                    <!--Results-->
-                    <table>
-                        <tr><td>L/D : </td><td id="pivot_ld"></td></tr>
-                        <tr><td>α rot (min)</td><td id="pivot_alphaMin"></td></tr>
-                        <tr><td>α rot (max)</td><td id="pivot_alphaMax"></td></tr>
-                        <tr><td>α rot (avg)</td><td id="pivot_alphaAvg"></td></tr>
-                        <tr><td>{L/D max to have LA} </td><td id="pivot_ld_LA"></td></tr>
-                        <tr><td>{L/D min to have PG} </td><td id="pivot_ld_PG"></td></tr>
-                        <tr><td>{Can be considered as}</td><td id="pivot_type"></td></tr>
-                        <tr><td>{Max recommended localisation} ⌖</td><td id="pivot_maxLoc"></td></tr>
-                    </table>
+                    <!--pivot-->
+                    <div style="width:80%;">
+                        <input type="checkbox" id="is_pivot" onchange="togglePivot('is_pivot')"/>
+                        <label>{Pivot by two bearings}</label>
+                    </div></br>
+
+                    <div id ="pivot_div" class="hidden">
+                        <label>{Distance between the bearings}</label></br>
+                        <div class="input-unit">
+                            <input id="pivot_entraxe" type ="number" value="20"/><span>mm</span>
+                        </div></br>
+
+                        <label>{Bearing length}</label></br>
+                        <div class="input-unit">
+                            <input id="pivot_bearing_length" type ="number" value="20"/><span>mm</span>
+                        </div></br>
+
+                        <!--Results-->
+                        <table>
+                            <tr><td>L/D : </td><td id="pivot_ld"></td></tr>
+                            <tr><td>α rot (min)</td><td id="pivot_alphaMin"></td></tr>
+                            <tr><td>α rot (max)</td><td id="pivot_alphaMax"></td></tr>
+                            <tr><td>α rot (avg)</td><td id="pivot_alphaAvg"></td></tr>
+                            <tr><td>{L/D max to have LA} </td><td id="pivot_ld_LA"></td></tr>
+                            <tr><td>{L/D min to have PG} </td><td id="pivot_ld_PG"></td></tr>
+                            <tr><td>{Can be considered as}</td><td id="pivot_type"></td></tr>
+                            <tr><td>{Max recommended localisation} ⌖</td><td id="pivot_maxLoc"></td></tr>
+                        </table>
+                    </div>
                 </div>
             </div>
             <script>
