@@ -108,26 +108,26 @@
                     <div id="buckling_beamHeight_div">
                         <label>{Beam height}</label></br>
                         <div class="input-unit">
-                        <input type="number" id="buckling_beamHeight" value="40" min="0" onchange="buckling_computeInertia()"/><span>mm</span>
+                            <input type="number" id="buckling_beamHeight" value="40" min="0" onchange="buckling_computeInertia()"/><span>mm</span>
                         </div>
-                    </div>
+                    </div></br>
                     <div id="buckling_beamWidth_div">
                         <label>{Beam width}</label></br>
                         <div class="input-unit">
-                        <input type="number" id="buckling_beamWidth" value="20" min="0" onchange="buckling_computeInertia()"/><span>mm</span>
+                            <input type="number" id="buckling_beamWidth" value="20" min="0" onchange="buckling_computeInertia()"/><span>mm</span>
                         </div>
-                        </div>
-                    </div>
+                    </div></br>
+
                     <div id="buckling_beamDiam_div">
                         <label>{Beam diam}</label></br>
                         <div class="input-unit">
-                        <input type="number" id="buckling_beamDiam" value="20" min="0" onchange="buckling_computeInertia()"/><span>mm</span>
+                            <input type="number" id="buckling_beamDiam" value="20" min="0" onchange="buckling_computeInertia()"/><span>mm</span>
                         </div>
                     </div>
                     <div id="buckling_beamThick_div">
                         <label>{Beam thickness}</label></br>
                         <div class="input-unit">
-                        <input type="number" id="buckling_beamThick" value="2" min="0" onchange="buckling_computeInertia()"/><span>mm</span>
+                            <input type="number" id="buckling_beamThick" value="2" min="0" onchange="buckling_computeInertia()"/><span>mm</span>
                         </div>
                     </div>
                     <label id="buckling_resInertia"></label><label>mm^4</label>
@@ -223,19 +223,27 @@
                 <div class="section-content">
                     <div id="flexion_beamHeight_div">
                         <label>{Beam height}</label></br>
-                        <input type="number" id="flexion_beamHeight" value="40" min="0" onchange="flexion_computeInertia()"/>mm</br>
+                        <div class="input-unit">
+                            <input type="number" id="flexion_beamHeight" value="40" min="0" onchange="flexion_computeInertia()"/><span>mm</span>
+                        </div>
                     </div>
                     <div id="flexion_beamWidth_div">
                         <label>{Beam width}</label></br>
-                        <input type="number" id="flexion_beamWidth" value="20" min="0" onchange="flexion_computeInertia()"/>mm</br>
+                        <div class="input-unit">
+                            <input type="number" id="flexion_beamWidth" value="20" min="0" onchange="flexion_computeInertia()"/><span>mm</span>
+                        </div>
                     </div>
                     <div id="flexion_beamDiam_div">
                         <label>{Beam diam}</label></br>
-                        <input type="number" id="flexion_beamDiam" value="20" min="0" onchange="flexion_computeInertia()"/>mm</br>
+                        <div class="input-unit">
+                            <input type="number" id="flexion_beamDiam" value="20" min="0" onchange="flexion_computeInertia()"/><span>mm</span>
+                        </div>
                     </div>
                     <div id="flexion_beamThick_div">
                         <label>{Beam thickness}</label></br>
-                        <input type="number" id="flexion_beamThick" value="2" min="0" onchange="flexion_computeInertia()"/>mm</br>
+                        <div class="input-unit">
+                            <input type="number" id="flexion_beamThick" value="2" min="0" onchange="flexion_computeInertia()"/><span>mm</span>
+                        </div>
                     </div>
                     <label id="flexion_resInertia"></label><label>mm^4</label>
                 </div>
@@ -245,21 +253,37 @@
             <div class="item section">
                 <div class="section-title">{Characteristics}</div>
                 <div class="section-content">
+
                     <label>{Beam length}</label></br>
-                    <input id="flexion_length" type="number" value="500" min="0"/>mm</br>
-                    <label>{Material}</label></br>
+                    <div class="input-unit">
+                        <input id="flexion_length" type="number" value="500" min="0"/><span>mm</span>
+                    </div></br>
+
+                    <label>{Material}</label>
                     <select id="flexion_material" onchange="selectYoung(this.value,'flexion_young')"></select></br>
-                    <label>{Young's Modulus}</label></br>
-                    <input id="flexion_young" type="number" value="210" min="0"/>GPa</br>
-                    <label>{Load} F</label></br>
-                    <input id="flexion_force" type="number" value="5000" min="0" onchange="flexion_refreshQ(this.value)"/>Newtons</br>
+
+                    <label>{Young's Modulus}</label>
+                    <div class="input-unit">
+                        <input id="flexion_young" type="number" value="210" min="0"/><span>Gpa</span>
+                    </div></br>
+
+                    <label>{Load} F</label>
+                    <div class="input-unit">
+                        <input id="flexion_force" type="number" value="5000" min="0" onchange="flexion_refreshQ(this.value)"/><span>N</span>
+                    </div></br>
+
                     <div id="flexion_q_div" style="display:none;">
                         <label>{Linear load} q</label></br>
-                        <input id="flexion_q" type="number" value="10000" min="0" syle="display:none;" onchange="flexion_refreshF(this.value)"/>mm</br>
-                    </div>
+                        <div class="input-unit">
+                            <input id="flexion_q" type="number" value="10000" min="0" syle="display:none;" onchange="flexion_refreshF(this.value)"/><span>N/m</span>
+                        </div>
+                    </div></br>
+
                     <div id="flexion_a_div" style="display:none;">
                         <label>{Distance} a</label></br>
-                        <input id="flexion_a" type="number" value="200" min="0"/>mm</br>
+                        <div class="input-unit">
+                            <input id="flexion_a" type="number" value="200" min="0"/><span>mm</span>
+                        </div>
                     </div>
                 </div>
             </div>

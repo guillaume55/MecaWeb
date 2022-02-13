@@ -133,8 +133,10 @@ body{
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  height: 100%;
+
   padding: 10px;
+  padding-bottom: 8px;
+  padding-top: 11px;
 }
 
 .input-unit span{
@@ -146,6 +148,13 @@ body{
   border-radius:0.25rem;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  background-color: #e9ecef;
+  padding: 5px;
+}
+
+select{
+  border: 1px solid #ced4da;
+  border-radius:0.25rem;
   background-color: #e9ecef;
   padding: 5px;
 }
