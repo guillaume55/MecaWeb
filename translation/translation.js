@@ -83,8 +83,11 @@ function parseCsv() {
 function translateReplace(L){
     
     html = document.body.innerHTML;
+    head = document.getElementsByTagName("head")[0].innerHTML;
     for(k of Object.keys(L)) {
         html = html.replaceAll("{"+k+"}",L[k])
+        head = head.replaceAll("{"+k+"}",L[k])
     }
     document.body.innerHTML = html;
+    document.getElementsByTagName("head")[0].innerHTML = head;
 }
