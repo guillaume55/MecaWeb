@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{Torque}</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="../css/style.css">
+      <link rel="stylesheet" href="../css/cuts.css">
+      <link rel="stylesheet" type="text/css" href="../css/struct.css">
+      <link rel="stylesheet" type="text/css" href="../css/table.css">
+  </head>
+  <body>
+    <script src="../js/getValues.js"></script>
+    <script src="../js/transmission/torque.js"></script>
+    <script src="../js/simple_math_tools.js"></script>
+
+    <div id="calc">
+        <div class="item section">
+            <div class="section-title">{Solid definition}</div>
+            <div class="radios">
+                <div class="radio-button" onclick="document.getElementById('torqueSolid1').click(); showTorqueSolidParams('rect', 'torque')">
+                    <label>{Parallelepipede}</label>
+                    <img src="../img/parallelepipede.png" style="width: 150px; max-width: 150px;"/>
+                    <input type="radio" id="torqueSolid1" name="torqueSolid" value="rect" checked>
+                </div>
+                <div class="radio-button" onclick="document.getElementById('torqueSolid2').click(); showTorqueSolidParams('cyl', 'torque')">
+                    <label>{Cylinder}</label>
+                    <img src="../img/cylinder.png" style="width: 150px; max-width: 150px;"/>
+                    <input type="radio" id="torqueSolid2" name="torqueSolid" value="cyl">
+                </div>
+                <div class="radio-button" onclick="document.getElementById('torqueSolid3').click(); showTorqueSolidParams('spere', 'torque')">
+                    <label>{Sphere}</label>
+                    <img src="../img/sphere.png" style="width: 150px; max-width: 150px;"/>
+                    <input type="radio" id="torqueSolid3" name="torqueSolid" value="cone">
+                </div>
+                <div class="radio-button" onclick="document.getElementById('torqueSolid4').click(); showTorqueSolidParams('custom', 'torque')">
+                    <label>{Custom}</label>
+                    <img src="../img/robotArm.png" style="width: 150px; max-width: 150px;"/>
+                    <input type="radio" id="torqueSolid4" name="torqueSolid" value="custom">
+                </div>
+            </div>
+            <div class="section-content">
+                <div id="torque_aSide_div">
+                    <label>{Length of} a</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="torque_aSide" value="40" min="0" onchange="computeInertiaOfSolid()"/><span>mm</span>
+                    </div>
+                </div></br>
+                <div id="torque_bSide_div">
+                    <label>{Length of} b</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="torque_bSide" value="20" min="0" onchange="computeInertiaOfSolid()"/><span>mm</span>
+                    </div>
+                </div></br>
+
+                <div id="torque_diam_div">
+                    <label>{Beam diam}</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="torque_diam" value="20" min="0" onchange="computeInertiaOfSolid()"/><span>mm</span>
+                    </div>
+                </div><br>
+                <div id="torque_masse_div">
+                    <label>{Masse}</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="torque_masse" value="2" min="0" onchange="computeInertiaOfSolid()"/><span>kg</span>
+                    </div>
+                </div><br>
+                
+                <div id="torque_momentOfInertia_div">
+                    <label>{Moment of inertia of the solid itself}</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="torque_momentOfInertia" min="0"/><span>mm<sup>4</sup></span>
+                    </div>
+                </div><br>
+
+                <img src="../img/huygens.png" style="width:300px; max-width: 500px;">
+                <div id="torque_distance_div">
+                    
+                    <label>{Distance of the axis of rotation}</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="torque_distance" value="0" min="0" onchange="computeInertiaOfSolid()"/><span>mm</span>
+                    </div>
+                </div><br>
+                <div id="torque_momentOfInertia_div">
+                    <label>{Total moment of inertia}</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="torque_totalMomentOfInertia" min="0" disabled/><span>mm<sup>4</sup></span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+              
+        <div class="item section">
+            <div class="section-title">{Characteristics}</div>
+            <div class="section-content">
+                <label>{Time to reach final speed}</label>
+                <div class="input-unit">
+                    <input id="torque_accelTime" type="number" value="1" min="0"/><span>s</span>
+                </div><br>
+                <label>{Rotationnal variation of speed}</label>
+                <div class="input-unit">
+                    <input id="torque_initRpm" type="number" value="0" min="0"/><span>RPM</span>
+                </div><br>
+                <div class="input-unit">
+                    <input id="torque_finalRpm" type="number" value="100" min="0"/><span>RPM</span>
+                </div><br>
+            </div>
+        </div>
+
+        <div class="item section">
+            <div class="section-title">{Resistive torque}</div>
+            <div class="section-content">
+                <label>{Internal friction}</label>
+                <!--From https://zpag.net/Tecnologies_Indistrielles/Roulements_Etude.htm -->
+                <select id="torque_bearingFriction">
+                    <optgroup label="Rolling">
+                        <option value="0.0015">{Rigid ball bearing}</option>
+                        <option value="0.002">{Oblic contact (ball or roller)}</option>
+                        <option value="0.0011">{Roller bearing}</option>
+                        <option value="0.0025">{Needle bearing}</option>                    </optgroup>
+                    <optgroup label="Sliding">
+                        <option value="0.1">{Sliding}</option>
+                    </optgroup>
+                </select>
+                <br>
+                <label>{Radial load}</label>
+                <div class="input-unit">
+                    <input id="torque_radialLoad" type="number" value="100" min="0"/><span>N</span>
+                </div>
+                <span>{Oblic contact bearing can induce radial load with axial forces}</span><br>
+                <label>{Average raduis of the bearing}</label>
+                <div class="input-unit">
+                    <input id="torque_avgRadius" type="number" value="20" min="0"/><span>mm</span>
+                </div><br>
+            </div>
+        </div>
+        
+        <div class="item section">
+            <div class="section-title">{Results}<input type="button" onclick="computeTorques()" value="Compute"/></div>
+            <table>
+                <tr><th>{Moment of inertia of the solid}</th><td id="torque_resMomentOfInertia"></td><td>mm<sup>4</sup></td></tr>
+                <tr><th>{Total moment of inertia}</th><td id="torque_resTotalMomentOfInertia"></td><td>mm<sup>4</sup></td></tr>
+                <tr><th>{System resistive torque}</th><td id="torque_resResistiveTorque"></td><td>N.m</td></tr>
+                <tr><th>{Estimated torque (continuous)}</th><td id="torque_resTorqueContinuous"></td><td>N.m</td></tr>
+                <tr><th>{Estimated torque (acceleration)}</th><td id="torque_resTorqueAccel"></td><td>N.m</td></tr>
+                <tr><th>{Estimated torque (starting)}</th><td id="torque_resTorqueStart"></td><td>N.m</td></tr>
+                <tr><th>{Estimated torque (total)}</th><td id="torque_totalTorque"></td><td>N.m</td></tr>
+                <tr><th>{Mechanical power (100% efficiency)}</th><td id="torque_resMechPower"></td><td>W</td></tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        document.getElementById('torqueSolid2').click();
+        computeTorques()
+    </script>
+
+    
+  </body>
+</html>
