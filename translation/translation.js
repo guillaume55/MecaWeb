@@ -1,24 +1,30 @@
 var reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
 let T = {} //all the translation
-function translate(){
+function translate(htmlfile){
+    
     args = parseUrl()
     if(args['lang']==undefined){
         try{var lang = getLangCookie()}
         catch{console.log("Chrome does not store local cookies")}
-        console.log("translating to ", lang)
+        
         if(lang == undefined) 
             lang = (navigator.language || navigator.userLanguage).split("-")[0];
     }else{lang=args['lang']}
     //get name of the windows
-    var currenturl = window.location.pathname.split("/")
-    var htmlfile = currenturl[currenturl.length-1].split(".")[0]
+    if(htmlfile == undefined) {
+        var currenturl = window.location.pathname.split("/")
+        var htmlfile = currenturl[currenturl.length-1].split(".")[0]
+    }
     try {
+        //console.log(`https://guillaume55.github.io/MecaWeb/translation/${lang}/${htmlfile}.csv`)
+        //console.log("translating to ", lang)
         url = `https://guillaume55.github.io/MecaWeb/translation/${lang}/${htmlfile}.csv`
         reader.open('get', url, true); 
         reader.onreadystatechange = parseCsv;
         reader.send(null);
+        
     }catch{
-        console.log("Cannot translate") 
+        //console.log("Cannot translate") 
         //remove at least the braces
         //keep replacing because it will be a disaster with csv if we modify/correct what is inside braces
         url = `https://guillaume55.github.io/MecaWeb/en/${htmlfile}.csv`
@@ -34,7 +40,7 @@ function translateRefresh(language){
 
 function getLangCookie(){
     c = getCookiesAsJson()
-    console.log(document.cookie)
+    //console.log(document.cookie)
     return c['lang']
 
 }
@@ -76,7 +82,7 @@ function parseCsv() {
         }
         translateReplace(L)
         T=L  //store translations in T
-        console.log(T)
+        //console.log(T)
     }
 }
 

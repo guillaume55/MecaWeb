@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{Screw}</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="../../css/style.css">
+      <link rel="stylesheet" href="../../css/cuts.css">
+      <link rel="stylesheet" type="text/css" href="../../css/struct.css">
+      <link rel="stylesheet" type="text/css" href="../../css/table.css">
+  </head>
+  <body>
+    <script src="../../js/getValues.js"></script>
+    <script src="../../js/transmission/torque.js"></script>
+    <script src="../../js/transmission/transmission.js"></script>
+    <script src="../../js/simple_math_tools.js"></script>
+    <script src="../../translation/translation.js"></script>
+
+    <div>
+        <div class="item section">
+            <div class="section-title">{Speed}</div>
+            <div class="section-content">
+                <label>{Screw pitch}</label>
+                <div class="input-unit">
+                    <input id="screw-pitch-speed" type="number" min="0" value="4"/><span>mm</span>
+                </div></br>
+            
+                <label>{Speed} ({Rotative})</label>
+                <div class="input-unit">
+                    <input id="screw-rpm" type="number" min="0" onchange="computeSpeed('rpm')" value="0"/><span>rpm</span>
+                </div></br>
+            
+            <!--<input type="button" onclick="computeSpeed()"/>-->
+                <div class="input-unit">
+                    <input id="screw-rads" type="number" min="0" onchange="computeSpeed('rads')" value="0"/><span>rad/s</span>
+                </div>       </br> 
+            
+                <label>{Speed} ({Linear})</label>
+                <div class="input-unit">
+                    <input id="screw-mmmin" type="number" min="0" onchange="computeSpeed('mmmin')" value="0"/><span>mm/min</span>
+                </div></br>
+                
+                <div class="input-unit">
+                    <input id="screw-mms" type="number" min="0" onchange="computeSpeed('mms')" value="0"/><span>mm/s</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        translate("transmission")
+    </script>
+
+    
+  </body>
+</html>

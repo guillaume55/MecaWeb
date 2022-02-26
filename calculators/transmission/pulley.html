@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{Torque}</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="../../css/style.css">
+      <link rel="stylesheet" href="../../css/cuts.css">
+      <link rel="stylesheet" type="text/css" href="../../css/struct.css">
+      <link rel="stylesheet" type="text/css" href="../../css/table.css">
+  </head>
+  <body>
+    <script src="../../js/getValues.js"></script>
+    <script src="../../js/transmission/torque.js"></script>
+    <script src="../../js/transmission/transmission.js"></script>
+    <script src="../../js/simple_math_tools.js"></script>
+    <script src="../../translation/translation.js"></script>
+    <script src='../../js/transmission/pulley.js'></script> 
+
+    <div>
+        <div class="item section">
+            <div class="section-title">{Belt length and ratio}</div>
+                <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+                    <div class="section-content">
+                        <label>{Pulley 1 primitive diameter}</label>
+                        <div class="input-unit">
+                            <input id="pulleyLen_pulley1" type="number" min="0" value="40"/><span>mm</span>
+                        </div><br>
+                    
+                        <label>{Pulley 2 primitive diameter}</label>
+                        <div class="input-unit">
+                            <input id="pulleyLen_pulley2" type="number" value="80" min="0"/><span>mm</span>
+                        </div><br>
+
+                        <label>{Distance between axis}</label>
+                        <div class="input-unit">
+                            <input id="pulleyLen_e" type="number" value="100" min="0"/><span>mm</span>
+                        </div><br>
+
+                        <input type="button" value="{Compute}" onclick="computeLengthBelt()" class="compute-button"/><br>
+
+                        <table>
+                            <tr><th>{Belt length} (1)</th><td id="pulleyLen_resLen"></td><td>mm</td></tr>
+                            <tr><th>{Belt length (if crossed)}(2)</th><td id="pulleyLen_resLenCrossed"></td><td>mm</td></tr>
+                            <tr><th>{Ratio}</th><td id="pulleyLen_resRatio"></td><td>Ø</td></tr>
+                        </table>
+                    </div>
+                    <div style="display:flex; align-items:center; padding: 20px;"><img src="../../img/beltsMounting.png" style="max-width: 300px;width: 180px;"></div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        translate("transmission")
+    </script>
+
+    
+  </body>
+</html>

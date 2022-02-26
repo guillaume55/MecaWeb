@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{Screw}</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="../../css/style.css">
+      <link rel="stylesheet" href="../../css/cuts.css">
+      <link rel="stylesheet" type="text/css" href="../../css/struct.css">
+      <link rel="stylesheet" type="text/css" href="../../css/table.css">
+  </head>
+  <body>
+    <script src="../../js/getValues.js"></script>
+    <script src="../../js/transmission/torque.js"></script>
+    <script src="../../js/transmission/transmission.js"></script>
+    <script src="../../js/simple_math_tools.js"></script>
+    <script src="../../translation/translation.js"></script>
+
+    
+        <div class="item section">
+            <div class="section-title">{Torque and Force}</div>
+            <div class="section-content">
+                
+                <label>{Screw pitch}</label>
+                <div class="input-unit">
+                    <input id="screw-pitch" type="number" min="0" value="4"/><span>mm</span>
+                </div>
+            
+                <label>{Efficiency}</label>
+                <div class="input-unit" style="min-width:100px;">
+                    <input id="screw-efficiency" type="number" value="0.9" min="0" max="1"/><span>No unit</span>
+                </div>
+
+                <label>{Torque} {or Force}</label>
+                <div class="input-unit">
+                    <input id="screw-torque" type="number" min="0" placeholder="Torque" onchange="computeForce()"/><span>N.m</span>
+                </div>
+                <input type="button" value="{Compute force}" onclick="computeForce()" class="compute-button"/></br>
+            
+                <div class="input-unit">
+                    <input id="screw-force" type="number" min="0" placeholder="Force (N)" onchange="computeTorque()"/><span>N</span>
+                </div>
+                <input type="button" value="{Compute torque}" onclick="computeTorque()" class="compute-button"/></br>
+                
+            </div>
+        </div>
+    
+    <script>
+        translate("transmission")
+    </script>
+
+    
+  </body>
+</html>

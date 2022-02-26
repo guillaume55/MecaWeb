@@ -32,81 +32,20 @@
             <button class="tablinks" onclick="openTab(event, 'tab_table')">{Table}</button>
             <button class="tablinks" onclick="openTab(event, 'tab_calc')">{Calculator}</button>
             </div>
-        <div id="tab_table" class="tabcontent" style="overflow:scroll;transform: rotateX(180deg);">
-            <div style="transform: rotateX(180deg);">
-                <h3>Arbres</h3>
-                <div id="shaft_div"></div>
-                <h3>Alésages</h3>
-                <div id="bore_div"></div>
-            </div>
-            <script>
-                //openTab(event, 'tab_table')
-                fitsToTable("shaft_div",shaftFit())
-                fitsToTable("bore_div",boreFit()) //does not work
-            </script>
+        <div id="tab_table" class="tabcontent">
+            <iframe src="calculators/fits/fitsTable.html" frameborder="0" width="100%" height="1000"></iframe>
+        </div>
         </div>
         <div id="tab_calc" class="tabcontent">
-            <div class="item section">
-                <div class="section-title">{Clearance}</div>
-                <div class="section-content">
-                    <label>{Bore}</label>
-                    <select id="c_select_bore" onchange="computeClearance()"></select>
-                    <label id="c_bore_it"></label>
-                    <label id="c_bore_int"></label>
-                    
-                    </br>
-                    <label>{Shaft}</label>
-                    <select id="c_select_shaft"onchange="computeClearance()"></select>
-                    <label id="c_shaft_it"></label>
-                    <label id="c_shaft_int"></label>
-                    </br>
-
-                    <label>{Diameter}</label>
-                    <div class="input-unit">
-                        <input id="c_diam" type="number" value="20" onchange="computeClearance()"/><span>mm</span>
-                    </div></br>
-                    
-                    <label id ="c_result" ></label></br>
-
-                    <!--pivot-->
-                    <div style="width:80%;">
-                        <input type="checkbox" id="is_pivot" onchange="togglePivot('is_pivot')"/>
-                        <label>{Pivot by two bearings}</label>
-                    </div></br>
-
-                    <div id ="pivot_div" class="hidden">
-                        <label>{Distance between the bearings}</label></br>
-                        <div class="input-unit">
-                            <input id="pivot_entraxe" type ="number" value="20"/><span>mm</span>
-                        </div></br>
-
-                        <label>{Bearing length}</label></br>
-                        <div class="input-unit">
-                            <input id="pivot_bearing_length" type ="number" value="20"/><span>mm</span>
-                        </div></br>
-
-                        <!--Results-->
-                        <table>
-                            <tr><td>L/D : </td><td id="pivot_ld"></td></tr>
-                            <tr><td>α rot (min)</td><td id="pivot_alphaMin"></td></tr>
-                            <tr><td>α rot (max)</td><td id="pivot_alphaMax"></td></tr>
-                            <tr><td>α rot (avg)</td><td id="pivot_alphaAvg"></td></tr>
-                            <tr><td>{L/D max to have LA} </td><td id="pivot_ld_LA"></td></tr>
-                            <tr><td>{L/D min to have PG} </td><td id="pivot_ld_PG"></td></tr>
-                            <tr><td>{Can be considered as}</td><td id="pivot_type"></td></tr>
-                            <tr><td>{Max recommended localisation} ⌖</td><td id="pivot_maxLoc"></td></tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <script>
-                populateFitsSelect("c_select_shaft",shaftFit())
-                populateFitsSelect("c_select_bore",boreFit())
-                translate()
-                document.getElementsByClassName('tablinks')[0].click()//open tab
-            </script>
+            <iframe src="calculators/fits/fitsTable.html" frameborder="0" width="100%" height="1000"></iframe>
+        </div>
+            
         </div>
 
+        <script>
+            translate()
+            document.getElementsByClassName('tablinks')[0].click()//open tab
+        </script>
     </div>
 
     

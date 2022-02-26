@@ -3,16 +3,16 @@
   <head>
     <title>{Torque}</title>
       <meta charset="UTF-8">
-      <link rel="stylesheet" href="../css/style.css">
-      <link rel="stylesheet" href="../css/cuts.css">
-      <link rel="stylesheet" type="text/css" href="../css/struct.css">
-      <link rel="stylesheet" type="text/css" href="../css/table.css">
+      <link rel="stylesheet" href="../../css/style.css">
+      <link rel="stylesheet" href="../../css/cuts.css">
+      <link rel="stylesheet" type="text/css" href="../../css/struct.css">
+      <link rel="stylesheet" type="text/css" href="../../css/table.css">
   </head>
   <body>
-    <script src="../js/getValues.js"></script>
-    <script src="../js/transmission/torque.js"></script>
-    <script src="../js/simple_math_tools.js"></script>
-    <script src="../translation/translation.js"></script>
+    <script src="../../js/getValues.js"></script>
+    <script src="../../js/transmission/torque.js"></script>
+    <script src="../../js/simple_math_tools.js"></script>
+    <script src="../../translation/translation.js"></script>
 
     <div id="calc">
         <div class="item section">
@@ -20,22 +20,22 @@
             <div class="radios">
                 <div class="radio-button" onclick="document.getElementById('torqueSolid1').click(); showTorqueSolidParams('rect', 'torque')">
                     <label>{Parallelepipede}</label>
-                    <img src="../img/parallelepipede.png" style="width: 150px; max-width: 150px;"/>
+                    <img src="../../img/parallelepipede.png" style="width: 150px; max-width: 150px;"/>
                     <input type="radio" id="torqueSolid1" name="torqueSolid" value="rect" checked>
                 </div>
                 <div class="radio-button" onclick="document.getElementById('torqueSolid2').click(); showTorqueSolidParams('cyl', 'torque')">
                     <label>{Cylinder}</label>
-                    <img src="../img/cylinder.png" style="width: 150px; max-width: 150px;"/>
+                    <img src="../../img/cylinder.png" style="width: 150px; max-width: 150px;"/>
                     <input type="radio" id="torqueSolid2" name="torqueSolid" value="cyl">
                 </div>
                 <div class="radio-button" onclick="document.getElementById('torqueSolid3').click(); showTorqueSolidParams('spere', 'torque')">
                     <label>{Sphere}</label>
-                    <img src="../img/sphere.png" style="width: 150px; max-width: 150px;"/>
+                    <img src="../../img/sphere.png" style="width: 150px; max-width: 150px;"/>
                     <input type="radio" id="torqueSolid3" name="torqueSolid" value="cone">
                 </div>
                 <div class="radio-button" onclick="document.getElementById('torqueSolid4').click(); showTorqueSolidParams('custom', 'torque')">
                     <label>{Custom}</label>
-                    <img src="../img/robotArm.png" style="width: 150px; max-width: 150px;"/>
+                    <img src="../../img/robotArm.png" style="width: 150px; max-width: 150px;"/>
                     <input type="radio" id="torqueSolid4" name="torqueSolid" value="custom">
                 </div>
             </div>
@@ -73,7 +73,7 @@
                     </div>
                 </div><br>
 
-                <img src="../img/huygens.png" style="width:300px; max-width: 500px;">
+                <img src="../../img/huygens.png" style="width:300px; max-width: 500px;">
                 <div id="torque_distance_div">
                     
                     <label>{Distance of the axis of rotation}</label></br>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{Fits}</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="../../css/sidebar.css">
+      <link rel="stylesheet" type="text/css" href="../../css/style.css">
+      <link rel="stylesheet" type="text/css" href="../../css/cuts.css">
+      <link rel="stylesheet" href="../../css/table.css">
+
+  </head>
+  <body>
+    <script src='../../js/fits/fits.js'></script>
+    <script src='../../js/fits/fitsToHtml.js'></script>
+    <script src='../../js/graph/ui.js'></script>
+    <script src='../../js/simple_math_tools.js'></script>
+    <script src='../../translation/translation.js'></script>
+
+    <div style="overflow:scroll;transform: rotateX(180deg);">
+        <div style="transform: rotateX(180deg);">
+            <h3>{Shaft}</h3>
+            <div id="shaft_div"></div>
+            <h3>{Bore}</h3>
+            <div id="bore_div"></div>
+        </div>
+    </div>
+    <script>
+        translate("fits")
+        fitsToTable("shaft_div",shaftFit())
+        fitsToTable("bore_div",boreFit()) 
+    </script>
+
+  </body>
+</html>
+
+

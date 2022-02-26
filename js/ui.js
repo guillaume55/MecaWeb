@@ -5,3 +5,5 @@ function hideElt(id){
 function showElt(id){
     document.getElementById(id).style.display = "block"
 }
+
+

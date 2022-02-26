@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{Torque}</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="../../css/style.css">
+      <link rel="stylesheet" href="../../css/cuts.css">
+      <link rel="stylesheet" type="text/css" href="../../css/struct.css">
+      <link rel="stylesheet" type="text/css" href="../../css/table.css">
+  </head>
+  <body>
+    <script src="../../js/getValues.js"></script>
+    <script src="../../js/transmission/torque.js"></script>
+    <script src="../../js/transmission/transmission.js"></script>
+    <script src="../../js/simple_math_tools.js"></script>
+    <script src="../../translation/translation.js"></script>
+    <script src='../../js/lib/Chart.js'></script>
+
+    <div>
+        <div class="item section">
+            <div class="section-title">{Accel curve}</div>
+            <div class="section-content">
+                <label>{Distance}</label>
+                <div class="input-unit">
+                    <input id="curve_dist" type="number" min="0" value="50" onchange="speedCurve()"/><span>𝛿 mm</span>
+                </div></br>
+
+                <label>{Initial speed}</label>
+                <div class="input-unit">
+                    <input id="curve_speedInit" type="number"  min="0" onchange="speedCurve()" value="0"/><span>mm/s</span>
+                </div></br>
+
+                <label>{Final speed}</label>
+                <div class="input-unit">
+                    <input id="curve_speedFinal" type="number" min="0" onchange="speedCurve()" value="50"/><span>mm/s</span>
+                </div></br>
+
+                <label>{Accel}</label>
+                <div class="input-unit">
+                <input id="curve_accel" type="number" min="0" onchange="speedCurve()" value="50"/><span>mm/s²</span>
+                </div></br>
+
+                <input type="button" value="{Compute force}" onclick="speedCurve()" class="compute-button"/></br>
+                <!--Output-->
+                <div id="curve_div"></div>
+                <canvas id="curve_chart" style="width:100%;max-width:700px; max-height: 50vh;"></canvas>
+            </div>
+            <script></script>
+        </div>
+    </div>
+    <script>
+        translate("transmission")
+    </script>
+
+    
+  </body>
+</html>

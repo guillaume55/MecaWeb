@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{Torque}</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="../../css/style.css">
+      <link rel="stylesheet" href="../../css/cuts.css">
+      <link rel="stylesheet" type="text/css" href="../../css/struct.css">
+      <link rel="stylesheet" type="text/css" href="../../css/table.css">
+  </head>
+  <body>
+    <script src='../../js/struct/buckling.js'></script>
+    <script src="../../js/getValues.js"></script>
+    <script src="../../js/simple_math_tools.js"></script>
+    <script src="../../translation/translation.js"></script>
+    <script src='../../js/struct/inertia.js'></script>
+    <script src='../../js/struct/arcB.js'></script>
+    <script src='../../js/struct/materials.js'></script>
+    <script src='../../js/ui.js'></script>
+    <script src='../../js/struct/inertia.js'></script>
+    <script src='../../js/struct/materials.js'></script>
+ 
+    <div>
+        <div class="item section">
+            <div class="section-title">{Beam}</div>
+            <div class="radios">
+                <div class="radio-button" onclick="document.getElementById('buckling_section1').click(); showBeamParams('rect', 'buckling')">
+                    <label>{Rectangular}</label>
+                    <img src="../../img/rect.png"/>
+                    <input type="radio" id="buckling_section1" name="bucklingSection" value="rect" checked>
+                </div>
+                <div class="radio-button" onclick="document.getElementById('buckling_section2').click(); showBeamParams('rect_pipe', 'buckling')">
+                    <label>{Rectangular pipe}</label>
+                    <img src="../../img/rectTube.png"/>
+                    <input type="radio" id="buckling_section2" name="bucklingSection" value="rect_pipe">
+                </div>
+                <div class="radio-button" onclick="document.getElementById('buckling_section3').click(); showBeamParams('circ', 'buckling')">
+                    <label>{Circular}</label>
+                    <img src="../../img/round.png"/>
+                    <input type="radio" id="buckling_section3" name="bucklingSection" value="circ">
+                </div>
+                <div class="radio-button" onclick="document.getElementById('buckling_section4').click(); showBeamParams('circ_pipe', 'buckling')">
+                    <label>{Circular pipe}</label>
+                    <img src="../../img/roundTube.png"/>
+                    <input type="radio" id="buckling_section4" name="bucklingSection" value="circ_pipe">
+                </div>
+            </div>
+            <div class="section-content">
+                <div id="buckling_beamHeight_div">
+                    <label>{Beam height}</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="buckling_beamHeight" value="40" min="0" onchange="buckling_computeInertia()"/><span>mm</span>
+                    </div>
+                </div></br>
+                <div id="buckling_beamWidth_div">
+                    <label>{Beam width}</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="buckling_beamWidth" value="20" min="0" onchange="buckling_computeInertia()"/><span>mm</span>
+                    </div>
+                </div></br>
+
+                <div id="buckling_beamDiam_div">
+                    <label>{Beam diam}</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="buckling_beamDiam" value="20" min="0" onchange="buckling_computeInertia()"/><span>mm</span>
+                    </div>
+                </div>
+                <div id="buckling_beamThick_div">
+                    <label>{Beam thickness}</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="buckling_beamThick" value="2" min="0" onchange="buckling_computeInertia()"/><span>mm</span>
+                    </div>
+                </div>
+                <label id="buckling_resInertia"></label><label>mm^4</label>
+            </div>
+            
+        </div>
+        
+            
+        <div class="item section">
+            <div class="section-title">{Characteristics}</div>
+            <div class="section-content">
+                <label>{Beam length}</label>
+                <div class="input-unit">
+                    <input id="buckling_length" type="number" value="500" min="0"/><span>mm</span>
+                </div>
+                <label>{Material}</label>
+                <select id="buckling_material" onchange="selectYoung(this.value,'buckling_young')"></select>
+                <label>{Young's Modulus}</label>
+                <div class="input-unit">
+                    <input id="buckling_young" type="number" value="210" min="0"/><span>GPa</span>
+                </div>
+                <label>{Load}</label>
+
+                <div class="input-unit">
+                    <input id="buckling_force" type="number" value="5000" min="0"/><span>N</span>
+                </div>
+                <label>{Wikipedia says: Do not choose a steel with a high elastic limit the reduce buckling}</label>
+            </div>
+        </div>
+        <div class="item section">
+            <div class="section-title">{Mounting}</div>
+            <div class="radios">
+                <div class="radio-button" onclick="document.getElementById('buckling_mounting1').click()">
+                    <label>{Fixed} - {Free}</label>
+                    <img src="../../img/flambage_fixedFree.png"/>
+                    <input type="radio" id="buckling_mounting1" name="bucklingMoutingType" value="2" checked="true">
+                    <label>Coef 2</label>
+                </div>
+                <div class="radio-button" onclick="document.getElementById('buckling_mounting2').click()">
+                    <label>{Fixed} - {Pinned}</label>
+                    <img src="../../img/flambage_fixedRot.png"/>
+                    <input type="radio" id="buckling_mounting2" name="bucklingMoutingType" value="0.699">
+                    <label>Coef 0.7</label>
+                </div>
+                <div class="radio-button" onclick="document.getElementById('buckling_mounting3').click()">
+                    <label>{Pinned} - {Pinned}</label>
+                    <img src="../../img/flambage_RotRot.png"/>
+                    <input type="radio" id="buckling_mounting3" name="bucklingMoutingType" value="1">
+                    <label>Coef 1</label>
+                </div>
+                <div class="radio-button" onclick="document.getElementById('buckling_mounting4').click()">
+                    <label>{Fixed} - {Fixed}</label>
+                    <img src="../../img/flambage_fixedFixed.png"/>
+                    <input type="radio" id="buckling_mounting4" name="bucklingMoutingType" value="0.5">
+                    <label>Coef 0.5</label>
+                </div>
+            </div>     
+        </div>
+        <div class="item section">
+            <div class="section-title">{Results}<input type="button" onclick="computeBuckling()" value="Compute"/></div>
+            <table>
+                <tr><th>{Quadratic moment}</th><td id="buckling_resInertia2"></td><td>mm<sup>4</sup></td></tr>
+                <tr><th>{Euler's critical load}</th><td id="buckling_eulerCritical"></td><td>N</td></tr>
+            </table>
+        </div>
+    </div>
+        
+    <script>
+        fillSelectGroup("buckling_material", getMaterials())
+        showBeamParams("rect", "buckling")
+        translate("structure")
+    </script>
+
+    
+  </body>
+</html>

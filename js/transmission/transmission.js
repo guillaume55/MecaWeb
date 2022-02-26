@@ -54,7 +54,7 @@ function computeTorque() {
     let eff = getInput("screw-efficiency");
     let force = getInput("screw-force");
     let torque = (pitch*force)/(2000*3.14159*eff);
-    document.getElementById("screw-torque").value=roundDec(torque,2);
+    document.getElementById("screw-torque").value=roundDec(torque,4);
 }
 
 function getInput(id) {
