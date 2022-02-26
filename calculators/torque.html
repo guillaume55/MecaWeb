@@ -12,10 +12,11 @@
     <script src="../js/getValues.js"></script>
     <script src="../js/transmission/torque.js"></script>
     <script src="../js/simple_math_tools.js"></script>
+    <script src="../translation/translation.js"></script>
 
     <div id="calc">
         <div class="item section">
-            <div class="section-title">{Solid definition}</div>
+            <div class="section-title">{Solid definition} Not working</div>
             <div class="radios">
                 <div class="radio-button" onclick="document.getElementById('torqueSolid1').click(); showTorqueSolidParams('rect', 'torque')">
                     <label>{Parallelepipede}</label>
@@ -68,7 +69,7 @@
                 <div id="torque_momentOfInertia_div">
                     <label>{Moment of inertia of the solid itself}</label></br>
                     <div class="input-unit">
-                        <input type="number" id="torque_momentOfInertia" min="0"/><span>mm<sup>4</sup></span>
+                        <input type="number" id="torque_momentOfInertia" min="0"/><span>kg.mm²</span>
                     </div>
                 </div><br>
 
@@ -83,7 +84,7 @@
                 <div id="torque_momentOfInertia_div">
                     <label>{Total moment of inertia}</label></br>
                     <div class="input-unit">
-                        <input type="number" id="torque_totalMomentOfInertia" min="0" disabled/><span>mm<sup>4</sup></span>
+                        <input type="number" id="torque_totalMomentOfInertia" min="0" disabled/><span>kg.mm²</span>
                     </div>
                 </div>
             </div>
@@ -97,10 +98,11 @@
                 <div class="input-unit">
                     <input id="torque_accelTime" type="number" value="1" min="0"/><span>s</span>
                 </div><br>
-                <label>{Rotationnal variation of speed}</label>
+                <label>{Initial speed}</label>
                 <div class="input-unit">
                     <input id="torque_initRpm" type="number" value="0" min="0"/><span>RPM</span>
                 </div><br>
+                <label>{Final speed}</label>
                 <div class="input-unit">
                     <input id="torque_finalRpm" type="number" value="100" min="0"/><span>RPM</span>
                 </div><br>
@@ -108,50 +110,82 @@
         </div>
 
         <div class="item section">
-            <div class="section-title">{Resistive torque}</div>
+            <div class="section-title">{Resistive torque induced by bearings}</div>
             <div class="section-content">
-                <label>{Internal friction}</label>
-                <!--From https://zpag.net/Tecnologies_Indistrielles/Roulements_Etude.htm -->
-                <select id="torque_bearingFriction">
-                    <optgroup label="Rolling">
-                        <option value="0.0015">{Rigid ball bearing}</option>
-                        <option value="0.002">{Oblic contact (ball or roller)}</option>
-                        <option value="0.0011">{Roller bearing}</option>
-                        <option value="0.0025">{Needle bearing}</option>                    </optgroup>
-                    <optgroup label="Sliding">
-                        <option value="0.1">{Sliding}</option>
-                    </optgroup>
-                </select>
-                <br>
-                <label>{Radial load}</label>
-                <div class="input-unit">
-                    <input id="torque_radialLoad" type="number" value="100" min="0"/><span>N</span>
-                </div>
-                <span>{Oblic contact bearing can induce radial load with axial forces}</span><br>
-                <label>{Average raduis of the bearing}</label>
-                <div class="input-unit">
-                    <input id="torque_avgRadius" type="number" value="20" min="0"/><span>mm</span>
-                </div><br>
+                <table>
+                    <tr><th>{Bearing Characteristics}</th><th>{Internal friction}</th><th>{Radial load}</th><th>Average radius</th></tr>
+                    <!--From https://zpag.net/Tecnologies_Indistrielles/Roulements_Etude.htm -->
+                    <tr>
+                        <td>{Bearing} 1</td>
+                        <td>
+                            <select id="torque_bearingFriction0">
+                                <optgroup label="Rolling">
+                                    <option value="0.0015">{Rigid ball bearing} µ=0.0015</option>
+                                    <option value="0.002">{Oblic contact (ball or roller)} µ=0.002</option>
+                                    <option value="0.0011">{Roller bearing} µ=0.0011</option>
+                                    <option value="0.0025">{Needle bearing} µ=0.0025</option> 
+                            </optgroup>
+                                <optgroup label="Sliding">
+                                    <option value="0.05">{Low friction bearing} µ=0.05</option>
+                                    <option value="0.1">{Medium friction bearing} µ=0.1</option>
+                                    <option value="0.15">{Maybe not a good bearing} µ=0.15</option>
+                                </optgroup>
+                            </select>
+                        </td>
+                        <td>
+                            <input id="torque_radialLoad0" class="small-input" type="number" value="100" min="0"/><span>N</span>
+                        </td>
+                        <td>
+                            <input id="torque_avgRadius0" class="small-input" type="number" value="20" min="0"/><span>mm</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{Bearing} 2</td>
+                        <td>
+                            <select id="torque_bearingFriction1">
+                                <optgroup label="Rolling">
+                                    <option value="0.0015">{Rigid ball bearing} µ=0.0015</option>
+                                    <option value="0.002">{Oblic contact (ball or roller)} µ=0.002</option>
+                                    <option value="0.0011">{Roller bearing} µ=0.0011</option>
+                                    <option value="0.0025">{Needle bearing} µ=0.0025</option> 
+                            </optgroup>
+                                <optgroup label="Sliding">
+                                    <option value="0.05">{Low friction bearing} µ=0.05</option>
+                                    <option value="0.1">{Medium friction bearing} µ=0.1</option>
+                                    <option value="0.15">{Maybe not a good bearing} µ=0.15</option>
+                                </optgroup>
+                            </select>
+                        </td>
+                        <td>
+                            <input id="torque_radialLoad1" class="small-input" type="number" value="100" min="0"/><span>N</span>
+                        </td>
+                        <td>
+                            <input id="torque_avgRadius1" class="small-input" type="number" value="20" min="0"/><span>mm</span>
+                        </td>
+                    </tr>
+                </table><br>
+                <span>{Oblic contact bearing can induce radial load with axial forces}</span>
             </div>
         </div>
         
         <div class="item section">
             <div class="section-title">{Results}<input type="button" onclick="computeTorques()" value="Compute"/></div>
             <table>
-                <tr><th>{Moment of inertia of the solid}</th><td id="torque_resMomentOfInertia"></td><td>mm<sup>4</sup></td></tr>
+                <tr><th>{Moment of inertia of the solid}</th><td id="torque_resMomentOfInertia"></td><td>kg.mm²</td></tr>
                 <tr><th>{Total moment of inertia}</th><td id="torque_resTotalMomentOfInertia"></td><td>mm<sup>4</sup></td></tr>
                 <tr><th>{System resistive torque}</th><td id="torque_resResistiveTorque"></td><td>N.m</td></tr>
-                <tr><th>{Estimated torque (continuous)}</th><td id="torque_resTorqueContinuous"></td><td>N.m</td></tr>
-                <tr><th>{Estimated torque (acceleration)}</th><td id="torque_resTorqueAccel"></td><td>N.m</td></tr>
-                <tr><th>{Estimated torque (starting)}</th><td id="torque_resTorqueStart"></td><td>N.m</td></tr>
-                <tr><th>{Estimated torque (total)}</th><td id="torque_totalTorque"></td><td>N.m</td></tr>
-                <tr><th>{Mechanical power (100% efficiency)}</th><td id="torque_resMechPower"></td><td>W</td></tr>
+                <tr><th>{Estimated torque} ({continuous})</th><td id="torque_resTorqueContinuous"></td><td>N.m</td></tr>
+                <tr><th>{Estimated torque} ({acceleration})</th><td id="torque_resTorqueAccel"></td><td>N.m</td></tr>
+                <tr><th>{Estimated torque} ({starting})</th><td id="torque_resTorqueStart"></td><td>N.m</td></tr>
+                <tr><th>{Estimated torque} ({total})</th><td id="torque_totalTorque"></td><td>N.m</td></tr>
+                <tr><th>{Mechanical power} ({100% efficiency})</th><td id="torque_resMechPower"></td><td>W</td></tr>
             </table>
         </div>
     </div>
     <script>
         document.getElementById('torqueSolid2').click();
         computeTorques()
+        translate()
     </script>
 
     

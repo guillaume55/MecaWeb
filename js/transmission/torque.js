@@ -103,14 +103,17 @@ function torque_accelTorque(){
     return ta
 }
 
-function torque_resistiveTorque() {
+function torque_resistiveTorque(bearings) {
     //from https://zpag.net/Tecnologies_Indistrielles/Roulements_Etude.htm
-    let friction = parseFloat(document.getElementById('torque_bearingFriction').value)
-    let radLoad = parseFloat(document.getElementById('torque_radialLoad').value)
-    let avgRadius = parseFloat(document.getElementById('torque_avgRadius').value)
+    let cf = 0
+    for(i=0; i<bearings; i++) {
+        index = i.toString()
+        let friction = parseFloat(document.getElementById('torque_bearingFriction'+index).value)
+        let radLoad = parseFloat(document.getElementById('torque_radialLoad'+index).value)
+        let avgRadius = parseFloat(document.getElementById('torque_avgRadius'+index).value)
+        cf += friction*radLoad*(avgRadius/1000)
+    }
     
-    let cf = friction*radLoad*(avgRadius/1000)
-
     document.getElementById('torque_resResistiveTorque').innerHTML = roundDec(cf,3)
     return cf
 }
@@ -125,7 +128,7 @@ function torque_MechPower(totalTorque){
 function computeTorques(){
     let t = 0; 
     t += torque_accelTorque()
-    t += torque_resistiveTorque()
+    t += torque_resistiveTorque(2)
     torque_MechPower(t)
     document.getElementById('torque_totalTorque').innerHTML=roundDec(t,3)
 }

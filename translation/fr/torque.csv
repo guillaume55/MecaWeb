@@ -1,0 +1,37 @@
+Torque,Couple
+Solid definition,Caractéristiques du solide
+Parallelepipede,Parallèlèpipède
+Cylinder,Cylindre
+Sphere,Sphère
+Custom,Personnalisé
+Masse,Masse
+Moment of inertia of the solid itself,Moment d'inertie du solide seul
+Distance of the axis of rotation,Distance entre l'axe du solide et l'axe de rotation
+Characteristics,Charactéristiques
+Time to reach final speed,Temps pour atteindre la vitesse finale
+Initial speed,Vitesse initiale
+Final speed,Vitesse finale
+Resistive torque induced by bearings,Couple résistant dû aux roulements/paliers
+Internal friction,Friction du composant
+Radial load,Charge radiale
+Bearing Characteristics,Charactéristiques du roulement
+Bearing,Roulement/Palier
+Rigid ball bearing,Roulement rigide à billes
+Oblic contact (ball or roller),Rlt à contact oblique (billes ou rlx)
+Roller bearing,Roulement à rouleaux
+Needle bearing,Roulement à aiguilles
+Low friction bearing,Palier (coef de friction faible)
+Medium friction bearing,Palier (coef de friction moyen)
+Maybe not a good bearing,Palier (coef de friction élevé)
+Results,Resultats
+Compute,Calculer
+Moment of inertia of the solid,Moment d'inertie du solide
+Total moment of inertia,Moment d'inertie total
+System resistive torque,Couple résistif du système
+Estimated torque,Couple estimé
+continuous,continu
+acceleration,acceleration
+starting,démarrage
+total,total
+100% efficiency,rendement 100%
+Mechanical power,Puissance mécanique
