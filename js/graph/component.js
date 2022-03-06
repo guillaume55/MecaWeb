@@ -343,6 +343,7 @@ function fill_edit_elt(elt_id)
         }*/
 
     }
+    remove_elt(elt_id)
 
 }
 
