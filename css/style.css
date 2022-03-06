@@ -46,7 +46,7 @@
 
 .edit_button {
     margin: 5px;
-    background: url(../img/edit.png) left no-repeat;
+    background: url(https://guillaume55.github.io/MecaWeb/img/edit.png) left no-repeat;
     background-size: 30px;
     width: 30px;
     height: 30px;
@@ -55,7 +55,7 @@
 }
 .del_button {
     margin: 5px;
-    background: url(../img/trash.png) left no-repeat;
+    background: url(https://guillaume55.github.io/MecaWeb/img/trash.png) left no-repeat;
     background-size: 30px;
     width: 30px;
     height: 30px;
