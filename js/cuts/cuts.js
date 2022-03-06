@@ -8,7 +8,8 @@ function add_bar(){
 }
 
 function add_cut(){
-    document.getElementById("cuts-div").innerHTML += '<div class="table-responsive col-md-10 section" class="barDiv" id="init_cut"><div class = "section-title"><div>Bar to Cut </div><button class="del-button" onclick="del_entry(this)">Delete</button></div><div class ="fields"><div class="field">Length in mm <input name="cutLength" class="cutLength" value="300"></input></div><div class="field">Angle 1 in deg<input name="cutAngle1" class="cutAngle1" value="90"></input></div><div class="field">Angle 1 in deg<input name="cutAngle2" class="cutAngle2" value="90"></input></div></div></div>'
+    //with angles
+    document.getElementById("cuts-div").innerHTML += '<div class="table-responsive col-md-10 section" class="barDiv" id="init_cut"><div class = "section-title"><div>Bar to Cut </div><button class="del-button" onclick="del_entry(this)">Delete</button></div><div class ="fields"><div class="field">Length in mm <input name="cutLength" class="cutLength" value="300"></input></div><div class="field angle-field">Angle 1 in deg<input name="cutAngle1" class="cutAngle1" value="90"></input></div><div class="field angle-field">Angle 1 in deg<input name="cutAngle2" class="cutAngle2" value="90"></input></div></div></div>'
 }
 
 
@@ -47,6 +48,9 @@ function compute() {
     lengthCutArr = document.getElementsByClassName('cutLength');
     angle1Arr = document.getElementsByClassName('cutAngle1');
     angle2Arr = document.getElementsByClassName('cutAngle2');
+
+    
+    //place cuts in array
     for(j=0; j<lengthCutArr.length; j++) {
         var lengthCut = Number(lengthCutArr[j].value)
         var angle1 = 90-Number(angle1Arr[j].value)

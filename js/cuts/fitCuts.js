@@ -52,12 +52,14 @@ function arrayDiff(ar1, ar2) {
     return newAr1
 }
 
-//place longest cut in longest bar first
+//if a bar and a cut have the same size proceed and then TODO
+//place longest cut in longest bar 
 function fitCutsStandard(bars, cuts){
     var i, barLen, bar
     barLen = bars.length
 
     var res = []
+
     for(i=0; i<barLen; i++)  {
         bar = fitCutsInBar(bars[i]['len'], cuts)
         var cutsInBar = [].concat(bar)
@@ -65,7 +67,7 @@ function fitCutsStandard(bars, cuts){
         console.log("cutsIn bar1",cutsInBar)
         cuts = arrayDiff(cuts, bar)
         console.log("cuts 2",cutsInBar)
-        res.push({len:bars[i]['len'], cuts: cutsInBar, ratio: ratio})     
+        res.push({len:bars[i]['len'], cuts: cutsInBar, ratio: roundDec(ratio,2)})     
         
     }
     return {bars:res, remainingCuts: cuts}
@@ -215,7 +217,7 @@ function graphRes(bars)  {
     
     res = "<div class='res-bars'>"
     for(i=0; i<bars.length; i++)  {
-        loss = 100-bars[i]['ratio'].toString()
+        loss = roundDec(100-bars[i]['ratio'],2).toString()
         res += '<div class="res-barLen">Bar: '+bars[i]['len']+'mm, Loss:'+loss+ '%</div>'
         res+= graphBar(bars[i], bars[i]['len'])
          
@@ -259,7 +261,7 @@ function exportToCsv() {
     bars.forEach(function(item) {
         var c = "", i
         for(i=0; i<item['cuts'].length; i++){ c += delimiter + item['cuts'][i].toString(); console.log(c)}
-        csv += item['len'].toString() + delimiter + item['ratio'].toString() + c +'\n'
+        csv += item['len'].toString() + delimiter + roundDec(item['ratio'],2).toString() + c +'\n'
     });
     //write remaining cuts
     csv += '\nRemaining cuts'

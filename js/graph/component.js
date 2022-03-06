@@ -341,9 +341,9 @@ function fill_edit_elt(elt_id)
             document.getElementById("link_axis_z").value = elt.data[fields["axis"][2]]
 
         }*/
-
+        remove_elt(elt_id)
     }
-    remove_elt(elt_id)
+    
 
 }
 
