@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{Torque}</title>
+    <title>{Stepper}</title>
       <meta charset="UTF-8">
       <link rel="stylesheet" href="../../css/style.css">
       <link rel="stylesheet" href="../../css/cuts.css">
@@ -10,13 +10,70 @@
   </head>
   <body>
     <script src="../../js/getValues.js"></script>
-    <script src="../../js/transmission/torque.js"></script>
-    <script src="../../js/transmission/transmission.js"></script>
+    <script src="../../js/transmission/stepper.js"></script>
     <script src="../../js/simple_math_tools.js"></script>
     <script src="../../translation/translation.js"></script>
 
     <div>
+      <div class="item section">
+        <div class="section-title">{Steps settings}</div>
+        <div class="section-content">
+            <label>{Steps per turn}</label>
+            <div class="input-unit">
+                <input id="stepper-stepTurn" type="number" min="0" value="200"/><span>S/tr</span>
+            </div></br>
         
+            <label>{Microsteps}</label>
+            <div class="input-unit">
+                <select id="stepper-microstep">
+                  <option value="1">{Fullstep}</option>
+                  <option value="2">1/2</option>
+                  <option value="4">1/4</option>
+                  <option value="8">1/8</option>
+                  <option value="16">1/16</option>
+                  <option value="32">1/32</option>
+                  <option value="256">1/256</option>
+                </select>
+            </div></br>
+
+            <label>{Output}</label>
+            <div class="input-unit">
+                <select id="stepper-output" onchange="showRatioOrMmTr(this.value)">
+                  <option value="lin">{Linear}</option>
+                  <option value="rot">{Rotative}</option>
+                </select>
+            </div></br>
+            <div id="stepper-divRot" class="hidden">
+                <label>{Ratio} (< 1 ={reduction}, > 1{multiplication}</1>)</label>
+                <div class="input-unit">
+                    <input id="stepper-ratio" type="number" min="0" value="1"/><span>Ø</span>
+                </div>       
+            </div><br>
+            <div id="stepper-divLin">
+                <label>{Milimeters by turn}</label>
+                <div class="input-unit">
+                    <input id="stepper-mmTr" type="number" min="0"value="4"/><span>mm/tr</span>
+                </div>
+            </div>
+            <!--<div class="input-unit">
+                <input id="stepper-degTr" type="number" min="0" value="360"/><span>mm/s</span>
+            </div>-->
+            <br>
+            <button onclick="computeStepper()">{Compute}</button>
+            <br>
+
+            <table>
+                <tr>
+                    <td id="stepper-resLabel1">{Steps by mm}</td>
+                    <td id="stepper-res"></td>
+                </tr>
+                <tr>
+                    <td id="stepper-resLabel2">{mm by step}</td>
+                    <td id="stepper-invRes"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
     </div>
     <script>
         translate("transmission")
