@@ -40,3 +40,5 @@ Output,Output type
 Milimeters by turn,Milimeters by turn
 Steps by mm,Steps by mm
 mm by step,mm by step
+Microsteps,Microsteps
+Steps settings,Motor settings
