@@ -19,7 +19,10 @@
         </script>
     <script src='js/sidebar.js'></script>
     <script src='js/graph/ui.js'></script>
-    <script src='translation/translation.js'></script>    
+    <script src='js/ui.js'></script>
+    <script src='translation/translation.js'></script> 
+    
+    <script src='js/transmission/transmission.js'></script>    
        
 
     <!-- Help message & github-->
@@ -51,7 +54,7 @@
             <iframe src="calculators/transmission/pulley.html" frameborder="0" width="100%" height="600vh"></iframe>
         </div>
         <div id="stepper" class="tabcontent">
-            <iframe src="calculators/transmission/stepper.html" frameborder="0" width="100%"></iframe>
+            <iframe src="calculators/transmission/stepper.html" frameborder="0" width="100%" height="600vh"></iframe>
         </div>
         <div id="accel" class="tabcontent">
             <iframe src="calculators/transmission/accel.html" frameborder="0" width="100%" height="2000vh"></iframe>
@@ -62,8 +65,11 @@
     </div>
     <script>
         translate("transmission")
-        speedCurve()
-        document.getElementsByClassName('tablinks')[0].click()//open tab
+        //speedCurve()
+        //document.getElementsByClassName('tablinks')[0].click()//open tab
+        console.log("opentabstartup")
+        openTabStartUp()
+    
     </script>
 
     
