@@ -10,7 +10,7 @@ function openTabStartUp(){
     var url = window.location.href;
     var tab = 0
     try{
-        console.log(url)
+        console.log(url, tab)
         let searchParams = new URLSearchParams(url);
         var tab = searchParams.get("tab");
     }
