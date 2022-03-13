@@ -42,3 +42,19 @@ Steps by mm,Pas par mm
 mm by step,mm par pas
 Microsteps,Microsteps
 Steps settings,Configuration
+Bearing,Roulement
+Static load,Charge statique
+Dynamic load,Charge dynamique
+Radial load,Charge radiale
+Axial load,Charge axiale
+Use,Utilisation
+Balls (radial contact),à billes (contact radial)
+Balls (oblic contact),à billes (contact oblique)
+rpm,tr/min
+Speed,Vitesse
+Use case,Cas d'usage
+Smooth and without vibration,Régulier et sans vibration
+Normal,Normal
+With shocks,Avec chocs
+life in million of turns,Durée de vie en million de tours
+life in hours,Durée de vie en heures

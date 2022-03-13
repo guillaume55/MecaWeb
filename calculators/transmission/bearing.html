@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="../../css/style.css">
+      <link rel="stylesheet" href="../../css/table.css">
+  </head>
+  <body>
+    <script src='../../js/simple_math_tools.js'></script>
+    <script src='../../js/transmission/bearing.js'></script>
+    <!-- Help message & github-->
+    <iframe id="help" src="../../htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/transmission.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
+
+    <div id="main">
+        <div id=""></div>
+        <div class="item section">
+            <div class="section-title">{Not ready to use, should be tested}</div>
+                <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+                    <div class="section-content">
+                        <table>
+                            <tr>
+                                <th>{Bearing}</th>
+                                <th>{Static load} C0 (daN)</th>
+                                <th>{Dynamic load} C (daN)</th>
+                                <th>{Radial load} Fr (daN)</th>
+                                <th>{Axial load} Fa (daN)</th>
+                                <th>{Use}</th>
+                            </tr>
+                            <tr>
+                                <td><select name="bearing_1" id="bearing_1">
+                                    <option value="ballRadial">{Balls (radial contact)}</option>
+                                    <!--<option value="ballOblic40deg">{Balls (oblic contact)}</option>
+                                    <option value="ballOblic40deg">{Balls (oblic contact)}</option>-->
+                                </select></td>
+                                <td><input id="bearing_1C0" type="number" min="0" value="3800"/></td>
+                                <td><input id="bearing_1C" type="number" min="0" value="6200"/></td>
+                                <td><input id="bearing_1Fr" type="number" min="0" value="1000"/></td>
+                                <td><input id="bearing_1Fa" type="number" min="0" value="400"/></td>
+                            </tr>
+                            <tr>
+                                <td><select name="bearing_2" id="bearing_2">
+                                    <option value="ballRadial">{Balls (radial contact)}</option>
+                                    <option value="ballOblic40deg">{Balls (oblic contact)}</option>
+                                    <option value="ballOblic40deg">{Balls (oblic contact)}</option>
+                                </select></td>
+                                <td><input id="bearing_2C0" type="number" min="0" value="100"/></td>
+                                <td><input id="bearing_2C" type="number" min="0" value="100"/></td>
+                                <td><input id="bearing_2Fr" type="number" min="0" value="100"/></td>
+                                <td><input id="bearing_2Fa" type="number" min="0" value="0"/></td>
+                            </tr>
+                        </table>
+
+                        <label>{Speed}</label>
+                        <div class="input-unit">
+                            <input id="bearing_speed" type="number"  min="0" value="150"/><span>{rpm}</span>
+                        </div><br>
+                        <!--<label>{Fiability}</label>
+                        <select>
+                            <option value="1">90% ({most common})</option>
+                            <option value="0.64">95%</option>
+                            <option value="0.55">96%</option>
+                            <option value="0.47">97%</option>
+                            <option value="0.37">98%</option>
+                            <option value="0.25">99%</option>
+                            <option value="0.175">99.5%</option>
+                        </select>-->
+                        <label>{Use case}</label>
+                        <select id="bearing_useCase">
+                            <option value="0.4">{Smooth and without vibration}</option>
+                            <option value="0.5">{Normal}</option>
+                            <option value="1">{With shocks}</option>
+                        </select><br>
+
+                        <input type="button" value="{Compute}" onclick="computeBearings()" class="compute-button"/><br>
+                        <br>
+                        <label>{For the set}</label>
+                        <table>
+                            <tr><td></td><td>L10</td></tr>
+                            <tr><td>{life in million of turns}</td><td id="bearing_setLife"></td></tr>
+                            <tr><td>{life in hours}</td><td id="bearing_setLifeH"></td></tr>
+                        </table>
+                        <br>
+                        <label>{For each bearing]</label>
+                        <table>
+                            <tr><th></th><td title="90% {will fail after}">L10 &#10068</td><td title="95% {will fail after}">L5 &#10068</td><td title="96% {will fail after}">L4 &#10068</td><td title="97% {will fail after}">L3</td><td title="98% {will fail after}">L2 &#10068</td><td title="99% {will fail after}">L1 &#10068</td><td title="99.5% {will fail after}">L0.5 &#10068</td></tr>
+                            <tr><th>{Bearing} 1 {life in million of turns}</th>
+                                <td id="bearing_1L10"></td>
+                                <td id="bearing_1L5"></td>
+                                <td id="bearing_1L4"></td>
+                                <td id="bearing_1L3"></td>
+                                <td id="bearing_1L2"></td>
+                                <td id="bearing_1L1"></td>
+                                <td id="bearing_1L05"></td>
+                            </tr>
+                            <tr><th>{Bearing} 1 {life in hours}</th>
+                                <td id="bearing_1L10h"></td>
+                                <td id="bearing_1L5h"></td>
+                                <td id="bearing_1L4h"></td>
+                                <td id="bearing_1L3h"></td>
+                                <td id="bearing_1L2h"></td>
+                                <td id="bearing_1L1h"></td>
+                                <td id="bearing_1L05h"></td>
+                            </tr>
+                            <tr></tr>
+                            <tr><th>{Bearing} 2 {life in million of turns}</th>
+                                <td id="bearing_2L10"></td>
+                                <td id="bearing_2L5"></td>
+                                <td id="bearing_2L4"></td>
+                                <td id="bearing_2L3"></td>
+                                <td id="bearing_2L2"></td>
+                                <td id="bearing_2L1"></td>
+                                <td id="bearing_2L05"></td>
+                            </tr>
+                            <tr><th>{Bearing} 2 {life in hours}</th>
+                                <td id="bearing_2L10h"></td>
+                                <td id="bearing_2L5h"></td>
+                                <td id="bearing_2L4h"></td>
+                                <td id="bearing_2L3h"></td>
+                                <td id="bearing_2L2h"></td>
+                                <td id="bearing_2L1h"></td>
+                                <td id="bearing_2L05h"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    
+  </body>
+</html>

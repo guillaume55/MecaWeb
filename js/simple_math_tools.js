@@ -17,3 +17,20 @@ function getVariables(expr) {
     let x = CQ(expr).getAllVariables() 
     return x
 }
+
+//linearInterpolation
+//main will gives the ratio between start and end point 
+//this ratio will be applied on each array of args
+function linInt(main, args){
+	let res = []
+	for(arg of args){
+		let x = main[0]; let x0=main[1]; let x1=main[2];
+		let y0 = arg[0]; let y1 = arg[1]
+		console.log(x,x0,x1,y0,y1)
+		d = x1 - x0;
+		y = y0 + (x - x0) * (y1 - y0) /d;
+
+		res.push(y)
+	}
+	return res
+}

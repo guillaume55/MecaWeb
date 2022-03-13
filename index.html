@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://raw.githubusercontent.com/guillaume55/MecaWeb/1743f83cdc2147b5498fe7ae6bcf972937b3bee4/news.js"></script>
+    </head>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      margin-top:30px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      /*display: flex;
+      align-items: center;
+      justify-content: center;*/
+      color:rgb(51, 49, 49);
+    }
+
+    a:link, a:visited {
+        text-decoration: none;
+        
+    }
+
+    .grid-container a {
+        text-decoration: none;
+        color:rgb(51, 49, 49);
+    }
+
+    .grid-container {
+        /*display: grid;
+        grid-template-columns: auto auto auto auto auto;*/
+        /*background-color: #2196F3;*/
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        margin:10px;
+    }
+
+    .flex-row{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .flex-col{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .grid-item {
+        /*background-color: rgba(255, 255, 255, 0.8);*/
+        /*border: 1px solid rgba(0, 0, 0, 0.8);*/
+        padding: 20px;
+        font-size: 30px;
+        text-align: center;
+        background-color: white;
+        /*border: 1px solid gray;*/
+        margin:20px;
+        width: 100%;
+
+    }
+
+    .app img {
+        width: 150px;
+        
+        
+    }
+
+    .app{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+    }
+    .top-img{
+        width: 75%;
+        max-width: 1000px;
+    }
+
+    .cell{
+        margin:20px;
+        width: 28%;
+        /*box-shadow:10px 10px 20px 0px rgb(192 180 180);*/
+        box-shadow: 0 1px 1px rgb(0 0 0 / 11%), 0 2px 2px rgb(0 0 0 / 11%), 0 4px 4px rgb(0 0 0 / 11%), 0 6px 8px rgb(0 0 0 / 11%), 0 8px 16px rgb(0 0 0 / 11%);
+        
+    }
+
+    #news-frame{
+        transition: 1s ease-in-out;
+        width:100%;
+    }
+  </style>
+  <body>
+    
+    <script src="translation/translation.js"></script>
+    <div class="grid-container">
+        <a id="newsLink" target ="_blank"><div class="flex-col" id="news-frame">
+            <br><br><br><br>
+            <h4>{Welcome in MecaWeb-app}</h4>
+            <br><br><br><br>
+        </div></a>
+
+        <div class="flex-row">
+            
+            <div class="cell">
+                <a href="https://mecaweb.space/index.php/en/forum-en/" target="_blank">
+                    <div class="app">
+                        <img src="Icones-wp/people.jpg">
+                        <h5 class="flex-row">{Forum} <img src="Icones-wp/external-link.png" style="width:25px;"></h5>
+                    </div>
+                </a>
+            </div>
+            <div class="cell">
+                <a href="https://mecaweb.space/index.php/shop/" target="_blank">
+                    <div class="app">
+                        <img src="Icones-wp/shop.png">
+                        <h5 class="flex-row">{Shop} <img src="Icones-wp/external-link.png" style="width:25px;"></h5>
+                    </div>
+                </a>
+            </div>  
+            <div class="cell">
+                <a href="https://mecaweb.space/index.php/sous-traitan" target="_blank">
+                    <div class="app">
+                        <img src="Icones-wp/partners.png">
+                        <h5 class="flex-row">{Partners} <img src="Icones-wp/external-link.png" style="width:25px;"></h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!--LINE-->
+        <h3>{Useful tools}</h3>
+        <div class="flex-row">
+            <div class="cell">
+                <a href="joint-graph.html">
+                    <div class="app">
+                        <img src="Icones-wp/graph.png">
+                        <h5>{Graph}</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="cell">
+                <a href="joint-graph.html">
+                    <div class="app">
+                        <img src="Icones-wp/cuts.png">
+                        <h5>{Cuts}</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!--LINE-->
+        <h3>{Transmission elements}</h3>
+        <div class="flex-row">
+            <div class="cell">
+                <a href="transmission.html?&tab=0">
+                    <div class="app">
+                        <img src="Icones-wp/ballscrew.png">
+                        <h5>{Speed of a screw/nut transmission}</h5>
+                    </div>
+                </a>
+            </div>  
+            <div class="cell">
+                <a href="transmission.html?&tab=4">
+                    <div class="app">
+                        <img src="Icones-wp/torque.png">
+                        <h5>{Torque needed for rotation}</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="cell">
+                <a href="transmission.html?&tab=3">
+                    <div class="app">
+                        <img src="Icones-wp/accel.png">
+                        <h5>{Speed curve of a movement}</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="cell">
+                <a href="transmission.html?&tab=2">
+                    <div class="app">
+                        <img src="Icones-wp/stepper.png">
+                        <h5>{Stepper motors}</h5>
+                    </div>
+                </a>
+            </div>  
+            <div class="cell">
+                <a href="transmission.html?&tab=1">
+                    <div class="app">
+                        <img src="Icones-wp/pulley.png">
+                        <h5>{Length of a belt}</h5>
+                    </div>
+                </a>
+            </div> 
+        </div> 
+
+        <!--LINE-->
+        <h3>{Structure calculations}</h3>
+        <div class="flex-row">
+            <div class="cell">
+                <a href="structure.html?&tab=0">
+                    <div class="app">
+                        <img src="Icones-wp/arcB.png">
+                        <h5>{Arc-boutement}</h5>
+                    </div>
+                </a>
+            </div>  
+            <div class="cell">
+                <a href="structure.html?&tab=1">
+                    <div class="app">
+                        <img src="Icones-wp/flamb.png">
+                        <h5>{Buckling}</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="cell">
+                <a href="structure.html?&tab=2">
+                    <div class="app">
+                        <img src="Icones-wp/struct.png">
+                        <h5>{Flexion}</h5>
+                    </div>
+                </a>
+            </div>  
+        </div>
+
+        <!--LINE-->
+        <h3>{Design more efficiently}</h3>
+        <div class="flex-row">
+            <div class="cell">
+                <a href="fits.html">
+                    <div class="app">
+                        <img src="Icones-wp/fits.png">
+                        <h5>{Fits}</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="cell">
+                <a href="joint-composition.html">
+                    <div class="app">
+                        <img src="Icones-wp/links.png">
+                        <h5>{Improve your joints}</h5>
+                    </div>
+                </a>
+            </div> 
+        </div>
+    </div>
+
+    <script>
+        translate("index")
+        //lang="fr"
+        if(lang == "en"){
+            newsContent = `<img class="top-img" src="https://raw.githubusercontent.com/guillaume55/MecaWeb/main/img/news-appli-en.png">`
+        }else if (lang= "fr") {
+            newsContent = `<img class="top-img" src="https://raw.githubusercontent.com/guillaume55/MecaWeb/main/img/news-appli-fr.png">`
+        }
+        function updateNews(){
+            document.getElementById('news-frame').innerHTML = newsContent;
+
+        }
+        const myTimeout = setTimeout(updateNews, 3000);
+        document.getElementById('newsLink').href= newsLink
+        
+    </script>
+
+    <script>
+                import { Store } from 'tauri-plugin-store-api';
+                require('tauri-plugin-store-api')
+        const store = new Store('.settings.dat');
+        await store.set('some-key', { value: 5 });
+        const val = await store.get('some-key');
+        assert(val, { value: 5 });
+        console.log("key vin",val)
+    </script>
+  </body>
+</html>

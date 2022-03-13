@@ -42,3 +42,19 @@ Steps by mm,Steps by mm
 mm by step,mm by step
 Microsteps,Microsteps
 Steps settings,Motor settings
+Bearing,Bearing
+Static load,Static load
+Dynamic load,Dynamic load
+Radial load,Radial load
+Axial load,Axial load
+Use,Use
+Balls (radial contact),Balls (radial contact)
+Balls (oblic contact),Balls (oblic contact)
+rpm,rpm
+Speed,Speed
+Use case,Use case
+Smooth and without vibration,Smooth and without vibration
+Normal,Normal
+With shocks,With shocks
+life in million of turns,life in million of turns
+life in hours,life in hours
