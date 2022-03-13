@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{Threads}</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="css/sidebar.css">
+  </head>
+  <body>
+    <script src='js/sidebar.js'></script>
+    <script src='js/graph/ui.js'></script>
+
+    <!-- Help message & github-->
+    <iframe id="help" src="htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/transmission.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
+    <!-- SIDEBAR -->
+    <div id="mySidebar" class="sidebar">
+        <div id="sidebar-btn" onclick="toggleSidebar()">☰</div>
+        <div id="sidebar-content"></div>
+        <script>appendToSidebar("sidebar-content");</script>
+    </div>
+
+    <div id="main">
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'tab_table')">{Metric}</button>
+            <button class="tablinks" onclick="openTab(event, 'tab_calc')">{Metric fine}</button>
+            </div>
+        <div id="tab_table" class="tabcontent">
+            <iframe src="calculators/fasteners/metric.html" frameborder="0" width="100%" height="1000"></iframe>
+        </div>
+        </div>
+        <div id="tab_calc" class="tabcontent">
+            <iframe src="calculators/fasteners/metricFine.html" frameborder="0" width="100%" height="1000"></iframe>
+        </div>
+            
+        </div>
+    </div>
+
+    
+  </body>
+  <script>
+      translate("fasteners")
+  </script>
+</html>
