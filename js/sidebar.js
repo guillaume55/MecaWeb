@@ -1,5 +1,5 @@
 let sidebar_items = [["img/graph.png", "Graphs","joint-graph.html"],["img/tol.png", "Tolerancing","tolerancing.html"], ["img/cut.png", "Cuts", "cuts.html"],
-["img/link.png", "Liaisons composées", "joint-composition.html"],["img/gears.png", "Transmission", "transmission.html"],["img/struct.png", "Structures", "structure.html"],["img/fits.png", "Ajustements", "fits.html"]];
+["img/link.png", "Liaisons composées", "joint-composition.html"],["img/bearing.png", "Bearings", "bearing.html"],["img/gears.png", "Transmission", "transmission.html"],["img/struct.png", "Structures", "structure.html"],["img/fits.png", "Ajustements", "fits.html"]];
 
 function appendToSidebar(container) {
     if (window==window.top){ //do not show sidebar if embed in an Iframe

@@ -10,12 +10,13 @@ function openTabStartUp(){
     var url = window.location.href;
     var tab = 0
     try{
-        console.log(url, tab)
+        console.log(url)
         let searchParams = new URLSearchParams(url);
-        var tab = searchParams.get("tab");
+        var tab = parseInt(searchParams.get("tab"));
+        if(isNaN(tab)){ tab = 0}
     }
     finally {
-        document.getElementsByClassName('tablinks')[parseInt(tab)].click() //open tab
+        console.log("tab",tab)
+        document.getElementsByClassName('tablinks')[tab].click() //open tab
     }
-    console.log("ab",tab)
 }

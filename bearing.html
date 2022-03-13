@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="css/sidebar.css">
+      <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <script src='js/sidebar.js'></script>
+    <script src="translation/translation.js"></script>
+    <script src='js/graph/ui.js'></script>
+    <script src='js/ui.js'></script>
+
+    <!-- Help message & github-->
+    <iframe id="help" src="htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/transmission.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
+    <!-- SIDEBAR -->
+    <div id="mySidebar" class="sidebar">
+        <div id="sidebar-btn" onclick="toggleSidebar()">☰</div>
+        <div id="sidebar-content"></div>
+        <script>appendToSidebar("sidebar-content");</script>
+    </div>
+
+    <div id="main">
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'tabMounting')">{Mounting}</button>
+            <button class="tablinks" onclick="openTab(event, 'tabLife')">{Life}</button>
+            </div>
+        <div id="tabMounting" class="tabcontent">
+            <iframe src="calculators/transmission/bearing-mounting.html" frameborder="0" width="100%" height="1000"></iframe>
+        </div>
+        </div>
+        <div id="tabLife" class="tabcontent">
+            <iframe src="calculators/transmission/bearing.html" frameborder="0" width="100%" height="1000"></iframe>
+        </div>
+            
+        </div>
+    </div>
+    
+    
+  </body>
+  <script>
+    openTabStartUp()
+    translate("bearing")
+    </script>
+</html>
