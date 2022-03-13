@@ -22,12 +22,12 @@
                         <label>{Axial load direction}</label>
                         <select name="" id="bearingChoice_axialLoadSide">
                             <option value="1">{One way}</option>
-                            <option value="1">{Two ways}</option>
+                            <option value="2">{Two ways}</option>
                         </select>
                         <label>{Radial load} vs {Axial load}</label>
                         <div class="slidecontainer">
-                            <input type="range" min="1" max="5" value="3" class="slider" id="bearingChoice_RadialAxial" onchange="bearingChoice_refreshSliderVal(this.value,'radAx')">
-                            <p><span id="bearingChoice_RadAx"></span></p>
+                            <input type="range" min="1" max="5" value="3" class="slider" id="bearingChoice_RadAx" onchange="bearingChoice_refreshSliderVal(this.value,'radAx')">
+                            <p><span id="bearingChoice_RadAxVal"></span></p>
                         </div>
                         <!--<br><label>{Radial load}</label>
                         <div class="slidecontainer">
@@ -43,17 +43,25 @@
 
                         <br><label>{Cost vs performance}</label>
                         <div class="slidecontainer">
-                            <input type="range" min="1" max="3" value="2" class="slider" id="bearingChoice_Perf" onchange="bearingChoice_refreshSliderVal(this.value,'perf')">
+                            <input type="range" min="1" max="3" value="2" class="slider" id="bearingChoice_perf" onchange="bearingChoice_refreshSliderVal(this.value,'perf')">
                             <p><span id="bearingChoice_PerfVal"></span></p>
                         </div>
 
                         <input type="button" value="{Compute}" onclick="bearingChoice_findBest()" class="compute-button"/><br>
 
                         <table>
-                            <tr><th>{Belt length} (1)</th><td id="pulleyLen_resLen"></td><td>mm</td></tr>
-                            <tr><th>{Belt length (if crossed)}(2)</th><td id="pulleyLen_resLenCrossed"></td><td>mm</td></tr>
-                            <tr><th>{Ratio}</th><td id="pulleyLen_resRatio"></td><td>Ø</td></tr>
+                            <tr><th>{Mounting}</th><th>{Internal ring turning/Load}</th><th>{External ring turning/Load}</th><th>Recommandation</th></tr>
+                            <tr><th>{Case} 1&2</th><td><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMounting1.png"></td><td><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMounting2.png"></td><td id="bearingChoice_12"></td></tr>
+                            <tr><th>{Case} 3&4</th><td><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMounting3.png"></td><td><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMounting4.png"></td><td id="bearingChoice_34"></td></tr>
+                            <tr><th>{Case} 5</th><td><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMounting5.png"></td><td><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMounting5.png"></td><td id="bearingChoice_5"></td></tr>
+                            <tr><th>{Case} 6&7</th><td><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMounting6.png"></td><td><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMounting7.png"></td><td id="bearingChoice_67"></td></tr>
                         </table>
+                        <style>
+                            .bearing-mounting{
+                                width: 250px;
+                                max-width: 500px;
+                            }
+                        </style>
                     </div>
                 </div>
                 
@@ -63,7 +71,7 @@
     <script>
         translate("transmission")
     </script>
-
+    
     
   </body>
 </html>
