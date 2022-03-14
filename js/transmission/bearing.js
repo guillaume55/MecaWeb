@@ -128,7 +128,7 @@ function bearing_computeEXY(bearing){
 //determine which bearing turn with an axial play and which support the axial load
 function bearing_oblicISO(bearings){
     
-
+/*
     //determine the direction of the axial load
     if(AxialLoadDir == "to_1"){
         //inducted load on second bearing, nammed bearing A
@@ -136,7 +136,7 @@ function bearing_oblicISO(bearings){
         //inducted load on first bearing, nammed bearing B
         LoadsB = (0.5*bearings[0]['Fr'])/bearings[0]['Y1'] + bearings[1]['Fa']
 
-    } else if(AxialLoadDir == "to_2")
+    } else if(AxialLoadDir == "to_2"){}
 
-    
+    */
 }
