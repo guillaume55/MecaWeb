@@ -7,7 +7,7 @@ function computeBearings(){
         let C0 = parseFloat(document.getElementById(`bearing_${i}C0`).value);
         let C = parseFloat(document.getElementById(`bearing_${i}C`).value);
         let Fr = parseFloat(document.getElementById(`bearing_${i}Fr`).value);
-        let Fa = parseFloat(document.getElementById(`bearing_${i}Fa`).value);
+        let Fa = parseFloat(document.getElementById(`bearing_Fa`).value);
         let useCase = parseFloat(document.getElementById(`bearing_useCase`).value);
         let bearing = {"type":bearingType, "C0":C0, "C":C,"Fr":Fr,"Fa":Fa,"useCase":useCase}
         bearing = bearing_computeEXY(bearing);
@@ -88,16 +88,55 @@ function bearing_computeEXY(bearing){
         else if(FaC0 < 0.42){[e,Y1] = linInt([FaC0,0.28,0.42],[[0.38,0.42],[1.15,1.04]]);}
         else if(FaC0 < 0.56){[e,Y1] = linInt([FaC0,0.42,0.56],[[0.42,0.44],[1.04,1.0]]);}    
     }
-    /*else if (bearing['type']=="ballOblic40deg"){
-        e = 1.14; X1 = 0.35; Y1=0.57; X2 = 1; Y2=0;
+    else if (bearing['type'].find("ballOblicXO") != -1){
+        let angle = parseInt(bearing['type'].replace(ballOblicXO,""))
+        
+        if(angle == 20){ e = 0.57;}
+        else if(angle == 25){ e = 0.68;}
+        else if(angle == 30){ e = 0.80;}
+        else if(angle == 35){ e = 0.95;}
+        else if(angle == 40){ e = 1.14;}
+        else if(angle == 45){ e = 1.33;}
+
+        if(bearing['Fa']/bearing['Fr'] <=e){
+            X1 = 1
+            if(angle == 20){ Y1=1.09; }
+            else if(angle == 25){ Y1=0.92; }
+            else if(angle == 30){ Y1=0.78; }
+            else if(angle == 35){ Y1=0.66; }
+            else if(angle == 40){ Y1=0.55; }
+            else if(angle == 45){ Y1=0.47; }
+        }
+        else {
+            if(angle == 20){ X1=0.7; Y1=1.63; }
+            else if(angle == 25){ X1=0.67; Y1=1.41}
+            else if(angle == 30){ X1=0.63; Y1=1.24; }
+            else if(angle == 35){ X1=0.6; Y1=1.07; }
+            else if(angle == 40){ X1=0.57; Y1=0.93; }
+            else if(angle == 45){ X1=0.51; Y1=0.81; }
+        }
     }
-    else if (bearing['type']=="ballOblic30deg"){
-        e = 0.8; X1 = 0.39; Y1=0.76; X2 = 1; Y2=0;
-    }*/
+
     bearing['e']=e
     bearing['X1']=X1
     bearing['Y1']=Y1
     bearing['X2']=X2
     bearing['Y2']=Y2
     return bearing;
+}
+
+//determine which bearing turn with an axial play and which support the axial load
+function bearing_oblicISO(bearings){
+    
+
+    //determine the direction of the axial load
+    if(AxialLoadDir == "to_1"){
+        //inducted load on second bearing, nammed bearing A
+        LoadsA = (0.5*bearings[1]['Fr'])/bearings[1]['Y1']
+        //inducted load on first bearing, nammed bearing B
+        LoadsB = (0.5*bearings[0]['Fr'])/bearings[0]['Y1'] + bearings[1]['Fa']
+
+    } else if(AxialLoadDir == "to_2")
+
+    
 }
