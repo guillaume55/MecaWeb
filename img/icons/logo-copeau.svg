@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128mm"
+   height="128mm"
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="svg4742"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="logo-copeau.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview4744"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.72337262"
+     inkscape:cx="201.83236"
+     inkscape:cy="116.81393"
+     inkscape:window-width="1242"
+     inkscape:window-height="991"
+     inkscape:window-x="668"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs4739" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-26.700739,-51.975191)">
+    <path
+       style="fill:#008080;stroke:none;stroke-width:0.604272px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 74.791135,66.110267 c -39.334036,23.2288 -0.1898,55.730103 43.028255,70.441853 V 95.878327 h 36.88135 V 179.97519 H 26.700739 V 141.39688 H 103.35611 C 69.765047,137.75564 -8.431789,98.796335 63.693823,51.975191 Z"
+       id="path4836"
+       sodipodi:nodetypes="cccccccccc"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\MecaWeb\img\icons\128x128@2x.png"
+       inkscape:export-xdpi="96.643501"
+       inkscape:export-ydpi="96.643501" />
+  </g>
+</svg>
