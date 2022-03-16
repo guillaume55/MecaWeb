@@ -27,11 +27,11 @@
             <button class="tablinks" onclick="openTab(event, 'tabLife')">{Life}</button>
             </div>
         <div id="tabMounting" class="tabcontent">
-            <iframe src="calculators/transmission/bearing-mounting.html" frameborder="0" width="100%" height="1000"></iframe>
+            <iframe src="calculators/transmission/bearing-mounting.html" frameborder="0" width="100%" height="1000" onload="translate('bearing')"></iframe>
         </div>
         </div>
         <div id="tabLife" class="tabcontent">
-            <iframe src="calculators/transmission/bearing.html" frameborder="0" width="100%" height="1000"></iframe>
+            <iframe src="calculators/transmission/bearing.html" frameborder="0" width="100%" height="1000" onload="translate('bearing')"></iframe>
         </div>
             
         </div>
@@ -41,6 +41,5 @@
   </body>
   <script>
     openTabStartUp()
-    translate("bearing")
     </script>
 </html>
