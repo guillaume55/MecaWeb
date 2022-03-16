@@ -10,18 +10,25 @@ function computeBearings(){
         let Fa = parseFloat(document.getElementById(`bearing_Fa`).value);
         let useCase = parseFloat(document.getElementById(`bearing_useCase`).value);
         let bearing = {"type":bearingType, "C0":C0, "C":C,"Fr":Fr,"Fa":Fa,"useCase":useCase}
-        bearing = bearing_computeEXY(bearing);
-        bearing = bearing_computeEqLoad(bearing);
-        bearing = bearing_computeLife(bearing);
-        bearings.push(bearing);
+        if(bearingType=="ballRadial"){
+            bearing = bearing_computeEXY(bearing);
+            bearing = bearing_computeEqLoad(bearing);
+            bearing = bearing_computeLife(bearing);
+            bearings.push(bearing);
 
-        life = ['L10','L5','L4','L3','L2','L1','L05'];
-        console.log(bearing)
-        for(l of life){
-            //life in million of turns
-            document.getElementById(`bearing_${i}${l}`).innerHTML = Math.floor(bearing[l]);
-            //life in hours
-            document.getElementById(`bearing_${i}${l}h`).innerHTML = Math.floor((1000000*bearing[l])/(60*speed));
+            life = ['L10','L5','L4','L3','L2','L1','L05'];
+            console.log(bearing)
+            for(l of life){
+                //life in million of turns
+                document.getElementById(`bearing_${i}${l}`).innerHTML = Math.floor(bearing[l]);
+                //life in hours
+                document.getElementById(`bearing_${i}${l}h`).innerHTML = Math.floor((1000000*bearing[l])/(60*speed));
+            }
+        }else if(bearingType.find('ballOblic') != -1){
+            bearing = bearing_computeEXY(bearing);
+            bearing_oblicISO(bearings);
+            bearing = bearing_computeLife(bearing);
+            bearings.push(bearing);
         }
     }
     //life of the set
@@ -88,8 +95,8 @@ function bearing_computeEXY(bearing){
         else if(FaC0 < 0.42){[e,Y1] = linInt([FaC0,0.28,0.42],[[0.38,0.42],[1.15,1.04]]);}
         else if(FaC0 < 0.56){[e,Y1] = linInt([FaC0,0.42,0.56],[[0.42,0.44],[1.04,1.0]]);}    
     }
-    else if (bearing['type'].find("ballOblicXO") != -1){
-        let angle = parseInt(bearing['type'].replace(ballOblicXO,""))
+    else if (bearing['type'].find("ballOblic") != -1){
+        let angle = parseInt(bearing['type'].replace("ballOblicX","").replace("ballOblicO",""))
         
         if(angle == 20){ e = 0.57;}
         else if(angle == 25){ e = 0.68;}
@@ -127,8 +134,52 @@ function bearing_computeEXY(bearing){
 
 //determine which bearing turn with an axial play and which support the axial load
 function bearing_oblicISO(bearings){
-    
-/*
+    // ---BearingA-----------BearingB-------
+    //in both case, Bearing A receive the Axial Load
+    //mounted in X, Axial load 
+    // ---BearingA------(<-----AxialLoad)-----BearingB-------
+
+    //mounted in O, Axial load 
+    // ---BearingA------(AxialLoad----->)-----BearingB-------
+
+    //could be reduced by assigning values 1 or 0 to var A and B
+    if (bearing['type'].find("ballOblicX") != -1){
+        LoadsA = (0.5*bearings[1]['Fr'])/bearings[1]['Y1']
+        LoadsB = (0.5*bearings[0]['Fr'])/bearings[0]['Y1']
+        if(LoadsA <= LoadsB + bearings[0]['Fa']){
+            console.log("ISO ok")
+            //update Fa values
+            bearings[0]['Fa']=LoadsA+bearings[0]['Fa']
+            bearings[1]['Fa']=LoadsB
+            //determine P equivalent loads
+            bearings[1]['P']=bearings[1]['Fr']
+            if((bearings[0]['Fa']/bearings[0]['Fr'])>bearings[0]['e']){
+                bearings[0]['P']=0.4*bearings[0]['Fr']+bearings[0]['Y1']*bearings[0]['Fa']
+            }else{
+                bearings[0]['P']=bearings[0]['Fr']
+            }
+
+        }
+        else {console.log("ISO pas ok")}
+    }else if (bearing['type'].find("ballOblicO") != -1){
+        LoadsA = (0.5*bearings[1]['Fr'])/bearings[1]['Y1']
+        LoadsB = (0.5*bearings[0]['Fr'])/bearings[0]['Y1']
+        if(LoadsA > LoadsB + bearings['Fa']){
+            console.log("ISO ok")
+            bearings[1]['Fa']=LoadsB-bearings[0]['Fa']
+            bearings[0]['Fa']=LoadsA
+            //determine P equivalent loads
+            bearings[0]['P']=bearings[0]['Fr']
+            if((bearings[1]['Fa']/bearings[1]['Fr'])>bearings[1]['e']){
+                bearings[1]['P']=0.4*bearings[1]['Fr']+bearings[1]['Y1']*bearings[1]['Fa']
+            }else{
+                bearings[1]['P']=bearings[1]['Fr']
+            }
+        }
+        else {console.log("ISO pas ok")}
+    }
+
+    /*
     //determine the direction of the axial load
     if(AxialLoadDir == "to_1"){
         //inducted load on second bearing, nammed bearing A
@@ -139,4 +190,5 @@ function bearing_oblicISO(bearings){
     } else if(AxialLoadDir == "to_2"){}
 
     */
+   return bearings
 }
