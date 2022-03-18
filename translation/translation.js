@@ -1,6 +1,6 @@
 var reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
 let T = {} //all the translation
-function translate(htmlfile){
+function translate(htmlfile, alternativeNameForTVar){
     
     args = parseUrl()
     if(args['lang']==undefined){
@@ -32,6 +32,11 @@ function translate(htmlfile){
         reader.onreadystatechange = parseCsv;
         reader.send(null);
     }
+
+    //possibility to use async/await
+    return new Promise((resolve) => {
+    resolve();
+  });
 }
 
 function translateRefresh(language){

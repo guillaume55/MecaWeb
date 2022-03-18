@@ -4,10 +4,14 @@
     <title>{Threads}</title>
       <meta charset="UTF-8">
       <link rel="stylesheet" href="css/sidebar.css">
+      <link rel="stylesheet" href="css/table.css">
+      <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <script src='js/sidebar.js'></script>
     <script src='js/graph/ui.js'></script>
+    <script src='js/ui.js'></script>
+    <script src='translation/translation.js'></script>
 
     <!-- Help message & github-->
     <iframe id="help" src="htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/transmission.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
@@ -26,7 +30,6 @@
         <div id="tab_table" class="tabcontent">
             <iframe src="calculators/fasteners/metric.html" frameborder="0" width="100%" height="1000"></iframe>
         </div>
-        </div>
         <div id="tab_calc" class="tabcontent">
             <iframe src="calculators/fasteners/metricFine.html" frameborder="0" width="100%" height="1000"></iframe>
         </div>
@@ -38,5 +41,6 @@
   </body>
   <script>
       translate("fasteners")
+      openTabStartUp()
   </script>
 </html>

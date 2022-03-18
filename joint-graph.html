@@ -31,7 +31,7 @@
 
 <body>
     <!-- TOPBAR -->
-    <iframe id="help" src="htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/cuts.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
+    <iframe id="help" src="htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/cuts.html&helpPage=https://copo.app/index.php/graph-liaison/" height="50px" width="100%" frameborder="0"></iframe>
 
     <!-- SIDEBAR -->
     <div id="mySidebar" class="sidebar">
@@ -65,28 +65,48 @@
         //I_to_replace = { 'I_gamma_ARBRE_CARTER_LA1':"0", 'I_gamma_ARBRE_CARTER_LA2':"0", 'I_gamma_SAT_ARBRE_LA':'0','I_gamma_SAT_ARBRE_ROT':'0' } //c'est vrai ce mensonsonge ?
         //boitier
         //let I_to_replace = { 'I_gamma_ARBRE_CARTER_LA1':"0" }
+        //translate("joint-graph")
 
-        var cy = cy_create(document.getElementById('cy'))
-        comp_sLink(document.getElementById('alink'),"sa1 sa2 name")
-        comp_sNode(document.getElementById('anode'))
-        edit_tab(document.getElementById('edit'), undefined)
-        export_button(document.getElementById('export'))
+        //we have to wait until the page is fully translated before using cytoscape
+        //isues with translation
+        async function init_graph() {
+            //await translate("joint-graph");
+            return new Promise((resolve) => {
+                console.log("2nd");
+                resolve();
+            });
+        }
 
-        cy.on('tap', 'node', function(evt){
-            var node = evt.target;
-            openTab(event, 'edit')
-            console.log( 'tapped ' + node.id() );
-            edit_tab(document.getElementById('edit'), node.id())
-        });
-        cy.on('tap', 'edge', function(evt){
-            var edge = evt.target;
-            openTab(event, 'edit')
-            console.log( 'tapped ' + edge.id() );
-            edit_tab(document.getElementById('edit'), edge.id())
-        });
+        var cy;
+        function create_cytoscape(){
+            cy = cy_create(document.getElementById('cy'))
+            comp_sLink(document.getElementById('alink'),"sa1 sa2 name")
+            comp_sNode(document.getElementById('anode'))
+            edit_tab(document.getElementById('edit'), undefined)
+            export_button(document.getElementById('export'))
 
-        findCycles()
-        reduce_equations()
+            cy.on('tap', 'node', function(evt){
+                var node = evt.target;
+                openTab(event, 'edit')
+                console.log( 'tapped ' + node.id() );
+                edit_tab(document.getElementById('edit'), node.id())
+            });
+            cy.on('tap', 'edge', function(evt){
+                var edge = evt.target;
+                openTab(event, 'edit')
+                console.log( 'tapped ' + edge.id() );
+                edit_tab(document.getElementById('edit'), edge.id())
+            });
+
+            
+        }
+
+        init_graph();
+        init_graph().then(create_cytoscape());
+        
+
+        //findCycles()
+        //reduce_equations()
         /*cy.pan({
         x: 100,
         y: 100

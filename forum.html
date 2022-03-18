@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="css/sidebar.css">
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      
+      <link rel="stylesheet" type="text/css" href="css/cuts.css">
+      <link rel="stylesheet" type="text/css" href="css/struct.css">
+      <link rel="stylesheet" type="text/css" href="css/table.css">
+  </head>
+  <body>
+    <script src='js/sidebar.js'></script>
+    <script src='js/graph/ui.js'></script>
+    <script src='js/ui.js'></script>
+    <!-- SIDEBAR -->
+    <div id="mySidebar" class="sidebar">
+        <div id="sidebar-btn" onclick="toggleSidebar()">☰</div>
+        <div id="sidebar-content"></div>
+        <script>appendToSidebar("sidebar-content");</script>
+    </div>
+
+    <div id="main">
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'tab_fr')">Français</button>
+            <button class="tablinks" onclick="openTab(event, 'tab_en')">English</button>
+        </div>
+        <div id="tab_fr" class="tabcontent">
+            <iframe src="https://copo.app/index.php/forum-fr/" title="Forum copo" width="100%" height="2000px"></iframe>
+        </div>
+        <div id="tab_en" class="tabcontent">
+            <iframe src="https://copo.app/index.php/en/forum-en/" title="Copo forum"  width="100%" height="2000px"></iframe>
+        </div>
+        
+
+    </div>
+    <script>
+        openTabStartUp()
+    </script>
+
+    
+  </body>
+</html>
