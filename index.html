@@ -100,9 +100,9 @@
     
     <script src="translation/translation.js"></script>
     <div class="grid-container">
-        <div class="flex-col" id="news-frame" style="width:105%; background-color: rgb(34, 104, 255);">
+        <div class="flex-col" style="width:105%; margin-left:-2.5%; padding:10px; margin-top:-60px; background-color: rgb(34, 104, 255);">
             <br>
-            <h5>{This is an alpha release, please contact me to report bugs or request features ! No need to write a big email with formalities, just write your problem !}<a href="emailto:guillaume@copo.app">guillaume@copo.app<a></a></h5>
+            <h5 style="padding-left:20px;">{This is an alpha release. Please contact me to report bugs or request features ! No need to write a big email with formalities; just write your problem !}<a style="text-decoration: dashed;" href="emailto:guillaume@copo.app"> guillaume@copo.app</a></h5>
             <br>
         </div>
         <a id="newsLink" target ="_blank"><div class="flex-col" id="news-frame">
@@ -114,7 +114,7 @@
         <div class="flex-row">
             
             <div class="cell">
-                <a href="https://mecaweb.space/index.php/en/forum-en/" target="_blank">
+                <a href="https://copo.app/index.php/en/forum-en/" target="_blank">
                     <div class="app">
                         <img src="Icones-wp/people.jpg">
                         <h5 class="flex-row">{Forum} <img src="Icones-wp/external-link.png" style="width:25px;"></h5>
@@ -122,7 +122,7 @@
                 </a>
             </div>
             <div class="cell">
-                <a href="https://mecaweb.space/index.php/shop/" target="_blank">
+                <a href="https://copo.app/index.php/shop/" target="_blank">
                     <div class="app">
                         <img src="Icones-wp/shop.png">
                         <h5 class="flex-row">{Shop} <img src="Icones-wp/external-link.png" style="width:25px;"></h5>
@@ -130,7 +130,7 @@
                 </a>
             </div>  
             <div class="cell">
-                <a href="https://mecaweb.space/index.php/sous-traitan" target="_blank">
+                <a href="https://copo.app/index.php/sous-traitance/" target="_blank">
                     <div class="app">
                         <img src="Icones-wp/partners.png">
                         <h5 class="flex-row">{Partners} <img src="Icones-wp/external-link.png" style="width:25px;"></h5>
@@ -279,7 +279,7 @@
 
     <script>
         translate("index")
-        //lang="fr"
+        lang="fr"
         if(lang == "en"){
             newsContent = `<img class="top-img" src="https://raw.githubusercontent.com/guillaume55/MecaWeb/main/img/news-appli-en.png">`
         }else if (lang= "fr") {
@@ -294,14 +294,14 @@
         
     </script>
 
-    <script>
+    <script>/*
                 import { Store } from 'tauri-plugin-store-api';
                 require('tauri-plugin-store-api')
         const store = new Store('.settings.dat');
         await store.set('some-key', { value: 5 });
         const val = await store.get('some-key');
         assert(val, { value: 5 });
-        console.log("key vin",val)
+        console.log("key vin",val)*/
     </script>
   </body>
 </html>
