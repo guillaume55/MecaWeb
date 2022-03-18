@@ -26,7 +26,7 @@ with open('aj_bore.csv', newline='') as csvfile:
 
 /* How to read 
 aj_bore['a11']=[
-        [-270,-330],[-270,-345],[-280,-370],[-290,-400],[-300,-430],["-","-"],["-","-"],["-","-"],["-","-"],["-","-"]]
+        [-270,-330],[-270,-345],[-280,-370],[-290,-400],[-300,-430],["X","X"],["X","X"],["X","X"],["X","X"],["X","X"]]
 a --> shaft
 A--> Bore
 '11' --> quality
@@ -48,13 +48,13 @@ array -->
 function shaftFit(){
     let aj_shaft = {}
     aj_shaft['a11']=[
-        [-270,-330],[-270,-345],[-280,-370],[-290,-400],[-300,-430],["-","-"],["-","-"],["-","-"],["-","-"],["-","-"]]
+        [-270,-330],[-270,-345],[-280,-370],[-290,-400],[-300,-430],["X","X"],["X","X"],["X","X"],["X","X"],["X","X"]]
         
     aj_shaft['c8']=[
-    [-60,-74],[-70,-88],[-80,-102],[-95,-122],[-110,-143],["-","-"],["-","-"],["-","-"],["-","-"],["-","-"]]
+    [-60,-74],[-70,-88],[-80,-102],[-95,-122],[-110,-143],["X","X"],["X","X"],["X","X"],["X","X"],["X","X"]]
     
     aj_shaft['c9']=[
-    [-60,-85],[-70,-100],[-80,-115],[-95,-138],[-110,-162],["-","-"],["-","-"],["-","-"],["-","-"],["-","-"]]
+    [-60,-85],[-70,-100],[-80,-115],[-95,-138],[-110,-162],["X","X"],["X","X"],["X","X"],["X","X"],["X","X"]]
     
     aj_shaft['d8']=[
     [-20,-34],[-30,-48],[-40,-62],[-50,-77],[-65,-98],[-80,-119],[-100,-146],[-120,-174],[-145,-208],[-170,-242]]
@@ -135,7 +135,7 @@ function shaftFit(){
     [8,2],[12,4],[15,6],[18,7],[21,8],[25,9],[30,11],[35,13],[40,15],[46,17]]
     
     aj_shaft['m7']=[
-    ["-",2],[16,4],[21,6],[25,7],[29,8],[34,9],[41,11],[48,13],[55,15],[63,17]]
+    ["X",2],[16,4],[21,6],[25,7],[29,8],[34,9],[41,11],[48,13],[55,15],[63,17]]
     
     aj_shaft['n6']=[
     [10,4],[16,8],[19,10],[23,12],[28,15],[33,17],[39,20],[45,23],[52,27],[60,31]]
@@ -150,16 +150,16 @@ function shaftFit(){
     [16,6],[24,12],[30,15],[36,18],[43,22],[51,26],[62,32],[72,37],[83,43],[96,50]]
     
     aj_shaft['r6']=[
-    [16,10],[23,15],[28,19],[34,23],[41,28],[50,34],["-","-"],["-","-"],["-","-"],["-","-"]]
+    [16,10],[23,15],[28,19],[34,23],[41,28],[50,34],["X","X"],["X","X"],["X","X"],["X","X"]]
     
     aj_shaft['r7']=[
-    [20,10],[27,15],[34,19],[41,23],[49,28],[59,34],["-","-"],["-","-"],["-","-"],["-","-"]]
+    [20,10],[27,15],[34,19],[41,23],[49,28],[59,34],["X","X"],["X","X"],["X","X"],["X","X"]]
     
     aj_shaft['s6']=[
-    [20,14],[27,19],[32,23],[39,28],[48,35],[59,43],["-","-"],["-","-"],["-","-"],["-","-"]]
+    [20,14],[27,19],[32,23],[39,28],[48,35],[59,43],["X","X"],["X","X"],["X","X"],["X","X"]]
     
     aj_shaft['s7']=[
-    [24,14],[31,31],[38,23],[46,28],[56,35],[68,43],["-","-"],["-","-"],["-","-"],["-","-"]]
+    [24,14],[31,31],[38,23],[46,28],[56,35],[68,43],["X","X"],["X","X"],["X","X"],["X","X"]]
     
     return aj_shaft
 }
@@ -167,19 +167,19 @@ function shaftFit(){
 function boreFit(){
     let aj_bore = {}
     aj_bore['A11']=[
-        [330,270],[345,270],[370,280],[400,290],[430,300],["-","-"],["-","-"],["-","-"],["-","-"],["-","-"]]
+        [330,270],[345,270],[370,280],[400,290],[430,300],["X","X"],["X","X"],["X","X"],["X","X"],["X","X"]]
         
     aj_bore['B9']=[
-    [165,140],[170,140],[186,150],[193,150],[212,160],["-","-"],["-","-"],["-","-"],["-","-"],["-","-"]]
+    [165,140],[170,140],[186,150],[193,150],[212,160],["X","X"],["X","X"],["X","X"],["X","X"],["X","X"]]
     
     aj_bore['B11']=[
-    [200,140],[215,140],[240,150],[260,150],[290,160],["-","-"],["-","-"],["-","-"],["-","-"],["-","-"]]
+    [200,140],[215,140],[240,150],[260,150],[290,160],["X","X"],["X","X"],["X","X"],["X","X"],["X","X"]]
     
     aj_bore['C9']=[
-    [85,60],[100,70],[116,80],[138,95],[162,110],["-","-"],["-","-"],["-","-"],["-","-"],["-","-"]]
+    [85,60],[100,70],[116,80],[138,95],[162,110],["X","X"],["X","X"],["X","X"],["X","X"],["X","X"]]
     
     aj_bore['C11']=[
-    [120,60],[145,70],[170,80],[205,95],[240,110],["-","-"],["-","-"],["-","-"],["-","-"],["-","-"]]
+    [120,60],[145,70],[170,80],[205,95],[240,110],["X","X"],["X","X"],["X","X"],["X","X"],["X","X"]]
     
     aj_bore['D9']=[
     [45,20],[60,30],[76,40],[93,50],[117,65],[142,80],[174,100],[207,120],[245,145],[285,170]]
@@ -260,10 +260,10 @@ function boreFit(){
     [-6,-31],[-12,-42],[-15,-51],[-18,-61],[-22,-74],[-26,-88],[-32,-106],[-37,-124],[-43,-143],[-50,-165]]
     
     aj_bore['R7']=[
-    [-10,-20],[-11,-23],[-13,-28],[-16,-34],[-20,-41],[-25,-50],["-","-"],["-","-"],["-","-"],["-","-"]]
+    [-10,-20],[-11,-23],[-13,-28],[-16,-34],[-20,-41],[-25,-50],["X","X"],["X","X"],["X","X"],["X","X"]]
     
     aj_bore['S7']=[
-    [-14,-24],[-15,-27],[-17,-32],[-21,-39],[-27,-48],[-34,-59],["-","-"],["-","-"],["-","-"],["-","-"]]
+    [-14,-24],[-15,-27],[-17,-32],[-21,-39],[-27,-48],[-34,-59],["X","X"],["X","X"],["X","X"],["X","X"]]
 
     return aj_bore
 }
@@ -342,36 +342,36 @@ function computePivot(diam,min_s,max_s,min_b,max_b){
 
     //outputs
     //if L/D > 1.5 --> usually a pivot, else if < 0.6, usualy a linéaire annulaire 
-    let ld = roundDec(l/diam,2)
-    document.getElementById("pivot_ld").innerText = ld;
+    let ld = l/diam
+    document.getElementById("pivot_ld").innerText = roundDec(ld,2);
 
     //alpha rot, angle de rotulage in min of arc
-    console.log(min_b, "mb")
-    let radialPlayMin = min_b-max_s; //not sure 
-    let radialPlayMax = max_b-min_s;
-    let radialPlayAvg = roundDec((radialPlayMax+radialPlayMin)/2,3);
-    let aRotMin = roundDec(math.atan(radialPlayMin/(l*0.8))*180/math.pi*60,1);
-    let aRotMax = roundDec(math.atan(radialPlayMax/(l*0.8))*180/math.pi*60,1);
-    let aRotAvg = roundDec(math.atan(radialPlayAvg/(l*0.8))*180/math.pi*60,1);
-    document.getElementById("pivot_alphaMin").innerHTML = aRotMin;
-    document.getElementById("pivot_alphaMax").innerHTML = aRotMax;
-    document.getElementById("pivot_alphaAvg").innerHTML = aRotAvg;
+    let radialPlayMin = min_b-min_s; 
+    let radialPlayMax = max_b-max_s;
+
+    let radialPlayAvg = (radialPlayMax+radialPlayMin)/2;
+    let aRotMin = Math.atan(radialPlayMin/(l*0.8))*180/Math.PI*60;
+    let aRotMax = Math.atan(radialPlayMax/(l*0.8))*180/Math.PI*60;
+    let aRotAvg = Math.atan(radialPlayAvg/(l*0.8))*180/Math.PI*60;
+    document.getElementById("pivot_alphaMin").innerHTML = roundDec(aRotMin,2);
+    document.getElementById("pivot_alphaMax").innerHTML = roundDec(aRotMax,2);
+    document.getElementById("pivot_alphaAvg").innerHTML = roundDec(aRotAvg,2);
 
     //pivot or not 
-    let ld_LA = roundDec(radialPlayMin/(math.tan(20/60*math.pi/180)*diam)/0.8);
-    let ld_PG = roundDec(radialPlayMax/(math.tan(5/60*math.pi/180)*diam)/0.8);
+    let ld_LA = radialPlayMin/(math.tan(20/60*Math.PI/180)*diam)/0.8;
+    let ld_PG = radialPlayMax/(math.tan(5/60*Math.PI/180)*diam)/0.8;
     let type = T["Not defined"]
     if(aRotMax < 5.0001)
         type = T["Sliding pivot"]
     else if(aRotMin > 19.9999)
-        type = T["Linéaire annulaire"]
-    document.getElementById("pivot_ld_LA").innerText = ld_LA;
-    document.getElementById("pivot_ld_PG").innerText = ld_PG;
+        type = T["Sliding Sphere"]
+    document.getElementById("pivot_ld_LA").innerText = roundDec(ld_LA,2);
+    document.getElementById("pivot_ld_PG").innerText = roundDec(ld_PG,2);
     document.getElementById("pivot_type").innerText = type;
 
-    //max localisation TODO, not working properly
-    let AvgRadialSpaceCompensatedonOtherBearing = e*math.tan(radialPlayAvg/60*math.pi/180); //sorry for this one, hope your have a good IDE
+    let AvgRadialSpaceCompensatedonOtherBearing = e*math.tan(radialPlayAvg/60*Math.PI/180); //sorry for this variabee name, hope your have a good IDE
 
-    let AvgCompensatedLocalisation = roundDec(2*AvgRadialSpaceCompensatedonOtherBearing,3);
-    //document.getElementById("pivot_maxLoc").innerHTML = AvgCompensatedLocalisation;
+    let AvgCompensatedLocalisation = 2*AvgRadialSpaceCompensatedonOtherBearing;
+    console.log(AvgCompensatedLocalisation)
+    document.getElementById("pivot_maxLoc").innerHTML = roundDec(Math.abs(AvgCompensatedLocalisation*1000),3)+"µm";
 }
