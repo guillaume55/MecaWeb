@@ -3,3 +3,23 @@ Metric fine,Métrique fin
 Thread,Filetage
 Pitch,Pas
 Drill diameter,Diamètre de perçage avant taraudage
+Load and torque for screws,Load and torque for screws
+Screw type,Type de vis
+Screw size,Taille de la vis
+External coating,Revêtement de la vis
+Tension,Tension de la vis
+Material elastic limit,Limite élastique
+Screw pitch,Pas de la vis
+Screw head size,Diamètre de la tête de vis
+Screw resistive section,Section résistante de la vis
+Max Load (traction),Charge maximale (traction)
+Torque to screw,Couple de serrage
+This is an estimation. A more complex study that include fatigue or pre load can be needed,Ceci est une estimatique. Une étude plus poussée incluant notamment l'influence de la fatigue ou les précharges peut être nécessaire
+Phosphated with lubricant, Phosphatée et lubrifiée
+Zinc or zinc alloy,Zinc ou alliage de zinc
+Zinc with finition,Zinc avec finition
+Not coated,Pas de revêtement
+Stainless steel (dry),Acier inox (sec)
+Stainless steel,Acier inox
+chc Metric,Métrique CHC
+Compute,Calculer

@@ -3,3 +3,23 @@ Metric fine,Metric fine
 Thread,Thread
 Pitch,Pitch
 Drill diameter,Drill diameter
+Load and torque for screws,Load and torque for screws
+Screw type,Screw type
+Screw size,Screw size
+External coating,External coating
+Tension,Tension
+Material elastic limit,Material elastic limit
+Screw pitch,Screw pitch
+Screw head size,Screw head size
+Screw resistive section,Screw resistive section
+Max Load (traction),Max Load (traction)
+Torque to screw,Torque to screw
+This is an estimation. A more complex study that include fatigue or pre load can be needed,This is an estimation. A more complex study that include fatigue or pre load can be needed
+Phosphated with lubricant,Phosphated with lubricant
+Zinc or zinc alloy,Zinc or zinc alloy
+Zinc with finition,Zinc with finition
+Not coated,Not coated
+Stainless steel (dry),Stainless steel (dry)
+Stainless steel,Stainless steel
+chc Metric,Metric cap head
+Compute,Compute

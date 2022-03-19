@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="../../css/sidebar.css">
+      <link rel="stylesheet" href="../../css/table.css">
+      <link rel="stylesheet" href="../../css/style.css">
+      <link rel="stylesheet" href="../../css/cuts.css">
+
+    </head>
+  <body>
+    <script src='../../js/sidebar.js'></script>
+    <script src='../../js/graph/ui.js'></script>
+    <script src='../../js/simple_math_tools.js'></script>
+    <script src='../../translation/translation.js'></script>
+    <script src='../../js/fasteners/screwLoadTorque.js'></script>
+
+
+    <!-- Help message & github-->
+    <iframe id="help" src="../../htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/transmission.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
+
+    <div id="main">
+        <div class="item section" >
+            <div class="section-title">{Load and torque for screws}</div>
+
+            <div style="display:flex; justify-content:center;">
+                <div class="section-content">
+                    
+                    <label>{Screw type}</label>
+                    <div style="display: flex;">
+                        <select id="screwLoad_type" onchange="">
+                            <optgroup label="{Standard}">
+                                <option value="640">8.8</option>
+                                <option value="240">4.6</option>
+                                <option value="320">4.8</option>
+                                <option value="300">5.6</option>
+                                <option value="400">5.8</option>
+                                <option value="480">6.8</option>
+                                <option value="720">9.8</option>
+                                <option value="900">10.9</option>
+                                <option value="1080">12.9</option>
+                            </optgroup>
+                            <optgroup label="{Stainless Steel} A1-A2-A3-A4-A5">
+                                <option value="210">50</option>
+                                <option value="450">70</option>
+                                <option value="600">80</option>
+                            </optgroup>
+                            <optgroup label="{Stainless Steel} C1">
+                                <option value="250">50</option>
+                                <option value="410">70</option>
+                                <option value="820">110</option>
+                            </optgroup>
+                            <optgroup label="{Stainless Steel} C3">
+                                <option value="640">80</option>
+                            </optgroup>
+                            <optgroup label="{Stainless Steel} C4">
+                                <option value="250">80</option>
+                                <option value="410">80</option>
+                            </optgroup>
+                            <optgroup label="{Stainless Steel} F1">
+                                <option value="250">45</option>
+                                <option value="410">60</option>
+                            </optgroup>
+                        </select>
+                    </div></br>
+                    <label>{Screw size}</label>
+                    <div style="display: flex;">
+                        <select id="screwLoad_size" onchange="">
+                            <optgroup label="ISO4762 (Din912) - {chc Metric}">
+                                <option value="M3_iso4762">M3</option>
+                                <option value="M4_iso4762">M4</option>
+                                <option value="M5_iso4762">M5</option>
+                                <option value="M6_iso4762">M6</option>
+                                <option value="M8_iso4762">M8</option>
+                                <option value="M10_iso4762">M10</option>
+                                <option value="M12_iso4762">M12</option>
+                                <option value="M14_iso4762">M14</option>
+                                <option value="M16_iso4762">M16</option>
+                                <option value="M18_iso4762">M18</option>
+                                <option value="M20_iso4762">M20</option>
+                                <option value="M22_iso4762">M22</option>
+                                <option value="M24_iso4762">M24</option>
+                                <option value="M27_iso4762">M27</option>
+                                <option value="M30_iso4762">M30</option>
+                                <option value="M33_iso4762">M33</option>
+                                <option value="M36_iso4762">M36</option>
+                            </optgroup>
+                            <optgroup label="ISO4017 (Din933) - {Hex Metric}">
+                                <option value="M3_hex">M3</option>
+                                <option value="M4_hex">M4</option>
+                                <option value="M5_hex">M5</option>
+                                <option value="M6_hex">M6</option>
+                                <option value="M8_hex">M8</option>
+                                <option value="M10_hex">M10</option>
+                                <option value="M12_hex">M12</option>
+                                <option value="M14_hex">M14</option>
+                                <option value="M16_hex">M16</option>
+                                <option value="M18_hex">M18</option>
+                                <option value="M20_hex">M20</option>
+                                <option value="M22_hex">M22</option>
+                                <option value="M24_hex">M24</option>
+                                <option value="M27_hex">M27</option>
+                                <option value="M30_hex">M30</option>
+                                <option value="M33_hex">M33</option>
+                                <option value="M36_hex">M36</option>
+                            </optgroup>
+                        </select>
+                    </div><br>
+
+                    <label>{External coating}</label>
+                    <div style="display: flex;">
+                        <select id="screwLoad_surface" onchange="">
+                            <option value="0.075">{Phosphated with lubricant}</option>
+                            <option value="0.110">{Zinc or zinc alloy}</option>
+                            <option value="0.150">{Zinc with finition}</option>
+                            <option value="0.30">{Not coated}</option>
+                            <option value="0.30">{Stainless steel (dry)}</option>
+                        </select>
+                    </div>
+
+
+
+                    <label>{Tension}</label>
+                    <div class="input-unit">
+                        <input id="screwLoad_tension" type="number" value="200" min="0"/><span>N</span>
+                    </div></br>
+                    <input type="button" onclick="fillScrewTable()" value="{Compute}"/><br>
+
+                    
+                    <table>
+                        <tr><td>{Material elastic limit}</td><td id="screwLoad_resElasticLimit"></td><td>MPa</td></tr>
+                        <tr><td>{Screw pitch}</td><td id="screwLoad_resPitch"></td><td>mm</td></tr>
+                        <tr><td>{Screw head size}</td><td id="screwLoad_resHeadSize"></td><td>mm</td></tr>
+                        <tr><td>{Screw resistive section}</td><td id="screwLoad_resSection"></td><td>mm²</td></tr>
+                        <tr><td>{Max Load (traction)}</td><td id="screwLoad_resLoad"></td><td>kN</td></tr>
+                        <tr><td>{Torque to screw}</td><td id="screwLoad_resTorque"></td><td>N.m</td></tr>
+                    </table><br>
+                    {This is an estimation. A more complex study that include fatigue or pre load can be needed}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+  </body>
+</html>
