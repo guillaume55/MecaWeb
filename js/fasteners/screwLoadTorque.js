@@ -69,3 +69,13 @@ function fillScrewTable(){
     document.getElementById("screwLoad_resLoad").innerHTML = roundDec(load/1000,3);
     document.getElementById("screwLoad_resTorque").innerHTML = roundDec(torque/1000,3);
 }
+
+//show or hide torque section
+function screwLoad_showTorque(state){
+    let display
+    state ? display="block" : display="none";
+    console.log(display)
+    document.getElementById('screwLoad_torqueRelated').style.display = display;
+    document.getElementById('screwLoad_torqueRes').style.display = display;
+
+}

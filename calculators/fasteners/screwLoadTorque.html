@@ -108,23 +108,29 @@
                         </select>
                     </div><br>
 
-                    <label>{External coating}</label>
                     <div style="display: flex;">
-                        <select id="screwLoad_surface" onchange="">
-                            <option value="0.075">{Phosphated with lubricant}</option>
-                            <option value="0.110">{Zinc or zinc alloy}</option>
-                            <option value="0.150">{Zinc with finition}</option>
-                            <option value="0.30">{Not coated}</option>
-                            <option value="0.30">{Stainless steel (dry)}</option>
-                        </select>
+                        <input type="checkbox" onchange="screwLoad_showTorque(this.checked)"/><span>{Compute torque}</span>
+                    </div><br>
+
+                    <div style="display: none; "  id="screwLoad_torqueRelated">
+                        <label>{External coating}</label>
+                        <div style="display: flex;">
+                            <select id="screwLoad_surface" onchange="">
+                                <option value="0.075">{Phosphated with lubricant}</option>
+                                <option value="0.110">{Zinc or zinc alloy}</option>
+                                <option value="0.150">{Zinc with finition}</option>
+                                <option value="0.30">{Not coated}</option>
+                                <option value="0.30">{Stainless steel (dry)}</option>
+                            </select>
+                        </div><br>
+
+
+
+                        <label>{Tension}</label>
+                        <div class="input-unit">
+                            <input id="screwLoad_tension" type="number" value="20000" min="0"/><span>N</span>
+                        </div></br>
                     </div>
-
-
-
-                    <label>{Tension}</label>
-                    <div class="input-unit">
-                        <input id="screwLoad_tension" type="number" value="200" min="0"/><span>N</span>
-                    </div></br>
                     <input type="button" onclick="fillScrewTable()" value="{Compute}"/><br>
 
                     
@@ -134,7 +140,7 @@
                         <tr><td>{Screw head size}</td><td id="screwLoad_resHeadSize"></td><td>mm</td></tr>
                         <tr><td>{Screw resistive section}</td><td id="screwLoad_resSection"></td><td>mm²</td></tr>
                         <tr><td>{Max Load (traction)}</td><td id="screwLoad_resLoad"></td><td>kN</td></tr>
-                        <tr><td>{Torque to screw}</td><td id="screwLoad_resTorque"></td><td>N.m</td></tr>
+                        <tr style="display:none;" id="screwLoad_torqueRes"><td>{Torque to screw}</td><td id="screwLoad_resTorque"></td><td>N.m</td></tr>
                     </table><br>
                     {This is an estimation. A more complex study that include fatigue or pre load can be needed}
                 </div>

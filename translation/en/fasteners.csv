@@ -13,7 +13,7 @@ Screw pitch,Screw pitch
 Screw head size,Screw head size
 Screw resistive section,Screw resistive section
 Max Load (traction),Max Load (traction)
-Torque to screw,Torque to screw
+Torque to screw,Tightening torque
 This is an estimation. A more complex study that include fatigue or pre load can be needed,This is an estimation. A more complex study that include fatigue or pre load can be needed
 Phosphated with lubricant,Phosphated with lubricant
 Zinc or zinc alloy,Zinc or zinc alloy
@@ -24,3 +24,5 @@ Stainless steel,Stainless steel
 chc Metric,Metric cap head
 Compute,Compute
 Calculations,Calculations
+Hex Metric,Hex Metric
+Compute torque,Compute torque
