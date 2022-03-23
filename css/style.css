@@ -159,3 +159,25 @@ select{
   padding: 5px;
   min-width:100px;
 }
+
+
+/****  CALCULATOR *****/
+#embed_calculator{
+    position: fixed;
+    top: 80px;
+    right: -305px;
+    transition: all 0.5s;
+    
+}
+
+#calculator_button{
+  background-image: url(../img/calculator.PNG);
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 43px;
+  border:none;
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
