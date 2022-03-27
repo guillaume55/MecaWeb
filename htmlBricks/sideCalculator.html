@@ -3,9 +3,8 @@
     <link rel="stylesheet" href="../css/calculator.css">
     </head>
    <body>
-       <script>
-           
-       </script>
+       <script src="../js/lib/math.js"></script>
+       
       <form name="calculator">
         <!--<input type="button" id="calculator_button" value="" onclick="toggleCalculator()">-->
          <table  id="calculator_table">
@@ -35,11 +34,15 @@
             <tr>
                <td><input type="button" class="calculator_input" id="calculator_clear" name="clear" value="c" onclick="calculator.display.value = ''"></td>
                <td><input type="button" class="calculator_input" name="zero" value="0" onclick="calculator.display.value += '0'"></td>
-               <td><input type="button" class="calculator_input" name="doit" value="=" onclick="calculator.display.value = eval(calculator.display.value)"></td>
+               <td><input type="button" class="calculator_input" name="doit" value="=" onclick="calculator.display.value = math.evaluate(calculator.display.value)"></td>
                <td><input type="button" class="calculator_input" class="operator" name="div" value="/" onclick="calculator.display.value += '/'"></td>
             </tr>
          </table>
       </form>
+      <script>
+        hints = ['2 inch to mm', "cos(30)+cos(30)", "sqrt(-4)", "x = 7 / 2; x + 3"]
+        calculator.display.value = hints[Math.floor((Math.random() * 4))]
+    </script>
    </body>
    
 </html>
