@@ -86,7 +86,6 @@ function compute() {
     }
     else {
         console.log("Trying to optimize beacuse of angles")
-        console.log()
         res = fitCutsAngle(barArray, cutArray, anglesToOptim)
         
     }

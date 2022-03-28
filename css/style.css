@@ -164,7 +164,7 @@ select{
 /****  CALCULATOR *****/
 #embed_calculator{
     position: fixed;
-    top: 80px;
+    top: 140px;
     right: -305px;
     transition: all 0.5s;
     
@@ -177,7 +177,27 @@ select{
   height: 43px;
   border:none;
   position: fixed;
-  top: 5px;
+  top: 70px;
   right: 5px;
   cursor: pointer;
 }
+
+/* discord **/
+#discord_link{
+  position: fixed;
+  top: 35px;
+  right: 5px;
+  width: 30px;
+  margin: 2%;
+}/*
+#discord_button{
+  background-image: url(../img/discord.PNG);
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 43px;
+  border:none;
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}*/

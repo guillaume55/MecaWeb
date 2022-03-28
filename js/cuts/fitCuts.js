@@ -218,7 +218,7 @@ function graphRes(bars)  {
     res = "<div class='res-bars'>"
     for(i=0; i<bars.length; i++)  {
         loss = roundDec(100-bars[i]['ratio'],2).toString()
-        res += '<div class="res-barLen">Bar: '+bars[i]['len']+'mm, Loss:'+loss+ '%</div>'
+        res += `<div class="res-barLen">${T['Bar']} :${bars[i]['len']}mm, ${T['Loss']}:${loss}%</div>`
         res+= graphBar(bars[i], bars[i]['len'])
          
         
@@ -231,15 +231,15 @@ function graphRes(bars)  {
 function showRemainingCuts(cuts) {
     var i, res =""
     if(cuts.length > 0) {
-    res = "<div class='res-remaining'>It remains: "
-    for(i=0; i<cuts.length; i++)  {
-        res += '<div class="res-rem">'+cuts[i]['len'].toString()+'</div>'
-        
+        res = `<div class='res-remaining'>${T['It remains']}: `
+        for(i=0; i<cuts.length; i++)  {
+            res += '<div class="res-rem">'+cuts[i]['len'].toString()+'</div>'
+            
+        }
+        res += `</div></br>${T['Delimiter']}<input id='delimiter' value =','><button onclick='exportToCsv()'> ${T['Download CSV']} </button>  `
+        return res
     }
-    res += "</div></br>Delimiter<input id='delimiter' value =','><button onclick='exportToCsv()'> Download CSV </button>  "
-    return res
-    }
-    return "No remaining part</br>Delimiter<input id='delimiter' value =','><button onclick='exportToCsv()'> Download CSV </button>"
+    return `No remaining part</br>${T['Delimiter']}<input id='delimiter' value =','><button onclick='exportToCsv()'> ${T['Download CSV']} </button>`
 }
 
 /****************  EXPORTS  ********************/
@@ -257,14 +257,14 @@ function exportToCsv() {
     remaining = res['remainingCuts']
     var delimiter = document.getElementById('delimiter').value
     //write bars
-    var csv = 'Bar Length' + delimiter + 'Ratio'+ delimiter + 'Cuts\n'
+    var csv = `${T['Bar Length']}'${delimiter}'Ratio'${delimiter}'Cuts\n`
     bars.forEach(function(item) {
         var c = "", i
         for(i=0; i<item['cuts'].length; i++){ c += delimiter + item['cuts'][i].toString(); console.log(c)}
         csv += item['len'].toString() + delimiter + roundDec(item['ratio'],2).toString() + c +'\n'
     });
     //write remaining cuts
-    csv += '\nRemaining cuts'
+    csv += '\n'+T['Remaining cuts']
     remaining.forEach(function(item) {
         csv += delimiter + item.toString()  
     });
