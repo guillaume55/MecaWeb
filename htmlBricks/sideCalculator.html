@@ -6,11 +6,10 @@
        <script src="../js/lib/math.js"></script>
        
       <form name="calculator">
-        <!--<input type="button" id="calculator_button" value="" onclick="toggleCalculator()">-->
          <table  id="calculator_table">
             <tr>
                <td colspan="4">
-                  <input type="text" name="display" id="calculator_display">
+                  <input type="text" name="display" id="calculator_display"><input type="button" name="calculator_historyButton" value ="&#8634;" id="calculator_historyButton" onclick="calc_toggleHistory()">
                </td>
             </tr>
             <tr>
@@ -34,14 +33,36 @@
             <tr>
                <td><input type="button" class="calculator_input" id="calculator_clear" name="clear" value="c" onclick="calculator.display.value = ''"></td>
                <td><input type="button" class="calculator_input" name="zero" value="0" onclick="calculator.display.value += '0'"></td>
-               <td><input type="button" class="calculator_input" name="doit" value="=" onclick="calculator.display.value = math.evaluate(calculator.display.value)"></td>
+               <td><input type="button" class="calculator_input" name="doit" value="=" onclick="calc_compute()"></td>
                <td><input type="button" class="calculator_input" class="operator" name="div" value="/" onclick="calculator.display.value += '/'"></td>
             </tr>
          </table>
+         <div id="calculator_history">
+
+         </div>
       </form>
+
       <script>
         hints = ['2 inch to mm', "cos(30)+cos(30)", "sqrt(-4)", "x = 7 / 2; x + 3"]
         calculator.display.value = hints[Math.floor((Math.random() * 4))]
+
+        function calc_compute(){
+            document.getElementById('calculator_history').innerHTML += calculator.display.value + " = "
+            calculator.display.value = math.evaluate(calculator.display.value)
+            document.getElementById('calculator_history').innerHTML += calculator.display.value + "<br>"
+
+        }
+
+        function calc_toggleHistory(){
+            let position = parseFloat(document.getElementById('calculator_history').style.right);
+
+            if(position >= 0){
+               document.getElementById('calculator_history').style.right = "-305px";
+            } else {
+               document.getElementById('calculator_history').style.right = "5px";
+            }
+         }
+
     </script>
    </body>
    

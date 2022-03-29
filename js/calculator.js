@@ -11,3 +11,4 @@ function toggleCalculator(){
      document.getElementById('embed_calculator').style.right = "5px";
     }
 }
+

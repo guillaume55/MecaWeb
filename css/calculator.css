@@ -14,8 +14,24 @@
     right: -305px;
     transition: all 0.5s;*/
   }
-
+ /******history*****/
+  #calculator_historyButton{
+    border: none;
+    background: none;
+    width:20px;
+    
+  }
  
+  #calculator_history{
+    width: 300px;
+    height: 100px;
+    position: relative;
+    top:5px;
+    right: -305px;
+    background-color: #bcbd95;
+    transition: all 0.25s;
+    overflow: scroll;
+  }
   
   .calculator_input {
     outline: 0;
@@ -63,8 +79,8 @@
   }
   
   #calculator_display {
-    width: 265px;
-    max-width: 270px;
+    width: 250px;
+    max-width: 260px;
     font-size: 26px;
     text-align: right;
     background-color: #bcbd95;
