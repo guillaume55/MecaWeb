@@ -46,7 +46,7 @@ Compute the speed (rotationnal & linear in differents units)
 `<iframe src="https://guillaume55.github.io/MecaWeb/calculators/transmission/screw-speed.html?lang=en" frameborder="0" width="100%"></iframe>`
 
 ### Stepper
-Nothing at this time
+Compute step angle and mm/step
 `<iframe src="https://guillaume55.github.io/MecaWeb/calculators/transmission/stepper.html?lang=en" frameborder="0" width="100%"></iframe>`
 
 ### Pulley
