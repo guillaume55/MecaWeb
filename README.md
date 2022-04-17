@@ -56,7 +56,7 @@ Compute the ratio of a belt pulley system and the estimated pulley length
 ### Torque
 Have to check if everything works 
 Compute the torque needed for a motor for a rotationnal movement
-`<iframe src="https://guillaume55.github.io/MecaWeb/calculators/torque.html?lang=en" frameborder="0" width="100%"></iframe>`
+`<iframe src="https://guillaume55.github.io/MecaWeb/calculators/transmission/torque.html?lang=en" frameborder="0" width="100%"></iframe>`
 
 ### Accel curves
 Compute the time needed for a movement, check if will reach the final speed with the given accel
