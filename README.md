@@ -34,7 +34,7 @@ Study the displacement of a beam subject to a load
 
 ### Arc-Boutement
 Tells you if the system might have an arc boutement phenomenon (blocking instead of translating)
-`<iframe src="https://guillaume55.github.io/MecaWeb/calculators/structure/buckling.html?lang=en" frameborder="0" width="100%" height="1000"></iframe>`
+`<iframe src="https://guillaume55.github.io/MecaWeb/calculators/structure/arcBoutement.html?lang=en" frameborder="0" width="100%" height="1000"></iframe>`
 
 ## Transmission
 
