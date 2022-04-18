@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{Buckling}</title>
+    <title>{Mass}</title>
       <meta charset="UTF-8">
       <link rel="stylesheet" href="../../css/style.css">
       <link rel="stylesheet" href="../../css/cuts.css">
@@ -22,22 +22,22 @@
             <div class="radios">
                 <div class="radio-button" onclick="document.getElementById('massShape1').click(); showBeamParams('rect', 'mass')">
                     <label>{Box}</label>
-                    <img src="../../img/parallelepipede.png"/>
+                    <img src="../../img/shapes/pave.png" style="max-width: 150px; width:150px;"/>
                     <input type="radio" id="massShape1" name="massShape" value="pa" checked>
                 </div>
                 <div class="radio-button" onclick="document.getElementById('massShape2').click(); showBeamParams('rect_pipe', 'mass')">
                     <label>{Hollow box}</label>
-                    <img src="../../img/cylinder.png"/>
+                    <img src="../../img/shapes/hollow_pave.png" style="max-width: 150px; width:150px;"/>
                     <input type="radio" id="massShape2" name="massShape" value="pa_hollow">
                 </div>
                 <div class="radio-button" onclick="document.getElementById('massShape3').click(); showBeamParams('circ', 'mass')">
                     <label>{Cylinder}</label>
-                    <img src="../../img/round.png"/>
+                    <img src="../../img/shapes/cyl.png" style="max-width: 150px; width:150px;"/>
                     <input type="radio" id="massShape3" name="massShape" value="cyl">
                 </div>
                 <div class="radio-button" onclick="document.getElementById('massShape4').click(); showBeamParams('circ_pipe', 'mass')">
                     <label>{Hollow cylinder}</label>
-                    <img src="../../img/roundTube.png"/>
+                    <img src="../../img/shapes/hollow_cyl.png" style="max-width: 150px; width:150px;"/>
                     <input type="radio" id="massShape4" name="massShape" value="cyl_hollow">
                 </div>
             </div>
@@ -67,9 +67,11 @@
                         <input type="number" id="mass_beamThick" value="2" min="0"/><span>mm or m</span>
                     </div>
                 </div>
-                <label>{Beam length}</label></br>
-                <div class="input-unit">
-                    <input type="number" id="mass_beamLen" value="2" min="0"/><span>mm or m</span>
+                <div id="mass_beamLen_div">
+                    <label>{Beam length}</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="mass_beamLen" value="2" min="0"/><span>mm or m</span>
+                    </div>
                 </div>
             <br>
 

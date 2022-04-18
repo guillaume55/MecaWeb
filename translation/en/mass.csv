@@ -6,6 +6,8 @@ Hollow cylinder,Hollow cylinder
 Beam diam,Beam diam
 Beam thickness,Beam thickness
 Beam length,Beam length
+Beam height,Beam height
+Beam width,Beam width
 Compute,Compute
 Mass,Mass
 Section area,Section area
