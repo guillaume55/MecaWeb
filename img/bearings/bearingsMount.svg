@@ -25,16 +25,30 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.36168631"
-     inkscape:cx="635.91016"
-     inkscape:cy="1281.4972"
+     inkscape:cx="1802.6671"
+     inkscape:cy="905.48077"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="g37087-6" />
   <defs
      id="defs2">
+    <marker
+       style="overflow:visible"
+       id="TriangleInL"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="TriangleInL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(-0.8)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         id="path9548" />
+    </marker>
     <marker
        style="overflow:visible"
        id="TriangleOutL"
@@ -2219,6 +2233,1257 @@
          d="M 5.77,0 -2.88,5 V -5 Z"
          id="path14094-58" />
     </marker>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_2-4"
+       id="pattern2924-85"
+       patternTransform="matrix(1.5180722,0,0,1.5180722,11.540447,-68.037076)" />
+    <pattern
+       inkscape:collect="always"
+       patternUnits="userSpaceOnUse"
+       width="3"
+       height="1"
+       patternTransform="translate(0,0) scale(10,10)"
+       id="Strips1_2-4"
+       inkscape:stockid="Stripes 1:2">
+      <rect
+         style="fill:black;stroke:none"
+         x="0"
+         y="-0.5"
+         width="1"
+         height="2"
+         id="rect1944-5" />
+    </pattern>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath11477-2">
+      <rect
+         style="opacity:0.617391;fill:#c87137;stroke-width:0.0662582;stroke-linecap:round"
+         id="rect11479-45"
+         width="159.10715"
+         height="12.203678"
+         x="-13.716134"
+         y="91.307411"
+         transform="rotate(-45)" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath13577-9">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.26236px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 24.604043,109.72907 c -2.48424,4.75467 -1.025182,9.00427 -0.358164,12.17384 1.039959,4.94172 2.064157,8.96471 0.358159,11.96655 H 181.0485 c 0.58909,-3.72969 1.52319,-7.29744 0,-12.01863 -1.87137,-8.11891 -0.25959,-8.64691 0,-12.12176 H 24.604043"
+         id="path13579-08"
+         sodipodi:nodetypes="csccccc" />
+    </clipPath>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-41"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-52" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker2291"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path2289" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-0-7"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-4-0" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker2297"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path2295" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-4-19"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-9-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker2303"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path2301" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-0-9-47"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-4-6-05" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker2309"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path2307" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-40-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-1-04" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker2315"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path2313" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-4-9-04"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-9-5-72" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker2321"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path2319" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-4-9-04-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-9-5-72-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker2927"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path2925" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-40-6-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-1-04-0" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker2933"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path2931" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-0-7-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-4-0-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker4294"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path4292" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-41-5"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-52-6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker4300"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path4298" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-4-19-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-9-9-0" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker4306"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path4304" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-0-9-47-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-4-6-05-1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker4312"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path4310" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-40-6-4-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-1-04-0-6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker4318"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path4316" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-40-6-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-1-04-1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker4324"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path4322" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-4-9-04-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-9-5-72-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker4330"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path4328" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-4-9-04-4-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-9-5-72-4-1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker4336"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path4334" />
+    </marker>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_2-4-2"
+       id="pattern2924-85-4"
+       patternTransform="matrix(1.5180722,0,0,1.5180722,11.540447,-68.037076)" />
+    <pattern
+       inkscape:collect="always"
+       patternUnits="userSpaceOnUse"
+       width="3"
+       height="1"
+       patternTransform="translate(0,0) scale(10,10)"
+       id="Strips1_2-4-2"
+       inkscape:stockid="Stripes 1:2">
+      <rect
+         style="fill:black;stroke:none"
+         x="0"
+         y="-0.5"
+         width="1"
+         height="2"
+         id="rect1944-5-3" />
+    </pattern>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath11477-2-4">
+      <rect
+         style="opacity:0.617391;fill:#c87137;stroke-width:0.0662582;stroke-linecap:round"
+         id="rect11479-45-8"
+         width="159.10715"
+         height="12.203678"
+         x="-13.716134"
+         y="91.307411"
+         transform="rotate(-45)" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath13577-9-9">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.26236px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 24.604043,109.72907 c -2.48424,4.75467 -1.025182,9.00427 -0.358164,12.17384 1.039959,4.94172 2.064157,8.96471 0.358159,11.96655 H 181.0485 c 0.58909,-3.72969 1.52319,-7.29744 0,-12.01863 -1.87137,-8.11891 -0.25959,-8.64691 0,-12.12176 H 24.604043"
+         id="path13579-08-1"
+         sodipodi:nodetypes="csccccc" />
+    </clipPath>
+    <marker
+       style="overflow:visible"
+       id="TriangleInL-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleInL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(-0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path9548-1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-04"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-73" />
+    </marker>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath11477-2-5">
+      <rect
+         style="opacity:0.617391;fill:#c87137;stroke-width:0.0662582;stroke-linecap:round"
+         id="rect11479-45-6"
+         width="159.10715"
+         height="12.203678"
+         x="-13.716134"
+         y="91.307411"
+         transform="rotate(-45)" />
+    </clipPath>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-611"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-523" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleInL-0"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleInL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(-0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path9548-6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27458"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27456" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleInL-1-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleInL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(-0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path9548-1-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-04-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-73-7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-41-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-52-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27468"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27466" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-0-7-11"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-4-0-7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27474"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27472" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-4-19-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-9-9-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27480"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27478" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-0-9-47-63"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-4-6-05-7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27486"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27484" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-40-6-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-1-04-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27492"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27490" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-4-9-04-3"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-9-5-72-40" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27498"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27496" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-40-6-4-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-1-04-0-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27504"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27502" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-4-9-04-4-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-9-5-72-4-5" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27510"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27508" />
+    </marker>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_2-4-2-7"
+       id="pattern2924-85-4-7"
+       patternTransform="matrix(1.5180722,0,0,1.5180722,11.540447,-68.037076)" />
+    <pattern
+       inkscape:collect="always"
+       patternUnits="userSpaceOnUse"
+       width="3"
+       height="1"
+       patternTransform="translate(0,0) scale(10,10)"
+       id="Strips1_2-4-2-7"
+       inkscape:stockid="Stripes 1:2">
+      <rect
+         style="fill:black;stroke:none"
+         x="0"
+         y="-0.5"
+         width="1"
+         height="2"
+         id="rect1944-5-3-8" />
+    </pattern>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-41-5-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-52-6-7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27521"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27519" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-0-7-1-3"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-4-0-9-6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27527"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27525" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-4-19-4-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-9-9-0-8" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27533"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27531" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-0-9-47-6-5"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-4-6-05-1-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27539"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27537" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-40-6-9-3"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-1-04-1-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27545"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27543" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-4-9-04-6-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-9-5-72-9-3" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27551"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27549" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-40-6-4-9-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-1-04-0-6-6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27557"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27555" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-4-9-04-4-1-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path14094-9-5-72-4-1-5" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27563"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27561" />
+    </marker>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath29547">
+      <rect
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.853384;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect29549"
+         width="66.780159"
+         height="11.962978"
+         x="122.2423"
+         y="63.855652"
+         clip-path="none" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath29551">
+      <rect
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.85548;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect29553"
+         width="66.780159"
+         height="12.021813"
+         x="78.716446"
+         y="90.981865"
+         clip-path="none"
+         transform="rotate(-45)" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath29551-1">
+      <rect
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.85548;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect29553-4"
+         width="66.780159"
+         height="12.021813"
+         x="78.716446"
+         y="90.981865"
+         clip-path="none"
+         transform="rotate(-45)" />
+    </clipPath>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_2-4-2-7-4"
+       id="pattern2924-85-4-7-8"
+       patternTransform="matrix(1.5180722,0,0,1.5180722,11.540447,-68.037076)" />
+    <pattern
+       inkscape:collect="always"
+       patternUnits="userSpaceOnUse"
+       width="3"
+       height="1"
+       patternTransform="translate(0,0) scale(10,10)"
+       id="Strips1_2-4-2-7-4"
+       inkscape:stockid="Stripes 1:2">
+      <rect
+         style="fill:black;stroke:none"
+         x="0"
+         y="-0.5"
+         width="1"
+         height="2"
+         id="rect1944-5-3-8-5" />
+    </pattern>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath29551-1-2">
+      <rect
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.85548;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect29553-4-8"
+         width="66.780159"
+         height="12.021813"
+         x="78.716446"
+         y="90.981865"
+         clip-path="none"
+         transform="rotate(-45)" />
+    </clipPath>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_2-4-2-7-4-7"
+       id="pattern2924-85-4-7-8-7"
+       patternTransform="matrix(1.5180722,0,0,1.5180722,11.540447,-68.037076)" />
+    <pattern
+       inkscape:collect="always"
+       patternUnits="userSpaceOnUse"
+       width="3"
+       height="1"
+       patternTransform="translate(0,0) scale(10,10)"
+       id="Strips1_2-4-2-7-4-7"
+       inkscape:stockid="Stripes 1:2">
+      <rect
+         style="fill:black;stroke:none"
+         x="0"
+         y="-0.5"
+         width="1"
+         height="2"
+         id="rect1944-5-3-8-5-3" />
+    </pattern>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath29551-1-2-7">
+      <rect
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.85548;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect29553-4-8-9"
+         width="66.780159"
+         height="12.021813"
+         x="78.716446"
+         y="90.981865"
+         clip-path="none"
+         transform="rotate(-45)" />
+    </clipPath>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_2-4-2-7-7"
+       id="pattern2924-85-4-7-1"
+       patternTransform="matrix(1.5180722,0,0,1.5180722,11.540447,-68.037076)" />
+    <pattern
+       inkscape:collect="always"
+       patternUnits="userSpaceOnUse"
+       width="3"
+       height="1"
+       patternTransform="translate(0,0) scale(10,10)"
+       id="Strips1_2-4-2-7-7"
+       inkscape:stockid="Stripes 1:2">
+      <rect
+         style="fill:black;stroke:none"
+         x="0"
+         y="-0.5"
+         width="1"
+         height="2"
+         id="rect1944-5-3-8-57" />
+    </pattern>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath29551-5">
+      <rect
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.85548;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect29553-1"
+         width="66.780159"
+         height="12.021813"
+         x="78.716446"
+         y="90.981865"
+         clip-path="none"
+         transform="rotate(-45)" />
+    </clipPath>
   </defs>
   <g
      inkscape:label="Calque 1"
@@ -3806,6 +5071,770 @@
            y="73.452026">1</tspan></text>
     </g>
     <g
+       id="g37087-6"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\MecaWeb\img\bearings\bMounting1.png"
+       inkscape:export-xdpi="96.643501"
+       inkscape:export-ydpi="96.643501"
+       transform="translate(335.88873,31.274619)">
+      <g
+         id="g13615-46">
+        <path
+           style="fill:#008080;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:0.50196081"
+           d="m 29.352685,99.93137 c -2.526521,4.75467 -1.042631,9.00427 -0.36426,12.17384 1.05766,4.94172 2.099289,8.96471 0.364255,11.96655 h 242.7155 c 0.59912,-3.72969 1.54912,-7.29744 0,-12.01863 -1.90322,-8.11891 -0.264,-8.64691 0,-12.12176 H 29.352685"
+           id="path12742-7-0"
+           sodipodi:nodetypes="csccccc"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501" />
+        <rect
+           style="opacity:0.502899;fill:#ffd42a;stroke:none;stroke-width:0.845649;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2952-1-14"
+           width="159.10715"
+           height="11.762725"
+           x="29.809719"
+           y="63.950325"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501" />
+        <rect
+           style="opacity:0.617391;fill:url(#pattern2924-85);fill-opacity:1;stroke-width:0.277983;stroke-linecap:round"
+           id="rect846-13"
+           width="207.38792"
+           height="164.79982"
+           x="13.928045"
+           y="-63.317402"
+           transform="matrix(0.70710678,0.70364616,-0.70710678,0.70364616,43.525862,-26.680947)"
+           clip-path="url(#clipPath11477-2)"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501" />
+        <rect
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:0.853385;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2952-81"
+           width="159.31833"
+           height="11.962976"
+           x="29.704124"
+           y="63.855663"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501" />
+        <g
+           id="g11372-46"
+           transform="translate(61.03357,-58.453653)"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501">
+          <g
+             id="g4294-0-68"
+             style="stroke:#220000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             transform="translate(27.034314,56.866153)">
+            <rect
+               style="opacity:1;fill:#37c837;fill-opacity:0.6;stroke:#220000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3618-3-16"
+               width="23.408867"
+               height="23.408867"
+               x="55.027935"
+               y="77.816193"
+               ry="6.2179804" />
+            <path
+               style="fill:none;stroke:#220000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="M 55.119377,95.870632 H 78.345361"
+               id="path4187-2-02" />
+            <path
+               style="fill:none;stroke:#220000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="M 55.119377,84.285651 H 78.345361"
+               id="path4187-9-0-15" />
+            <circle
+               style="opacity:1;fill:#ffffff;stroke:#000000;stroke-width:0.664346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="path3426"
+               cx="66.732368"
+               cy="89.520622"
+               r="7.4507093" />
+          </g>
+        </g>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.18, 3.18;stroke-dashoffset:0;stroke-opacity:1"
+           d="m 19.758819,121.79927 253.468131,0"
+           id="path3487-2"
+           transform="matrix(1.0170201,0,0,1,4.3298808,-9.797701)"
+           sodipodi:nodetypes="cc"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.267246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.20695, 3.20695;stroke-dashoffset:0;stroke-opacity:1"
+           d="M 62.666086,48.293198 V 126.0662"
+           id="path3487-2-1"
+           sodipodi:nodetypes="cc"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.267246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.20695, 3.20695;stroke-dashoffset:0;stroke-opacity:1"
+           d="M 154.73974,48.293198 V 126.0662"
+           id="path3487-2-1-0"
+           sodipodi:nodetypes="cc"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.267246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.20695, 3.20695;stroke-dashoffset:0;stroke-opacity:1"
+           d="M 247.77651,48.293194 V 126.0662"
+           id="path3487-2-1-0-3"
+           sodipodi:nodetypes="cc"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501" />
+        <g
+           id="g11372-46-6"
+           transform="translate(-31.15603,-58.331042)"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501">
+          <g
+             id="g4294-0-68-9"
+             style="stroke:#220000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             transform="translate(27.034314,56.866153)">
+            <rect
+               style="opacity:1;fill:#37c837;fill-opacity:0.6;stroke:#220000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3618-3-16-4"
+               width="23.408867"
+               height="23.408867"
+               x="55.027935"
+               y="77.816193"
+               ry="6.2179804" />
+            <path
+               style="fill:none;stroke:#220000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="M 55.119377,95.870632 H 78.345361"
+               id="path4187-2-02-7" />
+            <path
+               style="fill:none;stroke:#220000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="M 55.119377,84.285651 H 78.345361"
+               id="path4187-9-0-15-1" />
+            <circle
+               style="opacity:1;fill:#ffffff;stroke:#000000;stroke-width:0.664346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="path3426-0"
+               cx="66.732368"
+               cy="89.520622"
+               r="7.4507093" />
+          </g>
+        </g>
+        <g
+           id="g11372-46-5"
+           transform="translate(61.03357,-10.828623)"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501">
+          <g
+             id="g4294-0-68-8"
+             style="stroke:#220000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             transform="translate(27.034314,56.866153)">
+            <rect
+               style="opacity:1;fill:#37c837;fill-opacity:0.6;stroke:#220000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3618-3-16-9"
+               width="23.408867"
+               height="23.408867"
+               x="55.027935"
+               y="77.816193"
+               ry="6.2179804" />
+            <path
+               style="fill:none;stroke:#220000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="M 55.119377,95.870632 H 78.345361"
+               id="path4187-2-02-9" />
+            <path
+               style="fill:none;stroke:#220000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="M 55.119377,84.285651 H 78.345361"
+               id="path4187-9-0-15-2" />
+            <circle
+               style="opacity:1;fill:#ffffff;stroke:#000000;stroke-width:0.664346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="path3426-7"
+               cx="66.732368"
+               cy="89.520622"
+               r="7.4507093" />
+          </g>
+        </g>
+        <g
+           id="g11372-46-6-4"
+           transform="translate(-31.15603,-10.706012)"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501">
+          <g
+             id="g4294-0-68-9-6"
+             style="stroke:#220000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             transform="translate(27.034314,56.866153)">
+            <rect
+               style="opacity:1;fill:#37c837;fill-opacity:0.6;stroke:#220000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3618-3-16-4-8"
+               width="23.408867"
+               height="23.408867"
+               x="55.027935"
+               y="77.816193"
+               ry="6.2179804" />
+            <path
+               style="fill:none;stroke:#220000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="M 55.119377,95.870632 H 78.345361"
+               id="path4187-2-02-7-3" />
+            <path
+               style="fill:none;stroke:#220000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="M 55.119377,84.285651 H 78.345361"
+               id="path4187-9-0-15-1-4" />
+            <circle
+               style="opacity:1;fill:#ffffff;stroke:#000000;stroke-width:0.664346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="path3426-0-9"
+               cx="66.732368"
+               cy="89.520622"
+               r="7.4507093" />
+          </g>
+        </g>
+        <path
+           style="fill:none;stroke:#ff0000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleOutL)"
+           d="M 247.77651,41.217101 V 91.190096"
+           id="path8811"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleInL);marker-end:url(#TriangleOutL)"
+           d="M 65.769685,52.526534 H 151.89476"
+           id="path9413"
+           sodipodi:nodetypes="cc"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+           x="105.34068"
+           y="60.564209"
+           id="text10952"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501"><tspan
+             sodipodi:role="line"
+             id="tspan10950"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+             x="105.34068"
+             y="60.564209">e</tspan></text>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleInL-1);marker-end:url(#TriangleOutL-04)"
+           d="m 157.97267,52.524691 h 86.12507"
+           id="path9413-8"
+           sodipodi:nodetypes="cc"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+           x="199.09547"
+           y="61.314468"
+           id="text10952-8"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501"><tspan
+             sodipodi:role="line"
+             id="tspan10950-58"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+             x="199.09547"
+             y="61.314468">L</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+           x="252.10922"
+           y="83.354256"
+           id="text10952-1"
+           inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+           inkscape:export-xdpi="96.643501"
+           inkscape:export-ydpi="96.643501"><tspan
+             sodipodi:role="line"
+             id="tspan10950-5"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+             x="252.10922"
+             y="83.354256">F</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:10.5833px;line-height:1.25;font-family:'Ink Free';-inkscape-font-specification:'Ink Free';stroke-width:0.264583"
+           x="257.93463"
+           y="53.557297"
+           id="text15441"><tspan
+             sodipodi:role="line"
+             id="tspan15439"
+             style="stroke-width:0.264583"
+             x="257.93463"
+             y="53.557297" /></text>
+        <text
+           xml:space="preserve"
+           style="font-size:10.5833px;line-height:1.25;font-family:'Ink Free';-inkscape-font-specification:'Ink Free';stroke-width:0.264583"
+           x="258.71057"
+           y="63.38538"
+           id="text23743"><tspan
+             sodipodi:role="line"
+             id="tspan23741"
+             style="stroke-width:0.264583"
+             x="258.71057"
+             y="63.38538" /></text>
+      </g>
+      <path
+         style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-41);marker-end:url(#TriangleOutL-41)"
+         d="m 40.382675,98.926594 v -5.306866 h 8.163914"
+         id="path13870-6"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-0-7);marker-end:url(#TriangleOutL-0-7)"
+         d="m 40.517043,76.995154 v 5.306866 h 8.163914"
+         id="path13870-9-0"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-4-19);marker-end:url(#TriangleOutL-4-19)"
+         d="M 84.599623,98.926595 V 93.619727 H 76.435709"
+         id="path13870-4-7"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-0-9-47);marker-end:url(#TriangleOutL-0-9-47)"
+         d="M 84.465254,76.995154 V 82.30202 H 76.301341"
+         id="path13870-9-2-22"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-40-6);marker-end:url(#TriangleOutL-40-6)"
+         d="M 132.55459,98.926592 V 93.61973 h 8.16391"
+         id="path13870-8-7"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-4-9-04);marker-end:url(#TriangleOutL-4-9-04)"
+         d="m 176.77153,98.926598 v -5.306873 h -8.16391"
+         id="path13870-4-3-9"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-40-6-4);marker-end:url(#TriangleOutL-40-6-4)"
+         d="m 132.63127,77.391289 v 5.306862 h 8.16391"
+         id="path13870-8-7-9"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-4-9-04-4);marker-end:url(#TriangleOutL-4-9-04-4)"
+         d="m 176.84821,77.391283 v 5.306873 h -8.16391"
+         id="path13870-4-3-9-4"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <g
+         id="g5445"
+         transform="translate(0.80311753,185.39891)"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501">
+        <g
+           id="g13615-46-9"
+           transform="translate(-0.98018554,-101.6563)">
+          <rect
+             style="opacity:0.502899;fill:#ffd42a;stroke:none;stroke-width:0.845649;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect2952-1-14-1"
+             width="159.10715"
+             height="11.762725"
+             x="29.809719"
+             y="63.950325" />
+          <rect
+             style="opacity:0.617391;fill:url(#pattern2924-85-4);fill-opacity:1;stroke-width:0.277983;stroke-linecap:round"
+             id="rect846-13-0"
+             width="207.38792"
+             height="164.79982"
+             x="13.928045"
+             y="-63.317402"
+             transform="matrix(0.70710678,0.70364616,-0.70710678,0.70364616,43.525862,-26.680947)"
+             clip-path="url(#clipPath11477-2-4)" />
+          <rect
+             style="opacity:1;fill:none;stroke:#000000;stroke-width:0.853385;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect2952-81-6"
+             width="159.31833"
+             height="11.962976"
+             x="29.704124"
+             y="63.855663" />
+        </g>
+        <path
+           style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-41-5);marker-end:url(#TriangleOutL-41-5)"
+           d="m 39.402489,-39.242219 v -5.306869 h 8.163914"
+           id="path13870-6-9" />
+        <path
+           style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-0-7-1);marker-end:url(#TriangleOutL-0-7-1)"
+           d="m 39.536857,-60.11533 v 5.306866 h 8.163914"
+           id="path13870-9-0-4" />
+        <path
+           style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-4-19-4);marker-end:url(#TriangleOutL-4-19-4)"
+           d="m 83.619433,-39.242218 v -5.306871 h -8.16391"
+           id="path13870-4-7-9" />
+        <path
+           style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-0-9-47-6);marker-end:url(#TriangleOutL-0-9-47-6)"
+           d="m 83.485063,-60.11533 v 5.306866 h -8.16391"
+           id="path13870-9-2-22-8" />
+        <path
+           style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-40-6-9);marker-end:url(#TriangleOutL-40-6-9)"
+           d="m 131.5744,-39.242221 v -5.306865 h 8.16391"
+           id="path13870-8-7-92" />
+        <path
+           style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-4-9-04-6);marker-end:url(#TriangleOutL-4-9-04-6)"
+           d="m 175.79134,-39.242215 v -5.306876 h -8.16391"
+           id="path13870-4-3-9-6" />
+        <path
+           style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-40-6-4-9);marker-end:url(#TriangleOutL-40-6-4-9)"
+           d="m 131.65108,-59.719195 v 5.306862 h 8.16391"
+           id="path13870-8-7-9-3" />
+        <path
+           style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-4-9-04-4-1);marker-end:url(#TriangleOutL-4-9-04-4-1)"
+           d="m 175.86802,-59.719201 v 5.306873 h -8.16391"
+           id="path13870-4-3-9-4-4" />
+      </g>
+      <path
+         style="fill:#008080;fill-opacity:0.501961;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 35.025942,241.07707 c -2.526521,4.75468 -1.042631,9.00427 -0.36426,12.17384 1.05766,4.94172 2.099289,8.96471 0.364255,11.96655 H 277.74144 c 0.59912,-3.72969 1.54912,-7.29743 0,-12.01863 -1.90322,-8.11891 -0.264,-8.64691 0,-12.12176 H 35.025942"
+         id="path12742-7-0-8"
+         sodipodi:nodetypes="csccccc"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <g
+         id="g11372-46-2"
+         transform="translate(136.02791,82.692057)"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501">
+        <g
+           id="g4294-0-68-98"
+           style="stroke:#220000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           transform="translate(27.034314,56.866153)">
+          <rect
+             style="opacity:1;fill:#37c837;fill-opacity:0.6;stroke:#220000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="rect3618-3-16-1"
+             width="23.408867"
+             height="23.408867"
+             x="55.027935"
+             y="77.816193"
+             ry="6.2179804" />
+          <path
+             style="fill:none;stroke:#220000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M 55.119377,95.870632 H 78.345361"
+             id="path4187-2-02-77" />
+          <path
+             style="fill:none;stroke:#220000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M 55.119377,84.285651 H 78.345361"
+             id="path4187-9-0-15-0" />
+          <circle
+             style="opacity:1;fill:#ffffff;stroke:#000000;stroke-width:0.664346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="path3426-5"
+             cx="66.732368"
+             cy="89.520622"
+             r="7.4507093" />
+        </g>
+      </g>
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.267246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.20695, 3.20695;stroke-dashoffset:0;stroke-opacity:1"
+         d="M 30.098254,253.14727 H 287.88044"
+         id="path3487-2-3"
+         sodipodi:nodetypes="cc"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.267246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.20695, 3.20695;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 68.339343,189.4389 v 77.773"
+         id="path3487-2-1-7"
+         sodipodi:nodetypes="cc"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.267246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.20695, 3.20695;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 229.73427,189.4389 v 77.773"
+         id="path3487-2-1-0-37"
+         sodipodi:nodetypes="cc"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.267246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.20695, 3.20695;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 125.39063,189.4389 v 77.773"
+         id="path3487-2-1-0-3-5"
+         sodipodi:nodetypes="cc"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <g
+         id="g11372-46-6-1"
+         transform="translate(-25.482773,82.814668)"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501">
+        <g
+           id="g4294-0-68-9-8"
+           style="stroke:#220000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           transform="translate(27.034314,56.866153)">
+          <rect
+             style="opacity:1;fill:#37c837;fill-opacity:0.6;stroke:#220000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="rect3618-3-16-4-4"
+             width="23.408867"
+             height="23.408867"
+             x="55.027935"
+             y="77.816193"
+             ry="6.2179804" />
+          <path
+             style="fill:none;stroke:#220000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M 55.119377,95.870632 H 78.345361"
+             id="path4187-2-02-7-4" />
+          <path
+             style="fill:none;stroke:#220000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M 55.119377,84.285651 H 78.345361"
+             id="path4187-9-0-15-1-47" />
+          <circle
+             style="opacity:1;fill:#ffffff;stroke:#000000;stroke-width:0.664346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="path3426-0-3"
+             cx="66.732368"
+             cy="89.520622"
+             r="7.4507093" />
+        </g>
+      </g>
+      <g
+         id="g11372-46-5-6"
+         transform="translate(66.706827,130.31709)"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501">
+        <g
+           id="g4294-0-68-8-0"
+           style="stroke:#220000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           transform="translate(96.355191,56.866153)">
+          <rect
+             style="opacity:1;fill:#37c837;fill-opacity:0.6;stroke:#220000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="rect3618-3-16-9-1"
+             width="23.408867"
+             height="23.408867"
+             x="55.027935"
+             y="77.816193"
+             ry="6.2179804" />
+          <path
+             style="fill:none;stroke:#220000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M 55.119377,95.870632 H 78.345361"
+             id="path4187-2-02-9-8" />
+          <path
+             style="fill:none;stroke:#220000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M 55.119377,84.285651 H 78.345361"
+             id="path4187-9-0-15-2-7" />
+          <circle
+             style="opacity:1;fill:#ffffff;stroke:#000000;stroke-width:0.664346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="path3426-7-2"
+             cx="66.732368"
+             cy="89.520622"
+             r="7.4507093" />
+        </g>
+      </g>
+      <g
+         id="g11372-46-6-4-4"
+         transform="translate(-25.482773,130.4397)"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501">
+        <g
+           id="g4294-0-68-9-6-8"
+           style="stroke:#220000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           transform="translate(27.034314,56.866153)">
+          <rect
+             style="opacity:1;fill:#37c837;fill-opacity:0.6;stroke:#220000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="rect3618-3-16-4-8-3"
+             width="23.408867"
+             height="23.408867"
+             x="55.027935"
+             y="77.816193"
+             ry="6.2179804" />
+          <path
+             style="fill:none;stroke:#220000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M 55.119377,95.870632 H 78.345361"
+             id="path4187-2-02-7-3-7" />
+          <path
+             style="fill:none;stroke:#220000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M 55.119377,84.285651 H 78.345361"
+             id="path4187-9-0-15-1-4-6" />
+          <circle
+             style="opacity:1;fill:#ffffff;stroke:#000000;stroke-width:0.664346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="path3426-0-9-7"
+             cx="66.732368"
+             cy="89.520622"
+             r="7.4507093" />
+        </g>
+      </g>
+      <path
+         style="fill:none;stroke:#ff0000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleOutL-611)"
+         d="M 125.39063,182.36281 V 232.3358"
+         id="path8811-0"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleInL-0);marker-end:url(#TriangleOutL-611)"
+         d="m 71.442942,193.67224 155.985918,0"
+         id="path9413-6"
+         sodipodi:nodetypes="cc"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+         x="165.14694"
+         y="191.8343"
+         id="text10952-9"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501"><tspan
+           sodipodi:role="line"
+           id="tspan10950-4"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+           x="165.14694"
+           y="191.8343">e</tspan></text>
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleInL-1-2);marker-end:url(#TriangleOutL-04-6)"
+         d="m 71.83928,200.02044 h 51.37753"
+         id="path9413-8-5"
+         sodipodi:nodetypes="cc"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+         x="102.91551"
+         y="210.50697"
+         id="text10952-8-3"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501"><tspan
+           sodipodi:role="line"
+           id="tspan10950-58-2"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+           x="102.91551"
+           y="210.50697">L</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+         x="127.16547"
+         y="218.64775"
+         id="text10952-1-0"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501"><tspan
+           sodipodi:role="line"
+           id="tspan10950-5-2"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+           x="127.16547"
+           y="218.64775">F</tspan></text>
+      <path
+         style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-41-1);marker-end:url(#TriangleOutL-41-1)"
+         d="m 46.055932,240.0723 v -5.30687 h 8.163914"
+         id="path13870-6-0"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-0-7-11);marker-end:url(#TriangleOutL-0-7-11)"
+         d="m 46.1903,218.14086 v 5.30686 h 8.163914"
+         id="path13870-9-0-7"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-4-19-9);marker-end:url(#TriangleOutL-4-19-9)"
+         d="m 90.27288,240.0723 v -5.30687 h -8.163914"
+         id="path13870-4-7-5"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-0-9-47-63);marker-end:url(#TriangleOutL-0-9-47-63)"
+         d="m 90.138511,218.14086 v 5.30686 h -8.163913"
+         id="path13870-9-2-22-4"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-40-6-1);marker-end:url(#TriangleOutL-40-6-1)"
+         d="m 207.54912,240.0723 v -5.30687 h 8.16391"
+         id="path13870-8-7-6"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-4-9-04-3);marker-end:url(#TriangleOutL-4-9-04-3)"
+         d="m 251.76606,240.0723 v -5.30687 h -8.16391"
+         id="path13870-4-3-9-8"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-40-6-4-6);marker-end:url(#TriangleOutL-40-6-4-6)"
+         d="m 207.6258,218.53699 v 5.30687 h 8.16391"
+         id="path13870-8-7-9-7"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <path
+         style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-4-9-04-4-8);marker-end:url(#TriangleOutL-4-9-04-4-8)"
+         d="m 251.84274,218.53699 v 5.30687 h -8.16391"
+         id="path13870-4-3-9-4-8"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501" />
+      <g
+         id="g5445-7"
+         transform="translate(6.4763746,326.54461)"
+         inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\bearings\bl_bearings.png"
+         inkscape:export-xdpi="96.643501"
+         inkscape:export-ydpi="96.643501">
+        <path
+           style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-41-5-8);marker-end:url(#TriangleOutL-41-5-8)"
+           d="m 39.402489,-39.242219 v -5.306869 h 8.163914"
+           id="path13870-6-9-2" />
+        <path
+           style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-0-7-1-3);marker-end:url(#TriangleOutL-0-7-1-3)"
+           d="m 39.536857,-60.11533 v 5.306866 h 8.163914"
+           id="path13870-9-0-4-6" />
+        <path
+           style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-4-19-4-2);marker-end:url(#TriangleOutL-4-19-4-2)"
+           d="m 83.619433,-39.242218 v -5.306871 h -8.16391"
+           id="path13870-4-7-9-7" />
+        <path
+           style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-0-9-47-6-5);marker-end:url(#TriangleOutL-0-9-47-6-5)"
+           d="m 83.485063,-60.11533 v 5.306866 h -8.16391"
+           id="path13870-9-2-22-8-5" />
+        <path
+           style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-40-6-9-3);marker-end:url(#TriangleOutL-40-6-9-3)"
+           d="m 200.89567,-39.242221 v -5.306865 h 8.16391"
+           id="path13870-8-7-92-4" />
+        <path
+           style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-4-9-04-6-1);marker-end:url(#TriangleOutL-4-9-04-6-1)"
+           d="m 245.11261,-39.242215 v -5.306876 h -8.16391"
+           id="path13870-4-3-9-6-1" />
+        <path
+           style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-40-6-4-9-1);marker-end:url(#TriangleOutL-40-6-4-9-1)"
+           d="m 200.97235,-59.719195 v 5.306862 h 8.16391"
+           id="path13870-8-7-9-3-0" />
+        <path
+           style="fill:none;stroke:#c3c4c4;stroke-width:0.381989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleOutL-4-9-04-4-1-9);marker-end:url(#TriangleOutL-4-9-04-4-1-9)"
+           d="m 245.18929,-59.719201 v 5.306873 h -8.16391"
+           id="path13870-4-3-9-4-4-0" />
+      </g>
+    </g>
+    <g
        id="g37034"
        transform="translate(18.778552)"
        inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\MecaWeb\img\bearings\bMounting2.png"
@@ -4048,6 +6077,117 @@
          style="fill:none;stroke:#e60000;stroke-width:0.245314px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL-69-4)"
          d="m 147.239,794.91122 h 9.00454"
          id="path2300-6-9" />
+    </g>
+    <g
+       id="g31608"
+       transform="translate(75.670875,0.47261524)">
+      <rect
+         style="opacity:0.502899;fill:#ffd42a;stroke:none;stroke-width:0.547203;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect2952-1-14-1-2-5"
+         width="66.620285"
+         height="11.762725"
+         x="466.27005"
+         y="236.20132" />
+      <rect
+         style="opacity:0.617391;fill:url(#pattern2924-85-4-7-8);fill-opacity:1;stroke-width:0.277983;stroke-linecap:round"
+         id="rect846-13-0-4-4"
+         width="207.38792"
+         height="164.79982"
+         x="13.928045"
+         y="-63.317402"
+         transform="matrix(0.70710678,0.70364616,-0.70710678,0.70364616,387.49933,145.57005)"
+         clip-path="url(#clipPath29551-1-2)"
+         ry="0" />
+      <rect
+         style="fill:none;fill-opacity:0.501961;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect30713-4"
+         width="66.725883"
+         height="11.868315"
+         x="466.27005"
+         y="236.20129" />
+      <g
+         id="g13615-46-9-9"
+         transform="translate(339.55716,269.69617)">
+        <rect
+           style="opacity:0.502899;fill:#ffd42a;stroke:none;stroke-width:0.547203;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2952-1-14-1-2"
+           width="66.620285"
+           height="11.762725"
+           x="126.68575"
+           y="50.417072" />
+        <rect
+           style="opacity:0.617391;fill:url(#pattern2924-85-4-7);fill-opacity:1;stroke-width:0.277983;stroke-linecap:round"
+           id="rect846-13-0-4"
+           width="207.38792"
+           height="164.79982"
+           x="13.928045"
+           y="-63.317402"
+           transform="matrix(0.70710678,0.70364616,-0.70710678,0.70364616,47.915025,-40.214198)"
+           clip-path="url(#clipPath29551)"
+           ry="0" />
+        <rect
+           style="opacity:1;fill:none;fill-opacity:0.501961;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect30713"
+           width="66.725883"
+           height="11.868315"
+           x="126.68575"
+           y="50.417057" />
+      </g>
+    </g>
+    <g
+       id="g31599">
+      <rect
+         style="opacity:0.502899;fill:#ffd42a;stroke:none;stroke-width:0.547203;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect2952-1-14-1-2-5-5"
+         width="66.620285"
+         height="11.762725"
+         x="362.4068"
+         y="236.67393" />
+      <rect
+         style="opacity:0.617391;fill:url(#pattern2924-85-4-7-8-7);fill-opacity:1;stroke-width:0.277983;stroke-linecap:round"
+         id="rect846-13-0-4-4-7"
+         width="207.38792"
+         height="164.79982"
+         x="13.928045"
+         y="-63.317402"
+         transform="matrix(0.70710678,0.70364616,-0.70710678,0.70364616,283.63606,146.04267)"
+         clip-path="url(#clipPath29551-1-2-7)"
+         ry="0" />
+      <rect
+         style="fill:none;fill-opacity:0.501961;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect30713-4-0"
+         width="66.725883"
+         height="11.868315"
+         x="362.4068"
+         y="236.6739" />
+      <g
+         id="g13615-46-9-9-3"
+         transform="translate(235.69389,270.16879)">
+        <rect
+           style="opacity:0.502899;fill:#ffd42a;stroke:none;stroke-width:0.547203;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2952-1-14-1-2-0"
+           width="66.620285"
+           height="11.762725"
+           x="126.68575"
+           y="50.417072" />
+        <rect
+           style="opacity:0.617391;fill:url(#pattern2924-85-4-7-1);fill-opacity:1;stroke-width:0.277983;stroke-linecap:round"
+           id="rect846-13-0-4-0"
+           width="207.38792"
+           height="164.79982"
+           x="13.928045"
+           y="-63.317402"
+           transform="matrix(0.70710678,0.70364616,-0.70710678,0.70364616,47.915025,-40.214198)"
+           clip-path="url(#clipPath29551-5)"
+           ry="0" />
+        <rect
+           style="opacity:1;fill:none;fill-opacity:0.501961;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect30713-5"
+           width="66.725883"
+           height="11.868315"
+           x="126.68575"
+           y="50.417057" />
+      </g>
     </g>
   </g>
 </svg>

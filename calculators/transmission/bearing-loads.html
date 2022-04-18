@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="../../css/style.css">
+      <link rel="stylesheet" href="../../css/table.css">
+      <link rel="stylesheet" href="../../css/cuts.css">
+      <link rel="stylesheet" href="../../css/radio.css">
+  </head>
+  <body>
+    <script src="../../js/getValues.js"></script>
+    <script src='../../js/simple_math_tools.js'></script>
+    <script src='../../js/transmission/bearingsLoad.js'></script>
+    <script src='../../translation/translation.js'></script>
+    <!-- Help message & github-->
+    <iframe id="help" src="../../htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/transmission.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
+
+    <div id="main">
+        <div id=""></div>
+        <div class="item section">
+            <div class="section-title">{Loads on bearings}</div>
+                <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+                    <div class="section-content">
+                        <div class="radios">
+                            <div class="radio-button" onclick="document.getElementById('bearingLoad_mount1').click()">
+                                <label>{Force between the bearings}</label>
+                                <img src="../../img/bearings/bearings_forceIn.png" style="max-width: 300px; width:95%"/>
+                                <input type="radio" id="bearingLoad_mount1" name="bearingLoad_mount" value="in" checked="true">
+                                
+                            </div>
+                            <div class="radio-button" onclick="document.getElementById('bearingLoad_mount2').click()">
+                                <label>{Force ouside the bearings}</label>
+                                <img src="../../img/bearings/bearings_forceOut.png" style="max-width: 300px; width:95%"/>
+                                <input type="radio" id="bearingLoad_mount2" name="bearingLoad_mount" value="out">
+                            </div>
+                        </div><br>
+
+                        <label>{Load} F</label>
+                        <div class="input-unit">
+                            <input id="bearingLoad_load" type="number"  min="0" value="250"/><span>N</span>
+                        </div><br>
+                        <label>{Length} e</label>
+                        <div class="input-unit">
+                            <input id="bearingLoad_e" type="number"  min="0" value="70"/><span>mm</span>
+                        </div><br>
+                        <label>{Length} L</label>
+                        <div class="input-unit">
+                            <input id="bearingLoad_L" type="number"  min="0" value="30"/><span>mm</span>
+                        </div><br>
+
+                        <input type="button" onclick="computeBearingLoads()" value="{Compute}"/><br>
+
+                        <table>
+                            <tr>
+                                <th>{Force on bearing} A</th>
+                                <td id="bearingLoad_resA"></td>
+                                <td>N</td>
+                            </tr>
+                            <tr>
+                                <th>{Force on bearing} B</th>
+                                <td id="bearingLoad_resB"></td>
+                                <td>N</td>
+                            </tr>
+                        </table>
+            
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        translate("bearing")
+    </script>
+    
+  </body>
+</html>
