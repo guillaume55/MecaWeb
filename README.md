@@ -75,6 +75,17 @@ Compute the play in fits and even some additionnal informations for pivots
 Compute the resistance of a screw and the torque required to tight it
 `<iframe src="https://guillaume55.github.io/MecaWeb/calculators/fasteners/screwLoadTorque.html" frameborder="0" width="100%" height="1000"></iframe>`
 
+## Bearings
+
+### Lifespan
+Compute the lifespan of a bearing or a set of bearings with the associated fiability
+`<iframe src="https://guillaume55.github.io/MecaWeb/calculators/transmission/bearing.html" frameborder="0" width="100%" height="1000"></iframe>`
+
+### Mounting
+Helps to select the right bearing mounting
+`<iframe src="https://guillaume55.github.io/MecaWeb/calculators/transmission/bearing-mounting.html" frameborder="0" width="100%" height="1000"></iframe>`
+
+
 
 # Contributing
 You are welcome to contribute, add new languages and add and check calculators
