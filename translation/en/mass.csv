@@ -1,0 +1,52 @@
+Shape,Shape
+Box,Box
+Hollow box,Hollow box
+Cylinder,Cylinder
+Hollow cylinder,Hollow cylinder
+Beam diam,Beam diam
+Beam thickness,Beam thickness
+Beam length,Beam length
+Compute,Compute
+Mass,Mass
+Section area,Section area
+Total area,Total area
+Volume,Volume
+Metals,Metals
+Steel,Steel
+HSS Steel,HSS Steel
+Aluminum,Aluminum
+Bronze,Bronze
+Copper,Copper
+Brass,Brass
+Nickel,Nickel
+Lead,Lead
+Magnesium,Magnesium
+Titane,Titane
+Zinc,Zinc
+Mercury,Mercury
+Polypropylene,Polypropylene
+ABS,ABS
+Polystyrene,Polystyrene
+Nylon 6.6,Nylon 6.6
+PET,PET
+PVC,PVC
+Clay,Clay
+Concrete,Concrete
+Ferroconcrete,Ferroconcrete
+Marble,Marble
+Mahogany,Mahogany
+Boxwood,Boxwood
+Balsa,Balsa
+Bamboo,Bamboo
+Cedar,Cedar
+Oak,Oak
+Oak (Heart),Oak (Heart)
+Ebony,Ebony
+Ash,Ash
+Beech,Beech
+Cork,Cork
+Poplar,Poplar
+Pine,Pine
+Plane,Plane
+Fir,Fir
+Teak,Teak

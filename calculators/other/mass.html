@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{Buckling}</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="../../css/style.css">
+      <link rel="stylesheet" href="../../css/cuts.css">
+      <link rel="stylesheet" type="text/css" href="../../css/radio.css">
+      <link rel="stylesheet" type="text/css" href="../../css/table.css">
+  </head>
+  <body>
+    <script src="../../js/getValues.js"></script>
+    <script src="../../js/simple_math_tools.js"></script>
+    <script src="../../translation/translation.js"></script>
+    <script src='../../js/ui.js'></script>
+    <script src='../../js/other/mass.js'></script>
+    <script src="../../js/struct/buckling.js"></script> <!--showBeamParams function -->
+ 
+    <div>
+        <div class="item section">
+            <div class="section-title">{Shape}</div>
+            <div class="radios">
+                <div class="radio-button" onclick="document.getElementById('massShape1').click(); showBeamParams('rect', 'mass')">
+                    <label>{Box}</label>
+                    <img src="../../img/parallelepipede.png"/>
+                    <input type="radio" id="massShape1" name="massShape" value="pa" checked>
+                </div>
+                <div class="radio-button" onclick="document.getElementById('massShape2').click(); showBeamParams('rect_pipe', 'mass')">
+                    <label>{Hollow box}</label>
+                    <img src="../../img/cylinder.png"/>
+                    <input type="radio" id="massShape2" name="massShape" value="pa_hollow">
+                </div>
+                <div class="radio-button" onclick="document.getElementById('massShape3').click(); showBeamParams('circ', 'mass')">
+                    <label>{Cylinder}</label>
+                    <img src="../../img/round.png"/>
+                    <input type="radio" id="massShape3" name="massShape" value="cyl">
+                </div>
+                <div class="radio-button" onclick="document.getElementById('massShape4').click(); showBeamParams('circ_pipe', 'mass')">
+                    <label>{Hollow cylinder}</label>
+                    <img src="../../img/roundTube.png"/>
+                    <input type="radio" id="massShape4" name="massShape" value="cyl_hollow">
+                </div>
+            </div>
+            <div class="section-content">
+                <div id="mass_beamHeight_div">
+                    <label>{Beam height}</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="mass_beamHeight" value="40" min="0"/><span>mm or m</span>
+                    </div>
+                </div></br>
+                <div id="mass_beamWidth_div">
+                    <label>{Beam width}</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="mass_beamWidth" value="20" min="0"/><span>mm or m</span>
+                    </div>
+                </div></br>
+
+                <div id="mass_beamDiam_div">
+                    <label>{Beam diam}</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="mass_beamDiam" value="20" min="0"/><span>mm or m</span>
+                    </div>
+                </div>
+                <div id="mass_beamThick_div">
+                    <label>{Beam thickness}</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="mass_beamThick" value="2" min="0"/><span>mm or m</span>
+                    </div>
+                </div>
+                <label>{Beam length}</label></br>
+                <div class="input-unit">
+                    <input type="number" id="mass_beamLen" value="2" min="0"/><span>mm or m</span>
+                </div>
+            <br>
+
+            <select id="mass_density">
+                <optgroup label="{Metals}">
+                    <option value="7850">{Steel} 7850kg/m3</option>
+                    <option value="8500">{HSS Steel} kg/m3</option>
+                    <option value="2700">{Aluminum} 2700kg/m3</option>
+                    <option value="8800">{Bronze} 8800kg/m3</option>
+                    <option value="8920">{Copper} 8920kg/m3</option>
+                    <option value="8000">{Brass} 8000kg/m3</option>
+                    <option value="8900">{Nickel} 8900kg/m3</option>
+                    <option value="11350">{Lead} 11350kg/m3</option>
+                    <option value="1750">{Magnesium} 1750kg/m3</option>
+                    <option value="4500">{Titane} 4500kg/m3</option>
+                    <option value="7150">{Zinc} 7150kg/m3</option>
+                    <option value="13545">{Mercury} 13545kg/m3</option>
+                </optgroup>
+                <optgroup label="{Plastics}">
+                    <option value="900">{Polypropylene} 900kg/m3</option>
+                    <option value="1050">{ABS} 1050kg/m3</option>
+                    <option value="1050">{Polystyrene} 1050kg/m3</option>
+                    <option value="1140">{Nylon 6.6} 1140kg/m3</option>
+                    <option value="1400">{PET} 1400kg/m3</option>
+                    <option value="1400">{PVC} 1400kg/m3</option>
+                </optgroup>
+                <optgroup label="{Minerals}">
+                    <option value="1700">{Clay} 1700kg/m3</option>
+                    <option value="2300">{Concrete} 2300kg/m3</option>
+                    <option value="2400">{Ferroconcrete} 2400kg/m3</option>
+                    <option value="2700">{Marble} 2700kg/m3</option>
+                </optgroup>
+                <optgroup label="{Wood}">
+                    <option value="700">{Mahogany} 700kg/m3</option><!--Acajou-->
+                    <option value="1100">{Boxwood} 1100kg/m3</option><!--Buis-->
+                    <option value="140">{Balsa} 140kg/m3</option><!--Balsa-->
+                    <option value="350">{Bamboo} 350kg/m3</option><!--Balsa-->
+                    <option value="490">{Cedar} 490kg/m3</option><!--Cèdre-->
+                    <option value="800">{Oak} 800kg/m3</option><!--Chêne-->
+                    <option value="1170">{Oak (Heart)} 1170kg/m3</option>
+                    <option value="1150">{Ebony} 1150kg/m3</option> <!--Ebène-->
+                    <option value="840">{Ash} 840kg/m3</option><!--Frêne-->
+                    <option value="800">{Beech} 800kg/m3</option><!--Hêtre-->
+                    <option value="240">{Cork} 240kg/m3</option><!--Liège-->
+                    <option value="390">{Poplar} 390kg/m3</option><!--Peuplier-->
+                    <option value="740">{Pine} 740kg/m3</option><!--Pin-->
+                    <option value="650">{Plane} 650kg/m3</option><!--Platane-->
+                    <option value="450">{Fir} 450kg/m3</option><!--Sapin-->
+                    <option value="860">{Teak} 860kg/m3</option><!--Teck-->
+                </optgroup>
+            </select>
+        
+            <input type="button" onclick="computeMass()" value="{Compute}"/></div>
+            <table>
+                <tr><th>{Mass}</th><td id="mass_mass"></td><td>g or kg</td></tr>
+                <tr><th>{Section area}</th><td id="mass_sectionArea"></td><td>mm² or m²</td></tr>
+                <tr><th>{Total area}</th><td id="mass_totalArea"></td><td>mm² or m²</td></tr>
+                <tr><th>{Volume}</th><td id="mass_volume"></td><td>mm<sup>3</sup> or m<sup>3</sup></td></tr>
+            </table>
+        </div>
+    </div>
+        
+    <script>
+        showBeamParams("rect", "mass")
+        translate("mass")
+    </script>
+
+    
+  </body>
+</html>

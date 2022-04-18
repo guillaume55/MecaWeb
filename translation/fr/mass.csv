@@ -1,0 +1,52 @@
+Shape,Forme
+Box,Parallélépiède
+Hollow box,Parallélépiède creux
+Cylinder,Cylindre
+Hollow cylinder,Cylindre creux
+Beam diam,Diamètre
+Beam thickness,Epaisseur
+Beam length,Longueur
+Compute,Calculer
+Mass,Masse
+Section area,Aire de la section
+Total area,Aire totale
+Volume,Volume
+Metals,Métaux
+Steel,Acier
+HSS Steel,Acier ARS
+Aluminum,Aluminium
+Bronze,Bronze
+Copper,Cuivre
+Brass,Laiton
+Nickel,Nickel
+Lead,Plomb
+Magnesium,Magnésium
+Titane,Titane
+Zinc,Zinc
+Mercury,Mercure
+Polypropylene,Polypropylène
+ABS,ABS
+Polystyrene,Polystyrène
+Nylon 6.6,Nylon 6.6
+PET,PET
+PVC,PVC
+Clay,Argile
+Concrete,Béton
+Ferroconcrete,Béton armé
+Marble,Marbre
+Mahogany,Acajou
+Boxwood,Buis
+Balsa,Balsa
+Bamboo,Bambou
+Cedar,Cèdre
+Oak,Chêne
+Oak (Heart),Chène (Coeur)
+Ebony,Ebène
+Ash,Frêne
+Beech,Hêtre
+Cork,Liège
+Poplar,Peuplier
+Pine,Pin
+Plane,Platane
+Fir,Sapin
+Teak,Teck
