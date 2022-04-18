@@ -67,8 +67,15 @@ Table with all possible fits for shaft and bore
 `<iframe src="https://guillaume55.github.io/MecaWeb/calculators/fits/fitsTable.html" frameborder="0" width="100%" height="1000"></iframe>`
 
 Compute the play in fits and even some additionnal informations for pivots
-<iframe src="https://guillaume55.github.io/MecaWeb/calculators/fits/fitsCalc.html" frameborder="0" width="100%" height="1000"></iframe>
-            
+`<iframe src="https://guillaume55.github.io/MecaWeb/calculators/fits/fitsCalc.html" frameborder="0" width="100%" height="1000"></iframe>`
+
+## Screws
+
+### Bolted assemblies
+Compute the resistance of a screw and the torque required to tight it
+`<iframe src="https://guillaume55.github.io/MecaWeb/calculators/fasteners/screwLoadTorque.html" frameborder="0" width="100%" height="1000"></iframe>`
+
+
 # Contributing
 You are welcome to contribute, add new languages and add and check calculators
 
