@@ -77,6 +77,10 @@ Compute the resistance of a screw and the torque required to tight it
 
 ## Bearings
 
+### Fundamental Principle of Statics
+Compute the repartition of the forces on each bearing
+`<iframe src="https://guillaume55.github.io/MecaWeb/calculators/transmission/bearing-loads.html" frameborder="0" width="100%" height="1000"></iframe>`
+
 ### Lifespan
 Compute the lifespan of a bearing or a set of bearings with the associated fiability
 `<iframe src="https://guillaume55.github.io/MecaWeb/calculators/transmission/bearing.html" frameborder="0" width="100%" height="1000"></iframe>`
