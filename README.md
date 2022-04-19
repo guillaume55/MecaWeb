@@ -95,5 +95,5 @@ Helps to select the right bearing mounting
 You are welcome to contribute, add new languages and add and check calculators
 
 ## Important 
-Please do not modify what are in braces. This string is used to translate the 
+Please do not modify the texte that is in {braces}. Those strings are used for translation
 
