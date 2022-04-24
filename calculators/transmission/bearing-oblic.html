@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="../../css/style.css">
+      <link rel="stylesheet" href="../../css/table.css">
+  </head>
+  <body>
+    <script src='../../js/simple_math_tools.js'></script>
+    <script src='../../js/transmission/bearing.js'></script>
+    <script src='../../translation/translation.js'></script>
+    <!--mathjax, render equations-->
+    <!--<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>-->
+
+    <!-- Help message & github-->
+    <iframe id="help" src="../../htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/transmission.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
+
+    <div id="main">
+        <div id=""></div>
+        <div class="item section">
+            <div class="section-title">{Not ready to use, should be tested}</div>
+                <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+                    <div class="section-content">
+                        <img src="../../img/bearings/OX_loads.png" style="max-width:500px; width:500px;"/>
+                        {X and O mouting. We call A the bearing that support the load. Please respect that.}
+                        {You can use this tool only if you don't apply preload}
+                        <table>
+                            <tr>
+                                <th>{Bearing}</th>
+                                <th>{Static load}<br>C0 (daN)</th>
+                                <th>{Dynamic load}<br>C (daN)</th>
+                                <th>{Radial load}<br>Fr (daN)</th>                                
+                            </tr>
+                            <tr>
+                                <td><select name="bearing_1" id="bearing_1">
+                                    
+                                    <optgroup label="{Ball & Oblic in X}">
+                                        <option value="ballOblicX40">40°{Most common}</option>
+                                        <option value="ballOblicX20">20°</option>
+                                        <option value="ballOblicX25">25°</option>
+                                        <option value="ballOblicX30">30°</option>
+                                        <option value="ballOblicX35">35°</option>
+                                        <option value="ballOblicX45">45°</option>
+                                    </optgroup>
+                                    <optgroup label="{Ball & Oblic in O}">
+                                        <option value="ballOblicO40">40°{Most common}</option>
+                                        <option value="ballOblicO20">20°</option>
+                                        <option value="ballOblicO25">25°</option>
+                                        <option value="ballOblicO30">30°</option>
+                                        <option value="ballOblicO35">35°</option>
+                                        <option value="ballOblicO45">45°</option>
+                                    </optgroup><!--
+                                    <optgroup label="{Roller & Oblic in X}">
+                                        <option value="rollerOblicX40">40°{Most common}</option>
+                                        <option value="rollerOblicX20">20°</option>
+                                        <option value="rollerOblicX25">25°</option>
+                                        <option value="rollerOblicX30">30°</option>
+                                        <option value="rollerOblicX35">35°</option>
+                                        <option value="rollerOblicX45">45°</option>
+                                    </optgroup>
+                                    <optgroup label="{Roller & Oblic in O}">
+                                        <option value="rollerOblicO40">40°{Most common}</option>
+                                        <option value="rollerOblicO20">20°</option>
+                                        <option value="rollerOblicO25">25°</option>
+                                        <option value="rollerOblicO30">30°</option>
+                                        <option value="rollerOblicO35">35°</option>
+                                        <option value="rollerOblicO45">45°</option>
+                                    </optgroup>-->
+                                    
+                                </select></td>
+                                <td><input id="bearing_1C0" class="small-input" type="number" min="0" value="7650"/></td>
+                                <td><input id="bearing_1C" class="small-input" type="number" min="0" value="7850"/></td>
+                                <td><input id="bearing_1Fr" class="small-input" type="number" min="0" value="2000"/></td>
+                            </tr>
+                            <tr>
+                                <td><select name="bearing_2" id="bearing_2">
+                                    <optgroup label="{Ball & Oblic in X}">
+                                        <option value="ballOblicX40">40°{Most common}</option>
+                                        <option value="ballOblicX20">20°</option>
+                                        <option value="ballOblicX25">25°</option>
+                                        <option value="ballOblicX30">30°</option>
+                                        <option value="ballOblicX35">35°</option>
+                                        <option value="ballOblicX45">45°</option>
+                                    </optgroup>
+                                    <optgroup label="{Ball & Oblic in O}">
+                                        <option value="ballOblicO40">40°{Most common}</option>
+                                        <option value="ballOblicO20">20°</option>
+                                        <option value="ballOblicO25">25°</option>
+                                        <option value="ballOblicO30">30°</option>
+                                        <option value="ballOblicO35">35°</option>
+                                        <option value="ballOblicO45">45°</option>
+                                    </optgroup><!--
+                                    <optgroup label="{Roller & Oblic in X}">
+                                        <option value="rollerOblicX40">40°{Most common}</option>
+                                        <option value="rollerOblicX20">20°</option>
+                                        <option value="rollerOblicX25">25°</option>
+                                        <option value="rollerOblicX30">30°</option>
+                                        <option value="rollerOblicX35">35°</option>
+                                        <option value="rollerOblicX45">45°</option>
+                                    </optgroup>
+                                    <optgroup label="{Roller & Oblic in O}">
+                                        <option value="rollerOblicO40">40°{Most common}</option>
+                                        <option value="rollerOblicO20">20°</option>
+                                        <option value="rollerOblicO25">25°</option>
+                                        <option value="rollerOblicO30">30°</option>
+                                        <option value="rollerOblicO35">35°</option>
+                                        <option value="rollerOblicO45">45°</option>
+                                    </optgroup>-->
+                                </select></td>
+                                <td><input id="bearing_2C0" class="small-input" type="number" min="0" value="19600"/></td>
+                                <td><input id="bearing_2C" class="small-input" type="number" min="0" value="18600"/></td>
+                                <td><input id="bearing_2Fr" class="small-input" type="number" min="0" value="1500"/></td>
+                            </tr>
+                        </table><br>
+
+                        <label>{Speed}</label>
+                        <div class="input-unit">
+                            <input id="bearing_speed" type="number"  min="0" value="100"/><span>{rpm}</span>
+                        </div><br>
+                        
+                        <label>{Axial load}</label>
+                        <div class="input-unit">
+                            <input id="bearing_Fa" class="small-input" type="number" min="0" value="1000"/><span>daN</span>
+                        </div>
+                        <br>
+
+                        <label>{Use case}</label>
+                        <select id="bearing_useCase">
+                            <option value="0.4">{Smooth and without vibration}</option>
+                            <option value="0.5">{Normal}</option>
+                            <option value="1">{With shocks}</option>
+                        </select><br>
+
+                        <input type="button" value="{Compute}" onclick="computeBearingsOblic(0)" class="compute-button"/><br>
+                        <br>
+                        <label>{ISO method}</label><br>
+                        <table>
+                            <tr>
+                                <td></td>
+                                <th id="bearing_case1">{Case} 1</th>
+                                <th id="bearing_case2">{Case} 2</th>
+                            </tr>
+                            <tr>
+                                <th>{Condition to check}</th>
+                                <td>0.5*F<sub>rA</sub>/Y<sub>A</sub> <= F<sub>A</sub>(0.5*F<sub>rB</sub>/Y<sub>B</sub>)</td>
+                                <td>0.5*F<sub>rA</sub>/Y<sub>A</sub> > F<sub>A</sub>(0.5*F<sub>rB</sub>/Y<sub>B</sub>)</td>
+                            </tr>
+                            <tr></tr>
+                            <tr>
+                                <th>{Total axial loads}</th>
+                                <td>
+                                    F<sub>a<sub>A</sub>=F<sub>A</sub>+(0.5*F<sub>rB</sub>/Y<sub>B</sub>)
+                                    <br>
+                                    F<sub>a<sub>B</sub>=(0.5*F<sub>rB</sub>/Y<sub>B</sub>)
+                                </td>
+                                <td>
+                                    F<sub>a<sub>A</sub>=(0.5*F<sub>rA</sub>/Y<sub>A</sub>)
+                                    <br>
+                                    F<sub>a<sub>B</sub>=(0.5*F<sub>rA</sub>/Y<sub>A</sub>)-F<sub>A</sub>
+                                </td>
+                            </tr>
+                            <tr></tr>
+                            <tr>
+                                <th>{Equivalent loads P<sub>A</sub> and P<sub>B</sub>}</th>
+                                <td>
+                                    P<sub>B</sub>=F<sub>rB</sub>
+                                    <br>
+                                    {if} F<sub>aA</sub>/F<sub>rA</sub>>e<sub>A</sub> 
+                                    <br>{then} P<sub>A</sub>=0.4*F<sub>rA</sub>+Y<sub>A</sub>*F<sub>aA</sub>
+                                    <br>
+                                    {if} F<sub>aA</sub>/F<sub>rA</sub><=e<sub>A</sub> 
+                                    <br>{then} P<sub>A</sub>=0.4*F<sub>rA</sub>
+                                </td>
+                                <td>
+                                    P<sub>A</sub>=F<sub>rA</sub>
+                                    {if} F<sub>aB</sub>/F<sub>rB</sub>>e<sub>B</sub> {then} P<sub>B</sub>=0.4*F<sub>rB</sub>+Y<sub>B</sub>*F<sub>aB</sub>
+                                    {if} F<sub>aB</sub>/F<sub>rB</sub><=e<sub>B</sub> {then} P<sub>B</sub>=0.4*F<sub>rB</sub>
+                                </td>
+                            </tr>
+                        </table>
+                        {Values used to compute}
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>{Bearing} A</th>
+                                <th>{Bearing} B</th>
+                            </tr>
+                            <tr>
+                                <th>e</th>
+                                <td><input type="number" id="bearingOX_eA" class="small-input"/></td>
+                                <td><input type="number" id="bearingOX_eB" class="small-input"/></td>
+                            </tr>
+                            <tr>
+                                <th>X</th>
+                                <td><input type="number" id="bearingOX_XA" class="small-input"/></td>
+                                <td><input type="number" id="bearingOX_XB" class="small-input"/></td>
+                            </tr>
+                            <tr>
+                                <th>Y</th>
+                                <td><input type="number" id="bearingOX_YA" class="small-input"/></td>
+                                <td><input type="number" id="bearingOX_YB" class="small-input"/></td>
+                            </tr>
+                            <tr>
+                                <th>{Axial load}</th>
+                                <td id="bearingOX_FaA"></td>
+                                <td id="bearingOX_FaB"></td>
+                            </tr>
+                            <tr>
+                                <th>{Radial load}</th>
+                                <td id="bearingOX_FrA"></td>
+                                <td id="bearingOX_FrB"></td>
+                            </tr>
+                            <tr>
+                                <th>{Equivalent load}</th>
+                                <td id="bearingOX_PA"></td>
+                                <td id="bearingOX_PB"></td>
+                            </tr>
+                        </table>
+
+                        <input type="button" value="{Compute with those values}" onclick="computeBearingsOblic(1)" class="compute-button"/><br>
+
+                        <br>
+                        <label>{For the set}</label>
+                        <table>
+                            <tr><td></td><td>L10</td></tr>
+                            <tr><td>{life in million of turns}</td><td id="bearing_setLife"></td></tr>
+                            <tr><td>{life in hours}</td><td id="bearing_setLifeH"></td></tr>
+                        </table>
+                        <br>
+                        <label>{For each bearing]</label>
+                        <table>
+                            <tr><th></th><td title="90% {will fail after}">L10 &#10068</td><td title="95% {will fail after}">L5 &#10068</td><td title="96% {will fail after}">L4 &#10068</td><td title="97% {will fail after}">L3</td><td title="98% {will fail after}">L2 &#10068</td><td title="99% {will fail after}">L1 &#10068</td><td title="99.5% {will fail after}">L0.5 &#10068</td></tr>
+                            <tr><th>{Bearing} 1 {life in million of turns}</th>
+                                <td id="bearing_1L10"></td>
+                                <td id="bearing_1L5"></td>
+                                <td id="bearing_1L4"></td>
+                                <td id="bearing_1L3"></td>
+                                <td id="bearing_1L2"></td>
+                                <td id="bearing_1L1"></td>
+                                <td id="bearing_1L05"></td>
+                            </tr>
+                            <tr><th>{Bearing} 1 {life in hours}</th>
+                                <td id="bearing_1L10h"></td>
+                                <td id="bearing_1L5h"></td>
+                                <td id="bearing_1L4h"></td>
+                                <td id="bearing_1L3h"></td>
+                                <td id="bearing_1L2h"></td>
+                                <td id="bearing_1L1h"></td>
+                                <td id="bearing_1L05h"></td>
+                            </tr>
+                            <tr></tr>
+                            <tr><th>{Bearing} 2 {life in million of turns}</th>
+                                <td id="bearing_2L10"></td>
+                                <td id="bearing_2L5"></td>
+                                <td id="bearing_2L4"></td>
+                                <td id="bearing_2L3"></td>
+                                <td id="bearing_2L2"></td>
+                                <td id="bearing_2L1"></td>
+                                <td id="bearing_2L05"></td>
+                            </tr>
+                            <tr><th>{Bearing} 2 {life in hours}</th>
+                                <td id="bearing_2L10h"></td>
+                                <td id="bearing_2L5h"></td>
+                                <td id="bearing_2L4h"></td>
+                                <td id="bearing_2L3h"></td>
+                                <td id="bearing_2L2h"></td>
+                                <td id="bearing_2L1h"></td>
+                                <td id="bearing_2L05h"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        translate("bearing")
+
+    </script>
+    
+  </body>
+</html>
