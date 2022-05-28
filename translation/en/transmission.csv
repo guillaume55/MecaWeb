@@ -43,3 +43,4 @@ mm by step,mm by step
 Microsteps,Microsteps
 Steps settings,Motor settings
 Compute movement,Compute movement
+Be carreful ! The precision of a stepper depends on the driver and is not equal to the distance between two microsteps. Microstepping is used to smooth torque and movement.,Be carreful ! The precision of a stepper depends on the driver and is not equal to the distance between two microsteps. Microstepping is used to smooth torque and movement.

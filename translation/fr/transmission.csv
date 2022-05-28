@@ -43,3 +43,4 @@ mm by step,mm par pas
 Microsteps,Microsteps
 Steps settings,Configuration
 Compute movement,Dessiner le graph
+Be carreful ! The precision of a stepper depends on the driver and is not equal to the distance between two microsteps. Microstepping is used to smooth torque and movement.,Attention ! La précision du positionnement dépend du contrôleur de moteur et n'est pas égale à la distance entre deux micro-pas. Les micro-pas sont là pour lisser le couple et fluidifier le mouvement.
