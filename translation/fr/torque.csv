@@ -24,7 +24,7 @@ Needle bearing,Roulement à aiguilles
 Low friction bearing,Palier (coef de friction faible)
 Medium friction bearing,Palier (coef de friction moyen)
 Maybe not a good bearing,Palier (coef de friction élevé)
-Results,Resultats
+Results,Résultats
 Compute,Calculer
 Moment of inertia of the solid,Moment d'inertie du solide
 Total moment of inertia,Moment d'inertie total
@@ -36,3 +36,5 @@ starting,démarrage
 total,total
 100% efficiency,rendement 100%
 Mechanical power,Puissance mécanique
+Oblic contact bearing can induce radial load with axial forces,Les rouelment à contact oblique peuvent induire des forces.
+Average radius,Rayon moyen
