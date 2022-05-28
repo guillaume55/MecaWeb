@@ -16,11 +16,12 @@ function computeMass(){
         volume = width*height*len
 
     } else if (shape == "pa_hollow") {
-        sectionArea = width*height-( (width-2*thickness)*(height-2*thickness) );
+        console.log("pa_hoolow")
+        sectionArea = width*height-( (width-(2*thickness))*(height-(2*thickness)) );
         totalArea = 2*width*len+2*len*height; //external sides but not section
         totalArea += sectionArea*2; //section
-        totalArea += 2* ( (width-2*thickness)*len ) //2 internal sides
-        totalArea += 2* ( (height-2*thickness)*len ) //2 other internal sides
+        totalArea += 2* ( (width-(2*thickness))*len ) //2 internal sides
+        totalArea += 2* ( (height-(2*thickness))*len ) //2 other internal sides
         volume = sectionArea * len;
     } else if (shape == "cyl") {
         let r = diam/2;
@@ -37,9 +38,17 @@ function computeMass(){
         totalArea += 2*Math.PI*rInt*len;
         volume = sectionArea * len;
     }
-    mass = volume*density;
+    mass = volume*density/1000000000;
+    console.log(mass)
+    if(mass < 1){
+        document.getElementById('mass_unit').innerHTML = "g"
+        mass*=1000;
+    }
+    else{
+        document.getElementById('mass_unit').innerHTML = "kg"
+    }
 
-    document.getElementById('mass_mass').innerHTML = roundDec(mass,3)
+    document.getElementById('mass_mass').innerHTML = roundDec(mass,4)
     document.getElementById('mass_sectionArea').innerHTML = roundDec(sectionArea,3)
     document.getElementById('mass_totalArea').innerHTML = roundDec(totalArea,3)
     document.getElementById('mass_volume').innerHTML = roundDec(volume,3)

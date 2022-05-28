@@ -45,32 +45,32 @@
                 <div id="mass_beamHeight_div">
                     <label>{Beam height} H</label></br>
                     <div class="input-unit">
-                        <input type="number" id="mass_beamHeight" value="40" min="0"/><span>mm or m</span>
+                        <input type="number" id="mass_beamHeight" value="40" min="0"/><span>mm</span>
                     </div>
                 </div></br>
                 <div id="mass_beamWidth_div">
                     <label>{Beam width} l</label></br>
                     <div class="input-unit">
-                        <input type="number" id="mass_beamWidth" value="20" min="0"/><span>mm or m</span>
+                        <input type="number" id="mass_beamWidth" value="20" min="0"/><span>mm</span>
                     </div>
                 </div></br>
 
                 <div id="mass_beamDiam_div">
                     <label>{Beam diam} D</label></br>
                     <div class="input-unit">
-                        <input type="number" id="mass_beamDiam" value="20" min="0"/><span>mm or m</span>
+                        <input type="number" id="mass_beamDiam" value="20" min="0"/><span>mm</span>
                     </div>
                 </div>
                 <div id="mass_beamThick_div">
                     <label>{Beam thickness}</label></br>
                     <div class="input-unit">
-                        <input type="number" id="mass_beamThick" value="2" min="0"/><span>mm or m</span>
+                        <input type="number" id="mass_beamThick" value="2" min="0"/><span>mm</span>
                     </div>
                 </div>
                 <div id="mass_beamLen_div">
                     <label>{Beam length} B</label></br>
                     <div class="input-unit">
-                        <input type="number" id="mass_beamLen" value="2" min="0"/><span>mm or m</span>
+                        <input type="number" id="mass_beamLen" value="2" min="0"/><span>mm</span>
                     </div>
                 </div>
             <br>
@@ -126,10 +126,10 @@
         
             <input type="button" onclick="computeMass()" value="{Compute}"/></div>
             <table>
-                <tr><th>{Mass}</th><td id="mass_mass"></td><td>g {or} kg</td></tr>
-                <tr><th>{Section area} (H*l)</th><td id="mass_sectionArea"></td><td>mm² {or} m²</td></tr>
-                <tr><th>{Total area}</th><td id="mass_totalArea"></td><td>mm² {or} m²</td></tr>
-                <tr><th>{Volume}</th><td id="mass_volume"></td><td>mm<sup>3</sup> {or} m<sup>3</sup></td></tr>
+                <tr><th>{Mass}</th><td id="mass_mass"></td><td id="mass_unit"></td></tr>
+                <tr><th>{Section area} (H*l)</th><td id="mass_sectionArea"></td><td>mm²</td></tr>
+                <tr><th>{Total area}</th><td id="mass_totalArea"></td><td>mm²</td></tr>
+                <tr><th>{Volume}</th><td id="mass_volume"></td><td>mm<sup>3</sup></td></tr>
             </table>
         </div>
     </div>
