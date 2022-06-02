@@ -8,3 +8,7 @@ function getRadio(name){
             return e.value
     }
 }
+
+function refreshSliderVal(val, toRefresh){
+    document.getElementById(toRefresh).innerHTML = val;
+}

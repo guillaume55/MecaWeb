@@ -7,7 +7,7 @@ Load and torque for screws,Résistance et couple de serrage
 Screw type,Type de vis
 Screw size,Taille de la vis
 External coating,Revêtement de la vis
-Tension,Tension de la vis
+Tension of the screw,Tension de la vis
 Material elastic limit,Limite élastique
 Screw pitch,Pas de la vis
 Screw head size,Diamètre de la tête de vis
@@ -26,3 +26,5 @@ Hex Metric,Métrique Hex
 Compute,Calculer
 Calculations,Calculs
 Compute torque,Calculer le couple de serrage
+is a maximum,de la limite élastique au maximum
+Be carreful ! The incertity of the dynamometric wrench can be up to 50% for a C50 model!,Attention, l'incertitude d'une clé dynamométrique peut aller jusqu'à 50% pour une class C50 !

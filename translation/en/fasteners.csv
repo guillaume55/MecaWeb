@@ -7,7 +7,7 @@ Load and torque for screws,Load and torque for screws
 Screw type,Screw type
 Screw size,Screw size
 External coating,External coating
-Tension,Tension
+Tension of the screw,Tension of the screw
 Material elastic limit,Material elastic limit
 Screw pitch,Screw pitch
 Screw head size,Screw head size
@@ -26,3 +26,5 @@ Compute,Compute
 Calculations,Calculations
 Hex Metric,Hex Metric
 Compute torque,Compute torque
+is a maximum,is a maximum
+Be carreful ! The incertity of the dynamometric wrench can be up to 50% for a C50 model!,Be carreful ! The incertity of the dynamometric wrench can be up to 50% for a C50 model!
