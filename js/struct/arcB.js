@@ -4,7 +4,7 @@ function computeArcB(){
     let bl = parseFloat(document.getElementById('arcB_bl').value);
 
     let d_computed = longueur / (2*f_coef)
-    document.getElementById('resArcB').innerHTML = d_computed < bl ? "Blocked" : "Sliding"
+    document.getElementById('resArcB').innerHTML = d_computed < bl ? T["Blocked"] : T["Sliding"]
 
 }
 
