@@ -3,7 +3,7 @@ function count_I (eq) {
 }
 
 //write all the equation for all the cycles (6 eq by cycle, Rx,y,z,Tx,y,z)
-function writeRawEquations(){
+function writeRawEquations(cycles){
     let fc = get_cf();
     let equations = [] //add mobilities
     for(let i=0; i< cycles.length; i++) {
