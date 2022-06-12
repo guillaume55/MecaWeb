@@ -69,20 +69,20 @@ function rLink(fields) {
     html += "<select id=\"link_sa2\" onchange=\"\">"+sel_sa+"</select>"
 
 
-    for(let i=0; i<prop.length;i++) {
-        if(fields[i] == "axis") {
+    for(let i=0; i<fields.length;i++) {
+        if(fields[i].search("axis") != -1) {
             html+= "</br></br><label>Axe</label></br>"
             html+=" X <input class=\"small-input\" id=\"link_axis_x\" type=\"number\" value=\"1\">"
             html+=" Y <input class=\"small-input\" id=\"link_axis_y\" type=\"number\" value=\"0\">"
             html+=" Z <input class=\"small-input\" id=\"link_axis_z\" type=\"number\" value=\"0\">"
         }
-        else if(fields[i] == "point") {
-            html+= "</br></br><label>Point</label></br>"
-            html+=" X <input class=\"small-input\" id=\"link_point_x\" type=\"number\" value=\"0\">"
-            html+=" Y <input class=\"small-input\" id=\"link_point_y\" type=\"number\" value=\"0\">"
+        else if(fields[i].search("point") != -1) {
+            html+= "</br></br><label>Point (needed for hyperstatism)</label></br>"
+            html+=" X <input class=\"small-input\" id=\"link_point_x\" type=\"number\" value=\"0\"><br>"
+            html+=" Y <input class=\"small-input\" id=\"link_point_y\" type=\"number\" value=\"0\"><br>"
             html+=" Z <input class=\"small-input\" id=\"link_point_z\" type=\"number\" value=\"0\">"
         }
-        else if(fields[i] == "norm") {
+        else if(fields[i].search("norm") != -1) {
             html+= "</br></br><label>Normale</label></br>"
             html+=" X <input class=\"small-input\" id=\"link_norm_x\" type=\"number\" value=\"0\">"
             html+=" Y <input class=\"small-input\" id=\"link_norm_y\" type=\"number\" value=\"0\">"
@@ -115,11 +115,19 @@ function comp_aLink(){
     var target = document.getElementById('link_sa2').value
     let type = document.getElementById('select_link_type').value
 
+    //point
+    let x = document.getElementById('link_point_x').value
+    let y = document.getElementById('link_point_y').value
+    let z = document.getElementById('link_point_z').value
+    var point = [ !isNaN(x)?x:0, !isNaN(y)?y:0, !isNaN(z)?z:0, ]
+
 
     var err = document.getElementById('link_err')
     err.innerHTML= ''
-    if(link_edit == "") {
-        console.log('create_link')
+    //if(link_edit == "") {
+    if(link_edit != ""){ //destroy the element first
+        remove_elt(link_edit)
+    }
         //if name already exists
         var edges = comp_linkList()  // get all names
         if(edges.indexOf(name.trim()) != -1) { no_err = 0; err.innerHTML= 'Le nom existe déjà' }
@@ -135,12 +143,13 @@ function comp_aLink(){
                     target: target,
                     label: name,
                     color: 'blue', //does nothing
-                    type: type
+                    type: type,
+                    point: point
             },
                 //position: { x: 200, y: 200 }
             });
         }
-    } else if (no_err) { //edit link //TODO other fields
+    /*} else if (no_err) { //edit link //TODO other fields
         console.log('edit_link', elt.data('target'))
         elt = cy.getElementById(link_edit)
         elt.data('id', name)
@@ -150,7 +159,7 @@ function comp_aLink(){
         document.getElementById('link_toedit').value = "" //reset edition mode
         console.log('edit_link', elt.data('target'),target)
         console.log(elt.data())
-    }
+    }*/
 
 }
 
@@ -182,6 +191,7 @@ function comp_sNode(container) {
 
 }
 
+//add node
 function comp_aNode(){
 
     var no_err = 1
@@ -195,7 +205,6 @@ function comp_aNode(){
     if(name == "") { no_err = 0; err.innerHTML= 'Veuillez entrez un nom' }
 
     if(node_edit == "") { //create node
-        console.log('create_node')
         //check if node exists
         var nodes = comp_nodeList()
         if(nodes.indexOf(name) != -1) { no_err = 0; err.innerHTML= 'Le nom existe déjà' }
@@ -228,7 +237,6 @@ function comp_aNode(){
     } else if (no_err) { //edit node but still no error
         console.log('edit node')
         elt = cy.getElementById(node_edit)
-        elt.data('id', name)
         elt.data('color', color)
         elt.data('label',name)
         document.getElementById('node_toedit').value = "" //leave edition mode
@@ -258,20 +266,6 @@ function comp_rNodeList(changed_select, other_select) {
 
     }
 
-    /*
-    for(let i=0; i < nodes.length; i++) {
-        var option = document.createElement("option");
-        console.log(nodes[i], select_selected, nodes[i].toString() == select_selected.value.toString())
-        if(nodes[i] == select_selected.value) {
-            option.text = nodes[i]
-            select_not_selected.add(option);
-        }
-    }
-
-    if(select_selected.value != select_not_selected.value) //reselect the previous option if not the already selected
-    {
-        //select_selected.value = select_not_selected.value
-    }*/
 }
 
 function comp_nodeList() {
@@ -292,7 +286,6 @@ function edit_tab(container, elt_id) {
 
     if(elt_id !== undefined) {
         elt = cy.getElementById(elt_id)
-        console.log(elt)
         if(elt.isNode()){ html += "Sous-ensemble "; }
         else { html += "Liaison " }
         html += elt_id.toString() +"</br>"
@@ -317,7 +310,7 @@ function fill_edit_elt(elt_id)
         document.getElementById("node_toedit").value = name;
 
     }
-    else {
+    else { //is edge
         openTab(event, 'alink')
 
         document.getElementById("link_toedit").value = name;  //edit mode
@@ -328,8 +321,13 @@ function fill_edit_elt(elt_id)
         //sub assemblies
         document.getElementById("link_sa1").value = elt.data("target").toString().trim()
         document.getElementById("link_sa2").value = elt.data("source").toString().trim()
+        //point
+        let point = elt.data("point")
+        document.getElementById("link_point_x").value = point[0]
+        document.getElementById("link_point_y").value = point[1]
+        document.getElementById("link_point_z").value = point[2]
+
         document.getElementById("select_link_type").value = elt.data("type").split(" ")[0]
-        console.log("type", elt.data("type"))
 
         //add type
 
@@ -341,7 +339,6 @@ function fill_edit_elt(elt_id)
             document.getElementById("link_axis_z").value = elt.data[fields["axis"][2]]
 
         }*/
-        remove_elt(elt_id)
     }
     
 

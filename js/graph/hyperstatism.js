@@ -1,24 +1,28 @@
 /*
-BE CARREFUL, WHEN THERE ARE MANY PATH BETWEEN X PARTS, WE DO NOT CHECK EACH PATH CURRENTLY. SO WE MISS SOME HYPERTATISM
+Those functions are used to compute hyperstaticity in a graph from the cycles and graph
+We used a french mathematical tool named kinetic torsor (torseur cinématique) define as 2 sets of 3 mobilities. The first set is the 3 rotations, that does not depends on the point of application. We call it resultante
+The seconde set is the moment, and is compose of the 3 translations in space. It does depends on the point of application and should be displaced. All calculations for the moment should be done at the same point. We choose the point of the first link
+The torsor is defined as
+{
+    wx, wy, wz
+    Vx, Vy, Vy
+}
+w corresponds to rotations (speeds, because it's a kinetic torsor)
+V are translation speeds and depends of the position of the point
+
+Then we compute the hyperstaticity with those torsor and the kinematic method. This method differs when we study a group of two nodes (local hyperstaticity) and a cycle (global hyperstaticity)
+Then, we add all hyperstaticity to find the total
+
 */
 
-//ARCHITECTURE
-/*
-first, we find cycles
-then we group (by writing blocked mobilities in an array) all the links between two nodes
-Now we can process cycles with more nodes with equations
-
-*/
-
-//find hyperstatisms for the provided graph 
-//hyperstatism between two parts with multiple links is a bit different because the nodes of the graph are the same, but the path can be different
-
+//find hyperstatisms for the provided cycles 
 function processHyperstatism(cycles){
     let equations = [] //add mobilities
 
     //the first links will define the point where we will do all the calculation
     pointOfApplication = get_edges_from_nodes(cycles[0][0], cycles[0][1])[0].point
     let totalHyperstatism = [0,0,0,0,0,0]
+    let hyperstatismData = []
     for(let i=0; i< cycles.length; i++) {
 
         //find all edges between two nodes
@@ -28,7 +32,6 @@ function processHyperstatism(cycles){
         if(cycles[i].length > 2) {
             //close cycle so we will have also links between last and first node
             cycles[i].push(cycles[i][0])
-            console.log("cycle of more than two nodes", cycles)
             c = [...cycles[i]]
             for(let j=1; j<c.length; j++) {
                 ed = get_edges_from_nodes(c[j-1], c[j])
@@ -45,14 +48,18 @@ function processHyperstatism(cycles){
                 ed = get_edges_from_nodes(c[j-1], c[j])
                 edges_between.push(ed)               
             }
-            console.log("edges ",edges_between)
             hyperstatism = findLocalHyperstatism(edges_between[0], pointOfApplication);
+            
         }
+        if(countInArray(hyperstatism, 1) > 0){ //at least one degree of hyperstaticity
+            hyperstatismData.push({edge: edges_between, cycle: cycles[i], h:hyperstatism})
+        }
+        
         for(let k=0; k<6; k++){
             totalHyperstatism[k] += hyperstatism[k];
         }
     }
-    console.log("totalHyperstatism", totalHyperstatism)
+    return {degree: sumArray(totalHyperstatism), data:hyperstatismData}
 }
 
 //this one is between two nodes only (we call it "local")
@@ -124,69 +131,46 @@ function countInArray(array, target){
     return counter;
 }
 
+function sumArray(array){
+    let sum = 0
+    for(let i=0; i< array.length; i++){
+        sum += array[i]
+    }
+    return sum
+}
 
-//
-/*
-function findLocalHyperstatisms(graph){
-
-
-}*/
-
-/*
-function findHyperstatismInEquations(equations){
-    //if no I_ in an equation, we are sure that there is an hyperstaticity
-    let h = 0; //hyperstaticity degree
-    let m = 0; //number of mobilities
-    for(eq of equations){
-        //console.log(eq)
-        if(isEquationHyperstatic(eq)){
-            console.log(eq, " is hyperstatic")
-            h += 1;
+function hyperstaticity_writeResume(data){
+    console.log(data)
+    str = "The total degree of hyperstaticity is "+ data.degree.toString() + "<br><br>"
+    for(degree of data.data){
+        console.log(degree)
+        str += "<br> - There is one degree of hypersticity in the cycle " + degree.cycle
+        if(sumArray(degree.h)>1){
+            str += "<br>Some mobilities are blocked several times<br>"
+            str += arrayHyperstaticityToHuman(degree.h)
+        }     
+        else{
+            str += "<br>"+ arrayHyperstaticityToHuman(degree.h) +"is blocked several times"
         }
-        if(isEquationMobility(eq)){
-            console.log(eq, " is a mobility")
-            m += 1;
+
+    }
+    str += "<br><br>Please remember that hyperstaticity is not a bad thing if you know where it is and how to manage it. It will be more rigid but can make the assembly of the system hard. If you don't want the system to be hyperstatic, check the joint composition tool to transform some links. You can also change links."
+    document.getElementById("hyperstatismDiv").innerHTML = str
+}
+
+//make a string from the array
+function arrayHyperstaticityToHuman(h){
+    let str = "";
+    let type = "Rotation";
+    let axis = ["x","y","z"];
+    for(let i=0; i<6; i++){
+        if(h[i]>=1) {
+            str += "- " + type + " on the axis " + axis[i%3] + "<br>"
+        }
+        if(i==2){
+            type = "Translation" //first 3 are rotations, lats 3 are translations
         }
     }
-    document.getElementById("hyperstatismDiv").innerHTML = `There is ${h} degree${h<1?"s":""} of hyperstaticity in your model<br> and ${m} degree${m<1?"s":""} of mobility (which can be residual or piloted mobilit${m<1?"ies":"y"})`
-
-
-    return {hyperstaticity:h, mobilities:m}
+    return str
+    
 }
-*/
-/*
-//If an equation has no component with an "I" (and two distincts termes) it means that there is an hyperstaticity
-//return 1 if hyperstatic, 0 if not
-function isEquationHyperstatic(equation){
-    if(countI_(eq) == 0 && countMechTerms(eq)>= 2){ //I not found in at least two terms : hyperstatic
-        return 1;
-    } 
-    return 0; //may not be hyperstatic
-}
-
-//if there is only "I_", this is a mobility
-function isEquationMobility(eq){
-    if(countI_(eq) == countMechTerms(eq) && countI_(eq) >1){ //each term is I_
-        return 1;
-    } 
-    return 0; //is not a mobility
-}
-
-//counct the number of terms with an I in an equation
-function countI_(eq){
-    let matchs = eq.match(/I_/g)
-    if(matchs == null || matchs.length == 0)
-        return 0;
-    return matchs.length;
- }
-
-//counct the number of termes (alpha beta gamma, u, v, w only) in an equation
-function countMechTerms(eq){
-    let regex = /alpha_|beta_|gamma_|u_|v_|w_/ig;
-    let matchs = eq.match(regex);
-    if(matchs == null || matchs.length == 0)
-        return 0;
-    return matchs.length;
-}
-
-*/

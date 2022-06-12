@@ -19,7 +19,6 @@ function show_color_realtime(id) {
     console.log(color.length, color)
     if(color.search('#') == 0) //html color
     {
-        console.log("updatecolor", color)
         element.style.color = color;
     }
 }
