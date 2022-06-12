@@ -7,6 +7,8 @@
  *
  *
  * ****************************/
+//be careful, send Tx ty tz rx ry rz in this order, which is not ideal to do tolerancing
+//1 correspond to a possible mobility, 0 is blocked
 function mech_links(){
     links = {}
     //links['Choix'] = [0,0,0,0,0,0];

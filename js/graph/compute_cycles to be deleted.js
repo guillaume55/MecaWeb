@@ -1,6 +1,4 @@
-function count_I (eq) {
-    return eq.match(/I_/g).length
-}
+//There are 2 files with almost the same name and the same function, have to sort that ...
 
 //write all the equation for all the cycles (6 eq by cycle, Rx,y,z,Tx,y,z)
 function writeRawEquations(cycles){

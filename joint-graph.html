@@ -11,14 +11,20 @@
     <script src='js/lib/math.js'></script>
     <script src='js/lib/nerdamer-all.min.js'></script>
     <!--<script src='js/gausselimination.js'></script>-->
-    <!-- from this project-->
-    <script src='examples/helico.js'></script>
+    
+
+    <!--Use a predefined example-->
+    <!--<script src='examples/hyperstaticModel2.js'></script>-->
+    <script src='examples/hyperstaticModel2.js'></script>
+
+    <!-- code from this project-->
     <script src='js/graph/find_cycles.js'></script>
     <script src='js/graph/computecycles.js'></script>
     <script src='js/graph/export.js'></script>
     <script src='js/graph/component.js'></script>
     <script src='js/graph/mech.js'></script>
     <script src='js/graph/mechmath.js'></script>
+    <script src='js/graph/hyperstatism.js'></script>
     <script src='js/graph/ui.js'></script>
     <script src='js/sidebar.js'></script>
     <script src='translation/translation.js'></script>
@@ -53,17 +59,23 @@
             <button class="tablinks" onclick="openTab(event, 'alink')">{Links}</button>
             <button class="tablinks" onclick="openTab(event, 'edit')">{Edit}</button>
             <button class="tablinks" onclick="openTab(event, 'export')">{Export}</button>
+            <button class="tablinks" onclick="openTab(event, 'hyperstatism')">{Hyperstatism}</button>
         </div>
 
         <div id="alink" class="tabcontent"></div>
         <div id="anode" class="tabcontent"></div>
         <div id="edit" class="tabcontent"></div>
         <div id="export" class="tabcontent"></div>
+        <div id="hyperstatism" class="tabcontent">
+            <button onclick="findCyclesAndCheckHyperstaticity()">{Check hyperstatism}</button><br>
+            <div id="hyperstatismDiv"></div>
+        </div>
     </div>
     
     <script>
+        
         var graph = []
-        let cycles = []
+        //let cycles = []
 
         //helico 
         let I_to_replace = { 'I_alpha_J2_LA':"0", 'I_alpha_J1_LA':"0", "I_alpha_J3_LA":"0","I_alpha_J4_ROT":"0"} //I stands for unknown. if we find their value, they will be logged here
@@ -75,13 +87,13 @@
 
         //we have to wait until the page is fully translated before using cytoscape
         //isues with translation
-        async function init_graph() {
-            //await translate("joint-graph");
+        /*async function init_graph() {
+            await translate("joint-graph");
             return new Promise((resolve) => {
                 console.log("2nd");
                 resolve();
             });
-        }
+        }*/
 
         var cy;
         function create_cytoscape(){
@@ -94,24 +106,35 @@
             cy.on('tap', 'node', function(evt){
                 var node = evt.target;
                 openTab(event, 'edit')
-                console.log( 'tapped ' + node.id() );
+                console.log( 'clicked ' + node.id() );
                 edit_tab(document.getElementById('edit'), node.id())
             });
             cy.on('tap', 'edge', function(evt){
                 var edge = evt.target;
                 openTab(event, 'edit')
-                console.log( 'tapped ' + edge.id() );
+                console.log( 'clicked ' + edge.id() );
                 edit_tab(document.getElementById('edit'), edge.id())
             });
 
             
         }
 
-        init_graph();
-        init_graph().then(create_cytoscape());
+        //init_graph();
+        //init_graph().then(create_cytoscape());
         
+        create_cytoscape()
 
-        //findCycles()
+        function findCyclesAndCheckHyperstaticity(){
+            console.log("Checking hyperstaticity")
+            let cycles = findCycles() 
+            
+            //let equations = writeRawEquations(cycles)
+
+            //console.log("cycles", cycles, "equation", equations)
+            //findHyperstatisms(equations)
+            processHyperstatism(cycles)
+        }
+        findCyclesAndCheckHyperstaticity()
         //reduce_equations()
         /*cy.pan({
         x: 100,

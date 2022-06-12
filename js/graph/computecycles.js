@@ -12,7 +12,7 @@ function provisoireReplaceNonI(eq){
     return newEq
 }
 //try to find the best solution by finding all the equations
-//not optimal, see v3
+//not optimal, see write_eq
 /*
 function write_eq_V2(edges) {
     //helico --> cycles = [['P3','P2'],['P3','P5'],['P3','P4'],['P1','P2','P3','P4'],['P1','P5','P3','P4']]
@@ -63,24 +63,39 @@ function write_eq_V2(edges) {
     });
 
 }*/
-function writeRawEquations(){
+function writeRawEquations(cycles){
     let fc = get_cf();
     let equations = [] //add mobilities
     for(let i=0; i< cycles.length; i++) {
+        
         //console.log(cycles[i])
         //find all edges between two nodes
         let edges_between=[]
         //cycle of more than 3 nodes (different behavior)
-        if(cycles[i].length < 3) {
+        if(cycles[i].length > 3) {
+            console.log("cycle of more than two nodes")
             edges_between = get_edges_from_nodes(cycles[i][0], cycles[i][1])
             //add to I_to_replace the numerical values of some I
         }
         else { //cycle of two nodes
+            console.log("cycle of two nodes")
             c = [...cycles[i]]
             c.push(c[0]) //close the cycle
             for(let j=1; j<c.length; j++) {
                 ed = get_edges_from_nodes(c[j-1], c[j])
-                edges_between.push(ed[0]) //we need only one link between two nodes
+
+                //maybe this is a terrible error
+                //edges_between.push(ed[0]) //we need only one link between two nodes
+                //else check if it's locally hyperstatic. If not, combine the x links in one
+                
+
+                //mergeEdgesBetweenTwoNodes() //see hyperstatism.js (not the same because in hyperstatism.js, we use blocked mobilities)
+                //this might work for tolerancing but not for hyperstaticity
+                //a lot of works to be done here
+                edges_between.push(ed)
+                console.log("You have to work on that before using this function")
+               
+
             }
         }
         //console.log("edges_bet",edges_between)
@@ -88,6 +103,8 @@ function writeRawEquations(){
     }
     return equations
 }
+
+
 
 
 function reduce_equations() {

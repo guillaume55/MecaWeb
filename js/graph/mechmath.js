@@ -33,8 +33,17 @@ function mechmath_babar(source_point, target_point, resultante, moment)
     return moment
 }
 
-//quick formula to find if the model is hyperstatic or not
-function mechmath_hDegree_quick (nb_of_edge, nb_of_nodes) {
+//same fonction but return array with true or false only. Used to know is there is a mobility or not 
+function mechmath_babarTrueFalse(source_point, target_point, resultante, moment)
+{
+    var ba = []
+    ba.push(((source_point[0]-target_point[0])!=0)?1:0)
+    ba.push(((source_point[1]-target_point[1])!=0)?1:0)
+    ba.push(((source_point[2]-target_point[2])!=0)?1:0)
+    
+    moment[0] = moment[0] || ba[1]*resultante[2] || ba[2]*resultante[1];
+    moment[1] = moment[1] || ba[2]*resultante[0] || ba[0]*resultante[2];
+    moment[2] = moment[2] || ba[0]*resultante[1] || ba[1]*resultante[0];
 
-
+    return moment
 }

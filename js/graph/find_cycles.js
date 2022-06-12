@@ -9,8 +9,9 @@ function findCycles() {
         }
     }
   for (cycle of cycles) {
-    console.log(cycle.join(','))
+    //console.log(cycle.join(','))
   }
+  return cycles
 }
 
 function get_edges_from_nodes(node1, node2){
