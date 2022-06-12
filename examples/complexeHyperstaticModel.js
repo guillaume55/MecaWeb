@@ -45,6 +45,19 @@ function cy_create(c) {
         specTarget: 0.2,
         play: 0.2
       }
+    },
+    {
+      data: {
+        id: 'AS_PG2',
+        source: 'Arbre',
+        target: 'Support',
+        label: 'AS_PG2',
+        type: 'PG x',
+        point:[0,0,0],
+        specSource: 0.2,
+        specTarget: 0.2,
+        play: 0.2
+      }
     }
 
 

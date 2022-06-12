@@ -18,16 +18,25 @@ function processHyperstatism(cycles){
 
     //the first links will define the point where we will do all the calculation
     pointOfApplication = get_edges_from_nodes(cycles[0][0], cycles[0][1])[0].point
-
+    let totalHyperstatism = [0,0,0,0,0,0]
     for(let i=0; i< cycles.length; i++) {
 
         //find all edges between two nodes
         let edges_between=[]
+        
         //cycle of more than 3 nodes (different behavior)
-        if(cycles[i].length > 3) {
-            console.log("cycle of more than two nodes")
-            edges_between = get_edges_from_nodes(cycles[i][0], cycles[i][1])
-            equations = equations.concat(write_eq_for_cycle(edges_between, fc))
+        if(cycles[i].length > 2) {
+            //close cycle so we will have also links between last and first node
+            cycles[i].push(cycles[i][0])
+            console.log("cycle of more than two nodes", cycles)
+            c = [...cycles[i]]
+            for(let j=1; j<c.length; j++) {
+                ed = get_edges_from_nodes(c[j-1], c[j])
+                edges_between.push(ed[0])               
+            }
+            console.log("edges_between",edges_between)
+            //equations = equations.concat(write_eq_for_cycle(edges_between, fc))
+            hyperstatism = findGlobalHyperstatism(edges_between, pointOfApplication);
         }
         else { //cycle of two nodes
             console.log("cycle of two nodes")
@@ -37,10 +46,13 @@ function processHyperstatism(cycles){
                 edges_between.push(ed)               
             }
             console.log("edges ",edges_between)
-            findLocalHyperstatism(edges_between[0], pointOfApplication);
+            hyperstatism = findLocalHyperstatism(edges_between[0], pointOfApplication);
         }
-        
+        for(let k=0; k<6; k++){
+            totalHyperstatism[k] += hyperstatism[k];
+        }
     }
+    console.log("totalHyperstatism", totalHyperstatism)
 }
 
 //this one is between two nodes only (we call it "local")
@@ -50,21 +62,8 @@ function processHyperstatism(cycles){
 //if we got only ones, it's a mobility
 //be carreful, each links have to be used at the same point, that's why we use babar function here
 function findLocalHyperstatism(edges, pointForBabar){
-    let kinematicTorsor = [[],[],[],[],[],[]] ; //do I have to use shorter names ? 0 is blocked, 1 is a mobility (aka speed)
+    let kinematicTorsor = makeEquationsFromEdges(edges, pointForBabar) // 0 is blocked, 1 is a mobility (aka speed)
 
-    for(edge of edges){
-        mobs_r = get_mobilities_from_edge(edge.type) //be careful, send Tx Ty Tz Rx Ry Rz
-        mobs = [mobs_r[3], mobs_r[4], mobs_r[5], mobs_r[0], mobs_r[1], mobs_r[2]]; //in this torsor, we use Rx Ry Rz Tx Ty Tz
- 
-        let moment = mechmath_babarTrueFalse(edge.point, pointForBabar, [mobs[0], mobs[1], mobs[2]], [mobs[3], mobs[4], mobs[5]])
-        mobs[3]=moment[0];
-        mobs[4]=moment[1];
-        mobs[5]=moment[2];
-        
-        for(let i=0; i<6; i++){ //6 mobilities
-            kinematicTorsor[i].push(mobs[i]);
-        }
-    }
     let hyperstaticity = [0,0,0,0,0,0]
     let mobility = [0,0,0,0,0,0]
     for(let i=0; i<6; i++){ //6 mobilities
@@ -84,12 +83,13 @@ function findGlobalHyperstatism(edges, pointForBabar){
     
     let hyperstaticity = [0,0,0,0,0,0]
     let mobility = [0,0,0,0,0,0]
+    console.log("kinematicTorsor",kinematicTorsor)
     for(let i=0; i<6; i++){ //6 mobilities
         let countZero = countInArray(kinematicTorsor[i],0) //can produce hyperstaticity
-        hyperstaticity[i] = (countZero)>0?countZero-1:0;
+        hyperstaticity[i] = (countZero)>1?countZero-2:0;
 
-        //let countOne = countInArray(kinematicTorsor[i],1) //can produce mobility
-        //mobility[i] = (countOne==kinematicTorsor[i].length?1:0)
+        let countOne = countInArray(kinematicTorsor[i],1) //can produce mobility
+        mobility[i] = (countOne==kinematicTorsor[i].length?1:0)
     }
     console.log(hyperstaticity, mobility)
     return hyperstaticity;
