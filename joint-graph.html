@@ -9,9 +9,7 @@
     <!--from the web-->
     <script src='js/lib/cytoscape.min.js'></script>
     <script src='js/lib/math.js'></script>
-    <script src='js/lib/nerdamer-all.min.js'></script>
-    <!--<script src='js/gausselimination.js'></script>-->
-    
+    <script src='js/lib/nerdamer-all.min.js'></script>    
 
     <!--Use a predefined example-->
     <!--<script src='examples/hyperstaticModel2.js'></script>-->
@@ -75,25 +73,6 @@
     <script>
         
         var graph = []
-        //let cycles = []
-
-        //helico 
-        let I_to_replace = { 'I_alpha_J2_LA':"0", 'I_alpha_J1_LA':"0", "I_alpha_J3_LA":"0","I_alpha_J4_ROT":"0"} //I stands for unknown. if we find their value, they will be logged here
-        //boitier
-        //I_to_replace = { 'I_gamma_ARBRE_CARTER_LA1':"0", 'I_gamma_ARBRE_CARTER_LA2':"0", 'I_gamma_SAT_ARBRE_LA':'0','I_gamma_SAT_ARBRE_ROT':'0' } //c'est vrai ce mensonsonge ?
-        //boitier
-        //let I_to_replace = { 'I_gamma_ARBRE_CARTER_LA1':"0" }
-        //translate("joint-graph")
-
-        //we have to wait until the page is fully translated before using cytoscape
-        //isues with translation
-        /*async function init_graph() {
-            await translate("joint-graph");
-            return new Promise((resolve) => {
-                console.log("2nd");
-                resolve();
-            });
-        }*/
 
         var cy;
         function create_cytoscape(){
@@ -118,9 +97,6 @@
 
             
         }
-
-        //init_graph();
-        //init_graph().then(create_cytoscape());
         
         create_cytoscape()
 
@@ -134,17 +110,14 @@
             //findHyperstatisms(equations)
             processHyperstatism(cycles)
         }
+        
         findCyclesAndCheckHyperstaticity()
-        //reduce_equations()
         /*cy.pan({
         x: 100,
         y: 100
         });*/
 
-        //console.log([5,0,10],[10,0,0], ["a","b","c"], ["u","v","w"]))
-        //console.log(mechmath_babar([20,30,10],[10,20,0], ["a","b","c"], ["u","v","w"]))
-        //findCycles()
-        //write_eq_V2(/*edge*/)
+
     </script>
 </body>
 </html>
