@@ -49,15 +49,42 @@ function mech_links(){
 function mech_linkProp(){
     links = {}
     //links['Choix'] = [0,0,0,0,0,0];
-    links['PG']=["nom","sa1","sa2","axis","point","jeu","tol"];
-    links['Pivot']=["nom","sa1","sa2","axis","point","jeu","tol"];
-    links['Glissiere']=["nom","sa1","sa2","axis","point","jeu","tol"];
-    links['LA']=["nom","sa1","sa2","axis","point","jeu","tol"];
+    links['PG x']=["nom","sa1","sa2","axis","point","jeu","tol"];
+    links['PG y']=["nom","sa1","sa2","axis","point","jeu","tol"];
+    links['PG z']=["nom","sa1","sa2","axis","point","jeu","tol"];
+
+    links['Piv x']=["nom","sa1","sa2","axis","point","jeu","tol"];
+    links['Piv y']=["nom","sa1","sa2","axis","point","jeu","tol"];
+    links['Piv z']=["nom","sa1","sa2","axis","point","jeu","tol"];
+
+    links['G x']=["nom","sa1","sa2","axis","point","jeu","tol"];
+    links['G y']=["nom","sa1","sa2","axis","point","jeu","tol"];
+    links['G z']=["nom","sa1","sa2","axis","point","jeu","tol"];
+
+    links['LA x']=["nom","sa1","sa2","axis","point","jeu","tol"];
+    links['LA y']=["nom","sa1","sa2","axis","point","jeu","tol"];
+    links['LA z']=["nom","sa1","sa2","axis","point","jeu","tol"];
+
     links['Rot']=["nom","sa1","sa2","point","jeu","tol"];
-    links['Ponctuelle']=["nom","sa1","sa2","norm","point","jeu","tol"];
-    links['AP']=["nom","sa1","sa2","norm","point","jeu","tol"];
-    links['Doigt']=["nom","sa1","sa2","axis","norm","point","jeu","tol"]; //revoir
-    links['LR']=["nom","sa1","sa2","axis","norm","point","jeu","tol"];
+
+    links['Ponct x']=["nom","sa1","sa2","norm","point","jeu","tol"];
+    links['Ponct y']=["nom","sa1","sa2","norm","point","jeu","tol"];
+    links['Ponct z']=["nom","sa1","sa2","norm","point","jeu","tol"];
+
+    links['AP x']=["nom","sa1","sa2","norm","point","jeu","tol"];
+    links['AP y']=["nom","sa1","sa2","norm","point","jeu","tol"];
+    links['AP z']=["nom","sa1","sa2","norm","point","jeu","tol"];
+
+    links['Doigt x']=["nom","sa1","sa2","axis","norm","point","jeu","tol"]; //revoir
+    links['Doigt y']=["nom","sa1","sa2","axis","norm","point","jeu","tol"];
+    links['Doigt z']=["nom","sa1","sa2","axis","norm","point","jeu","tol"];
+
+    links['LR axe x norm y']=["nom","sa1","sa2","axis","norm","point","jeu","tol"];
+    links['LR axe x norm z']=["nom","sa1","sa2","axis","norm","point","jeu","tol"];
+    links['LR axe y norm x']=["nom","sa1","sa2","axis","norm","point","jeu","tol"];
+    links['LR axe y norm z']=["nom","sa1","sa2","axis","norm","point","jeu","tol"];
+    links['LR axe z norm x']=["nom","sa1","sa2","axis","norm","point","jeu","tol"];
+    links['LR axe z norm y']=["nom","sa1","sa2","axis","norm","point","jeu","tol"];
 
     return links
 }
