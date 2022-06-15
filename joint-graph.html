@@ -61,9 +61,12 @@
                 <label>{Open example}</label><br>
                 <select id="exampleLink">
                     <option value="bati_only.js">Only one part</option>
-                    <option value="isostaticModel2.js">Isostatic model 1</option>
-                    <option value="hyperstaticModel2PG.js">Hyperstatic 2 PG</option>
+                    <option value="LA_LA_Ponct.js">IsostaticLA_LA_Ponct</option>
+                    <option value="PG_Ponct.js">Isostatic PG Ponct</option>
+                    <option value="AP_LA.js">Isostatic AP LA</option>
+                    <option value="Hyperstatic_PG_PG.js">Hyperstatic 2 PG x</option>
                     <option value="complexeHyperstaticModel.js">Hyperstatic h=4</option>
+                    <option value="rotatif.js">Rotatif</option>
                 </select><br>
                 <button onclick="openExample()">{Open}</button><br><br>
 
@@ -75,7 +78,7 @@
             <button class="tablinks" onclick="openTab(event, 'alink')">{Links}</button>
             <button class="tablinks" onclick="openTab(event, 'edit')">{Edit}</button>
             <button class="tablinks" onclick="openTab(event, 'export')">{Export}</button>
-            <button class="tablinks" onclick="openTab(event, 'hyperstatism')">{Hyperstatism}</button>
+            <!--<button class="tablinks" onclick="openTab(event, 'hyperstatism')">{Hyperstatism}</button>-->
         </div>
 
         <div id="alink" class="tabcontent"></div>
@@ -121,6 +124,7 @@
             data = processHyperstatism(cycles)
             hyperstaticity_writeResume(data)
         }
+        //findCyclesAndCheckHyperstaticity()
 
         function openExample(){
             window.location.href = "joint-graph.html?nothing=nothing&ex="+document.getElementById("exampleLink").value;

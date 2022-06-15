@@ -299,7 +299,7 @@ function mobs_to_components(mob, linkName) {
 //return mobilities Tx,y,z and Rx, y, z from the name of the linkage
 function get_mobilities_from_edge(type){
     mob = mech_links()
-    if (mob[type] == undefined) {console.log("Unknown linkage",mob[type]);}
+    if (mob[type] == undefined) {console.log("Unknown linkage",type);}
     return mob[type]
 }
 

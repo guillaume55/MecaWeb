@@ -1,13 +1,4 @@
-//2 LA and an pont between two parts, h = 0
-/*         |
-________  _v_   ____
-       | |   | |
-       | |   | |
-       | |   | |
-       | |   | |
-_______| |___| |____
-          
-*/
+
 function cy_create(c) {
   var cy = cytoscape({
   container: c,
@@ -26,46 +17,21 @@ function cy_create(c) {
         specTarget: 0.2,
         play: 0.2
       }
-    },/*
+    },
     {
       data: {
-        id: 'LA1',
-        source: 'Support',
-        target: 'Bati',
-        label: 'LA1',
-        type: 'LA x',
-        point:[10,0,0],
-        specSource: 0.2,
-        specTarget: 0.2,
-        play: 0.2
-      }
-    },*/
-    {
-      data: {
-        id: 'BS_AP',
+        id: 'PG2',
         source: 'Bati',
         target: 'Support',
-        label: 'BS_Pont',
-        type: 'Ponct x',
+        label: 'PG2',
+        type: 'PG x',
         point:[0,0,0],
         specSource: 0.2,
         specTarget: 0.2,
         play: 0.2
       }
     },
-    /*{
-      data: {
-        id: 'LA2',
-        source: 'Bati',
-        target: 'Support',
-        label: 'LA2',
-        type: 'LA x',
-        point:[40,0,0],
-        specSource: 0.2,
-        specTarget: 0.2,
-        play: 0.2
-      }
-    }*/
+    
 
 
     ],

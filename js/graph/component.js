@@ -128,7 +128,7 @@ function comp_aLink(){
     if(link_edit != ""){ //destroy the element first
         remove_elt(link_edit)
     }
-        //if name already exists
+
         var edges = comp_linkList()  // get all names
         if(edges.indexOf(name.trim()) != -1) { no_err = 0; err.innerHTML= 'Le nom existe déjà' }
         if(name.search("I") != -1 || source.search("I") !=-1 || target.search("I") != -1) { no_err = 0; err.innerHTML= 'Merci d\'éviter le I majuscule' }
@@ -141,7 +141,7 @@ function comp_aLink(){
             data: { id: name,
                     source: source,
                     target: target,
-                    label: name,
+                    label: `${name} (${type})`,
                     color: 'blue', //does nothing
                     type: type,
                     point: point
