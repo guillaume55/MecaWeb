@@ -323,7 +323,7 @@ function computeClearance(){
     let avg = roundDec((min+max)/2,3); //avg clearance
     //at least an undefined value
     if(!isNaN(shaft[0]) && !isNaN(shaft[1]) && !isNaN(bore[0]) && !isNaN(bore[1])){
-        res = `${T['Clearance in']} µm</br><table><tr><th>Min</th><th>Avg</th><th>Max</th></tr><tr><td>${min}</td><td>${avg}</td><td>${max}</td></tr></table>`
+        res = `${T['Clearance in']} µm</br><table><tr><th>Min</th><th>Avg</th><th>Max</th></tr><tr><td>${min*1000}</td><td>${avg*1000}</td><td>${max*1000}</td></tr></table>`
         
     }else{
         res = T["At least a non normalised IT: cannot compute"]
