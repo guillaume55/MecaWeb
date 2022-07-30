@@ -15,6 +15,22 @@ function computeBearingLoads(){
         loadA = load-loadB;
         
     }
-    document.getElementById("bearingLoad_resA").innerHTML = roundDec(loadA,3);
-    document.getElementById("bearingLoad_resB").innerHTML = roundDec(loadB,3);
+
+    if(loadA > 10000){
+        document.getElementById('bearingLoad_unitA').innerHTML = "kN"
+        loadA = roundDec(loadA/1000,1)
+    }else {
+        document.getElementById('bearingLoad_unitA').innerHTML = "N"
+        loadA = roundDec(loadA,3)
+    }
+    if (loadB > 10000){
+        document.getElementById('bearingLoad_unitB').innerHTML = "kN"
+        loadB = roundDec(loadB/1000,1)
+    }else {
+        document.getElementById('bearingLoad_unitB').innerHTML = "N"
+        loadB = roundDec(loadB,3)
+    }
+
+    document.getElementById("bearingLoad_resA").innerHTML = loadA;
+    document.getElementById("bearingLoad_resB").innerHTML = loadB;
 }
