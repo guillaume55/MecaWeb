@@ -7,6 +7,7 @@
     color: rgba(255, 0, 0, 0.76);
 }
 
+/************TABS**********/
 /* Style the tab */
 .tab {
   overflow: hidden;
@@ -43,6 +44,7 @@
   border: 1px solid #ccc;
   border-top: none;
 }
+/********** END TABS ********/
 
 .edit_button {
     margin: 5px;
