@@ -16,14 +16,14 @@ function computeBearingLoads(){
         
     }
 
-    if(loadA > 10000){
+    if(Math.abs(loadA) > 10000){
         document.getElementById('bearingLoad_unitA').innerHTML = "kN"
         loadA = roundDec(loadA/1000,1)
     }else {
         document.getElementById('bearingLoad_unitA').innerHTML = "N"
         loadA = roundDec(loadA,3)
     }
-    if (loadB > 10000){
+    if (Math.abs(loadB) > 10000){
         document.getElementById('bearingLoad_unitB').innerHTML = "kN"
         loadB = roundDec(loadB/1000,1)
     }else {
