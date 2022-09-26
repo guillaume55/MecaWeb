@@ -75,6 +75,13 @@
                         <input type="number" id="mass_beamLen" value="2" min="0"/><span>mm</span>
                     </div>
                 </div>
+
+                <div id="mass_costKg_div">
+                    <label>{Cost per kg}</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="mass_costKg" value="2.5" min="0"/><span>💰</span>
+                    </div>
+                </div>
             <br>
 
             <select id="mass_density">
@@ -124,6 +131,15 @@
                     <option value="450">{Fir} 450kg/m3</option><!--Sapin-->
                     <option value="860">{Teak} 860kg/m3</option><!--Teck-->
                 </optgroup>
+                <optgroup label="{Liquid}">
+                    <option value="790">{Acetone} 790/m3</option>
+                    <option value="790">{Ethanol} 790kg/m3</option>
+                    <option value="755">{Gasoline} 755kg/m3</option>
+                    <option value="850">{Diesel} 850/m3</option>
+                    <option value="920">{Olive oil} 920kg/m3</option>
+                    <option value="1030">{Sea water} 1030kg/m3</option>
+                    <option value="1000">{Water} 1000kg/m3</option>
+                </optgroup>
             </select>
         
             <input type="button" onclick="computeMass()" value="{Compute}"/></div>
@@ -132,6 +148,7 @@
                 <tr><th>{Section area} (H*l)</th><td id="mass_sectionArea"></td><td>mm²</td></tr>
                 <tr><th>{Total area}</th><td id="mass_totalArea"></td><td>mm²</td></tr>
                 <tr><th>{Volume}</th><td id="mass_volume"></td><td>mm<sup>3</sup></td></tr>
+                <tr title="{Please choose the unit you want}"><th>{Cost}</th><td id="mass_cost"></td><td>💰</td></tr>
             </table>
         </div>
     </div>

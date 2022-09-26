@@ -6,6 +6,7 @@ function computeMass(){
     let height = parseFloat(document.getElementById("mass_beamHeight").value);
     let diam = parseFloat(document.getElementById("mass_beamDiam").value);
     let density = parseFloat(document.getElementById("mass_density").value);
+    let cost = parseFloat(document.getElementById("mass_costKg").value);
 
     let shape = getRadio('massShape')
     let mass = NaN; let sectionArea = NaN; let totalArea = NaN; let volume = NaN
@@ -40,6 +41,9 @@ function computeMass(){
     }
     mass = volume*density/1000000000;
     console.log(mass)
+    cost = mass * cost
+
+    //we are in kg until now
     if(mass < 1){
         document.getElementById('mass_unit').innerHTML = "g"
         mass*=1000;
@@ -52,4 +56,5 @@ function computeMass(){
     document.getElementById('mass_sectionArea').innerHTML = roundDec(sectionArea,3)
     document.getElementById('mass_totalArea').innerHTML = roundDec(totalArea,3)
     document.getElementById('mass_volume').innerHTML = roundDec(volume,3)
+    document.getElementById('mass_cost').innerHTML = roundDec(cost,2)
 }

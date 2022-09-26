@@ -14,6 +14,7 @@ function selectYoung(val,select_id){
     }
 }
 
+//young modulus
 function getMaterials(){
     let steels = {"Stainless":195,"A36":200}
     let al = {"Al 1100":69,"Al 2024":72.4,"Al 6061":69,"Al7075":71}
