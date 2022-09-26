@@ -33,8 +33,6 @@ function computeDisplacement(){
         maxDisp = -(f*Math.pow(len,3))/(48*young*inertia);
     }else if(mounting == "2pts_concen_ab"){  //this formula is from omni calculator
         let b = len-a;
-        //let up = f*b*Math.sqrt(len*len-b*b, 3/2)
-        //let down = 9*Math.sqrt(3)*young*inertia*len
         let up = f*b*(3*len*len-4*b*b)
         let down = 48*young*inertia
         maxDisp = up/down;
