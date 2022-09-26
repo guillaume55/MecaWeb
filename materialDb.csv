@@ -1,0 +1,26 @@
+Name, ANSI, European name,type, density kg/m3, young modulus @20° GPa, elastic limit MPa, poisson ratio, specific thermal capacity J/kg.°C, thermal conductivity W/mK
+Stainless steel 304,304,1.4301,steel,7850,193,205,0.29,500,20
+Stainless steel 316,316,1.4401,steel,8030,193,205,0.265,502
+A36 Steel,A36,S235JR,steel,7850,200,250,0.26,
+A2 Steel,Tool steel,,steel,7810,200,1400,0.26,465,26
+Aluminum 1100, 1100, 1100, aluminum,2710,68.9,,0.33,904
+Aluminum 2024, 2024, 2024, aluminum,2780,73.0,0.33,875
+Aluminum 7075, 7075, 7075, aluminum,2770,73.1,0.33,875
+Brass,UNS C36000, EU name,metals,8490, 97,95, 0.31, 380,120
+Bronze,UNS C90500, EU name,metals, 8770, 103,150, poisson, 435,75
+Inconel,Am name, EU name,metals, 8200, 200,1030, poisson, 460,6.5
+Copper,Pure, EU name,metals, 8920, 120,33, poisson, 380,401
+Gold,Pure, EU name,metals, 19300, 79,205, poisson, 128,320
+Mg-alloy,Am name, EU name,metals, density, young,Re, poisson, specificHeat
+Nickel,Am name, EU name,metals, density, young,Re, poisson, specificHeat
+Ti-6AL-4V,Grade 5, EU name,metals, 4500, 114,1100, poisson, 560,6.7
+HDPE,Am name, EU name,plastics, density, young,Re, poisson, specificHeat
+LDPE,Am name, EU name,plastics, density, young,Re, poisson, specificHeat
+PC,Am name, EU name,plastics, 1200, 2.3,Re, poisson, 1200,0.2
+PP,Am name, EU name,plastics, 900, 1.3,Re, poisson, 1700,0.2
+PET,Am name, EU name,plastics, 1350, 9,40, poisson, 1250,0.3
+PVC,Polyvinyl chloride, EU name,plastics, 1330, 3.4,, poisson, 880,0.2
+PS,Polystyrene, EU name,plastics, 1050, 3.4,, poisson, 1100,0.12
+Nylon,Am name, EU name,plastics, 1140, 2.9,Re, poisson, 1500,0.2
+Human Bone,Am name, EU name,other, density, young,Re, poisson, ,
+Diamond,Am name, EU name,other, 3500, 1050,140000, poisson, 1509,1000
