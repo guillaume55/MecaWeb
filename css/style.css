@@ -173,7 +173,7 @@ select{
 }
 
 #calculator_button{
-  background-image: url(../img/calculator.PNG);
+  background: transparent url(../img/calculator.PNG) no-repeat center;
   background-repeat: no-repeat;
   width: 30px;
   height: 43px;
