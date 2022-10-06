@@ -108,10 +108,10 @@ function parseCsv() {
     }
 }
 
-function translateReplace(L){
+function translateReplace(){
     html = document.body.innerHTML;
     head = document.getElementsByTagName("head")[0].innerHTML;
-    for(k of Object.keys(L)) {
+    for(k of Object.keys(T)) {
         html = html.replaceAll("{"+k+"}",L[k])
         head = head.replaceAll("{"+k+"}",L[k])
     }
