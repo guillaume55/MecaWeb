@@ -1,5 +1,7 @@
 Sub-assemblies,Sous-ensembles
+Sub-assembly,Sous-ensemble
 Links,Liaisons
+Link,Liaison
 Edit,Editer
 Export,Exporter
 Open example,Ouvrir un exemple
@@ -7,3 +9,7 @@ Open,Ouvrir
 Center graph,Centrer le graphe
 Point (needed for hyperstatism),Point d'application (pour le calcul de l'hyperstatisme)
 Clic on the element to edit,Cliquez sur l'élément à modifier
+Give it a name,Veuillez entrez un nom
+Already taken,Le nom existe déjà
+Please avoid capital I,Le I majuscule n'est pas autorisé
+Please select two different sub-assemblies,Les deux sous-ensembles ne peuvent être les mêmes

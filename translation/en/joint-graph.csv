@@ -1,5 +1,7 @@
 Sub-assemblies,Sub-assemblies
+Sub-assembly,Sub-assembly
 Links,Links
+Link,Link
 Edit,Edit
 Export,Export
 Open example,Open example
@@ -7,3 +9,7 @@ Open,Open
 Center graph,Center graph
 Point (needed for hyperstatism),Point (needed for hyperstatism)
 Clic on the element to edit,Clic on the element to edit
+Give it a name,Give it a name
+Already taken,Already taken
+Please avoid capital I,Please avoid capital I
+Please select two different sub-assemblies,Please select two different sub-assemblies
