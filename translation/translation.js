@@ -100,7 +100,7 @@ function parseCsv() {
         }
         T=L  //store translations in T
         if(reader.replace == true)
-            translateReplace()
+            translateReplace(L)
         if(reader.translateWithCareFunction != undefined) {
             reader.translateWithCareFunction(L)
         }
