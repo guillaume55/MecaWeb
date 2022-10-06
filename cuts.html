@@ -14,6 +14,11 @@
     <script src='js/simple_math_tools.js'></script>
     <script src='js/calculator.js'></script>
     <script src='translation/translation.js'></script>
+    
+    <script type="text/javascript" src="js/cuts/fitCuts.js"></script>
+    <script type="text/javascript" src="js/cuts/cuts.js"></script>
+    <script src="js/arrayManipulation.js"></script>
+    <script src='js/cuts/cutsUI.js'></script>
     <!--discord-->
     <a href="https://discord.com/channels/957674596545495101/957674597006843985" target="_blank" id="discord_link"><img src="img/discord.png" alt="discord"></a>
 
@@ -34,28 +39,37 @@
         <p>{Some beams to cuts in standard 6m bars ? Or maybe in 1.23m bars ? This tool will help you to know where you will have to cuts to save material, and time}</p>
         <p>{Ability to compute with angle will come soon}</p>
         <p>{Just add some "Bars" (Raw material) and set which lengths ("Cuts") you want to cut.}</p>
+        <div>
+            <label>{Saw width}</label><br>
+            <div class="input-unit">
+                <input id="lostWhileCuting" type="number" value="2" max="10" min="0" style="max-width: 100px";/><span>mm</span>
+            </div>
+        </div>
+        
         <!----------------  BAR --------------------------->
         <div id="bars-div">
-        <div class="table-responsive col-md-10 section" class="barDiv" id="init_bar">
-            <div class = "section-title"><div>{Raw Bar}</div><button class="del-button" onclick="del_entry(this)">{Delete}</button></div>
-            <div class ="fields">
-                <div class="field">{Length in mm}<input name="length" class="barLength" value="6000" ></input></div>
-                <div class="field" title='All "height" parameters should be equals for now if you use angle cuts'>{Height in mm}<input name="height" class="barHeight" value="30"></input></div>
+            <div class="table-responsive col-md-10 section" class="barDiv">
+                <div class = "section-title"><div>{Raw Bar}</div><button class="del-button" onclick="del_entry(this)">{Delete}</button></div>
+                <div class ="fields">
+                    <div class="field">{Length in mm}<input name="length" class="barLength" value="6000" ></input></div>
+                    <div class="field hidden" title='All "height" parameters should be equals for now if you use angle cuts'>{Height in mm}<input name="height" class="barHeight" value="30"></input></div>
+                </div>
             </div>
-        </div></div>
+        </div>
         <button class="add-button" onclick="add_bar()">{Add Bar}</button>
 
         <!----------------  CUT --------------------------->
         <div id="cuts-div">
-        <div class="table-responsive col-md-10 section" class="barDiv" id='init_cut'>
-            <div class = "section-title"><div>{Bar to Cut}</div><button class="del-button" onclick="del_entry(this)">{Delete}</button></div>
-            <div class ="fields">
-                <div class="field">{Length in mm}<input name="cutLength" class="cutLength" value="300"></div>
-                <div class="field angle-field">Angle 1 in deg<input name="cutAngle1" class="cutAngle1" value="90"oninput="shape_cut(this)"></div>
-                <div class="field angle-field">Angle 2 in deg<input name="cutAngle2" class="cutAngle2" value="90"oninput="shape_cut(this)"></div>
+            <div class="table-responsive col-md-10 section" class="barDiv" id='init_cut'>
+                <div class = "section-title"><div>{Bar to Cut}</div><button class="del-button" onclick="del_entry(this)">{Delete}</button></div>
+                <div class ="fields">
+                    <div class="field">{Length in mm}<input name="cutLength" class="cutLength" value="300"></div>
+                    <div class="field angle-field">Angle 1 in deg<input name="cutAngle1" class="cutAngle1" value="90"oninput="shape_cut(this)"></div>
+                    <div class="field angle-field">Angle 2 in deg<input name="cutAngle2" class="cutAngle2" value="90"oninput="shape_cut(this)"></div>
+                </div>
+                <div class="div-cut-shape"><div class="cut-shape1"></div><div class="cut-shape2"></div></div>
             </div>
-        <div class="div-cut-shape"><div class="cut-shape1"></div><div class="cut-shape2"></div></div>
-        </div></div>
+        </div>
         <button class="add-button" onclick="add_cut()">{Add Cut}</button>
         
         <style> .angle-field{display:none;} </style>
@@ -69,12 +83,14 @@
         </div>
     </div>            
 
-    <!--JS Files-->
-
-    <script type="text/javascript" src="js/cuts/fitCuts.js"></script>
-    <script type="text/javascript" src="js/cuts/cuts.js"></script>
     <script>
         translate("cuts");
+
+        var debug = false
+        if(debug){
+            document.getElementById('submit').click()
+        }
+        
     </script>
   </body>
 </html>

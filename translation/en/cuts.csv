@@ -3,7 +3,7 @@ Ability to compute with angle will come soon,Ability to compute with angle will 
 Just add some "Bars" (Raw material) and set which lengths ("Cuts") you want to cut.,Just add some "Bars" (Raw material) and set which lengths ("Cuts") you want to cut.
 Length in mm,Length in mm
 Height in mm,Height in mm
-Raw Bar,Raw Bar
+Raw Bar,Raw bar
 Bar to Cut,Bar to cut
 Results,Results
 Calculate,Calculate
@@ -14,5 +14,8 @@ Loss,Loss
 Bar,Bar
 No remaining part,No remaining part
 Download CSV,Download CSV
-Delimiter,Delimiter
 It remains,It remains
+Bar Length,Bar Length
+Delimiter,Csv delimiter
+Length,Length
+Saw width,Saw width
