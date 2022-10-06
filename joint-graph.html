@@ -40,7 +40,7 @@
     let ex = urlParams.has('ex') ? src = urlParams.get("ex")  : src = "bati_only.js"
     var s = document.createElement( 'script' );
     s.setAttribute( 'src', "examples/"+src );
-    s.setAttribute( 'onload', "create_cytoscape()" );
+    //s.setAttribute( 'onload', "create_cytoscape()" );
     document.body.appendChild( s );
 </script>
 
@@ -93,7 +93,9 @@
     </div>
     
     <script>
-        
+        openTabStartUp() //open first tab
+        translate("joint-graph", false, translateWithCare)  //generate dictionnary without replacing (bug with cytoscape)
+
         var graph = []
 
         var cy;
@@ -131,12 +133,10 @@
             window.location.href = "joint-graph.html?nothing=nothing&ex="+document.getElementById("exampleLink").value;
         }
 
-        openTabStartUp() //open first tab
-        translate("joint-graph", false, translateWithCare)  //generate dictionnary without replacing (bug with cytoscape)
+       
 
         function translateWithCare() {  //cytoscape issue with  classical {translate}
             //we do that manually
-            console.log("t",T)
             document.getElementById('translate-edit').innerHTML = T['Edit']
             document.getElementById('translate-export').innerHTML = T['Export']
             document.getElementById('translate-links').innerHTML = T['Links']
@@ -144,7 +144,7 @@
             document.getElementById('translate-openex').innerHTML = T['Open example']
             document.getElementById('translate-open').innerHTML = T['Open']
             document.getElementById('translate-centerGraph').innerHTML = T['Center graph']
-            
+            create_cytoscape() //give time to parse translation
         }
     </script>
 </body>
