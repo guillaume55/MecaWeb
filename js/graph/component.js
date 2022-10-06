@@ -56,7 +56,7 @@ function rLink(fields) {
     //first standard fields
     html+="<input id=\"link_toedit\" class=\"hidden\"></input>"
     html+="</br></br><input id=\"link_name\" placeholder=\"Name\"></input>"
-    html+= "</br><label>Sous-ensembles</label></br>"
+    html+= `</br><label>${T['Sub-assemblies']}</label></br>`
 
     //populate selects
     var sel_sa = ""
@@ -130,10 +130,10 @@ function comp_aLink(){
     }
 
         var edges = comp_linkList()  // get all names
-        if(edges.indexOf(name.trim()) != -1) { no_err = 0; err.innerHTML= 'Le nom existe déjà' }
-        if(name.search("I") != -1 || source.search("I") !=-1 || target.search("I") != -1) { no_err = 0; err.innerHTML= 'Merci d\'éviter le I majuscule' }
-        if(name == "") { no_err = 0; err.innerHTML= 'Veuillez entrez un nom' }
-        if(source == target) { no_err = 0; err.innerHTML= 'Les deux sous-ensembles ne peuvent être les mêmes' }
+        if(edges.indexOf(name.trim()) != -1) { no_err = 0; err.innerHTML= T['Already taken'] }
+        if(name.search("I") != -1 || source.search("I") !=-1 || target.search("I") != -1) { no_err = 0; err.innerHTML= T['Please avoid capital I'] }
+        if(name == "") { no_err = 0; err.innerHTML= T['Give it a name'] }
+        if(source == target) { no_err = 0; err.innerHTML= T[''] }
 
         if(no_err) {
             cy.add({
@@ -176,7 +176,7 @@ function comp_linkList() {
 
 /**************************  Sub-assemblies *******************/
 function comp_sNode(container) {
-    var html = "<form><label>Sous-ensemble</label>"
+    var html = `<form><label>${T['Sub-assemblies']}</label>`
     html += "<input id=\"node_toedit\" class=\"hidden\"/>"
     html += "</br><input id=\"node_name\" placeholder=\"carter\"/>"
     html += "</br><div class=\"error\" id=\"node_err\"></div>"
@@ -202,12 +202,12 @@ function comp_aNode(){
 
     let err = document.getElementById('node_err');
 
-    if(name == "") { no_err = 0; err.innerHTML= 'Veuillez entrez un nom' }
+    if(name == "") { no_err = 0; err.innerHTML= T['Give it a name'] }
 
     if(node_edit == "") { //create node
         //check if node exists
         var nodes = comp_nodeList()
-        if(nodes.indexOf(name) != -1) { no_err = 0; err.innerHTML= 'Le nom existe déjà' }
+        if(nodes.indexOf(name) != -1) { no_err = 0; err.innerHTML= T['Already taken'] }
 
 
 
@@ -282,12 +282,12 @@ function comp_nodeList() {
 /*******************  EDIT  *********************/
 function edit_tab(container, elt_id) {
 
-    var html = "Cliquez sur l'élément à modifier</br></br>"
+    var html = T["Clic on the element to edit"] + "<br><br>"
 
     if(elt_id !== undefined) {
         elt = cy.getElementById(elt_id)
-        if(elt.isNode()){ html += "Sous-ensemble "; }
-        else { html += "Liaison " }
+        if(elt.isNode()){ html += T["Sub-assembly"]; }
+        else { html += T["Link"] }
         html += elt_id.toString() +"</br>"
         html += `<input type="button" onclick="fill_edit_elt('${elt_id.trim()}') " class="edit_button"/>`
         html += `<input type="button" onclick="remove_elt('${elt_id.trim()}')" class="del_button"/>`

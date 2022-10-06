@@ -59,7 +59,7 @@
         <div style="display: inline-flex; width:100%;">
             <div id="cy" style="min-width: 500px; width:75%;"></div>
             <div id="sideButtons" style="margin:10px;">
-                <label>{Open example}</label><br>
+                <label id="translate-openex">{Open example}</label><br>
                 <select id="exampleLink">
                     <option value="bati_only.js">Only one part</option>
                     <option value="LA_LA_Ponct.js">IsostaticLA_LA_Ponct</option>
@@ -69,16 +69,16 @@
                     <option value="complexeHyperstaticModel.js">Hyperstatic h=4</option>
                     <option value="rotatif.js">Rotatif</option>
                 </select><br>
-                <button onclick="openExample()">{Open}</button><br><br>
+                <button onclick="openExample()" id="translate-open">{Open}</button><br><br>
 
-                <button onclick="cy.fit()">{Center graph}</button>
+                <button onclick="cy.fit()" id="translate-centerGraph">{Center graph}</button>
             </div>
         </div>
         <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'anode')">{Sub-assemblies}</button>
-            <button class="tablinks" onclick="openTab(event, 'alink')">{Links}</button>
-            <button class="tablinks" onclick="openTab(event, 'edit')">{Edit}</button>
-            <button class="tablinks" onclick="openTab(event, 'export')">{Export}</button>
+            <button class="tablinks" onclick="openTab(event, 'anode')" id="translate-subA">{Sub-assemblies}</button>
+            <button class="tablinks" onclick="openTab(event, 'alink')" id="translate-links">{Links}</button>
+            <button class="tablinks" onclick="openTab(event, 'edit')" id="translate-edit">{Edit}</button>
+            <button class="tablinks" onclick="openTab(event, 'export')" id="translate-export">{Export}</button>
             <!--<button class="tablinks" onclick="openTab(event, 'hyperstatism')">{Hyperstatism}</button>-->
         </div>
 
@@ -132,7 +132,20 @@
         }
 
         openTabStartUp() //open first tab
-        //translate("joint-graph")
+        translate("joint-graph", false, translateWithCare)  //generate dictionnary without replacing (bug with cytoscape)
+
+        function translateWithCare() {  //cytoscape issue with  classical {translate}
+            //we do that manually
+            console.log("t",T)
+            document.getElementById('translate-edit').innerHTML = T['Edit']
+            document.getElementById('translate-export').innerHTML = T['Export']
+            document.getElementById('translate-links').innerHTML = T['Links']
+            document.getElementById('translate-subA').innerHTML = T['Sub-assemblies']
+            document.getElementById('translate-openex').innerHTML = T['Open example']
+            document.getElementById('translate-open').innerHTML = T['Open']
+            document.getElementById('translate-centerGraph').innerHTML = T['Center graph']
+            
+        }
     </script>
 </body>
 </html>
