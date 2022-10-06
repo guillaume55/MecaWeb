@@ -112,8 +112,8 @@ function translateReplace(){
     html = document.body.innerHTML;
     head = document.getElementsByTagName("head")[0].innerHTML;
     for(k of Object.keys(T)) {
-        html = html.replaceAll("{"+k+"}",L[k])
-        head = head.replaceAll("{"+k+"}",L[k])
+        html = html.replaceAll("{"+k+"}",T[k])
+        head = head.replaceAll("{"+k+"}",T[k])
     }
     document.body.innerHTML = html;
     document.getElementsByTagName("head")[0].innerHTML = head;
