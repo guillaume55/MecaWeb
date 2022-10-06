@@ -161,7 +161,10 @@
        x="81.38224"
        y="66.75547"
        ry="10.739925"
-       transform="matrix(0.96330621,0,0,0.9852461,5.2242868,3.8422384)" />
+       transform="matrix(0.96330621,0,0,0.9852461,5.2242868,3.8422384)"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\calculator.PNG"
+       inkscape:export-xdpi="7.7508497"
+       inkscape:export-ydpi="7.7508497" />
     <rect
        style="fill:#94a3a3;fill-opacity:0.980392;stroke:none;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000"
        id="rect19044"
@@ -169,7 +172,10 @@
        height="121.35555"
        x="78.697258"
        y="65.309715"
-       ry="10.739925" />
+       ry="10.739925"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\calculator.PNG"
+       inkscape:export-xdpi="7.7508497"
+       inkscape:export-ydpi="7.7508497" />
     <rect
        style="opacity:0.986957;mix-blend-mode:normal;fill:#6c7d87;fill-opacity:0.988235;stroke:none;stroke-width:0.117938;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;filter:url(#filter26530);stop-color:#000000"
        id="rect1262-2"
@@ -177,7 +183,10 @@
        height="25.592632"
        x="91.667641"
        y="111.19471"
-       ry="3.3485687" />
+       ry="3.3485687"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\calculator.PNG"
+       inkscape:export-xdpi="7.7508497"
+       inkscape:export-ydpi="7.7508497" />
     <rect
        style="opacity:0.986957;mix-blend-mode:normal;fill:#6c7d87;fill-opacity:0.988235;stroke:none;stroke-width:0.117938;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;filter:url(#filter26530-3);stop-color:#000000"
        id="rect1262-2-2"
@@ -185,7 +194,10 @@
        height="25.592632"
        x="129.34689"
        y="110.31845"
-       ry="3.3485687" />
+       ry="3.3485687"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\calculator.PNG"
+       inkscape:export-xdpi="7.7508497"
+       inkscape:export-ydpi="7.7508497" />
     <rect
        style="opacity:0.986957;mix-blend-mode:normal;fill:#6c7d87;fill-opacity:0.988235;stroke:none;stroke-width:0.117938;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;filter:url(#filter26530-5);stop-color:#000000"
        id="rect1262-2-9"
@@ -193,7 +205,10 @@
        height="25.592632"
        x="129.34689"
        y="148.28979"
-       ry="3.3485687" />
+       ry="3.3485687"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\calculator.PNG"
+       inkscape:export-xdpi="7.7508497"
+       inkscape:export-ydpi="7.7508497" />
     <rect
        style="opacity:0.986957;mix-blend-mode:normal;fill:#6c7d87;fill-opacity:0.988235;stroke:none;stroke-width:0.117938;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;filter:url(#filter26530-9);stop-color:#000000"
        id="rect1262-2-1"
@@ -201,7 +216,10 @@
        height="25.592632"
        x="92.982025"
        y="148.72792"
-       ry="3.3485687" />
+       ry="3.3485687"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\calculator.PNG"
+       inkscape:export-xdpi="7.7508497"
+       inkscape:export-ydpi="7.7508497" />
     <rect
        style="opacity:0.986957;fill:#6c7d87;fill-opacity:0.988235;stroke:none;stroke-width:0.118599;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000"
        id="rect26642"
@@ -209,11 +227,17 @@
        height="23.240957"
        x="90.256599"
        y="77.244781"
-       ry="0" />
+       ry="0"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\calculator.PNG"
+       inkscape:export-xdpi="7.7508497"
+       inkscape:export-ydpi="7.7508497" />
     <path
        style="fill:url(#linearGradient8310);fill-opacity:1;stroke:none;stroke-width:0.293506px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 90.256605,77.244783 v 20.078622 h 3.30459 v 3.304075 h 54.732265 v -3.049915 h 3.51113 V 77.244783 Z"
-       id="path1238" />
+       id="path1238"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\calculator.PNG"
+       inkscape:export-xdpi="7.7508497"
+       inkscape:export-ydpi="7.7508497" />
     <rect
        style="fill:#ebf1f5;fill-opacity:1;stroke:none;stroke-width:0.117938;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000"
        id="rect1262"
@@ -221,7 +245,10 @@
        height="25.592632"
        x="89.852501"
        y="108.23428"
-       ry="3.3485687" />
+       ry="3.3485687"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\calculator.PNG"
+       inkscape:export-xdpi="7.7508497"
+       inkscape:export-ydpi="7.7508497" />
     <rect
        style="fill:#ebf1f5;fill-opacity:1;stroke:none;stroke-width:0.117938;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000"
        id="rect1262-4"
@@ -229,7 +256,10 @@
        height="25.592632"
        x="127.1324"
        y="108.23428"
-       ry="3.3485687" />
+       ry="3.3485687"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\calculator.PNG"
+       inkscape:export-xdpi="7.7508497"
+       inkscape:export-ydpi="7.7508497" />
     <rect
        style="fill:#ebf1f5;fill-opacity:1;stroke:none;stroke-width:0.117938;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000"
        id="rect1262-0"
@@ -237,7 +267,10 @@
        height="25.592632"
        x="89.852501"
        y="145.82399"
-       ry="3.3485687" />
+       ry="3.3485687"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\calculator.PNG"
+       inkscape:export-xdpi="7.7508497"
+       inkscape:export-ydpi="7.7508497" />
     <rect
        style="fill:#ebf1f5;fill-opacity:1;stroke:none;stroke-width:0.117938;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000"
        id="rect1262-3"
@@ -245,13 +278,19 @@
        height="25.592632"
        x="127.1324"
        y="145.82399"
-       ry="3.3485687" />
+       ry="3.3485687"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\calculator.PNG"
+       inkscape:export-xdpi="7.7508497"
+       inkscape:export-ydpi="7.7508497" />
     <text
        xml:space="preserve"
        style="font-size:27.2162px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#2a3b4c;fill-opacity:0.996078;stroke-width:0.680407"
        x="94.692207"
        y="128.8114"
-       id="text27738"><tspan
+       id="text27738"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\calculator.PNG"
+       inkscape:export-xdpi="7.7508497"
+       inkscape:export-ydpi="7.7508497"><tspan
          sodipodi:role="line"
          id="tspan27736"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Cambria;-inkscape-font-specification:'Cambria Bold';fill:#2a3b4c;fill-opacity:0.996078;stroke-width:0.680407"
@@ -263,7 +302,10 @@
        x="96.029167"
        y="175.57518"
        id="text27738-5"
-       transform="scale(1.3572552,0.73678112)"><tspan
+       transform="scale(1.3572552,0.73678112)"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\calculator.PNG"
+       inkscape:export-xdpi="7.7508497"
+       inkscape:export-ydpi="7.7508497"><tspan
          sodipodi:role="line"
          id="tspan27736-6"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Cambria;-inkscape-font-specification:'Cambria Bold';fill:#2a3b4c;fill-opacity:0.996078;stroke-width:1.06018"
@@ -274,7 +316,10 @@
        style="font-size:35.1274px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#2a3b4c;fill-opacity:0.996078;stroke-width:0.878188"
        x="94.802109"
        y="176.30408"
-       id="text27738-58"><tspan
+       id="text27738-58"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\calculator.PNG"
+       inkscape:export-xdpi="7.7508497"
+       inkscape:export-ydpi="7.7508497"><tspan
          sodipodi:role="line"
          id="tspan27736-63"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Cambria;-inkscape-font-specification:'Cambria Bold';fill:#2a3b4c;fill-opacity:0.996078;stroke-width:0.878188"
@@ -285,7 +330,10 @@
        style="font-size:27.2162px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#f4342c;fill-opacity:1;stroke-width:0.680407;stroke:none;stroke-opacity:0.90196079"
        x="131.97211"
        y="166.39447"
-       id="text27738-1"><tspan
+       id="text27738-1"
+       inkscape:export-filename="C:\Users\guill\Desktop\MecaWeb All\Mecaweb tauri\MecaWeb-app\MecaWeb\img\calculator.PNG"
+       inkscape:export-xdpi="7.7508497"
+       inkscape:export-ydpi="7.7508497"><tspan
          sodipodi:role="line"
          id="tspan27736-8"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Cambria;-inkscape-font-specification:'Cambria Bold';fill:#f4342c;fill-opacity:1;stroke-width:0.680407;stroke:none;stroke-opacity:0.90196079"
