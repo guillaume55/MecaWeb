@@ -69,8 +69,14 @@
                     <div class="input-unit">
                         <input type="number" id="flexion_beamThick" value="2" min="0" onchange="flexion_computeInertia()"/><span>mm</span>
                     </div>
+                </div><br>
+                <div id="flexion_beamThick_div">
+                    <label>{Moment of inertia}</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="flexion_resInertia" value="106666.67" min="0" disabled/><span>mm<sup>4</sup></span>
+                    </div>
                 </div>
-                <label id="flexion_resInertia"></label><label>mm<sup>4</sup></label>
+                <!--<label id="flexion_resInertia"></label><label>mm<sup>4</sup></label>-->
             </div>
         </div>
         
@@ -79,10 +85,10 @@
             <div class="section-title">{Characteristics}</div>
             <div class="section-content">
 
-                <label>{Beam length}</label></br>
+                <label>{Beam length}</label>
                 <div class="input-unit">
                     <input id="flexion_length" type="number" value="500" min="0"/><span>mm</span>
-                </div></br>
+                </div><br>
 
                 <label>{Material}</label>
                 <select id="flexion_material" onchange="selectYoung(this.value,'flexion_young')"></select></br>
@@ -156,14 +162,14 @@
         <div class="item section">
             <div class="section-title">{Results}<input type="button" onclick="computeFlexion()" value="{Compute}"/></div>
             <table>
-                <tr><th>{Beam Length} (m)</th><td id="res_flexionLength"></td><td>m</td></tr>
-                <tr><th>{Force f on beam} (N)</th><td id="res_flexionForce"></td><td>N</td></tr>
-                <tr><th>{Linear q on beam} (N/m)</th><td id="res_flexionQ"></td><td>N/m</td></tr>
-                <tr><th>{Young's modulus} (Gpa)</th><td id="res_flexionYoung"></td><td>GPa</td></tr>
-                <tr><th>{Distance} a (m)</th><td id="res_flexionA"></td><td>m</td></tr>
-                <tr><th>{Moment of inertia} (mm<sup>4</sup>)</th><td id="res_flexionInertia"></td><td>mm<sup>4</sup></td></tr>
-                <tr><th>{Max displacement} (mm)</th><td id="flexion_maxDisp"></td><td>mm</td></tr>
-                <tr><th>{Lowest point} (m)</th><td id="res_flexionLowest"></td><td>m</td></tr>
+                <tr><th>{Beam Length}</th><td id="res_flexionLength"></td><td>m</td></tr>
+                <tr><th>{Force f on beam}</th><td id="res_flexionForce"></td><td>N</td></tr>
+                <tr><th>{Linear q on beam}</th><td id="res_flexionQ"></td><td>N/m</td></tr>
+                <tr><th>{Young's modulus}</th><td id="res_flexionYoung"></td><td>GPa</td></tr>
+                <tr><th>{Distance} a </th><td id="res_flexionA"></td><td>m</td></tr>
+                <tr><th>{Moment of inertia}</th><td id="res_flexionInertia"></td><td>mm<sup>4</sup></td></tr>
+                <tr><th>{Max displacement}</th><td id="flexion_maxDisp"></td><td>mm</td></tr>
+                <tr><th>{Lowest point}</th><td id="res_flexionLowest"></td><td>m</td></tr>
             </table>
         </div>
     </div>

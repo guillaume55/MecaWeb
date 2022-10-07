@@ -65,7 +65,7 @@ function flexion_computeInertia(){
 
     let inertia = inertiaMoment(beamType, diam, thickness, width, height)
     
-    document.getElementById('flexion_resInertia').innerHTML = roundDec(inertia,2)
+    document.getElementById('flexion_resInertia').value = roundDec(inertia,2)
     return inertia
 }
 
