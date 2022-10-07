@@ -12,8 +12,15 @@ function computeBuckling(){
 
     //units !!! in newton
     let eulerCriticalLoad = (Math.PI*Math.PI * young*1000 * inertia)/(Math.pow(len*mounting,2))
-    console.log(young, inertia,len,mounting)
-    document.getElementById('buckling_eulerCritical').innerHTML = roundDec(eulerCriticalLoad,2)
+
+    if(eulerCriticalLoad > 10000){
+        eulerCriticalLoad = Math.floor(eulerCriticalLoad/1000)
+        document.getElementById('buckling_eulerUnit').innerHTML = 'kN'
+    }else {
+        eulerCriticalLoad = roundDec(eulerCriticalLoad,1)
+        document.getElementById('buckling_eulerUnit').innerHTML = 'N'
+    }
+    document.getElementById('buckling_eulerCritical').innerHTML = eulerCriticalLoad
 }
 
 
@@ -47,8 +54,8 @@ function buckling_computeInertia(){
 
     let inertia = inertiaMoment(beamType, diam, thickness, width, height)
 
-    document.getElementById('buckling_resInertia').innerHTML = roundDec(inertia,2)
-    document.getElementById('buckling_resInertia2').innerHTML = roundDec(inertia,2)
+    document.getElementById('buckling_resInertia').value = roundDec(inertia,0)
+    document.getElementById('buckling_resInertia2').innerHTML = roundDec(inertia,0)
     return inertia
 }
 

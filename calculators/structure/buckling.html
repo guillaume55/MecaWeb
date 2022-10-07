@@ -72,9 +72,13 @@
                         <input type="number" id="buckling_beamThick" value="2" min="0" onchange="buckling_computeInertia()"/><span>mm</span>
                     </div>
                 </div>
-                <label id="buckling_resInertia"></label><label>mm<sup>4</sup></label>
-            </div>
-            
+                <div id="buckling_beamThick_div">
+                    <label>{Moment of inertia}</label></br>
+                    <div class="input-unit">
+                        <input type="number" id="buckling_resInertia" value="106666.67" min="0" disabled/><span>mm<sup>4</sup></span>
+                    </div>
+                </div>
+            </div>            
         </div>
         
             
@@ -96,7 +100,7 @@
                 <div class="input-unit">
                     <input id="buckling_force" type="number" value="5000" min="0"/><span>N</span>
                 </div>
-                <label>{Wikipedia says: Do not choose a steel with a high elastic limit the reduce buckling}</label>
+                <label style="width:70%; margin:10px;">{Wikipedia says: Do not choose a steel with a high elastic limit the reduce buckling}</label>
             </div>
         </div>
         <div class="item section">
@@ -132,7 +136,7 @@
             <div class="section-title">{Results}<input type="button" onclick="computeBuckling()" value="Compute"/></div>
             <table>
                 <tr><th>{Quadratic moment}</th><td id="buckling_resInertia2"></td><td>mm<sup>4</sup></td></tr>
-                <tr><th>{Euler's critical load}</th><td id="buckling_eulerCritical"></td><td>N</td></tr>
+                <tr><th>{Euler's critical load}</th><td id="buckling_eulerCritical"></td><td id="buckling_eulerUnit"></td></tr>
             </table>
         </div>
     </div>
