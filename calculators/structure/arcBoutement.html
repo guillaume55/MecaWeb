@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{Torque}</title>
+    <title>{ArcB}</title>
       <meta charset="UTF-8">
       <link rel="stylesheet" href="../../css/style.css">
       <link rel="stylesheet" href="../../css/cuts.css">
@@ -42,13 +42,25 @@
                         <input id="arcB_bl" type="number" value="50" min="0" onchange="computeArcB()"/><span>mm or m</span>
                     </div></br>
 
-                    <label>
+                    <label style="border: 3px solid gray; padding:10px; border-radius: 10px;">
                         <label>{Result} :</label>
                         <label id="resArcB"></label>
+                        <div style="display: flex; flex-direction: row;">
+                            <span style="color:green; width:25%;">{Sliding}</span>
+                            <input id="arcB_range" type="range" min="-2" max="2" style="width:45%;"/>
+                            <span style="color: rgb(211, 26, 26); width:25%;">{Blocked}</span>
+                        </div>
                     </label></br>
 
                     <label>{Formula}</label>
-                    <label>{Sliding if} D<(L/2*f)</label>
+                    <label>
+                        {Sliding if} D < 
+                        <div class="fraction">
+                            <span class="fup">L</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">2f</span>
+                          </div>
+                    </label>
                 </div>
 
                 <div style="display:flex; align-items:center"><img src="../../img/arcB.png" style="width:50%;max-width: 300px;min-width: 200px;"></div>
@@ -58,10 +70,42 @@
         
     <script>
         fillSelect("arcB_selectCoef", getFriction())
-        computeArcB()
         translate("structure")
+        setTimeout(computeArcB, 500); //solve the issue (previously 'undefined' at begining)
     </script>
 
     
   </body>
+  <style>
+    .fraction {
+        display: inline-block;
+        position: relative;
+        vertical-align: middle; 
+        letter-spacing: 0.001em;
+        text-align: center;
+        font-size: 12px;
+    }
+    .fraction > span { 
+        display: block; 
+        padding: 0.1em; 
+    }
+    .fraction span.fdn {border-top: thin solid black;}
+    .fraction span.bar {display: none;}
+
+    input[type=range] {
+        -webkit-appearance: none;
+        /*background-color: silver;*/
+        background-color: linear-gradient(to right, green, red);
+        width: 40%;
+        height:4px;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        background-color: #666;
+        opacity: 0.8;
+        width: 10px;
+        height: 26px;
+    }
+  </style>
 </html>

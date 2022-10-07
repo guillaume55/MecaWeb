@@ -6,6 +6,28 @@ function computeArcB(){
     let d_computed = longueur / (2*f_coef)
     document.getElementById('resArcB').innerHTML = d_computed < bl ? T["Blocked"] : T["Sliding"]
 
+    // slider to give a bit more information: ideally, with a red to green gradient
+    const threshold = 25
+    if(d_computed < bl - threshold){ // normally 
+        document.getElementById('arcB_range').value = 2 //locked
+        document.getElementById("arcB_range").style.backgroundColor = 'lightred';
+    }
+    else if (d_computed < bl){
+        document.getElementById('arcB_range').value = 1 //maybe locked
+        document.getElementById("arcB_range").style.backgroundColor = 'orange';
+
+    }
+    else if (d_computed > bl + threshold) { //
+        document.getElementById('arcB_range').value = -2 //sliding
+        document.getElementById("arcB_range").style.backgroundColor = 'green';
+
+    }else{
+        document.getElementById('arcB_range').value = -1  //maybe sliding
+        document.getElementById("arcB_range").style.backgroundColor = 'lightgreen';
+
+    }
+        
+
 }
 
 function selectArcB(val){
