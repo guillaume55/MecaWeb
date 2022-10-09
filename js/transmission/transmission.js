@@ -36,9 +36,6 @@ function computeSpeed(event){
         document.getElementById("screw-rads").value = rads;
         document.getElementById("screw-mmmin").value = mmmin;
     }
-
-    
-
 }
 
 function computeForce() {
@@ -68,9 +65,6 @@ function speedCurve(){
     let accel = parseFloat(document.getElementById('curve_accel').value);
     let distance = parseFloat(document.getElementById('curve_dist').value);
     let decelerating = document.getElementById('curve_decel').checked;
-    console.log(initVelocity,finalVelocity,accel,distance)
-
-    //time to do the movement
 
     //plot curve
     let x = []
@@ -120,7 +114,8 @@ function speedCurve(){
                 data = [{x:x[0],y:initVelocity},{x:x[1],y:finalVelocity},{x:x[3],y:initVelocity}]
             }
         }
-    } else {
+    } 
+    else {
         //NO decel, Only accel
         //With not enougth distance to reach max speed
         if(dist_accel > distance){
@@ -156,9 +151,7 @@ function speedCurve(){
             }
         }
     }
-    console.log ("x",x)
-    console.log("data",data)
-    console.log('reachable speed', reachableSpeed)
+ 
     //answer table filled with values
     let table = `
         <table class='table'>
@@ -215,5 +208,5 @@ function speedCurve(){
                 } ]
             }
         }
-      });
+    });
 }
