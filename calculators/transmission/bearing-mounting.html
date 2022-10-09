@@ -46,6 +46,14 @@
                             <input type="range" min="1" max="3" value="2" class="slider" id="bearingChoice_perf" onchange="bearingChoice_refreshSliderVal(this.value,'perf')">
                             <p><span id="bearingChoice_PerfVal"></span></p>
                         </div>
+                        <div style="white-space:nowrap; display: flex; flex-direction: row; justify-content: flex-start;">
+                            <input type="checkbox" id="bearingChoice_thermal">
+                            <label>{High thermal stress}</label>
+                        </div>
+                        <div style="display: flex; flex-direction:row">
+                            <input type="checkbox" id="bearingChoice_paf">
+                            <label> {Overhang}</label>
+                        </div>
 
                         <input type="button" value="{Compute}" onclick="bearingChoice_findBest()" class="compute-button"/><br>
 
@@ -55,6 +63,8 @@
                             <tr><th>{Case} 3&4</th><td><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMounting3.png"></td><td><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMounting4.png"></td><td id="bearingChoice_34"></td></tr>
                             <tr><th>{Case} 5</th><td><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMounting5.png"></td><td><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMounting5.png"></td><td id="bearingChoice_5"></td></tr>
                             <tr><th>{Case} 6&7</th><td><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMounting6.png"></td><td><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMounting7.png"></td><td id="bearingChoice_67"></td></tr>
+                            <tr><th>{Case} X</th><td><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMountingX.png"></td><td><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMountingX.png"></td><td id="bearingChoice_X"></td></tr>
+                            <tr><th>{Case} O</th><td style="display: flex; flex-direction: row;" title="{Turning shaft and O mounting : To readuce wear you have to mount the bearing on a slider (for exemple a pulley)}"><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMountingOAT.png">🛈</td><td><img style="width:250px;max-width: 250px;" src="../../img/bearings/bMountingOLT.png"></td><td id="bearingChoice_O"></td></tr>
                         </table>
 
                     </div>

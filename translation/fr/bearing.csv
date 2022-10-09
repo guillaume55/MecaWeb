@@ -42,3 +42,6 @@ Load,Charge
 Length,Distance
 Force on bearing,Force sur le roulement
 Not on both bearing usualy. The axial load is supported by only only bearing at a time,Attention ! La charge axiale n'est normalement supportée que par un seul roulement à la fois. 
+High termal stress,Contraintes thermiques élevées
+Overhang,Porte à faux
+Turning shaft and O mounting : To readuce wear you have to mount the bearing on a slider (for exemple a pulley),Montage en O et arbre tournant. Pour réduire l'usure de l'arbre il est préférable de monter serré le roulement sur une pièce intermédiaire (ex : poulie) bloquée en rotation mais avec un ddl de translation (réglage à jeu nul)

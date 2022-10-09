@@ -4,8 +4,12 @@ function bearingChoice_findBest(){
     //let Fr = parseFloat(document.getElementById('bearingChoice_radialLoad').value);
     let radAx = document.getElementById('bearingChoice_RadAx').value;
     let perf = document.getElementById('bearingChoice_perf').value;
+    
+    let paf = document.getElementById('bearingChoice_paf').checked
+    let thermalConstraint = document.getElementById('bearingChoice_thermal').checked
 
-    let res = {"bearingChoice_12":5, "bearingChoice_34":5,"bearingChoice_5":5,"bearingChoice_67":5}
+    //values comes from nowhere, We can talk about that 
+    let res = {"bearingChoice_12":5, "bearingChoice_34":5,"bearingChoice_5":5,"bearingChoice_67":5, "bearingChoice_X":5, "bearingChoice_O":5}
     if(dir==2){
         res['bearingChoice_34']-=3
         res['bearingChoice_67']-=4
@@ -14,16 +18,33 @@ function bearingChoice_findBest(){
     {
         res['bearingChoice_67']+=3
         res['bearingChoice_5']-=3
+        res['bearingChoice_X']-=4
+        res['bearingChoice_O']-=4
     }
     else if(perf==3) //high perf
     {
         res['bearingChoice_67']-=3
         res['bearingChoice_5']+=3
+        res['bearingChoice_X']+=3
+        res['bearingChoice_O']+=3
     }
     if(radAx >3){
         res['bearingChoice_67']-=3
         res['bearingChoice_34']-=2
         res['bearingChoice_5']+=radAx
+        res['bearingChoice_X']+=2
+        res['bearingChoice_O']+=2
+    }
+    if(thermalConstraint == true){
+        //hyperstatic mounting is not the friend of thermal expension
+        res['bearingChoice_O']-=4
+        res['bearingChoice_X']-=4
+
+        res['bearingChoice_5']-=3
+    }
+    if(paf == true){
+        res['bearingChoice_O']+=3
+        res['bearingChoice_X']-=3
     }
     
     //Object.keys(res).sort()
@@ -42,8 +63,7 @@ function bearingChoice_findBest(){
 function bearingChoice_refreshSliderVal(val, slider){
     console.log(val, slider)
     if(slider=="perf"){
-        //let perfData = [T['Economical'], T['Middle'], T['High performance']]
-        let perfData = ['Economical', 'Middle', 'High performance']
+        let perfData = [T['Economical'], T['Middle'], T['High performance']]
         document.getElementById('bearingChoice_PerfVal').innerHTML = perfData[val-1]
     }
     else if(slider=="radAx"){

@@ -18,7 +18,7 @@ With shocks,With shocks
 life in million of turns,life in million of turns
 life in hours,life in hours
 Economical,Economical
-Middle,Middle
+Middle,Equilibrated
 High performance,High performance and rigidity
 Axial load direction,Axial load direction
 One way,One way
@@ -42,3 +42,6 @@ Load,Load
 Length,Length
 Force on bearing,Force on bearing
 Not on both bearing usualy. The axial load is supported by only only bearing at a time,Not on both bearing usualy. The axial load is supported by only only bearing at a time
+High termal stress,High thermal stress
+Overhang,Overhang
+Turning shaft and O mounting : To readuce wear you have to mount the bearing on a slider (for exemple a pulley),Turning shaft and O mounting : To readuce wear you have to mount the bearing on a slider (for exemple a pulley)
