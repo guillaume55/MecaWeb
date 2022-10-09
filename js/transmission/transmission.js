@@ -87,7 +87,8 @@ function speedCurve(){
     let x = [0,roundDec(ta,3),roundDec(ta+tf,3),roundDec(totalTime,3)]
     let data = [{x:x[0],y:vi},{x:x[1],y:vf},{x:x[2],y:vf},{x:x[3],y:vi}]
     let color = "rgba(0,0,200,0.5)";
-    if(dist_flat < 0){ //can't reach max speed at time
+    console.log("flat", dist_flat)
+    if(dist_flat <= 0){ //can't reach max speed at time
         tf = 0
         x = [0,roundDec(ta,3),roundDec(totalTime,3)]
         data = [{x:x[0],y:vi},{x:x[1],y:vf},{x:x[3],y:vi}]
@@ -97,7 +98,6 @@ function speedCurve(){
     var myChart = new Chart("curve_chart", {
         type: "line",
         data: {
-            
             labels: x,
             datasets: [{
                 label: 'Speed',
@@ -109,7 +109,6 @@ function speedCurve(){
             }]
         },
         options:{
-           
         }
       });
 }
