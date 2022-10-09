@@ -40,6 +40,11 @@
                 <input id="curve_accel" type="number" min="0" onchange="speedCurve()" value="50"/><span>mm/s²</span>
                 </div></br>
 
+                <div style="display: flex; flex-direction: row">
+                    <input type="checkbox" id="curve_decel" checked/>
+                    <label>{Decelerating}</label>
+                </div>
+
                 <input type="button" value="{Compute movement}" onclick="speedCurve()" class="compute-button"/></br>
                 <!--Output-->
                 <div id="curve_div"></div>
@@ -50,6 +55,7 @@
     </div>
     <script>
         translate("transmission")
+        setTimeout(speedCurve,500); //show speed curve at the begining
     </script>
 
     

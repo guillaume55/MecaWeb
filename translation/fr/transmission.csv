@@ -15,7 +15,7 @@ Distance,Distance
 Initial speed,Vitesse initiale
 Final speed,Vitesse finale
 Accel,Accelération
-Can't reach at time,N'atteint jamais la vitesse maximale
+Can't reach on time,N'atteint jamais la vitesse maximale
 Time to reach max speed,Temps pour atteindre la vitesse maximale
 Total time of the movement,Durée du mouvement
 Distance to reach max speed (same unit as distance provided),Distance pour atteindre la vitesse maximale (même unité que la distance entrée)
@@ -44,3 +44,4 @@ Microsteps,Microsteps
 Steps settings,Configuration
 Compute movement,Dessiner le graph
 Be carreful ! The precision of a stepper depends on the driver and is not equal to the distance between two microsteps. Microstepping is used to smooth torque and movement.,Attention ! La précision du positionnement dépend du contrôleur de moteur et n'est pas égale à la distance entre deux micro-pas. Les micro-pas sont là pour lisser le couple et fluidifier le mouvement.
+Decelerating,Prendre en compte la décélération

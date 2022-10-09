@@ -63,44 +63,135 @@ function getInput(id) {
 }
 
 function speedCurve(){
-    let vi = parseFloat(document.getElementById('curve_speedInit').value);
-    let vf = parseFloat(document.getElementById('curve_speedFinal').value);
-    let a = parseFloat(document.getElementById('curve_accel').value);
-    let d = parseFloat(document.getElementById('curve_dist').value);
-    console.log(vi,vf,a,d)
+    let initVelocity = parseFloat(document.getElementById('curve_speedInit').value);
+    let finalVelocity = parseFloat(document.getElementById('curve_speedFinal').value);
+    let accel = parseFloat(document.getElementById('curve_accel').value);
+    let distance = parseFloat(document.getElementById('curve_dist').value);
+    let decelerating = document.getElementById('curve_decel').checked;
+    console.log(initVelocity,finalVelocity,accel,distance)
 
     //time to do the movement
-    let ta = (vf - vi) / a //time spent on accel
-    let dist_accel = vi * ta + 0.5 * a * ta * ta
-    let dist_flat = d - dist_accel * 2
-    let tf = dist_flat / vf //length (s) of the flat part
-    if(dist_flat <= 0) //can't reach max speed at time
-        tf = 0
-    
-    let totalTime = roundDec( 2*ta + tf,5)
-
-    let table = `<table class='table'><tr><td>${T['Distance to reach max speed (same unit as distance provided)']}</td><td>${roundDec(dist_accel,3)}</td></tr><tr><td>${T['Time to reach max speed']} (s)</td><td>${dist_flat > 0 ? roundDec(ta,3) : T["Can't reach at time"]}</td></tr>`
-    table += `<tr><td>${T['Total time of the movement']} (s)</td><td>${totalTime}</td></tr></table>`
-    document.getElementById("curve_div").innerHTML = table;
 
     //plot curve
-    let x = [0,roundDec(ta,3),roundDec(ta+tf,3),roundDec(totalTime,3)]
-    let data = [{x:x[0],y:vi},{x:x[1],y:vf},{x:x[2],y:vf},{x:x[3],y:vi}]
-    let color = "rgba(0,0,200,0.5)";
-    console.log("flat", dist_flat)
-    if(dist_flat <= 0){ //can't reach max speed at time
-        tf = 0
-        x = [0,roundDec(ta,3),roundDec(totalTime,3)]
-        data = [{x:x[0],y:vi},{x:x[1],y:vf},{x:x[3],y:vi}]
-        color = "rgba(200,0,0,0.8)";
+    let x = []
+    let data = []
+    let color = "rgba(0,0,200,0.5)"; //green if there is a flat part
+
+    //compute each distance
+    let timeAccel = (finalVelocity - initVelocity) / accel //time spent on accel
+    let dist_accel = initVelocity * timeAccel + 0.5 * accel * timeAccel * timeAccel
+    let  dist_flat = distance - dist_accel //if only acceleration
+    let totalTime = 0
+    let reachableSpeed = -1 //if we cannot reach final velocity
+
+    if(decelerating == true){
+        //Accel +  decel
+        //With not enougth distance to reach max speed
+        if((dist_accel*2) > distance){
+            console.log("Accel + decel, to short")
+            dist_accel = distance/2
+            dist_flat = 0
+
+            //actual final velocity is reached at distance/2 and given by vf = sqrt(vi² - 2*accel * d)
+            console.log(initVelocity, accel, distance)
+            reachableSpeed = roundDec(Math.sqrt( (initVelocity*initVelocity) + 2*accel*(distance/2) ),2)  //distance of accel is distance /2
+            timeAccel = (reachableSpeed - initVelocity) / accel
+            totalTime = roundDec(timeAccel*2, 3)
+
+            //graph related
+            x = [0,roundDec(timeAccel,3),roundDec(totalTime,3)]
+            data = [{x:x[0],y:initVelocity},{x:x[1],y:reachableSpeed},{x:x[3],y:initVelocity}]
+            color = "rgba(200,0,0,0.8)"; //red
+        } 
+        else //with enougth distance to reach max speed
+        {
+            console.log("Accel + decel, okay")
+            dist_flat = distance - dist_accel * 2 //if accel and deccel
+            let timeFlat = dist_flat / finalVelocity //length (s) of the flat part
+            totalTime = roundDec( 2*timeAccel + timeFlat,5)
+
+            //graph
+            x = [0,roundDec(timeAccel,3),roundDec(timeAccel+timeFlat,3),roundDec(totalTime,3)]
+            data = [{x:x[0],y:initVelocity},{x:x[1],y:finalVelocity},{x:x[2],y:finalVelocity},{x:x[3],y:initVelocity}]
+            
+            //same calculation method but only 3 points on the graph
+            if((dist_accel*2) == distance){
+                x = [0,roundDec(timeAccel,3),roundDec(totalTime,3)]
+                data = [{x:x[0],y:initVelocity},{x:x[1],y:finalVelocity},{x:x[3],y:initVelocity}]
+            }
+        }
+    } else {
+        //NO decel, Only accel
+        //With not enougth distance to reach max speed
+        if(dist_accel > distance){
+            console.log("Accel only, to short")
+            dist_accel = distance
+            dist_flat = 0
+
+            //actual final velocity is reached at distance/2 and given by vf = sqrt(vi² * 2a*d)
+            reachableSpeed = roundDec(Math.sqrt( (initVelocity*initVelocity) + (2*accel*distance) ),2)
+            timeAccel = (reachableSpeed - initVelocity) / accel
+            totalTime = roundDec(timeAccel, 3)
+
+            //graph related
+            x = [0,roundDec(totalTime,3)]
+            data = [{x:x[0],y:initVelocity},{x:x[1],y:reachableSpeed}]
+            color = "rgba(200,0,0,0.8)"; //red
+        }
+        else //with enougth distance to reach max speed
+        {
+            console.log("Accel only, okay")
+            dist_flat = distance - dist_accel //if accel only
+            let timeFlat = dist_flat / finalVelocity //length (s) of the flat part
+            totalTime = roundDec( timeAccel + timeFlat,5)
+
+            //graph
+            x = [0,roundDec(timeAccel,3),roundDec(totalTime,3)]
+            data = [{x:x[0],y:initVelocity},{x:x[1],y:finalVelocity},{x:x[2],y:finalVelocity}]
+
+            //same calculation method but only 3 points on the graph
+            if(dist_accel >= distance){
+                x = [0,roundDec(totalTime,3)]
+                data = [{x:x[0],y:initVelocity},{x:x[1],y:finalVelocity}]    
+            }
+        }
     }
-    
+    console.log ("x",x)
+    console.log("data",data)
+    console.log('reachable speed', reachableSpeed)
+    //answer table filled with values
+    let table = `
+        <table class='table'>
+            <tr>
+                <td>${T['Distance to reach max speed (same unit as distance provided)']}</td>
+                <td>${dist_flat > 0 ? roundDec(dist_accel,3): T["Can't reach on time"]}</td>
+                <td>mm</td>
+            </tr>
+            <tr>
+                <td>${T['Time to reach max speed']} (s)</td>
+                <td>${reachableSpeed == -1 ? roundDec(timeAccel,3) : T["Can't reach on time"]}</td>
+                <td>s</td>
+            </tr>
+            <tr>
+                <td>${T['Final speed']}</td>
+                <td>${reachableSpeed == -1 ? finalVelocity : "<strike>"+finalVelocity.toString()+"</strike> "+ reachableSpeed.toString()}</td>
+                <td>mm/s</td>
+            </tr>
+            <tr>
+                <td>${T['Total time of the movement']} (s)</td>
+                <td>${totalTime}</td>
+                <td>s</td>
+            </tr>
+        </table>`
+    document.getElementById("curve_div").innerHTML = table;
+
+    //plot data
     var myChart = new Chart("curve_chart", {
         type: "line",
         data: {
             labels: x,
             datasets: [{
-                label: 'Speed',
+                label: T['Speed']+' (mm/s)',
                 fill: false,
                 pointRadius: 1,
                 borderColor: color,
@@ -109,6 +200,20 @@ function speedCurve(){
             }]
         },
         options:{
+            scales: {
+                xAxes: [ {
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Time (s)"
+                    }
+                } ],
+                yAxes: [ {
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Speed (mm/s)"
+                    }
+                } ]
+            }
         }
       });
 }
