@@ -18,8 +18,7 @@ function graphRes(bars)  {
     
     html = "<div class='res-bars'>"
     for(var bar of bars)  {
-        loss = roundDec(100-bar.ratio,1).toString()
-        html += `<div class="res-barLen">${T['Length']} :${bar.len}mm, ${T['Loss']}:${loss}%</div>`
+        html += `<div class="res-barLen">${T['Length']} :${bar.len}mm, ${T['Loss']}:${roundDec(bar.ratio,1)}%</div>`
         html += graphBar(bar.cuts, bar['len'])  
     }
     html += "</div>"
@@ -52,14 +51,15 @@ Remaning        Cut 1   Cut 2   Cut x
 function exportToCsv(bars, remainingCuts) {
     var delimiter = document.getElementById('delimiter').value
     //write bars
-    var csv = `${T['Bar Length']}${delimiter}Ratio${delimiter}Cuts\n`
+    var csv = `${T['Bar Length']}${delimiter}${T['Loss']}${delimiter}Cuts\n`
     for(bar of bars){
-        csv += `${bar.len},${bar.ratio}${delimiter}`
+        csv += `${bar.len},${bar.ratio}${delimiter}[`
         
         for(cut of bar.cuts){
             csv += `${cut.len}${delimiter}`
         }
-        csv += '\n'
+        csv = csv.slice(0,-1)
+        csv += ']\n'
     }
     csv += '\n'
     if(remainingCuts.length > 0){
