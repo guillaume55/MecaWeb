@@ -3,15 +3,20 @@ function computeFlexion(){
 }
 
 function computeDisplacement(){
-    let len = parseFloat(document.getElementById('flexion_length').value)/1000;
+    let len = parseFloat(document.getElementById('flexion_beamLen').value)/1000;
     let young = parseFloat(document.getElementById('flexion_young').value)*1000000000;
     let f = parseFloat(document.getElementById('flexion_force').value);
     let q = parseFloat(document.getElementById('flexion_q').value);
     let a = parseFloat(document.getElementById("flexion_a").value)/1000;
-    
+
     if(a >= len){
         document.getElementById('flexion_maxDisp').innerHTML = "a should be < beam length"
     }
+
+    let deadWeight = document.getElementById('flexion_deadWeight').checked;
+    let deadWeightForce = getSelfWeight();
+    let deadWeightDisp = 0
+    console.log(deadWeightForce)
 
     let mounting = getRadio('flexionMoutingType')
     let inertia = flexion_computeInertia()/1000000000000
@@ -33,16 +38,27 @@ function computeDisplacement(){
         maxDisp = -(q*Math.pow(a,3)*(4*len-a))/(24*young*inertia);
         xf = "x=L"
     }
-    else if(mounting == "2pts_concen"){  
+    else if(mounting == "2pts_concen"){ 
         maxDisp = -(f*Math.pow(len,3))/(48*young*inertia);
     }else if(mounting == "2pts_concen_ab"){  //this formula is from omni calculator
         let b = len-a;
         let up = f*b*(3*len*len-4*b*b)
         let down = 48*young*inertia
         maxDisp = up/down;
-        xf = `x=${Math.sqrt((len*len-b*b)/3)}`   //pont with max disp       
+        xf = `x=${Math.sqrt((len*len-b*b)/3)}`   //pont with max disp
     }else if(mounting == "2pts_distri"){
         maxDisp = -(5*q*Math.pow(len,4))/(384*young*inertia);
+    }
+
+    if(mounting == "encas_concen" || mounting == "encas_concen_ab" || mounting == "encas_distri" || mounting == "encas_distri_ab"){
+        deadWeightDisp = -(deadWeightForce*Math.pow(len/2,2)*(3*len/2))/(6*young*inertia);
+        console.log("deadweight", deadWeightForce, deadWeightDisp)
+    }else {
+        deadWeightDisp = -(5*(deadWeightForce/len)*Math.pow(len,4))/(384*young*inertia);
+    }
+
+    if(deadWeight){
+        maxDisp = deadWeightDisp + maxDisp
     }
 
     maxDisp = -maxDisp*1000 //m to mm, reverted sign, we can imagine that maxDisp in <0
@@ -77,7 +93,7 @@ function flexion_computeInertia(){
     let height = parseFloat(document.getElementById("flexion_beamHeight").value);
     let diam = parseFloat(document.getElementById("flexion_beamDiam").value);
 
-    let beamType = getRadio("flexionSection")
+    let beamType = getRadio("flexionShape")
     console.log(beamType, thickness,width,height,diam)
 
     let inertia = inertiaMoment(beamType, diam, thickness, width, height)
@@ -87,12 +103,12 @@ function flexion_computeInertia(){
 }
 
 function flexion_refreshQ(f){
-    let len = parseFloat(document.getElementById('flexion_length').value)/1000;
+    let len = parseFloat(document.getElementById('flexion_beamLen').value)/1000;
     document.getElementById('flexion_q').value = roundDec(f/len,2)
 }
 
 function flexion_refreshF(q){
-    let len = parseFloat(document.getElementById('flexion_length').value)/1000;
+    let len = parseFloat(document.getElementById('flexion_beamLen').value)/1000;
     document.getElementById('flexion_force').value = roundDec(q*len,2)
 }
 
@@ -104,4 +120,9 @@ function lockF(){
 function unlockF(){
     console.log("unlocked")
     document.getElementById('flexion_force').removeAttribute("readonly");
+}
+
+function getSelfWeight(){ //return weight in N on earth
+    let mass = computeMass("flexion");
+    return mass * 9.81
 }

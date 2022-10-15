@@ -18,7 +18,7 @@
     <script src='../../js/struct/materials.js'></script>
     <script src='../../js/ui.js'></script>
     <script src='../../js/struct/inertia.js'></script>
-
+    <script src="../../js/other/mass.js"></script>
 
     <div>
         <div class="item section">
@@ -27,22 +27,22 @@
                 <div class="radio-button" onclick="document.getElementById('flexion_section1').click(); showBeamParams('rect', 'flexion')">
                     <label>{Rectangular}</label>
                     <img src="../../img/rect.png"/>
-                    <input type="radio" id="flexion_section1" name="flexionSection" value="rect" checked>
+                    <input type="radio" id="flexion_section1" name="flexionShape" value="rect" checked>
                 </div>
                 <div class="radio-button" onclick="document.getElementById('flexion_section2').click(); showBeamParams('rect_pipe', 'flexion')">
                     <label>{Rectangular pipe}</label>
                     <img src="../../img/rectTube.png"/>
-                    <input type="radio" id="flexion_section2" name="flexionSection" value="rect_pipe">
+                    <input type="radio" id="flexion_section2" name="flexionShape" value="rect_pipe">
                 </div>
                 <div class="radio-button" onclick="document.getElementById('flexion_section3').click(); showBeamParams('circ', 'flexion')">
                     <label>{Circular}</label>
                     <img src="../../img/round.png"/>
-                    <input type="radio" id="flexion_section3" name="flexionSection" value="circ">
+                    <input type="radio" id="flexion_section3" name="flexionShape" value="circ">
                 </div>
                 <div class="radio-button" onclick="document.getElementById('flexion_section4').click(); showBeamParams('circ_pipe', 'flexion')">
                     <label>{Circular pipe}</label>
                     <img src="../../img/roundTube.png"/>
-                    <input type="radio" id="flexion_section4" name="flexionSection" value="circ_pipe">
+                    <input type="radio" id="flexion_section4" name="flexionShape" value="circ_pipe">
                 </div>
             </div>
             <div class="section-content">
@@ -86,15 +86,24 @@
 
                 <label>{Beam length}</label>
                 <div class="input-unit">
-                    <input id="flexion_length" type="number" value="500" min="0"/><span>mm</span>
+                    <input id="flexion_beamLen" type="number" value="500" min="0"/><span>mm</span>
                 </div><br>
 
                 <label>{Material}</label>
-                <select id="flexion_material" onchange="selectYoung(this.value,'flexion_young')"></select></br>
+                <select id="flexion_material" onchange="selectYoung(this.value,'flexion_young'); selectDensity(this.value, 'flexion_density') "></select></br>
 
                 <label>{Young's Modulus}</label>
                 <div class="input-unit">
                     <input id="flexion_young" type="number" value="210" min="0"/><span>Gpa</span>
+                </div></br>
+
+                <label>{Density}</label>
+                <div class="input-unit">
+                    <input id="flexion_density" type="number" value="1000" min="0"/><span>kg/m²</span>
+                </div></br>
+                
+                <div class="checkbox-and-text" style="display:none;">
+                    <input id="flexion_deadWeight" type="checkbox" /><span>Experimental ! {Include self-weight}</span>
                 </div></br>
 
                 <label>{Load} F</label>
