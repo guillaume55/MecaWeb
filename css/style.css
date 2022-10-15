@@ -162,6 +162,13 @@ select{
   min-width:100px;
 }
 
+.checkbox-and-text{
+  white-space:nowrap; 
+  display: flex; 
+  flex-direction: row; 
+  justify-content: flex-start;
+}
+
 
 /****  CALCULATOR *****/
 #embed_calculator{
