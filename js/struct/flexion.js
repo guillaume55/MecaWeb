@@ -40,7 +40,20 @@ function computeDisplacement(){
     }else if(mounting == "2pts_distri"){
         maxDisp = -(5*q*Math.pow(len,4))/(384*young*inertia);
     }
-   
+
+    maxDisp = -maxDisp*1000 //m to mm, reverted sign, we can imagine that maxDisp in <0
+    console.log("maxDisp", maxDisp)
+    if(maxDisp < 1){ //in µm
+        maxDisp = maxDisp*1000;
+        document.getElementById('flexion_maxDisp_unit').innerHTML = "µm";
+        console.log("maxDisp um", maxDisp)
+    }
+    if(maxDisp < 1){ //in nm
+        maxDisp = maxDisp*1000;
+        console.log("maxDispnm", maxDisp)
+        document.getElementById('flexion_maxDisp_unit').innerHTML = "nm";
+    }
+
     console.log(young, inertia,len,mounting)
     document.getElementById('res_flexionLowest').innerHTML = xf
 
@@ -50,7 +63,7 @@ function computeDisplacement(){
     document.getElementById('res_flexionQ').innerHTML = mounting.search("distri") != -1 ? q : "X"
     document.getElementById('res_flexionInertia').innerHTML = roundDec(inertia*1000000000000,2)
     document.getElementById('res_flexionA').innerHTML = mounting.search("ab") != -1 ? a : "X"
-    document.getElementById('flexion_maxDisp').innerHTML = roundDec(maxDisp*1000,8)
+    document.getElementById('flexion_maxDisp').innerHTML = roundDec(maxDisp,3)
 }
 
 
