@@ -9,6 +9,10 @@ function computeDisplacement(){
     let q = parseFloat(document.getElementById('flexion_q').value);
     let a = parseFloat(document.getElementById("flexion_a").value)/1000;
     
+    if(a >= len){
+        document.getElementById('flexion_maxDisp').innerHTML = "a should be < beam length"
+    }
+
     let mounting = getRadio('flexionMoutingType')
     let inertia = flexion_computeInertia()/1000000000000
 
