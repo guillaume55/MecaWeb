@@ -36,6 +36,8 @@ multiplication,multiplication
 Fullstep,Pas complet
 mm/step,mm par par
 Steps/mm,Pas par mm
+Steps/deg,Steps par deg
+mm/deg,mm par deg
 Output,Mécanisme de sortie
 Milimeters by turn,Milimètres par tour
 Steps by mm,Pas par mm
