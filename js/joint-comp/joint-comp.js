@@ -138,7 +138,7 @@ function check_state() {
 
             var mob_int = mob_links[j]-1
             //console.log(mob_int)
-            cell.innerHTML = '☑ '+ mob_int +' mobilité(s) interne(s)'
+            cell.innerHTML = '☑ '+ mob_int + ' '+ T['internal mobilities']
             cell_value[j] = mob_int +1
         }
         else {
