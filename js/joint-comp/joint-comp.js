@@ -208,7 +208,7 @@ function hint(){
 function show_hint(hint)
 {
     var table = document.getElementById("hint")
-    table.innerHTML = "<tr><th>Suggestion</th><th>Mobilités internes</th></tr>"
+    table.innerHTML = `<tr><th>Suggestion</th><th>${T['Internal mobilities']}</th></tr>`
     table.style.display = "block"
 
     for(k in hint) {
