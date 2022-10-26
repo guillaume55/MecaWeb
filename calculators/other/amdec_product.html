@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{Choice}</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="../../css/style.css">
+      <link rel="stylesheet" type="text/css" href="../../css/table.css">
+  </head>
+  <body>
+    <script src='../../js/other/amdecProduct.js'></script>
+    <script src='../../js/other/choiceTable.js'></script>
+    <script src='../js/calculator.js'></script>
+    
+
+
+    <table id="choiceTable">
+        <tr><th rowspan="2"></th><th rowspan="2">{Feature}</th><th rowspan="2">{Mode of failure}</th><th rowspan="2">{Effect of failure}</th><th rowspan="2">{Causes of failure}</th><th colspan="4">{Evaluation}</th><th colspan="2">{Preventive actions}</th><th colspan="4">{Results}</th></tr>
+        <tr style="height:120px;"><th><div class="rotate290">{Detection}</div></th><th><div class="rotate290">{Occurence}</div></th><th><div class="rotate290">{Gravity}</div></th><th><div class="rotate290">{Criticity}</div></th><th>{Recommended}</th><th>{Setting-up}</th><th><div class="rotate290">{Detection}</div></th><th><div class="rotate290">{Occurence}</div></th><th><div class="rotate290">{Gravity}</div></th><th><div class="rotate290">{New criticity}</div></th></tr>
+
+    </table>
+    <input type="button" onclick="amdec_appendLine()" value="{New line}"/>
+    <input type="button" onclick='exportCSV("Feature,Mode of failure,Effect of failure,Cause of failure,Dectability,Occurence,Gravity,Criticity,Recommended actions,Effective actions,Dectability,Occurence,Gravity,New criticity","features_,mode_,effect_,cause_,dect1_,occ1_,grav1_,crit1_,recommended_,done_,dect2_,occ2_,grav2_,crit2_")' value="{Export to csv}"/>
+    <a class="hidden" id="save-csv"></a>
+    <script>
+        //translate("amdec")
+        var currentLine = 0;
+        amdec_appendLine();
+        
+    </script>
+
+    <style>
+        .thumb{
+            width:200px;
+        }
+        textarea, input{
+            padding: 3px;
+            margin: 4px;
+        }
+        th {
+            background-color: rgb(13, 13, 80);
+            color: white;
+        }
+
+        .rotate290 {
+            /*display:inline-block;
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+            -webkit-transform: rotate(290deg);
+            -ms-transform: rotate(290deg);
+            transform: rotate(290deg);*/
+            
+            -webkit-transform: rotate(270deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(270deg);  /* IE 9 */
+                    transform: rotate(270deg);  /* Firefox 16+, IE 10+, Opera */
+            max-width: 30px;
+            margin-top: 50px;
+        }
+
+        .xtra-small-input{
+            width:30px;
+        }
+    </style>
+    
+  </body>
+</html>

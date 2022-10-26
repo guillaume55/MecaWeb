@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{Choice}</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="../../css/style.css">
+      <link rel="stylesheet" type="text/css" href="../../css/table.css">
+  </head>
+  <body>
+    <script src='../../js/other/choiceTable.js'></script>
+    <script src='../js/calculator.js'></script>
+    
+
+
+    <table id="choiceTable">
+        <tr><th></th><th>{Solution}</th><th>{Strengths}</th><th>{Weaknesses}</th><th>Cost</th><th>Rank</th></tr>
+
+    </table>
+    <input type="button" onclick="appendLine()" value="{New line}"/>
+    <input type="button" onclick='exportCSV("Solution,Image,Strengths,Weaknesses,Cost,Rank","solution_,urlImg_,strengths_,weaknesses_,cost_,rank_")' value="{Export to csv}"/>
+    <a class="hidden" id="save-csv"></a>
+    <script>
+        //translate("choiceTable")
+        var currentLine = 0;
+        appendLine();
+        
+    </script>
+
+    <style>
+        .thumb{
+            width:200px;
+        }
+        textarea, input{
+            padding: 3px;
+            margin: 4px;
+        }
+        th {
+            background-color: rgb(13, 13, 80);
+            color: white;
+        }
+    </style>
+    
+  </body>
+</html>
