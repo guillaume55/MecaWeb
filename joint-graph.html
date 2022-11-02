@@ -31,8 +31,8 @@
 <iframe src="htmlBricks/sideCalculator.html" id="embed_calculator" width="305" height="500" scrolling="no" frameBorder="0"></iframe>
 <input type="button" id="calculator_button" value="" onclick="toggleCalculator()">
 <!--discord-->
-<a href="https://discord.com/channels/957674596545495101/957674597006843985" target="_blank" id="discord_link"><img src="img/discord.png" alt="discord"></a>
-
+<!--<a href="https://discord.com/channels/957674596545495101/957674597006843985" target="_blank" id="discord_link"><img src="img/discord.png" alt="discord"></a>
+-->
 <script>
     //load an example (graph)
     const urlParams = new URLSearchParams(window.location.href)
@@ -57,7 +57,7 @@
 
     <div id="main">
         <div style="display: inline-flex; width:100%;">
-            <div id="cy" style="min-width: 500px; width:75%;"></div>
+            <div id="cy" style="min-width: 500px; width:75%; height: 60vh;"></div>
             <div id="sideButtons" style="margin:10px;">
                 <label id="translate-openex">{Open example}</label><br>
                 <select id="exampleLink">
@@ -97,22 +97,37 @@
         translate("joint-graph", false, translateWithCare)  //generate dictionnary without replacing (bug with cytoscape)
 
         var graph = []
-
+        var select_bool = false; //used to select field one after one (alternating true and false)
+        var last_node_clicked = ""; //if clicked twice, open edit tab, if once, add link
+        
         var cy;
         function create_cytoscape(){
             cy = cy_create(document.getElementById('cy'))
-            comp_sLink(document.getElementById('alink'),"sa1 sa2 name point")
+            //comp_sLink(document.getElementById('alink'),"sa1 sa2 name point")
+            comp_sLink(document.getElementById('alink'),"sa1 sa2 name")
             comp_sNode(document.getElementById('anode'))
             edit_tab(document.getElementById('edit'), undefined)
             export_button(document.getElementById('export'))
 
             cy.on('tap', 'node', function(evt){
                 var node = evt.target;
-                openTab(event, 'edit')
-                console.log( 'clicked ' + node.id() );
-                edit_tab(document.getElementById('edit'), node.id())
+                var id = node.id();
+                if(last_node_clicked == id) //clicked twice
+                    openTab(event, 'edit')
+                else    
+                    openTab(event, 'alink')
+                
+                last_node_clicked = id
+                console.log( 'clicked ' + id );
+
+                edit_tab(document.getElementById('edit'), id)
+                //fill link selects with last clicked node
+                document.getElementById(select_bool ? "link_sa1":"link_sa2").value =  id.toString().trim()
+                select_bool = !select_bool;
+
             });
             cy.on('tap', 'edge', function(evt){
+                last_node_clicked = "" //rst this counter for nodes
                 var edge = evt.target;
                 openTab(event, 'edit')
                 console.log( 'clicked ' + edge.id() );
