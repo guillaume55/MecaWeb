@@ -12,15 +12,16 @@ function computeStepper(){
         label2 = T['mm/step']
         res = stepsPerTurn * microsteps * (1/mmTr)
     }
-    else {
+    else { //rotative output
+        console.log("rot")
         label1 = T['Steps/deg']
-        label2 = T['mm/deg']
-        res = stepsPerTurn * microsteps * ratio
+        label2 = T['deg/step']
+        res = ((stepsPerTurn*microsteps)/360) * ratio
 
     }
 
     document.getElementById('stepper-resLabel1').innerHTML = label1
-    document.getElementById('stepper-res').innerHTML = res
+    document.getElementById('stepper-res').innerHTML = roundDec(res,4)
     document.getElementById('stepper-resLabel2').innerHTML = label2
     document.getElementById('stepper-invRes').innerHTML = roundDec(1/res,6)
 

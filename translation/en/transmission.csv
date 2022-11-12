@@ -37,7 +37,7 @@ Fullstep,Fullstep
 mm/step,mm by step
 Steps/mm,Steps by mm
 Steps/deg,Steps/deg
-mm/deg,mm/deg
+deg/step,Deg/step
 Output,Output type
 Milimeters by turn,Milimeters by turn
 Steps by mm,Steps by mm

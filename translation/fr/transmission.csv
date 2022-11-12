@@ -9,7 +9,7 @@ Efficiency,Rendement
 Torque,Couple
 or Force,ou force
 Speed,Vitesse
-Rotative,Rotative
+Rotative,Rotatif
 Linear,Linéaire
 Distance,Distance
 Initial speed,Vitesse initiale
@@ -37,7 +37,7 @@ Fullstep,Pas complet
 mm/step,mm par par
 Steps/mm,Pas par mm
 Steps/deg,Steps par deg
-mm/deg,mm par deg
+deg/step,degrés par pas
 Output,Mécanisme de sortie
 Milimeters by turn,Milimètres par tour
 Steps by mm,Pas par mm
@@ -45,5 +45,5 @@ mm by step,mm par pas
 Microsteps,Microsteps
 Steps settings,Configuration
 Compute movement,Dessiner le graph
-Be carreful ! The precision of a stepper depends on the driver and is not equal to the distance between two microsteps. Microstepping is used to smooth torque and movement.,Attention ! La précision du positionnement dépend du contrôleur de moteur et n'est pas égale à la distance entre deux micro-pas. Les micro-pas sont là pour lisser le couple et fluidifier le mouvement.
+Be carreful ! The precision of a stepper depends on the driver and is not equal to the distance between two microsteps. Microstepping is used to smooth torque and movement.,Attention ! La précision du positionnement dépend du contrôleur de moteur et n'est pas nécessairement égale à la distance entre deux micro-pas. Les micro-pas sont là pour lisser le couple et fluidifier le mouvement.
 Decelerating,Prendre en compte la décélération
