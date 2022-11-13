@@ -5,11 +5,12 @@
    <body>
        <script src="../js/lib/math.js"></script>
        
-      <form name="calculator">
+      <form name="calculator" id="calculator">
          <table  id="calculator_table">
             <tr>
                <td colspan="4">
-                  <input type="text" name="display" id="calculator_display"><input type="button" name="calculator_historyButton" value ="&#8634;" id="calculator_historyButton" onclick="calc_toggleHistory()">
+                  <input type="text" name="display" id="calculator_display">
+                  <input type="button" name="calculator_historyButton" value ="&#8634;" id="calculator_historyButton" onclick="calc_toggleHistory()">
                </td>
             </tr>
             <tr>
@@ -43,7 +44,7 @@
       </form>
 
       <script>
-        hints = ['2 inch to mm', "cos(30)+cos(30)", "sqrt(-4)", "x = 7 / 2; x + 3"]
+        hints = ['2 inch to mm', "cos(30)+cos(30)", "sqrt(-4)", "x = 7 / 2; x + 3", "0.044deg to arcmin"]
         calculator.display.value = hints[Math.floor((Math.random() * 4))]
 
         function calc_compute(){
@@ -62,6 +63,16 @@
                document.getElementById('calculator_history').style.right = "5px";
             }
          }
+
+         //avoid refreshing when pressing enter
+         document.getElementById("calculator").onkeypress = function(e) {
+            var key = e.charCode || e.keyCode || 0;     
+            if (key == 13) {
+               e.preventDefault();
+               calc_compute();
+            }
+         } 
+
 
     </script>
    </body>
