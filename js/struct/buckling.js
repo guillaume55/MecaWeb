@@ -14,11 +14,6 @@ function computeBuckling(){
     let load = parseFloat(document.getElementById('buckling_force').value);
     pdfData.textField.load = load;
     pdfData.textField.load2 = load;
-
-    let thickness = parseFloat(document.getElementById("buckling_beamThick").value);
-    let width = parseFloat(document.getElementById("buckling_beamWidth").value);
-    let height = parseFloat(document.getElementById("buckling_beamHeight").value);
-    let diam = parseFloat(document.getElementById("buckling_beamDiam").value);
     
     let material = document.getElementById('buckling_material').value;
     pdfData.textField.material = material;
@@ -27,7 +22,7 @@ function computeBuckling(){
     let mounting = parseFloat(getRadio('bucklingMoutingType'))
     bucklingMountingToPdfImg(mounting)
 
-    let inertia = buckling_computeInertia(thickness, width, height, diam)
+    let inertia = buckling_computeInertia()
 
     //units !!! in newton
     let eulerCriticalLoad = (Math.PI*Math.PI * young*1000 * inertia)/(Math.pow(len*mounting,2))
@@ -66,7 +61,12 @@ function showBeamParams(beamType, prefix) {
 }
 
 
-function buckling_computeInertia(thickness, width, height, diam){
+function buckling_computeInertia(){
+    let thickness = parseFloat(document.getElementById("buckling_beamThick").value);
+    let width = parseFloat(document.getElementById("buckling_beamWidth").value);
+    let height = parseFloat(document.getElementById("buckling_beamHeight").value);
+    let diam = parseFloat(document.getElementById("buckling_beamDiam").value);
+
     let beamType = getRadio("bucklingSection")
 
     let inertia = inertiaMoment(beamType, diam, thickness, width, height)
@@ -79,7 +79,7 @@ function buckling_computeInertia(thickness, width, height, diam){
 }
 
 function bucklingMountingToPdfImg(mounting){
-    pdfData.imgField.mounting = {pos: [300,330], size:[50,70], page:0}
+    pdfData.imgField.mounting = {pos: [300,330], size:[35,70], page:0}
     console.log("mounting", mounting)
     if(mounting == 2)
     {
@@ -87,7 +87,7 @@ function bucklingMountingToPdfImg(mounting){
         pdfData.textField.coef = 2
         pdfData.textField.load_type_txt = T["Fixed"] + " - " + T['Free']
     }
-    else if (mounting == 0.7)
+    else if (mounting == 0.699) //not 0.7
     {
         pdfData.imgField.mounting.url = "https://guillaume55.github.io/MecaWeb/img/flambage_fixedRot.png"
         pdfData.textField.coef = 0.7

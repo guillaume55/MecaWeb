@@ -2,7 +2,6 @@ function computeFlexion(){
     pdfData = {}
     pdfData.textField = {}
     pdfData.imgField = {}
-
     pdfData.template = "https://guillaume55.github.io/MecaWeb/pdf/flexion_calculus_note.pdf";
 
     let len = parseFloat(document.getElementById('flexion_beamLen').value)

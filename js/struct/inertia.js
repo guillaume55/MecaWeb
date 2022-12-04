@@ -16,8 +16,8 @@ function inertiaMoment(beamType, diam, thickness, width, height){
 
 function inertiaShapeToPdf(beamType, diam, thickness, width, height){
     pdfData.imgField.shape_img = {}
-    pdfData.imgField.shape_img.pos = [100,600];
-    pdfData.imgField.shape_img.size = [100,100];
+    pdfData.imgField.shape_img.pos = [100,610];
+    pdfData.imgField.shape_img.size = [80,80];
     pdfData.imgField.shape_img.page = 0;
 
     if(beamType == "circ") {

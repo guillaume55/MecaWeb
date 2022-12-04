@@ -76,7 +76,7 @@
                 <div id="buckling_beamThick_div">
                     <label>{Moment of inertia}</label></br>
                     <div class="input-unit">
-                        <input type="number" id="buckling_resInertia" value="106666.67" min="0" disabled/><span>mm<sup>4</sup></span>
+                        <input type="number" id="buckling_resInertia" value="106666.67" disabled/><span>mm<sup>4</sup></span>
                     </div>
                 </div>
             </div>            
@@ -144,7 +144,7 @@
         
     <button onclick="openPdfInNewTab()">{Download as pdf}</button>
     <script>
-        let pdfData = {}
+        let pdfData = {imgField:{}, textField:{}} //will be initialized again but has to be init here to to avoid crash with onchange and computeInteria
         let pdfDataB64 = ""
         fillSelectGroup("buckling_material", getYoungModulus())
         showBeamParams("rect", "buckling")
