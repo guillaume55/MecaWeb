@@ -19,6 +19,9 @@
     <script src='../../js/ui.js'></script>
     <script src='../../js/struct/inertia.js'></script>
     <script src="../../js/other/mass.js"></script>
+    <script src="../../pdf/pdf.js"></script>
+    <script src="../../js/lib/pdf-lib.min.js"></script>
+
 
     <div>
         <div class="item section">
@@ -181,8 +184,10 @@
             </table>
         </div>
     </div>
-        
+    <button onclick="openPdfInNewTab()">{Download as pdf}</button>
     <script>
+        pdfData = {}
+        pdfDataB64 = ""
         fillSelectGroup("flexion_material", getYoungModulus())
         showBeamParams("rect", "flexion")
         translate("structure")

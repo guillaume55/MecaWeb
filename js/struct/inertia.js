@@ -13,3 +13,39 @@ function inertiaMoment(beamType, diam, thickness, width, height){
     }
     return inertia
 }
+
+function inertiaShapeToPdf(beamType, diam, thickness, width, height){
+    pdfData.imgField.shape_img = {}
+    pdfData.imgField.shape_img.pos = [100,600];
+    pdfData.imgField.shape_img.size = [100,100];
+    pdfData.imgField.shape_img.page = 0;
+
+    if(beamType == "circ") {
+        pdfData.imgField.shape_img.url = "https://guillaume55.github.io/MecaWeb/img/shapes/cyl.png"
+        pdfData.textField.width = `Ø${diam}`
+        pdfData.textField.height = "See width"
+        pdfData.textField.shape = "Cylinder"
+    }
+    else if(beamType == "circ_pipe") {
+        pdfData.imgField.shape_img.url = "https://guillaume55.github.io/MecaWeb/img/shapes/hollow_cyl.png"
+        pdfData.textField.width = `Ø${diam}`
+        pdfData.textField.height = "See width"
+        pdfData.textField.thickness = thickness
+        pdfData.textField.shape = "Hollow cylinder (pipe)"
+
+    }
+    else if(beamType == "rect") {
+        pdfData.imgField.shape_img.url = "https://guillaume55.github.io/MecaWeb/img/shapes/pave.png"
+        pdfData.textField.width = width
+        pdfData.textField.height = height
+        pdfData.textField.shape = "Rectangular"
+    }
+    else if(beamType == "rect_pipe") {
+        pdfData.imgField.shape_img.url = "https://guillaume55.github.io/MecaWeb/img/shapes/hollow_pave.png"
+        pdfData.textField.width = width
+        pdfData.textField.height = height
+        pdfData.textField.thickness = thickness
+        pdfData.textField.shape = "Hollow rectangle"
+    }
+    
+}
