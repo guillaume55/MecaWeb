@@ -142,7 +142,7 @@
         </div>
     </div>
         
-    <button onclick="openPdfInNewTab()">{Download as pdf}</button>
+    <button style="margin: 10px;" onclick="setTimeout(openPdfInNewTab,1000);">{Download as pdf}</button>
     <script>
         let pdfData = {imgField:{}, textField:{}} //will be initialized again but has to be init here to to avoid crash with onchange and computeInteria
         let pdfDataB64 = ""
