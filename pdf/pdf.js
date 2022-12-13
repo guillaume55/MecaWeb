@@ -3,7 +3,8 @@
  * Get and fill the template
  * @param {*} data 
  */
-async function fillPdf(data) {
+async function fillPdf(data) 
+{
     /*
         Example for flexion :
         template: urlOfTheTemplate,
@@ -45,14 +46,16 @@ async function fillPdf(data) {
     dateField.setText(d_str)
 
     //fields
-    for (const [key, value] of Object.entries(data.textField)) {
+    for (const [key, value] of Object.entries(data.textField)) 
+    {
         console.log(key, value);
         const field = form.getTextField(key);
         field.setText(value.toString())
     }
 
     //pictures, doesn't use form but [x,y] pos, maybe not optimal but works with onlyoffice forms
-    for (const [key, value] of Object.entries(data.imgField)) {
+    for (const [key, value] of Object.entries(data.imgField)) 
+    {
         console.log(key, value.url);
 
         const imageBytes = await fetch(value.url).then(res => res.arrayBuffer())
@@ -74,7 +77,9 @@ async function fillPdf(data) {
     console.log("done.")
 }
 
-function openPdfInNewTab() {
-    let pdfWindow = window.open("")
-    pdfWindow.document.write("<iframe width='105%' height='105%' style='border:none; margin-left:-2.5%; margin-top:-2.5%'  src='data:application/pdf;base64, " + encodeURI(pdfDataB64) + "'></iframe>")
+function openPdfInNewTab() 
+{
+        let pdfWindow = window.open("")
+        pdfWindow.document.write("<iframe width='105%' height='105%' style='border:none; margin-left:-2.5%; margin-top:-2.5%'  src='data:application/pdf;base64, " + encodeURI(pdfDataB64) + "'></iframe>")
+        pdfWindow.document.title("Calculus note");
 }

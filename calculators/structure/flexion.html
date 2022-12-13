@@ -184,13 +184,14 @@
             </table>
         </div>
     </div>
-    <button style="margin: 10px;" onclick="setTimeout(openPdfInNewTab,1000);">{Download as pdf}</button>
+    <button style="margin: 10px;" onclick="openPdfInNewTab()">{Download as pdf}</button>
     <script>
         pdfData = {}
         pdfDataB64 = ""
         fillSelectGroup("flexion_material", getYoungModulus())
         showBeamParams("rect", "flexion")
         translate("structure")
+        setTimeout(computeFlexion, 500);
     </script>
 
     
