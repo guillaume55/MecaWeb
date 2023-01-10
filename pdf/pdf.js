@@ -41,7 +41,7 @@ async function fillPdf(data)
     //date
     const d = new Date();
     var months = ["Jan","Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug","Sep", "Oct", "Nov", "Dec"];
-    d_str = `${d.getDate()} ${months[d.getMonth()-1]} ${d.getFullYear()}`
+    d_str = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`
     const dateField = form.getTextField('date');
     dateField.setText(d_str)
 
