@@ -57,6 +57,9 @@ function computeDisplacement(len, young, f, q, a) {
     pdfData.imgField.load_type.size = [150, 70];
     pdfData.imgField.load_type.page = 0;
 
+    console.log(len, young, f, q,a , inertia)
+
+
     //formulas from Guide de Mécanique, Jean Louis Fanchon, RDM - Formulaire (page 400 of 2008 édition) ISBN 978-2-09-160711-5
     if (mounting == "encas_concen") {
         maxDisp = -(f * Math.pow(len, 3)) / (3 * young * inertia);
@@ -112,6 +115,11 @@ function computeDisplacement(len, young, f, q, a) {
     pdfData.textField.max_disp = roundDec(maxDisp, 6); //before changing units
     pdfData.textField.abs = xf; //lowest point
 
+    if (maxDisp <= 1000) {
+        //in mm
+        document.getElementById("flexion_maxDisp_unit").innerHTML = "mm"; //if the unit as changed, reset it! 
+        console.log("maxDisp mm", maxDisp);
+    }
     if (maxDisp < 1) {
         //in µm
         maxDisp = maxDisp * 1000;
