@@ -25,7 +25,7 @@ function computeBuckling(){
     let inertia = buckling_computeInertia()
 
     //units !!! in newton
-    let eulerCriticalLoad = (Math.PI*Math.PI * young*1000 * inertia)/(Math.pow(len*mounting,2))
+    let eulerCriticalLoad = (Math.PI*Math.PI * young * 1000 * inertia) / ( Math.pow(len * mounting,2))
     pdfData.textField.euler = roundDec(eulerCriticalLoad,1);
 
     if(eulerCriticalLoad > 10000){

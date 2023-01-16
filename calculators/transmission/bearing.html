@@ -25,7 +25,7 @@
                                 <th>{Static load}<br>C0 (daN)</th>
                                 <th>{Dynamic load}<br>C (daN)</th>
                                 <th>{Radial load}<br>Fr (daN)</th>
-                                <th title="{Not on both bearing usualy, the axial load is supported by only only bearing at a time}">{Axial load}<br>Fa (daN) ❔</th>
+                                <th title="{Not on both bearing usualy, the axial load is supported by only only bearing at a time}">{Axial load}<br>Fa (daN) ⓘ</th>
                                 
                             </tr>
                             <tr>
@@ -106,16 +106,17 @@
                         </div>
                         <br>-->
 
-                        <label>{Use case}</label>
+                        <!--keep thing simple but display a message-->
+                        <!--<label>{Use case}</label>
                         <select id="bearing_useCase">
                             <option value="0.4">{Smooth and without vibration}</option>
                             <option value="0.5">{Normal}</option>
                             <option value="1">{With shocks}</option>
-                        </select><br>
+                        </select><br>--> 
 
                         <input type="button" value="{Compute}" onclick="computeBearings()" class="compute-button"/><br>
                         <br>
-                        <label>{For the set}</label>
+                        <label title="{This is an estimation for a normal use with low shocks and vibrations. Very smooth use may increase lifespan and shocks reduce it strongly.}">{For the set} {and normal use}ⓘ </label>
                         <table>
                             <tr><td></td><td>L10</td></tr>
                             <tr><td>{life in million of turns}</td><td id="bearing_setLife"></td></tr>

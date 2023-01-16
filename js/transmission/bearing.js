@@ -8,7 +8,7 @@ function computeBearings(){
         let C = parseFloat(document.getElementById(`bearing_${i}C`).value);
         let Fr = parseFloat(document.getElementById(`bearing_${i}Fr`).value);
         let Fa = parseFloat(document.getElementById(`bearing_${i}Fa`).value);
-        let useCase = parseFloat(document.getElementById(`bearing_useCase`).value);
+        let useCase = 1; //parseFloat(document.getElementById(`bearing_useCase`).value);
         let bearing = {"type":bearingType, "C0":C0, "C":C,"Fr":Fr,"Fa":Fa,"useCase":useCase}
         if(bearingType=="ballRadial"){
             bearing = bearing_computeEXY(bearing);
@@ -28,7 +28,14 @@ function computeBearings(){
     }
     //life of the set
     Lset10 = bearing_computeLifeOfSet(bearings)
-    document.getElementById('bearing_setLife').innerHTML = Lset10
+    if(Lset10 > 100)
+        Lset10_rounded = Math.floor(Lset10);
+    else if(Lset10 > 0)
+        Lset10_rounded = roundDec(Lset10,3);
+    else 
+        Lset10_rounded = roundDec(Lset10,6);
+        
+    document.getElementById('bearing_setLife').innerHTML = Lset10_rounded
     document.getElementById('bearing_setLifeH').innerHTML = Math.floor((1000000*Lset10)/(60*speed));
 }
 
@@ -44,7 +51,7 @@ function computeBearingsOblic(readEXY){
         let C = parseFloat(document.getElementById(`bearing_${i}C`).value);
         let Fr = Math.abs(parseFloat(document.getElementById(`bearing_${i}Fr`).value));
         let Fa = Math.abs(parseFloat(document.getElementById(`bearing_${i}Fa`).value));
-        let useCase = parseFloat(document.getElementById(`bearing_useCase`).value);
+        let useCase = 1 //parseFloat(document.getElementById(`bearing_useCase`).value);
         let bearing = {"type":bearingType, "C0":C0, "C":C,"Fr":Fr,"Fa":Fa,"useCase":useCase}
         if(readEXY == 0){
             bearing = bearing_computeEXY(bearing); //don't read, compute
