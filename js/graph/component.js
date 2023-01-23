@@ -20,14 +20,12 @@
 //Show link windows
 //fields is a string with space separated elements to indicate which fields are needed. call comp_sLink(container) or comp_sLink(container,"") to show all
 //Some links does not require all fields, when chosen by the select menu, non required fields will disapear
-
-
 function comp_sLink(container,fields) {
     var html = ""
     if(fields == undefined || fields == "") { fields = "point axis norm sa1 sa2 name point spec"}
     fields = fields.split(' '); //unused for now
 
-    var prop = mech_linkProp()
+    var prop = mech_linkProp()  //sliding pivot, pivot etc link type
     //select link type
     html += "<div><select id=\"select_link_type\" name=\"link_type\"onchange=\"rLink()\"></div><div id=\"link_params\">"
     for(k in prop) {
@@ -42,7 +40,6 @@ function comp_sLink(container,fields) {
 
 //refresh fields when link change (required parameters are not the same)
 function rLink(fields) {
-
     var nodes = comp_nodeList()
 
     var html = "<form>"
@@ -59,16 +56,10 @@ function rLink(fields) {
     html+= `</br><label>${T['Sub-assemblies']}</label></br>`
 
     //populate selects
-    var sel_sa = ""
-    var sa = comp_nodeList()
-
-    for(let i=0; i<sa.length;i++) {
-        sel_sa += "<option value=\""+sa[i]+"\">"+sa[i]+"</option>"
-    }
-    html += "<select id=\"link_sa1\" onchange=\"\">"+sel_sa+"</select>"
-    html += "<select id=\"link_sa2\" onchange=\"\">"+sel_sa+"</select>"
-
-
+    //html+= refresh_addLinksSelect();
+    html += `<select id="link_sa1" onchange=""></select>`
+    html += `<select id="link_sa2" onchange=""></select>`  
+    
     for(let i=0; i<fields.length;i++) {
         if(fields[i].search("axis") != -1) {
             html+= "</br></br><label>Axe</label></br>"
@@ -103,7 +94,7 @@ function rLink(fields) {
     html += "</br></br><input value=\"Valider\" type=\"button\" onclick=\"comp_aLink()\" /></form>"
     var div = document.getElementById("div_link_params")
     div.innerHTML = html
-    //return html
+    refresh_addLinksSelect();
 }
 
 //add link to graph
@@ -210,8 +201,6 @@ function comp_aNode(){
         var nodes = comp_nodeList()
         if(nodes.indexOf(name) != -1) { no_err = 0; err.innerHTML= T['Already taken'] }
 
-
-
         if(no_err) {
             try {
                 cy.add({
@@ -229,12 +218,11 @@ function comp_aNode(){
             }
 
             comp_sNode(document.getElementById('anode'))  //refresh color
-
-
         }
 
         //refresh node list
-        comp_rNodeList('link_sa1','link_sa2')
+        refresh_addLinksSelect();
+
     } else if (no_err) { //edit node but still no error
         console.log('edit node')
         elt = cy.getElementById(node_edit)
@@ -242,31 +230,27 @@ function comp_aNode(){
         elt.data('label',name)
         document.getElementById('node_toedit').value = "" //leave edition mode
     }
+    
 
 }
 
-
-//each time the user select a node, the select menu refresh to avoid chosing 2 times the same node
-function comp_rNodeList(changed_select, other_select) {
-
-    var nodes = comp_nodeList()
-    var select_selected = document.getElementById(changed_select)
-    var select_not_selected = document.getElementById(other_select)
-
-    //reset select
-    select_not_selected.options.length = 0; //remove all options
-    select_selected.options.length = 0; //remove all options
+function refresh_addLinksSelect(){
+    var nodes = comp_nodeList()  //sub assemblies list
+    var select1 = document.getElementById("link_sa1");
+    var select2 = document.getElementById("link_sa2");
+    select1.options.length = 0;
+    select2.options.length = 0;
 
     for(let i=0; i < nodes.length; i++) {
         var option1 = document.createElement("option");
         var option2 = document.createElement("option");
         option1.text = nodes[i]
         option2.text = nodes[i]
-        select_selected.add(option1);
-        select_not_selected.add(option2);
-
+        select1.add(option1);
+        select2.add(option2);
     }
-
+    
+    select2.options[nodes.length-1].selected = true; //don't show in the two selects the same element
 }
 
 function comp_nodeList() {
