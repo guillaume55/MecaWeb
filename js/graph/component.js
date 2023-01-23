@@ -116,15 +116,16 @@ function comp_aLink(){
     let type = document.getElementById('select_link_type').value
 
     //point
-    let x = document.getElementById('link_point_x').value
-    let y = document.getElementById('link_point_y').value
-    let z = document.getElementById('link_point_z').value
-    var point = [ !isNaN(x)?x:0, !isNaN(y)?y:0, !isNaN(z)?z:0, ]
-
+    if(document.getElementById('link_point_x') != null){  //if we ask for the point (needed for hyperstatism)
+        let x = document.getElementById('link_point_x').value
+        let y = document.getElementById('link_point_y').value
+        let z = document.getElementById('link_point_z').value
+        var point = [ !isNaN(x)?x:0, !isNaN(y)?y:0, !isNaN(z)?z:0, ]
+    }
 
     var err = document.getElementById('link_err')
     err.innerHTML= ''
-    //if(link_edit == "") {
+
     if(link_edit != ""){ //destroy the element first
         remove_elt(link_edit)
     }
