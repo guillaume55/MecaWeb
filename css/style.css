@@ -115,7 +115,9 @@ body{
 }
 
 .compute-button{
-  /*width: 120px;*/
+  width: 25%;
+  min-width: 175px;
+  max-width: 250px;;
   padding: 5px;
 }
 

@@ -9,6 +9,7 @@ function getRadio(name){
     }
 }
 
+//to be replaced with ui.js --> refreshSliderValue
 function refreshSliderVal(val, toRefresh){
     document.getElementById(toRefresh).innerHTML = val;
 }
