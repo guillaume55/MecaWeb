@@ -7,6 +7,22 @@
     color: rgba(255, 0, 0, 0.76);
 }
 
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flex-row >* { /*all childs*/
+  margin: 10px;
+}
+
+.flex-col{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 /************TABS**********/
 /* Style the tab */
 .tab {
@@ -169,6 +185,10 @@ select{
   display: flex; 
   flex-direction: row; 
   justify-content: flex-start;
+}
+
+.small-padding{
+  padding: 10px;
 }
 
 

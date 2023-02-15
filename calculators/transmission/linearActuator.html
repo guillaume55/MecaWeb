@@ -8,7 +8,9 @@
       <link rel="stylesheet" type="text/css" href="../../css/radio.css">
       <link rel="stylesheet" type="text/css" href="../../css/table.css">
       <link rel="stylesheet" type="text/css" href="../../css/slider.css">
-  </head>
+      <link rel="stylesheet" type="text/css" href="../../css/newField.css">
+
+    </head>
   <body>
     <script src="../../js/getValues.js"></script>
     <script src="../../js/transmission/torque.js"></script>
@@ -22,79 +24,103 @@
     <div>
         <div class="item section">
             <div class="section-title">{Linear actuator}</div>
-            <div class="section-content">
-                <label>{Mass of the carriage}</label>
-                <div class="input-unit">
-                    <input id="la_mass" type="number" min="0" value="0.5" onchange=""/><span>kg</span>
-                </div></br>
-                <div class="checkbox-and-text">
-                    <input type="checkbox" id="la_vertical"/>
-                    <label title="{Gravity has an effect}. {Opposite would be horizontal}">{Vertical load} 🛈</label>
-                </div></br>
+            <div class="section-content" style="justify-content: center;">
+                <div class="flex-row">
+                    <fieldset class="field">
+                        <legend>{Mass of the carriage}</legend>
+                        <input id="la_mass" type="number" min="0" value="0.5" onchange=""/><span>kg</span>
+                    </fieldset>
+    
+                    <fieldset class="field">
+                        <legend title="0 {for horizontal}. 90 {for vertical}">{Load angle in degrees} 🛈</legend>
+                        <input type="number" max="90" min="0" value="0" id="la_theta"/><span>deg</span>
+                    </fieldset>
+    
+                    <fieldset class="field">
+                        <legend>{Time to do the movement}</legend>                
+                        <input id="la_duration" type="number"  min="0" onchange="" value="2"/><span>s</span>
+                    </fieldset>    
+                
+                
+                    <fieldset class="field">
+                        <legend>{Distance to move}</legend>
+                        <input id="la_distance" type="number"  min="0" onchange="" value="200"/><span>𝛿 mm</span>
+                    </fieldset>
 
-                <label>{Time to do the movement}</label>
-                <div class="input-unit">
-                    <input id="la_duration" type="number"  min="0" onchange="" value="2"/><span>s</span>
-                </div></br>
-
-                <label>{Distance to move}</label>
-                <div class="input-unit">
-                    <input id="la_distance" type="number"  min="0" onchange="" value="200"/><span>𝛿 mm</span>
-                </div></br>
-
-                <!--<label>{Max speed (linear)}</label>
-                <div class="input-unit">
-                    <input id="la_maxSpeed" type="number"  min="0" onchange="" value="0"/><span>mm/s</span>
-                </div></br>-->
-
-                <label>{Type of actuator}</label>
-                <select name="la_type" id="la_type" onchange="la_refreshType(this.value)">
-                    <!--<option value="other">{Other}</option>-->
-                    <option value="pulley">{Belt - Pulley}</option>
-                    <option value="screw">{Nut & screw}</option>
-                </select></br>
-                <!--Optional : Actuated with a rotary actuator, for ex electrical motor -->                
-
-                <div id="la_redRatioDiv" style="display:none;" title="{5 mean that speed decrease by 5 and torque increase by 5}. {1 do nothing}">
-                    <label>{Reduction ratio}</label>
-                    <div class="input-unit">
-                        <input id="la_redRatio" type="number"  min="0" onchange="" value="1"/><span>Ø</span>
-                    </div></br>
+                    <fieldset class="field">
+                        <legend>{Friction coefficient}</legend>
+                        <input id="la_frictionCoef" type="number"  min="0" onchange="" value="0.15"/><span>Ø</span>
+                    </fieldset>
                 </div>
 
-                <!--If there is a pulley-->
-                <div id="la_pulleyDiv" class="hidden">
-                    <label>{Pulley diameter}</label>
-                    <div class="input-unit">
-                        <input id="la_pulleyDiam" type="number"  min="0" onchange="" value="30"/><span>mm</span>
+                   
+                <fieldset class="field flex-col">
+                    <legend>{Type of actuator}</legend>
+                    <select name="la_type" id="la_type" onchange="la_refreshType(this.value)">
+                        <option value="other">{Other}</option>
+                        <option value="pulley">{Belt - Pulley}</option>
+                        <option value="screw">{Nut & screw}</option>
+                    </select>
+                    <!--Optional : Actuated with a rotary actuator, for ex electrical motor -->                
+                    <div id="la_redRatioDiv" class="hidden small-padding" title="{5 mean that speed decrease by 5 and torque increase by 5}. {1 do nothing}">
+                        <label>{Reduction ratio}</label>
+                        <div>
+                            <input id="la_redRatio" type="number"  min="0" onchange="" value="1"/><span>Ø</span>
+                        </div></br>
                     </div>
-                    <div>⚠ {Belt tension and friction is not taken into account}</div>
+
+                    <div id="la_scewPitchDiv" class="hidden small-padding">
+                        <label>{Screw pitch}</label>
+                        <div>
+                            <input id="la_screwPitch" type="number"  min="0" onchange="" value="5"/><span>mm/turn</span>
+                        </div></br>
+                    </div>
+
+                    <!--If there is a pulley-->
+                    <div id="la_pulleyDiv" class="hidden small-padding">
+                        <label>{Pulley diameter}</label>
+                        <div>
+                            <input id="la_pulleyDiam" type="number"  min="0" onchange="" value="30"/><span>mm</span>
+                        </div>
+                        <div>⚠ {Belt tension is not taken into account}</div></br>
+                    </div>
+                    
+                </fieldset>
+            
+                <!--Efficiency and security margin sliders-->
+                <div class="flex-row" style="width: 75%;">
+                    <label title="{Motor, slider etc ...}">{Efficiency}</label>
+                    <input type="range" min="5" max="100" value="80" class="slider" id="la_efficiencySlider" style="margin-left:0px;" onchange="refreshSliderValue(this)">
+                    <div><span id="la_efficiencyValue">80</span>%</div>
                 </div></br>
 
-                <label title="{Motor, slider etc ...}">{Efficiency}</label>
-                <div><span id="la_efficiencyValue">80</span>%</div>
-                <input type="range" min="5" max="100" value="80" class="slider" id="la_efficiencySlider" style="margin-left:0px;" onchange="refreshSliderValue(this)">
-
-                <label title="{Always take a more powerful actuator than needed}">{Security margin}</label>
-                <div><span id="la_marginValue">1.4</span></div>
-                <input type="range" min="1" max="3" step="0.1" value="1.4" class="slider" id="la_marginSlider" style="margin-left:0px;" onchange="refreshSliderValue(this)">
-                
+                <div class="flex-row" style="width: 75%;>
+                    <legend title="{Always take a more powerful actuator than needed}">{Security margin}</legend>
+                    <input type="range" min="1" max="3" step="0.1" value="1.4" class="slider" id="la_marginSlider" style="margin-left:0px;" onchange="refreshSliderValue(this)">
+                    <div><span id="la_marginValue">1.4</span></div>
+                </div>
 
                 <input type="button" value="{Compute movement}" onclick="la_compute()" class="compute-button"/></br>
                 <!--Output-->
                 <table>
                     <tr><td>{Acceleration}</td><td id="la_resAccel"></td><td id="la_resAccelUnit">m/s²</td></tr>
-                    <tr><td>{Force}</td><td id="la_resForce"></td><td id="la_resForceUnit">N</td></tr>
-                    <tr><td>{Torque}</td><td id="la_resTorque"></td><td id="la_resTorqueUnit">N.m</td></tr>
+                    <tr><td></td><td></td><td></td></tr>
+                    <tr><td>{Force} ({Acceleration})</td><td id="la_resForceAccel"></td><td id="la_resForceAccelUnit">N</td></tr>
+                    <tr><td>{Force} ({Weight})</td><td id="la_resForceWeight"></td><td id="la_resForceWeightUnit">N</td></tr>
+                    <tr><td>{Force} ({Friction})</td><td id="la_resForceFriction"></td><td id="la_resForceAFrictionUnit">N</td></tr>
+                    <tr><td>{Force} ({Total} + {Efficiency} + {Safety margin})</td><td id="la_resForceTotal"></td><td id="la_resForceTotalUnit">N</td></tr>
+                    <tr><td></td><td></td><td></td></tr>
                     <tr><td>{Max velocity (linear)}</td><td id="la_resMaxSpeed"></td><td id="la_resMaxSpeedUnit">m/s</td></tr>
-                    <tr><td>{Pulley radius}</td><td id="la_resPulleyRadius"></td><td id="la_resPulleyRadiusUnit">mm</td></tr>
-                    <tr><td>{Reduction ratio}</td><td id="la_resRedRatio"></td><td id="la_resRedRatioUnit">Ø</td></tr>
                     <tr><td>{Max veloctity of the motor}</td><td id="la_resRotSpeed"></td><td id="la_resRotSpeedUnit">RPM</td></tr>
+                    <tr><td>{Torque of the motor}</td><td id="la_resTorque"></td><td id="la_resTorqueUnit">N.m</td></tr>
                 </table>
-                <div id="curve_div"></div>
-                <canvas id="curve_chart" style="width:100%;max-width:700px; max-height: 70vh;"></canvas>
+                <br>
+                <div id="curve_div" class="flex-row">
+                    <canvas id="curve_chart" style="width:49%;max-width:700px; max-height: 70vh;"></canvas>
+                    <canvas id="pieChartDiv" style="width:49%;max-width:700px; max-height: 70vh;"></canvas>
+                </div>
+                
             </div>
-            <script></script>
         </div>
     </div>
     <script>

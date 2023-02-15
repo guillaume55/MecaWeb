@@ -4,14 +4,18 @@ function la_refreshType(value){
     if(value == "screw"){
         document.getElementById("la_redRatioDiv").style.display = "inline-block";
         document.getElementById("la_pulleyDiv").style.display = "none";
+        document.getElementById("la_scewPitchDiv").style.display = "inline-block";
+
     }
     else if(value == "pulley"){
         document.getElementById("la_redRatioDiv").style.display = "inline-block";
+        document.getElementById("la_scewPitchDiv").style.display = "none";
         document.getElementById("la_pulleyDiv").style.display = "inline-block";
     }
     else {//so much possibilities, ignore them
         document.getElementById("la_redRatioDiv").style.display = "none";
         document.getElementById("la_pulleyDiv").style.display = "none";
+        document.getElementById("la_scewPitchDiv").style.display = "none";
     }
 }
 
@@ -47,17 +51,16 @@ function la_compute(){
 
      //Force = mass * accel, we now have both
     let mass = parseFloat(document.getElementById("la_mass").value);
-    let force = mass * accel;
-
-    console.log(mass, accel, force)
+    let forceAccel = mass * accel;
 
     //if checked, take the gravity into account, add the weight to the force
-    let vertical = document.getElementById('la_vertical').checked;
-    if(vertical)
-        force += mass * 9.81; //assume that we are in Paris, or at least on earth. Change that if we release for other planets
-    
-    console.log("Weight (if checked)", mass*9.81);
+    let theta = (parseFloat(document.getElementById('la_theta').value)) * Math.PI/180;  //in radians
+    let forceWeight = mass * 9.81 * Math.sin(theta); //assume that we are in Paris, or at least on earth. Change that if we release for other planets
 
+    //force due to friction
+    let frictionCoef = parseFloat(document.getElementById('la_frictionCoef').value);
+    let forceFriction = frictionCoef * mass * 9.81 * Math.cos(theta);
+    
     //piston : force is enough,  do not fill fields
     let torque = "NC";
     let rotSpeed = "NC";
@@ -66,7 +69,7 @@ function la_compute(){
 
     //not 100% efficiencient sadly
     let efficiency = parseFloat(document.getElementById('la_efficiencySlider').value)/100;
-    force = force / efficiency;
+    let force = (forceAccel+forceFriction+forceWeight) / efficiency;
 
     //add a margin, we cannot exepct the motor to have exactly the right torque. Usually between 1.3 to 1.4, until 2 for small systems
     let margin = parseFloat(document.getElementById('la_marginSlider').value);
@@ -76,9 +79,12 @@ function la_compute(){
     let type = document.getElementById('la_type').value;
     if(type == "screw"){
         redRatio = parseFloat(document.getElementById('la_redRatio').value);
+        pitch = parseFloat(document.getElementById('la_screwPitch').value)/1000;
+        torque = (pitch*force)/(6.28*redRatio); //force is already divided by efficiency
+        rotSpeed = maxSpeed / pitch; //in rps
+        rotSpeed *= redRatio * 60 ; //before gearbox (motor shaft) in rpm
     }
     else if(type == "pulley"){
-        console.log("pulley")
         redRatio = parseFloat(document.getElementById('la_redRatio').value);
         pulleyRadius = parseFloat(document.getElementById('la_pulleyDiam').value)/2000; // diam to radius, then mm to m
         torque = ( force * pulleyRadius ) / redRatio;
@@ -87,19 +93,23 @@ function la_compute(){
         rotSpeed = mPerSecToRPM_pulley(maxSpeed, pulleyRadius) * redRatio;
     }
 
-    la_showResults(accel, force, torque, redRatio, pulleyRadius, maxSpeed, rotSpeed);
+    la_showResults(accel, forceAccel, forceWeight, forceFriction, force, torque, redRatio, pulleyRadius, maxSpeed, rotSpeed);
     la_plotCurve(duration, maxSpeed, rotSpeed);
+    la_plotForceRepartition(forceAccel, forceFriction, forceWeight, force);
 }
 
 //show appropriate units
-function la_showResults(accel, force, torque, redRatio, pulleyRadius, maxSpeed, rotSpeed){
+function la_showResults(accel, forceAccel, forceWeight, forceFriction, force, torque, redRatio, pulleyRadius, maxSpeed, rotSpeed){
     //show results and curve
     document.getElementById('la_resAccel').innerHTML = roundDec(accel,3);
-    document.getElementById('la_resForce').innerHTML = roundDec(force,3);
-    document.getElementById('la_resRedRatio').innerHTML = redRatio;
+
+    document.getElementById('la_resForceAccel').innerHTML = roundDec(forceAccel,3);
+    document.getElementById('la_resForceWeight').innerHTML = roundDec(forceWeight,3);
+    document.getElementById('la_resForceFriction').innerHTML = roundDec(forceFriction,3);
+    document.getElementById('la_resForceTotal').innerHTML = roundDec(force,3);
+
     document.getElementById('la_resMaxSpeed').innerHTML = roundDec(maxSpeed,3); //linear
     document.getElementById('la_resRotSpeed').innerHTML = isNaN(rotSpeed)? "NC" : roundDec(rotSpeed,3); //rotational (optional)
-    document.getElementById('la_resPulleyRadius').innerHTML = isNaN(pulleyRadius)? "NC" : roundDec(pulleyRadius*1000,3);
 
     console.log("linear speed ", maxSpeed, " m/s");
     console.log("torque ", torque, " N.m");
@@ -133,6 +143,7 @@ function la_plotCurve(duration, maxSpeed, maxRotSpeed = 0){
 
     let x = [0,roundDec(duration/2,3), duration]
     let dataLin = [0,maxSpeed,0] 
+    let dataAvgLin = [maxSpeed/2,maxSpeed/2,maxSpeed/2] 
 
     //linear speed plot
     let datasets = [{
@@ -141,6 +152,16 @@ function la_plotCurve(duration, maxSpeed, maxRotSpeed = 0){
         pointRadius: 1,
         borderColor: "rgba(0,0,200,0.5)", /*blue*/
         data: dataLin,
+        lineTension: 0, 
+        yAxisID: 'y1',
+    },
+    {
+        label: "Average speed (m/s)",  //this one help to understand that the max speed is two time the avg speed. The movement is not executed at constant speed !!!
+        fill: false,
+        pointRadius: 1,
+        borderColor: "rgba(0,0,200,0.5)", /*blue dashed*/
+        borderDash: [5, 5],
+        data: dataAvgLin,
         lineTension: 0, 
         yAxisID: 'y1',
     }]
@@ -195,7 +216,46 @@ function la_plotCurve(duration, maxSpeed, maxRotSpeed = 0){
                     }
                 } ],
                 yAxes: yscales,
-            }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+        }
+    });
+}
+
+function la_plotForceRepartition(forceAccel, forceFriction, forceWeight, force) {
+    let unit = 'N'
+    if(force > 1000){
+        unit = "kN"
+        force *= 0.001;
+    }
+    else if(force < 1) {
+        unit = 'e-3 N'
+        force *= 1000;
+    }
+    force = roundDec(force,3);
+
+    var myChart = new Chart("pieChartDiv", {
+        type: 'doughnut',
+        data: {
+            labels: ["Acceleration", "Friction", "Weight"],
+            datasets: [
+            {
+                data: [forceAccel, forceFriction, forceWeight],
+                backgroundColor: [
+                   "#FF6384",
+                    "#4BC0C0",
+                    "#FFCE56"
+                ]
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: ['Repartition of forces caused by','Total force with efficiency and safety margin : '+force+unit],
+            },
+            responsive: true,
+            maintainAspectRatio: false,
         }
     });
 }
