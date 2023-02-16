@@ -1,0 +1,31 @@
+Linear actuator,Linear actuator
+Mass of the carriage,Mass of the carriage
+for horizontal,for horizontal
+for vertical,for vertical
+Load angle in degrees,Load angle in degrees
+Time to do the movement,Time to do the movement
+Distance to move,Distance to move
+Friction coefficient,Friction coefficient
+Type of actuator,Type of actuator
+Other,Other
+Belt - Pulley,Belt - Pulley
+Nut & screw,Nut & screw
+5 mean that speed decrease by 5 and torque increase by 5,5 mean that speed decrease by 5 and torque increase by 5
+1 do nothing,1 do nothing
+Reduction ratio,Reduction ratio
+Screw pitch,Screw pitch
+Pulley diameter,Pulley diameter
+Belt tension is not taken into account,Belt tension is not taken into account
+Motor; slider etc ...,Motor; slider etc ...
+Efficiency,Efficiency
+Always take a more powerful actuator than needed,Always take a more powerful actuator than needed
+Safety margin,Security margin
+Compute movement,Compute movement
+Force,Force
+Acceleration,Acceleration
+Weight,Weight
+Friction,Friction
+Total,Total
+Max velocity (linear),Max velocity (linear)
+Max veloctity of the motor,Max veloctity of the motor
+Torque of the motor,Torque of the motor

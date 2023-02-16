@@ -1,0 +1,31 @@
+Linear actuator,Actionneur linéaire
+Mass of the carriage,Masse du chariot
+for horizontal,pour un mouvement à l'horizontal
+for vertical,pour un mouvement à la vertical
+Load angle in degrees,Angle de la charge en degrés
+Time to do the movement,Temps pour executer le mouvement
+Distance to move,Course à réaliser
+Friction coefficient,Coefficient de friction
+Type of actuator,Type d'actionneur
+Other,Autre
+Belt - Pulley,Poulie - Courroie
+Nut & screw,Vis - écrou
+5 mean that speed decrease by 5 and torque increase by 5,5 signifie diviser la vitesse par 5 et multiplier le couple par 5
+1 do nothing,1 -> Neutre
+Reduction ratio,Rapport de réduction
+Screw pitch,Pas de la vis
+Pulley diameter,Diamètre de la poulie
+Belt tension is not taken into account,La tension de la courroie n'est pas prise en compte
+Motor; slider etc ...,Moteur ; transmission de puissance ; chariot ...
+Efficiency,Rendement
+Always take a more powerful actuator than needed,Toujours surdimensionner ce résultat
+Safety margin,Coefficient de sécurité
+Compute movement,Calculer
+Acceleration,Accelération
+Force,Force
+Weight,Poids
+Friction,Friction
+Total,Total
+Max velocity (linear),Vitesse maximale (linéaire)
+Max veloctity of the motor,Vitesse maximale (moteur)
+Torque of the motor,Couple du moteur
