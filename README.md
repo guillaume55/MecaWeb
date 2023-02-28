@@ -1,27 +1,17 @@
-# MecaWeb
+# Copo (Mecaweb)
 
 ## Embed a tool in your website
 The sidebar will be hidden automatically
 Please do not alter the webpage, github links at the top/bottom should remain the same
 
-### Languages
-Change the lang attritube in url to match yours
+## Languages
+Change the lang attribute in url to match yours
 At this time, not every calculator is translated and only english ("en") and french ("fr") are supported
+For example : 
+`https://guillaume55.github.io/MecaWeb/joint-composition.html?lang=<Your-language>`
 
 
-## Joint graph
-Help you to draw a linkage graph
-`<iframe src="https://guillaume55.github.io/MecaWeb/joint-graph.html" width="100%" height="1000"></iframe>`
-
-## Joint Composition
-Help to find which joint can replace another one
-Useful to replace a small area joint with several joints but with more contact area
-Works only with joint at the same point
-`<iframe src="https://guillaume55.github.io/MecaWeb/joint-composition.html?lang=en" width="100%" height="1000"></iframe>`
-
-## Cut tool
-`<iframe src="https://guillaume55.github.io/MecaWeb/cuts.html?lang=en" width="100%" height="1000"></iframe>`
-
+# Tools
 ## Structure tools
 
 ### Buckling
@@ -62,6 +52,9 @@ Compute the torque needed for a motor for a rotationnal movement
 Compute the time needed for a movement, check if will reach the final speed with the given accel
 `<iframe src="https://guillaume55.github.io/MecaWeb/calculators/transmission/accel.html?lang=en" frameborder="0" width="100%"></iframe>`
 
+### Linear Actuator sizing (Coming soon)
+
+
 ## Fits
 Table with all possible fits for shaft and bore
 `<iframe src="https://guillaume55.github.io/MecaWeb/calculators/fits/fitsTable.html" frameborder="0" width="100%" height="1000"></iframe>`
@@ -89,10 +82,31 @@ Compute the lifespan of a bearing or a set of bearings with the associated fiabi
 Helps to select the right bearing mounting
 `<iframe src="https://guillaume55.github.io/MecaWeb/calculators/transmission/bearing-mounting.html" frameborder="0" width="100%" height="1000"></iframe>`
 
+## Miscellaneous
+### Bond graphs
+Help you to draw a bond graph
+`<iframe src="https://guillaume55.github.io/MecaWeb/joint-graph.html?lang=en" frameborder="0" width="100%" height="1000"></iframe>`
 
+### Joint Composition
+Help to find which joint can replace another one
+Useful to replace a small area joint with several joints but with more contact area
+Works only with joint at the same point
+`<iframe src="https://guillaume55.github.io/MecaWeb/joint-composition.html?lang=en" frameborder="0" width="100%" height="1000"></iframe>`
+
+### Cut tool
+So much beams to cut ? (V-slot, profiles, shafts ...) 
+This tool creates a cut plan for you to save beams and time
+`<iframe src="https://guillaume55.github.io/MecaWeb/cuts.html?lang=en" frameborder="0" width="100%" height="1000"></iframe>`
+
+
+# New potential developpments 
+- AMDEC
+- Material database
+- Your suggestions
+- and code cleaning/organizing. The project used to be only one calculator
 
 # Contributing
-You are welcome to contribute, add new languages and add and check calculators
+You are welcome to contribute, add new languages and add or check calculators
 
 ## Important 
 Please do not modify the texte that is in {braces}. Those strings are used for translation
