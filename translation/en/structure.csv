@@ -1,11 +1,4 @@
-ArcB,Arc-Boutement
 Buckling,Buckling
-Units can be mm or m or whatever. D and L should have the same unit,Units can be mm or m or whatever. D and L should have the same unit
-Friction coefficient,Friction coefficient
-Length of the bearing,Length of the bearing
-Distance with the force,Distance with the force
-Formula,Formula
-Sliding if,Sliding if
 Rectangular,Rectangular
 Circular,Circular
 Circular pipe,Circular pipe
@@ -46,8 +39,6 @@ Lowest point,Lowest point position
 Quadratic moment,Quadratic moment
 Compute,Compute
 Result,Result
-Blocked,Blocked
-Sliding,Sliding
 Linear load,Linear load
 Density,Density
 Download as pdf,Download as pdf
