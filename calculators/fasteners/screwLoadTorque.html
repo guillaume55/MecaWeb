@@ -16,11 +16,11 @@
     <script src='../../js/simple_math_tools.js'></script>
     <script src='../../translation/translation.js'></script>
     <script src='../../js/fasteners/screwLoadTorque.js'></script>
-    <script src="../../js/getValues.js"></script>
+    <script src="../../js/ui.js"></script>
 
 
     <!-- Help message & github-->
-    <iframe id="help" src="../../htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/transmission.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>
+    <!--<iframe id="help" src="../../htmlBricks/topBar.html?gitRepo=https://github.com/guillaume55/MecaWeb&download=https://guillaume55.github.io/MecaWeb/transmission.html&helpPage=help.html" height="50px" width="100%" frameborder="0"></iframe>-->
 
     <div id="main">
         <div class="item section" >
@@ -128,10 +128,10 @@
 
 
 
-                        <label>{Tension}</label>
+                        <label>{Tension of the screw}</label>
                         <div class="slidecontainer">
-                            <input type="range" min="50" max="90" value="85" class="slider" id="screwLoad_percentRe" onchange="refreshSliderVal(this.value,'screwLoad_percentRe')">
-                            <p style="margin-left: 35%;"><span title="80-90% {is a maximum}" id="screwLoad_percentReDiv"></span>85% {of the elastic limit}</p>
+                            <input type="range" min="50" max="90" value="85" class="slider" id="screwLoad_percentReSlider" onchange="refreshSliderValue(this)">
+                            <p style="margin-left: 35%;"><span title="80-90% {is a maximum}" id="screwLoad_percentReValue">85</span>% {of the elastic limit}</p>
                         </div>
 
                         <label title="{Be carreful ! The incertity of the dynamometric wrench can be up to 50% for a C50 model!}">{Wrench classe of precision} ⓘ</label>
