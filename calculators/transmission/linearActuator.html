@@ -20,6 +20,7 @@
     <script src='../../js/lib/Chart.js'></script>
     <script src='../../js/ui.js'></script>
     <script src='../../js/transmission/linearActuator.js'></script>
+    <script src='../../js/selectsAndDb/friction.js'></script>
 
     <div>
         <div class="item section">
@@ -49,7 +50,9 @@
 
                     <fieldset class="field">
                         <legend>{Friction coefficient}</legend>
-                        <input id="la_frictionCoef" type="number"  min="0" onchange="" value="0.15"/><span>Ø</span>
+                        <select id="la_frictionCoefSelect" onchange="refreshFrictionCoef(this.value,'la_frictionCoef')"></select>
+                        <br>
+                        <input id="la_frictionCoef" type="number"  min="0" onchange="" step="0.05" value="0.15"/><span>Ø</span>
                     </fieldset>
                 </div>
 
@@ -124,7 +127,8 @@
         </div>
     </div>
     <script>
-        translate("linearActuator")
+        translate("linActuator");
+        fillSelect("la_frictionCoefSelect", frictionDB());
         setTimeout(la_compute,500); //show speed curve at the begining
     </script>
 
