@@ -7,91 +7,78 @@
       <link rel="stylesheet" href="../../css/cuts.css">
       <link rel="stylesheet" type="text/css" href="../../css/radio.css">
       <link rel="stylesheet" type="text/css" href="../../css/table.css">
+      <link rel="stylesheet" type="text/css" href="../../css/newField.css">
   </head>
   <body>
     <script src="../../js/getValues.js"></script>
     <script src="../../js/simple_math_tools.js"></script>
     <script src="../../translation/translation.js"></script>
     <script src='../../js/struct/arcB.js'></script>
-    <script src='../../js/getValues.js'></script>
+    <script src='../../js/ui.js'></script>
+    <script src='../../js/selectsAndDb/friction.js'></script>
 
-    <div>
-        <div class="item section" >
-            <div class="section-title">{ArcB}</div>
 
-            <div style="display:flex; justify-content:center;">
-                <div class="section-content">
-                    
-                    <label>{Units can be mm or m or whatever. D and L should have the same unit}</label>
-                    <label>{Friction coefficient} f</label>
-                    <div style="display: flex;">
-                        <select id="arcB_selectCoef" onchange="selectArcB(this.value);computeArcB()"></select>
-                        <span style="width: 20px;"> </span>
-                        <div class="input-unit">
-                            <input id="arcB_coef" type="number" value="0.1" min="0" onchange="computeArcB()"/><span>Ø</span>
-                        </div>
-                    </div></br>
+    <div class="item section" >
+        <div class="section-title">{ArcB}</div>
 
-                    <label>{Length of the bearing} L</label>
-                    <div class="input-unit">
-                        <input id="arcB_length" type="number" value="20" min="0" onchange="computeArcB()"/><span>mm or m</span>
-                    </div></br>
+        <div style="display:flex; justify-content:center;">
+            <div class="section-content">
+                
+                <label>{Units can be mm or m or whatever. D and L should have the same unit}</label>
+                
+                <fieldset class="field">
+                    <legend>{Friction coefficient} f</legend>
+                    <select id="arcB_selectCoef" onchange="refreshFrictionCoef(this.value,'arcB_coef');computeArcB()"></select>
+                    <input id="arcB_coef" type="number" value="0.1" min="0" onchange="computeArcB()"/>
+                    <span title="No unit">Ø</span>
+                </fieldset>
 
-                    <label>{Distance with the force} D</label>
-                    <div class="input-unit">
-                        <input id="arcB_bl" type="number" value="50" min="0" onchange="computeArcB()"/><span>mm or m</span>
-                    </div></br>
+                <div class="flex-row">
+                    <fieldset class="field">
+                        <legend>{Length of the bearing} L</legend>
+                        <input id="arcB_length" type="number" value="20" min="0" onchange="computeArcB()"/>
+                        <span>mm or m</span>
+                    </fieldset>
 
-                    <label style="border: 3px solid gray; padding:10px; border-radius: 10px;">
-                        <label>{Result} :</label>
-                        <label id="resArcB"></label>
-                        <div style="display: flex; flex-direction: row;">
-                            <span style="color:green; width:25%;">{Sliding}</span>
-                            <input id="arcB_range" type="range" min="-2" max="2" style="width:45%;" disabled/>
-                            <span style="color: rgb(211, 26, 26); width:25%;">{Blocked}</span>
-                        </div>
-                    </label></br>
-
-                    <label>{Formula}</label>
-                    <label>
-                        {Sliding if} D < 
-                        <div class="fraction">
-                            <span class="fup">L</span>
-                            <span class="bar">/</span>
-                            <span class="fdn">2f</span>
-                          </div>
-                    </label>
+                    <fieldset class="field">
+                        <legend>{Distance with the force} D</legend>
+                        <input id="arcB_bl" type="number" value="50" min="0" onchange="computeArcB()"/>                        <span>mm or m</span>
+                    </fieldset>
                 </div>
 
-                <div style="display:flex; align-items:center"><img src="../../img/arcB.png" style="width:50%;max-width: 300px;min-width: 200px;"></div>
+                <fieldset class="field">
+                    <legend>{Result}</legend>
+                    <div>
+                        <strong><label id="resArcB"></label></strong>
+                        <br>
+                        <div style="display: flex; flex-direction: row;">
+                        <span style="color:green; width:25%;">{Sliding}</span>
+                        <br>
+                        <input id="arcB_range" type="range" min="-2" max="2" style="width:45%;" disabled/>
+                        <span style="color: rgb(211, 26, 26); width:25%;">{Blocked}</span>
+                    </div>
+                    
+                    <br>
+                    <div>
+                        <label>{Formula}</label>
+                        {Sliding if}<strong><span style="font-family: monospace;"> D < (L/2f)</span></strong>
+                    </div>                
+                </fieldset>
             </div>
+
+            <div style="display:flex; align-items:center"><img src="../../img/arcB.png" style="width:50%;max-width: 300px;min-width: 200px;"></div>
         </div>
     </div>
-        
+  
     <script>
-        fillSelect("arcB_selectCoef", getFriction())
-        translate("structure")
+        fillSelect("arcB_selectCoef", frictionDB());
+        translate("structure");
         setTimeout(computeArcB, 500); //solve the issue (previously 'undefined' at begining)
     </script>
 
     
   </body>
   <style>
-    .fraction {
-        display: inline-block;
-        position: relative;
-        vertical-align: middle; 
-        letter-spacing: 0.001em;
-        text-align: center;
-        font-size: 12px;
-    }
-    .fraction > span { 
-        display: block; 
-        padding: 0.1em; 
-    }
-    .fraction span.fdn {border-top: thin solid black;}
-    .fraction span.bar {display: none;}
-
     input[type=range] {
         -webkit-appearance: none;
         /*background-color: silver;*/
