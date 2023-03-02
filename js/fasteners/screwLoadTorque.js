@@ -61,7 +61,7 @@ function fillScrewTable(){
     let screwSize = document.getElementById("screwLoad_size").value;
     let elasticLimit = parseFloat(document.getElementById("screwLoad_type").value);
     let coating = document.getElementById('screwLoad_surface').value;
-    let percentOfRe = parseFloat(document.getElementById('screwLoad_percentRe').value)/100;
+    let percentOfRe = parseFloat(document.getElementById('screwLoad_percentReSlider').value)/100;
     let wrenchPrecision = parseFloat(document.getElementById('screwLoad_wrench').value);
     
     let data = getScrewData();
