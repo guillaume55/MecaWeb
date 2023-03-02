@@ -6,6 +6,9 @@ function showElt(id){
     document.getElementById(id).style.display = "block"
 }
 
+/**
+ * For multi tabs calculators. Opens automatically the tab given in the url
+ */
 function openTabStartUp(){
     var url = window.location.href;
     var tab = 0
@@ -25,9 +28,40 @@ function openTabStartUp(){
  * @param {*} slider 
  */
 function refreshSliderValue(slider){
-    console.log("slider",slider)
     txtId = slider.id.replace("Slider","Value");
-    console.log("txtid",txtId)
     value = slider.value.toString();
     document.getElementById(txtId).innerHTML = value;
-  }
+}
+
+/**
+ * Fill a select element with a dict {"MyOption":"OptionValue",}
+ * @param {string} id Id of the slect
+ * @param {dict} data {"MyOption":"OptionValue",}
+ */
+function fillSelect(id, data){
+    s = document.getElementById(id)
+    for(k of Object.keys(data)) {
+        var c = document.createElement("option");
+        c.text = k;
+        s.options.add(c, 1);
+    }
+}
+
+/**
+ * Fill a select element with a dict (with OPTGROUP) {"optgroup1":{"MyOption":"OptionValue",},}
+ * @param {string} id Id of the slect
+ * @param {dict} data {"optgroup1":{"MyOption":"OptionValue",},}
+ */
+function fillSelectGroup(id, data){
+    s = document.getElementById(id)
+    for(k of Object.keys(data)){
+        let g = document.createElement("OPTGROUP");
+        g.setAttribute("label", k);
+        for(k2 of Object.keys(data[k])) {
+            var c = document.createElement("option");
+            c.text = k2;
+            g.appendChild(c)
+        }
+        s.appendChild(g)
+    }
+}
