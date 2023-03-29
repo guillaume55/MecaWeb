@@ -35,11 +35,12 @@ function computeMass(prefix="mass"){
     } else if (shape == "cyl_hollow" || shape == "circ_pipe") {
         let r = diam/2;
         let rInt = r-thickness;
-        sectionArea = Math.PI * r*r - (Math.Pi *rInt*rInt);
+        sectionArea = Math.PI * r*r - (Math.PI *rInt*rInt);
         totalArea = 2*Math.PI*r*len; //outside
         totalArea += 2*sectionArea //2 sections
         totalArea += 2*Math.PI*rInt*len;
         volume = sectionArea * len;
+
     }
     mass = volume*density/1000000000;
     console.log("shape",shape)
