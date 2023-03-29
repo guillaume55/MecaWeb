@@ -30,6 +30,7 @@ function computeMass(prefix="mass"){
         let r = diam/2;
         sectionArea = Math.PI * r*r;
         totalArea = 2*Math.PI*r*len;
+        totalArea += 2*sectionArea;
         volume = sectionArea * len;
 
     } else if (shape == "cyl_hollow" || shape == "circ_pipe") {
