@@ -1,37 +1,27 @@
+//TODO
+//Check center of gravity
+
+
+/**
+ * Compute moment of inertia
+ * in kg/mm²
+ * @returns 
+ */
 function computeJCylinder(){
     //x is the axis of revolution
     masse = parseFloat(document.getElementById('torque_masse').value)
     radius = parseFloat(document.getElementById('torque_diam').value)/2
     
     let Jx = masse * radius * radius * 0.5
-    document.getElementById('torque_momentOfInertia').value = Jx;
 
     return Jx
 }
 
-function computeJSphere(){
-    //x is the axis of revolution
-    masse = parseFloat(document.getElementById('torque_masse').value)
-    radius = parseFloat(document.getElementById('torque_diam').value)/2
-    
-    let Jx = masse * radius * radius * (2/3)
-    document.getElementById('torque_momentOfInertia').value = Jx;
-
-    return Jx
-}
-
-function computeJRect(){
-    //x is the axis of revolution
-    masse = parseFloat(document.getElementById('torque_masse').value)
-    a = parseFloat(document.getElementById('torque_aSide').value)
-    b = parseFloat(document.getElementById('torque_bSide').value)
-    
-    let Jx = masse * (a*a+b*b) * (1/1)
-    document.getElementById('torque_momentOfInertia').value = Jx;
-
-    return Jx
-}
-
+/**
+ * Get custom moment of inertia
+ * in kg/mm²
+ * @returns 
+ */
 function getJCustom(){
     //x is the axis of revolution
     let Jx = document.getElementById('torque_momentOfInertia').value
@@ -41,94 +31,173 @@ function getJCustom(){
 //add manually the inertia to this term
 //Total moment of inertia = this + moment of inertia of the solid/on its axis of rotation
 function huygens(){
-    masse = parseFloat(document.getElementById('torque_masse').value)
-    bl = parseFloat(document.getElementById('torque_distance').value)
-    return masse * bl*bl
+    masse = parseFloat(document.getElementById('torque_masse').value) // in kg
+    bl = parseFloat(document.getElementById('torque_distance').value) // in mm
+    return masse * bl * bl
 }
 
 function computeInertiaOfSolid(){
     type = getRadio("torqueSolid")
     let Jx = 0;
-    if(type == "rect"){
-        Jx = computeJRect();
-    } else if(type == "cyl"){
+
+    if(type == "cyl")
+    {
         Jx = computeJCylinder();
-    } else if(type == "sphere"){
-        Jx = computeJSphere();
-    } else if(type == "custom"){
+    } 
+    else if(type == "cog")
+    {
+        Jx = huygens();
+    }
+    else if(type == "custom")
+    {
         Jx = getJCustom();
     }
-    totalMomentOfInertia = Jx + huygens();
-    document.getElementById('torque_resMomentOfInertia').innerHTML = roundDec(Jx,6)
-    document.getElementById('torque_totalMomentOfInertia').value = roundDec(totalMomentOfInertia,6)
-    document.getElementById('torque_resTotalMomentOfInertia').innerHTML = roundDec(totalMomentOfInertia,6)
 
-    return totalMomentOfInertia
+    //totalMomentOfInertia = Jx + huygens(); //confusing, huygens only for cog
+
+    document.getElementById('torque_resInertia').innerHTML = roundDec(Jx,6); //in kg.mm²
+    console.log("show inertia; Jx=", Jx)
+    return Jx
 }
 
-function showTorqueSolidParams(beamType, prefix) {
-    prefix = prefix.trim()
-    if(beamType.search("rect")!=-1) {
-        document.getElementById(prefix+"_aSide_div").style.display="Block";
-        document.getElementById(prefix+"_bSide_div").style.display="Block";
-        document.getElementById(prefix+"_diam_div").style.display="none";
-        document.getElementById(prefix+"_momentOfInertia").disabled =true;
-    }
-    else if(beamType.search("cyl")!=-1) {
-        document.getElementById(prefix+"_aSide_div").style.display="none";
-        document.getElementById(prefix+"_bSide_div").style.display="none";
-        document.getElementById(prefix+"_diam_div").style.display="block";
-        document.getElementById(prefix+"_momentOfInertia").disabled =true;
-    }
-    else if(beamType.search("sphere")!=-1) {
-        document.getElementById(prefix+"_aSide_div").style.display="none";
-        document.getElementById(prefix+"_bSide_div").style.display="none";
-        document.getElementById(prefix+"_diam_div").style.display="block";        
-        document.getElementById(prefix+"_momentOfInertia").disabled =true;
-    }else {
-        document.getElementById(prefix+"_aSide_div").style.display="none";
-        document.getElementById(prefix+"_bSide_div").style.display="none";
-        document.getElementById(prefix+"_diam_div").style.display="none";
-        document.getElementById(prefix+"_momentOfInertia").disabled =false;
-    }
+/**
+ * Custom moment of inertia does not need mass because it is already integrated
+ * @param {*} show 
+ */
+function showHideMass(show) {
+    if(!show)
+        document.getElementById("mass").style.display = "none";
+    else    
+        document.getElementById("mass").style.display = "block";
 }
+/**
+ * Compute the torque induced by the accelerated movement
+ * Torque = Moment of Inertia * Angular acceleration
+ * @returns 
+ */
 
 function torque_accelTorque(){
-    let J = computeInertiaOfSolid()
-    let deltaSpeed = parseFloat(document.getElementById('torque_finalRpm').value)
-    deltaSpeed -= parseFloat(document.getElementById('torque_initRpm').value)
-    let accelT = parseFloat(document.getElementById('torque_accelTime').value)
-    let ta = ((Math.PI*deltaSpeed*J)/(30*accelT))*0.001
-    document.getElementById('torque_resTorqueAccel').innerHTML = roundDec(ta,3)
-    return ta
-}
+    let J = computeInertiaOfSolid() * 0.000001; //kg/mm² to kg/m²
+    let deltaSpeed = parseFloat(document.getElementById('torque_finalRpm').value); //in rpm
+    deltaSpeed -= parseFloat(document.getElementById('torque_initRpm').value);
 
-function torque_resistiveTorque(bearings) {
-    //from https://zpag.net/Tecnologies_Indistrielles/Roulements_Etude.htm
-    let cf = 0
-    for(i=0; i<bearings; i++) {
-        index = i.toString()
-        let friction = parseFloat(document.getElementById('torque_bearingFriction'+index).value)
-        let radLoad = parseFloat(document.getElementById('torque_radialLoad'+index).value)
-        let avgRadius = parseFloat(document.getElementById('torque_avgRadius'+index).value)
-        cf += friction*radLoad*(avgRadius/1000)
-    }
+    let deltaTime = parseFloat(document.getElementById('torque_accelTime').value); //in seconds
+
+    //let ta = ((Math.PI*deltaSpeed*J)/(30*accelT))*0.001  // A verifier RPM to rad/s
     
-    document.getElementById('torque_resResistiveTorque').innerHTML = roundDec(cf,3)
-    return cf
+    deltaSpeed = (Math.PI/30) * deltaSpeed; //rpm to rad/s
+    let acceleration = deltaSpeed / deltaTime;
+    let torque = acceleration * J;
+    
+    console.log("J",J, "deltaSpeed",deltaSpeed, "deltaTime", deltaTime, "acceleration",acceleration, "torque",torque)
+    return torque
 }
 
+/**
+ * Caused by bearings
+ * @returns 
+ */
+function torque_resistiveTorque() {
+    let rTorque = 0;
+    for(let i=1; i<3; i++)
+    {
+        let bearingType = document.getElementById("select_bearingType"+i.toString()).value;
+        if(bearingType != "custom")
+        {
+            let load = parseFloat(document.getElementById('select_bearingLoad'+i.toString()).value);
+            beamType= parseFloat(bearingType);
+            //from https://zpag.net/Tecnologies_Indistrielles/Roulements_Etude.htm
+            rTorque += load * beamType;
+        }
+        else
+        {
+            console.log(document.getElementById('manufacturerResistiveTorque'+i.toString()).value);
+            rTorque += parseFloat(document.getElementById('manufacturerResistiveTorque'+i.toString()).value);
+        }
+    }
+    return rTorque
+}
+
+/**
+ * Power = torque(N.m) * angular speed (rad/s)
+ * @param {*} totalTorque 
+ * @returns 
+ */
 function torque_MechPower(totalTorque){
     let rpm = parseFloat(document.getElementById('torque_finalRpm').value)
-
-    P = rpm * (Math.PI/30) * totalTorque
-    document.getElementById('torque_resMechPower').innerHTML = roundDec(P,3)
+    let power = rpm * (Math.PI/30) * totalTorque
+    
+    return power
 }
 
+/**
+ * Torque needed if composed of torque caused by friction and torque caused by acceleration
+ */
 function computeTorques(){
-    let t = 0; 
-    t += torque_accelTorque()
-    t += torque_resistiveTorque(2)
-    torque_MechPower(t)
-    document.getElementById('torque_totalTorque').innerHTML=roundDec(t,3)
+    let tBearings = torque_resistiveTorque()
+    document.getElementById('torque_resResistiveTorque').innerHTML = roundDec(tBearings,6)
+
+    let tAccel = torque_accelTorque();
+    let totalTorque = tAccel + tBearings;
+    let power = torque_MechPower(totalTorque)
+
+
+    document.getElementById('torque_totalTorque').innerHTML=roundDec(totalTorque,3)
+    document.getElementById('torque_resMechPower').innerHTML = roundDec(power,3)
+
+    drawPieChart(tBearings,tAccel);
+}
+
+/**
+ * refresh fields for bearings friction
+ * @param {*} typeField 
+ * @param {*} customField 
+ * @param {*} loadField 
+ * @returns 
+ */
+function refreshCustomfield(typeField ,customField, loadField){
+
+    type = document.getElementById(typeField).value;
+    if(type == "custom")
+    {
+        document.getElementById(customField).disabled = false;
+        return 
+    }
+
+    document.getElementById(customField).disabled = true;
+    load = parseFloat(document.getElementById(loadField).value);
+    cf = parseFloat(type) * load;
+    document.getElementById(customField).value = roundDec(cf,6);
+
+    return
+}
+
+/**
+ * Shows the repartition between bearing induced resistive torque and torque due to acceleration
+ * @param {*} rTorque 
+ * @param {*} aTorque 
+ */
+function drawPieChart(rTorque,aTorque){
+    var myChart = new Chart("pieChartDiv", {
+        type: 'doughnut',
+        data: {
+            labels: ["Friction", "Acceleration"],
+            datasets: [
+            {
+                data: [rTorque, aTorque],
+                backgroundColor: [
+                   "#FF6384",
+                    "#4BC0C0"
+                ]
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: ['Repartition of moment caused by bearings and acceleration'],
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+        }
+    });
 }

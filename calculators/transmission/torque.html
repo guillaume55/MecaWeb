@@ -7,187 +7,200 @@
       <link rel="stylesheet" href="../../css/cuts.css">
       <link rel="stylesheet" type="text/css" href="../../css/radio.css">
       <link rel="stylesheet" type="text/css" href="../../css/table.css">
+      <link rel="stylesheet" type="text/css" href="../../css/newField.css">
   </head>
   <body>
     <script src="../../js/getValues.js"></script>
     <script src="../../js/transmission/torque.js"></script>
     <script src="../../js/simple_math_tools.js"></script>
     <script src="../../translation/translation.js"></script>
+    <script src='../../js/lib/Chart.js'></script>
 
     <div id="calc">
         <div class="item section">
             <div class="section-title">{Solid definition} Under tests. Not reliable</div>
+        </div>
+        <div class="section-content" style="justify-content: center;">
+
             <div class="radios">
-                <div class="radio-button" onclick="document.getElementById('torqueSolid1').click(); showTorqueSolidParams('rect', 'torque')">
-                    <label>{Parallelepipede}</label>
-                    <img src="../../img/parallelepipede.png" style="width: 150px; max-width: 150px;"/>
-                    <input type="radio" id="torqueSolid1" name="torqueSolid" value="rect" checked>
-                </div>
-                <div class="radio-button" onclick="document.getElementById('torqueSolid2').click(); showTorqueSolidParams('cyl', 'torque')">
-                    <label>{Cylinder}</label>
-                    <img src="../../img/cylinder.png" style="width: 150px; max-width: 150px;"/>
-                    <input type="radio" id="torqueSolid2" name="torqueSolid" value="cyl">
-                </div>
-                <div class="radio-button" onclick="document.getElementById('torqueSolid3').click(); showTorqueSolidParams('spere', 'torque')">
-                    <label>{Sphere}</label>
-                    <img src="../../img/sphere.png" style="width: 150px; max-width: 150px;"/>
-                    <input type="radio" id="torqueSolid3" name="torqueSolid" value="cone">
-                </div>
-                <div class="radio-button" onclick="document.getElementById('torqueSolid4').click(); showTorqueSolidParams('custom', 'torque')">
-                    <label>{Custom}</label>
-                    <img src="../../img/robotArm.png" style="width: 150px; max-width: 150px;"/>
+
+                <fieldset class="radio-button" onclick="document.getElementById('torqueSolid2').click(); showHideMass(1);">
+                    <legend>{Cylinder}</legend>
+                    <img src="../../img/cylinder.png" style="width: 150px; max-width: 150px;"/><br>
+                    {Beam diam}
+                    <div class="fieldDiv"><input type="number" id="torque_diam" value="400" min="0" onchange="computeInertiaOfSolid();"/><span>mm</span></div>
+                    <input type="radio" id="torqueSolid2" name="torqueSolid" value="cyl" checked = true>
+                </fieldset>
+ 
+                <fieldset class="radio-button" onclick="document.getElementById('torqueSolid5').click(); showHideMass(1);">
+                    <legend>{Center of Gravity (Huygens theorem)}</legend>
+                    <img src="../../img/cog_rotation.png" style="width: 150px; max-width: 150px;"/><br>
+                    <label>{Distance of the axis of rotation}</label>
+                    <div class="fieldDiv"><input type="number" id="torque_distance" value="100" min="0" onchange="computeInertiaOfSolid();"/><span>mm</span></div>
+                    <input type="radio" id="torqueSolid5" name="torqueSolid" value="cog">
+                </fieldset>
+
+                <fieldset class="radio-button" onclick="document.getElementById('torqueSolid4').click(); showHideMass(0);">
+                    <legend>{Custom}</legend>
+                    <img src="../../img/robotArm.png" style="width: 150px; max-width: 150px;"/><br>
+                    {Moment of inertia of the solid itself}
+                    <div class="fieldDiv"><input type="number" id="torque_momentOfInertia" min="0" value="800000000"/><span>kg.mm²</span></div>
                     <input type="radio" id="torqueSolid4" name="torqueSolid" value="custom">
-                </div>
-            </div>
-            <div class="section-content">
-                <div id="torque_aSide_div">
-                    <label>{Length of} a</label></br>
-                    <div class="input-unit">
-                        <input type="number" id="torque_aSide" value="40" min="0" onchange="computeInertiaOfSolid()"/><span>mm</span>
-                    </div>
-                </div></br>
-                <div id="torque_bSide_div">
-                    <label>{Length of} b</label></br>
-                    <div class="input-unit">
-                        <input type="number" id="torque_bSide" value="20" min="0" onchange="computeInertiaOfSolid()"/><span>mm</span>
-                    </div>
-                </div></br>
+                </fieldset>
+            </div><!--End of radios-->
 
-                <div id="torque_diam_div">
-                    <label>{Beam diam}</label></br>
-                    <div class="input-unit">
-                        <input type="number" id="torque_diam" value="20" min="0" onchange="computeInertiaOfSolid()"/><span>mm</span>
-                    </div>
-                </div><br>
-                <div id="torque_masse_div">
-                    <label>{Masse}</label></br>
-                    <div class="input-unit">
-                        <input type="number" id="torque_masse" value="2" min="0" onchange="computeInertiaOfSolid()"/><span>kg</span>
-                    </div>
-                </div><br>
+            <fieldset class="field" id="mass">            
+                <label>{Masse}</label></br>
+                <input type="number" min="0" value="150" id="torque_masse" onchange="computeInertiaOfSolid();"/><span>kg</span>
+            </fieldset>
                 
-                <div id="torque_momentOfInertia_div">
-                    <label>{Moment of inertia of the solid itself}</label></br>
-                    <div class="input-unit">
-                        <input type="number" id="torque_momentOfInertia" min="0"/><span>kg.mm²</span>
-                    </div>
-                </div><br>
+            <!--To simplify the tool, huygens theorem is reserved for center of gravity computation-->
+                <!--
+                <fieldset class="field flex-row nowrap">
+                    <legend title="If the given moment of inertia is not around the axis of rotation">{Huygens theorem} 🛈</legend>
+                        <img src="../../img/huygens.png" style="width:300px; max-width: 500px;">
 
-                <img src="../../img/huygens.png" style="width:300px; max-width: 500px;">
-                <div id="torque_distance_div">
+                        <div class="flex-col" style="width: 400px;">
+                            <div id="torque_distance_div"><br>
+                                <label>{Distance of the axis of rotation}</label></br>
+                                <input type="number" id="torque_distance" value="0" min="0" onchange="computeInertiaOfSolid()"/><span>mm</span>
+                            </div><br>
+
+                            <div id="torque_momentOfInertia_div">
+                                <label>{Total moment of inertia}</label></br>
+                                <input type="number" id="torque_totalMomentOfInertia" min="0" disabled/><span>kg.mm²</span>
+                            </div>
+                    </div>
                     
-                    <label>{Distance of the axis of rotation}</label></br>
-                    <div class="input-unit">
-                        <input type="number" id="torque_distance" value="0" min="0" onchange="computeInertiaOfSolid()"/><span>mm</span>
-                    </div>
-                </div><br>
-                <div id="torque_momentOfInertia_div">
-                    <label>{Total moment of inertia}</label></br>
-                    <div class="input-unit">
-                        <input type="number" id="torque_totalMomentOfInertia" min="0" disabled/><span>kg.mm²</span>
-                    </div>
-                </div>
-            </div>
+                </fieldset>-->
+                <br>
             
-        </div>
-              
-        <div class="item section">
-            <div class="section-title">{Characteristics}</div>
-            <div class="section-content">
-                <label>{Time to reach final speed}</label>
-                <div class="input-unit">
-                    <input id="torque_accelTime" type="number" value="1" min="0"/><span>s</span>
-                </div><br>
-                <label>{Initial speed}</label>
-                <div class="input-unit">
-                    <input id="torque_initRpm" type="number" value="0" min="0"/><span>RPM</span>
-                </div><br>
-                <label>{Final speed}</label>
-                <div class="input-unit">
-                    <input id="torque_finalRpm" type="number" value="100" min="0"/><span>RPM</span>
-                </div><br>
-            </div>
-        </div>
+                <!--Everything related to velocity and acceleration-->
+                <fieldset class="field flex-col" style="width: max-content;">
+                    <legend>{System velocity}</legend>
 
-        <div class="item section">
-            <div class="section-title">{Resistive torque induced by bearings}</div>
-            <div class="section-content">
-                <table>
-                    <tr><th>{Bearing Characteristics}</th><th>{Internal friction}</th><th>{Radial load}</th><th>{Average radius}</th></tr>
-                    <!--From https://zpag.net/Tecnologies_Indistrielles/Roulements_Etude.htm -->
-                    <tr>
-                        <td>{Bearing} 1</td>
-                        <td>
-                            <select id="torque_bearingFriction0">
-                                <optgroup label="Rolling">
-                                    <option value="0.0015">{Rigid ball bearing} µ=0.0015</option>
-                                    <option value="0.002">{Oblic contact (ball or roller)} µ=0.002</option>
-                                    <option value="0.0011">{Roller bearing} µ=0.0011</option>
-                                    <option value="0.0025">{Needle bearing} µ=0.0025</option> 
+                    <label>{Time to reach final speed}</label>
+                    <div><input id="torque_accelTime" type="number" value="2" min="0"/><span>sec</span></div><br>
+
+                    <label>{Initial speed}</label>
+                    <div><input id="torque_initRpm" type="number" value="0" min="0"/><span>RPM</span></div><br>
+
+                    <label>{Final speed}</label>
+                    <div><input id="torque_finalRpm" type="number" value="345" min="0"/><span>RPM</span></div><br>
+                </fieldset>
+
+ 
+                <!--Everything related to bearings-->
+                <fieldset class="field" style="width: max-content;">
+                    <legend>{Bearings}</legend>
+                    <div id="bearing1" class="flex-col"  style="margin: 20px;">
+                        <label>{Bearing} 1 {type}</label><br>
+                        <select id="select_bearingType1" onchange="refreshCustomfield('select_bearingType1','manufacturerResistiveTorque1','select_bearingLoad1')"> <!--value if size*friction coef-->
+                            <optgroup label="{Bearings (Sliding)}">
+                                <option value="0.00015">{High efficiency bearing} 1≤D≤30mm</option>
+                                <option value="0.0005">{High efficiency bearing} 330≤D≤100mm</option>
+                                <option value="0.0003">{Standard bearing} 1≤D≤30mm</option>
+                                <option value="0.001">{Standard bearing} 330≤D≤100mm</option>
+                                <option value="0.00045">{Low efficiency bearing} 1≤D≤30mm</option>
+                                <option value="0.0015">{Low efficiency bearing} 330≤D≤100mm</option>
                             </optgroup>
-                                <optgroup label="Sliding">
-                                    <option value="0.05">{Low friction bearing} µ=0.05</option>
-                                    <option value="0.1">{Medium friction bearing} µ=0.1</option>
-                                    <option value="0.15">{Maybe not a good bearing} µ=0.15</option>
-                                </optgroup>
-                            </select>
-                        </td>
-                        <td>
-                            <input id="torque_radialLoad0" class="small-input" type="number" value="100" min="0"/><span>N</span>
-                        </td>
-                        <td>
-                            <input id="torque_avgRadius0" class="small-input" type="number" value="20" min="0"/><span>mm</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>{Bearing} 2</td>
-                        <td>
-                            <select id="torque_bearingFriction1">
-                                <optgroup label="Rolling">
-                                    <option value="0.0015">{Rigid ball bearing} µ=0.0015</option>
-                                    <option value="0.002">{Oblic contact (ball or roller)} µ=0.002</option>
-                                    <option value="0.0011">{Roller bearing} µ=0.0011</option>
-                                    <option value="0.0025">{Needle bearing} µ=0.0025</option> 
+                            <optgroup label="{Bearings (Rolling+grease)}">
+                                <option value="0.000045">{Ball bearing} 1≤D≤30mm</option>
+                                <option value="0.00015">{Ball bearing} 330≤D≤100mm</option>
+                                <option value="0.00006">{Oblic contact ball bearing} 1≤D≤30mm</option>
+                                <option value="0.0002">{Oblic contact ball bearing} 330≤D≤100mm</option>
+                                <option value="0.00006">{Oblic contact roller bearing} 1≤D≤30mm</option>
+                                <option value="0.0002">{Oblic contact roller bearing} 330≤D≤100mm</option>
+                                <option value="0.000033">{Roller bearing} 1≤D≤30mm</option>
+                                <option value="0.00011">{Roller bearing} 330≤D≤100mm</option>
+                                <option value="0.000075">{Needle bearing} 1≤D≤30mm</option>
+                                <option value="0.00025">{Neddle bearing} 30≤D≤100mm</option>
                             </optgroup>
-                                <optgroup label="Sliding">
-                                    <option value="0.05">{Low friction bearing} µ=0.05</option>
-                                    <option value="0.1">{Medium friction bearing} µ=0.1</option>
-                                    <option value="0.15">{Maybe not a good bearing} µ=0.15</option>
-                                </optgroup>
-                            </select>
-                        </td>
-                        <td>
-                            <input id="torque_radialLoad1" class="small-input" type="number" value="100" min="0"/><span>N</span>
-                        </td>
-                        <td>
-                            <input id="torque_avgRadius1" class="small-input" type="number" value="20" min="0"/><span>mm</span>
-                        </td>
-                    </tr>
-                </table><br>
-                <span>{Oblic contact bearing can induce radial load with axial forces}</span>
+                            <option value="custom">{Value from manufacturer}</option>
+                            <option value="0">{No bearing}</option>
+                        </select><br>
+
+                        <label>{Bearing} 1 {radial load}</label>
+                        <select id="select_bearingLoad1" onchange="refreshCustomfield('select_bearingType1','manufacturerResistiveTorque1','select_bearingLoad1')">
+                            <option value="1">≃ 1 Newton</option>
+                            <option value="5">≃ 5 Newtons</option>
+                            <option value="10">≃ 10 Newtons</option>
+                            <option value="50">≃ 50 Newtons</option>
+                            <option value="100">≃ 100 Newtons</option>
+                            <option value="500">≃ 500 Newtons</option>
+                            <option value="1000">≃ 1000 Newtons</option>
+                            <option value="5000">≃ 5000 Newtons</option>
+                        </select><br>
+
+                        <label>{Bearing} 1 {resistive torque}</label>
+                        <div><input type="number" id="manufacturerResistiveTorque1" min="0" step="0.1" value="0.00015" disabled><span>N.m</span></div>
+                    </div>
+                    <div id="bearing2" class="flex-col" style="margin: 20px;">
+                        <label>{Bearing} 2 {type}</label><br>
+                        <select id="select_bearingType2" onchange="refreshCustomfield('select_bearingType2','manufacturerResistiveTorque2','select_bearingLoad2')"> <!--value if size*friction coef-->
+                            <optgroup label="{Bearings (Sliding)}">
+                                <option value="0.00015">{High efficiency bearing} 1≤D≤30mm</option>
+                                <option value="0.0005">{High efficiency bearing} 30.1≤D≤100mm</option>
+                                <option value="0.0003">{Standard bearing} 0≤D≤30mm</option>
+                                <option value="0.001">{Standard bearing} 30≤D≤100mm</option>
+                                <option value="0.00045">{Low efficiency bearing} 0≤D≤30mm</option>
+                                <option value="0.0015">{Low efficiency bearing} 30≤D≤100mm</option>
+                            </optgroup>
+                            <optgroup label="{Bearings (Rolling+grease)}">
+                                <option value="0.000045">{Ball bearing} 1≤D≤30mm</option>
+                                <option value="0.00015">{Ball bearing} 330≤D≤100mm</option>
+                                <option value="0.00006">{Oblic contact ball bearing} 1≤D≤30mm</option>
+                                <option value="0.0002">{Oblic contact ball bearing} 330≤D≤100mm</option>
+                                <option value="0.00006">{Oblic contact roller bearing} 1≤D≤30mm</option>
+                                <option value="0.0002">{Oblic contact roller bearing} 330≤D≤100mm</option>
+                                <option value="0.000033">{Roller bearing} 1≤D≤30mm</option>
+                                <option value="0.00011">{Roller bearing} 330≤D≤100mm</option>
+                                <option value="0.000075">{Needle bearing} 1≤D≤30mm</option>
+                                <option value="0.00025">{Neddle bearing} 30≤D≤100mm</option>
+                            </optgroup>
+                            <option value="custom">{Value from manufacturer}</option>
+                            <option value="0">{No bearing}</option>
+                        </select><br>
+    
+                        <label>{Bearing} 2 {radial load}</label>
+                        <select id="select_bearingLoad2" onchange="refreshCustomfield('select_bearingType2','manufacturerResistiveTorque2','select_bearingLoad2')">
+                            <option value="1">≃ 1 Newton</option>
+                            <option value="5">≃ 5 Newtons</option>
+                            <option value="10">≃ 10 Newtons</option>
+                            <option value="50">≃ 50 Newtons</option>
+                            <option value="100">≃ 100 Newtons</option>
+                            <option value="500">≃ 500 Newtons</option>
+                            <option value="1000">≃ 1000 Newtons</option>
+                            <option value="5000">≃ 5000 Newtons</option>
+                        </select><br>
+                    
+
+                        <label>{Bearing} 2 {resistive torque}</label>
+                        <div><input type="number" id="manufacturerResistiveTorque2" min="0" step="0.1" value="0.00015" disabled><span>N.m</span></div>
+                    </div>
+                </fieldset>
             </div>
         </div>
         
         <div class="item section">
-            <div class="section-title">{Results}<input type="button" onclick="computeTorques()" value="{Compute}"/></div>
-            <table>
-                <tr><th>{Moment of inertia of the solid}</th><td id="torque_resMomentOfInertia"></td><td>kg.mm²</td></tr>
-                <tr><th>{Total moment of inertia}</th><td id="torque_resTotalMomentOfInertia"></td><td>mm<sup>4</sup></td></tr>
-                <tr><th>{System resistive torque}</th><td id="torque_resResistiveTorque"></td><td>N.m</td></tr>
-                <tr><th>{Estimated torque} ({continuous})</th><td id="torque_resTorqueContinuous"></td><td>N.m</td></tr>
-                <tr><th>{Estimated torque} ({acceleration})</th><td id="torque_resTorqueAccel"></td><td>N.m</td></tr>
-                <tr><th>{Estimated torque} ({starting})</th><td id="torque_resTorqueStart"></td><td>N.m</td></tr>
-                <tr><th>{Estimated torque} ({total})</th><td id="torque_totalTorque"></td><td>N.m</td></tr>
-                <tr><th>{Mechanical power} ({100% efficiency})</th><td id="torque_resMechPower"></td><td>W</td></tr>
-            </table>
+            <div class="section-title">{Results}<input type="button" onclick="computeTorques()" class="compute-button" value="{Compute}"/></div>
+            <div class="flex-row">
+                <table style="width: 49%; min-width: 500px;">
+                    <tr title="{Moment of inertia of the solid around the rotation axis}"><th>{Moment of inertia} 🛈</th><td id="torque_resInertia"></td><td>kg.mm²</td></tr>
+                    <tr title="{Caused by bearings. Torque needed to operate after acceleration}"><th>{System resistive torque} 🛈</th><td id="torque_resResistiveTorque"></td><td>N.m</td></tr>
+                    <tr title="{Caused by bearings and acceleration. Torque needed to reach final velocity}"><th>{Estimated torque to reach final velocity} 🛈</th><td id="torque_totalTorque"></td><td>N.m</td></tr>
+                    <tr title="{Efficiency} 100%; {Init speed} = 0"><th>{Mechanical power} 🛈</th><td id="torque_resMechPower"></td><td>W</td></tr>
+                </table>
+                <canvas id="pieChartDiv" style="width:49%;max-width:700px; max-height: 70vh;"></canvas>
+            </div>
+            
         </div>
     </div>
-    <script>
-        document.getElementById('torqueSolid2').click();
-        computeTorques()
-        translate()
+    <script>       
+        //fill the result table 
+        computeTorques();
+        
+        translate();
     </script>
-
-    
   </body>
 </html>

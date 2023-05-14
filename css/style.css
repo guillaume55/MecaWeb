@@ -23,6 +23,10 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.nowrap{
+  flex-wrap: nowrap;
+}
 /************TABS**********/
 /* Style the tab */
 .tab {

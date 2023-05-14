@@ -1,40 +1,43 @@
 Torque,Couple
-Solid definition,Caractéristiques du solide
-Parallelepipede,Parallèlèpipède
+Solid definition,Définition du solide
 Cylinder,Cylindre
-Sphere,Sphère
-Custom,Personnalisé
 Beam diam,Diamètre
-Masse,Masse
+Center of Gravity (Huygens theorem),Centre de gravité (Théorème de Huygens)
+Distance of the axis of rotation,Distance avec l'axe de rotation
+Custom,Personnalisé
 Moment of inertia of the solid itself,Moment d'inertie du solide seul
-Distance of the axis of rotation,Distance entre l'axe du solide et l'axe de rotation
-Characteristics,Charactéristiques
-Time to reach final speed,Temps pour atteindre la vitesse finale
+Masse,Masse
+Huygens theorem,Theorème de Huygens
+Total moment of inertia,Moment d'inertie total
+System velocity,Vitesse du système
+Time to reach final speed,Temps pour atteindre la vitesse terminale
 Initial speed,Vitesse initiale
-Final speed,Vitesse finale
-Resistive torque induced by bearings,Couple résistant dû aux roulements/paliers
-Internal friction,Friction du composant
-Radial load,Charge radiale
-Bearing Characteristics,Charactéristiques du roulement
-Bearing,Roulement/Palier
-Rigid ball bearing,Roulement rigide à billes
-Oblic contact (ball or roller),Rlt à contact oblique (billes ou rlx)
+Final speed,Vitesse terminale
+Bearings,Roulements
+Bearing,Roulement
+type,type
+Bearings (Sliding),
+High efficiency bearing,Roulement à haut rendement
+Standard bearing,Roulement standard
+Low efficiency bearing,Roulement à faible rendement
+Bearings (Rolling+grease),Roulement graissé
+Ball bearing,Roulement à billes
+Oblic contact ball bearing,Roulement à billes à contacts obliques
+Oblic contact roller bearing,Roulement à rouleaux à contacts obliques
 Roller bearing,Roulement à rouleaux
 Needle bearing,Roulement à aiguilles
-Low friction bearing,Palier (coef de friction faible)
-Medium friction bearing,Palier (coef de friction moyen)
-Maybe not a good bearing,Palier (coef de friction élevé)
+Value from manufacturer,Donnée fabricant
+No bearing,Pas de roulement
+radial load,Charge radiale
+resistive torque,Couple de frottemennt
 Results,Résultats
 Compute,Calculer
-Moment of inertia of the solid,Moment d'inertie du solide
-Total moment of inertia,Moment d'inertie total
-System resistive torque,Couple résistif du système
-Estimated torque,Couple estimé
-continuous,continu
-acceleration,acceleration
-starting,démarrage
-total,total
-100% efficiency,rendement 100%
+Moment of inertia of the solid around the rotation axis,Moment d'inertie autour de l'axe de rotation
+Moment of inertia,Moment d'inertie
+Caused by bearings. Torque needed to operate after acceleration,Résultant du frottement des roulements. Couple d'entrainement à vitesse constante
+System resistive torque,Couple résistant du système
+Caused by bearings and acceleration. Torque needed to reach final velocity,Résultant du frottement des roulements et de l'accélération
+Estimated torque to reach final velocity,Couple estimé pour l'accélération du mouvement
+Efficiency,Rendement
+Init speed,Vitesse initiale
 Mechanical power,Puissance mécanique
-Oblic contact bearing can induce radial load with axial forces,Les rouelment à contact oblique peuvent induire des forces.
-Average radius,Rayon moyen

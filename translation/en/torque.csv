@@ -1,40 +1,44 @@
 Torque,Torque
 Solid definition,Solid definition
-Parallelepipede,Parallelepipede
 Cylinder,Cylinder
-Sphere,Sphere
-Custom,Custom
-Beam diam,Beam diameter
-Masse, Mass
-Moment of inertia of the solid itself,Moment of inertia of the solid itself
+Beam diam,Beam diam
+Center of Gravity (Huygens theorem),Center of Gravity (Huygens theorem)
 Distance of the axis of rotation,Distance of the axis of rotation
-Characteristics,Characteristics
+Custom,Custom
+Moment of inertia of the solid itself,Moment of inertia of the solid itself
+Masse,Mass
+Huygens theorem,Huygens theorem
+Total moment of inertia,Total moment of inertia
+System velocity,System velocity
 Time to reach final speed,Time to reach final speed
 Initial speed,Initial speed
 Final speed,Final speed
-Resistive torque induced by bearings,Resistive torque induced by bearings
-Internal friction,Internal friction
-Radial load,Radial load
-Bearing Characteristics,Bearing characteristics
+Bearings,Bearings
 Bearing,Bearing
-Rigid ball bearing,Rigid ball bearing
-Oblic contact (ball or roller),Oblic contact (ball or roller)
+type,type
+Bearings (Sliding),Bearings (Sliding)
+High efficiency bearing,High efficiency bearing
+Standard bearing,Standard bearing
+Low efficiency bearing,Low efficiency bearing
+Bearings (Rolling+grease),Bearings (Rolling+grease)
+Ball bearing,Ball bearing
+Oblic contact ball bearing,Oblic contact ball bearing
+Oblic contact roller bearing,Oblic contact roller bearing
 Roller bearing,Roller bearing
 Needle bearing,Needle bearing
-Low friction bearing,Low friction bearing
-Medium friction bearing,Medium friction bearing
-Maybe not a good bearing,Maybe not a good bearing
+Neddle bearing,Neddle bearing
+Value from manufacturer,Value from manufacturer
+No bearing,No bearing
+radial load,radial load
+resistive torque,resistive torque
 Results,Results
 Compute,Compute
-Moment of inertia of the solid,Moment of inertia of the solid
-Total moment of inertia,Total moment of inertia
+Moment of inertia of the solid around the rotation axis,Moment of inertia of the solid around the rotation axis
+Moment of inertia,Moment of inertia
+Caused by bearings. Torque needed to operate after acceleration,Caused by bearings. Torque needed to operate after acceleration
 System resistive torque,System resistive torque
-Estimated torque,Estimated Torque
-continuous,continuous
-acceleration,acceleration
-starting,starting
-total,total
-100% efficiency,100% efficiency
+Caused by bearings and acceleration. Torque needed to reach final velocity,Caused by bearings and acceleration. Torque needed to reach final velocity
+Estimated torque to reach final velocity,Estimated torque to reach final velocity
+Efficiency,Efficiency
+Init speed,Init speed
 Mechanical power,Mechanical power
-Oblic contact bearing can induce radial load with axial forces,Oblic contact bearing can induce radial load with axial forces
-Average radius,Average radius
