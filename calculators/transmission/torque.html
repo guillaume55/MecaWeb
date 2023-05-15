@@ -50,7 +50,7 @@
             </div><!--End of radios-->
 
             <fieldset class="field" id="mass">            
-                <label>{Masse}</label></br>
+                <label>{Mass}</label></br>
                 <input type="number" min="0" value="150" id="torque_masse" onchange="computeInertiaOfSolid();"/><span>kg</span>
             </fieldset>
                 
@@ -189,7 +189,7 @@
                     <tr title="{Moment of inertia of the solid around the rotation axis}"><th>{Moment of inertia} 🛈</th><td id="torque_resInertia"></td><td>kg.mm²</td></tr>
                     <tr title="{Caused by bearings. Torque needed to operate after acceleration}"><th>{System resistive torque} 🛈</th><td id="torque_resResistiveTorque"></td><td>N.m</td></tr>
                     <tr title="{Caused by bearings and acceleration. Torque needed to reach final velocity}"><th>{Estimated torque to reach final velocity} 🛈</th><td id="torque_totalTorque"></td><td>N.m</td></tr>
-                    <tr title="{Efficiency} 100%; {Init speed} = 0"><th>{Mechanical power} 🛈</th><td id="torque_resMechPower"></td><td>W</td></tr>
+                    <tr title="{Efficiency} 100%; {Init speed} = 0"><th>{Mechanical power} 🛈</th><td id="torque_resMechPower"></td><td id="torque_resUnitPower">W</td></tr>
                 </table>
                 <canvas id="pieChartDiv" style="width:49%;max-width:700px; max-height: 70vh;"></canvas>
             </div>

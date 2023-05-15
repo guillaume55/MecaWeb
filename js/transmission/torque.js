@@ -56,7 +56,6 @@ function computeInertiaOfSolid(){
     //totalMomentOfInertia = Jx + huygens(); //confusing, huygens only for cog
 
     document.getElementById('torque_resInertia').innerHTML = roundDec(Jx,6); //in kg.mm²
-    console.log("show inertia; Jx=", Jx)
     return Jx
 }
 
@@ -89,7 +88,6 @@ function torque_accelTorque(){
     let acceleration = deltaSpeed / deltaTime;
     let torque = acceleration * J;
     
-    console.log("J",J, "deltaSpeed",deltaSpeed, "deltaTime", deltaTime, "acceleration",acceleration, "torque",torque)
     return torque
 }
 
@@ -111,7 +109,6 @@ function torque_resistiveTorque() {
         }
         else
         {
-            console.log(document.getElementById('manufacturerResistiveTorque'+i.toString()).value);
             rTorque += parseFloat(document.getElementById('manufacturerResistiveTorque'+i.toString()).value);
         }
     }
@@ -141,9 +138,17 @@ function computeTorques(){
     let totalTorque = tAccel + tBearings;
     let power = torque_MechPower(totalTorque)
 
+    unitPower = "W";
+    if(power > 10000)
+    {
+        power = power / 1000;
+        unitPower = "kW";
+    }
 
-    document.getElementById('torque_totalTorque').innerHTML=roundDec(totalTorque,3)
-    document.getElementById('torque_resMechPower').innerHTML = roundDec(power,3)
+    document.getElementById('torque_totalTorque').innerHTML = totalTorque>100 ? Math.floor(totalTorque) : roundDec(totalTorque,3);
+    document.getElementById('torque_resMechPower').innerHTML = power>100 ? Math.floor(power) : roundDec(power,3);
+    document.getElementById('torque_resUnitPower').innerHTML = unitPower;
+
 
     drawPieChart(tBearings,tAccel);
 }
