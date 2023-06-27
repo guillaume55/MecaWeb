@@ -179,9 +179,10 @@ function shaftFit(){
 }
 
 function boreFit(){
-    let aj_bore = {}
+    let aj_bore = {};
+    //ok
     aj_bore['A11']=[
-    [330,270],[345,270],[370,280],[400,290],[430,300],["X","X"],["X","X"],["X","X"],["X","X"],["X","X"]]
+    [330,270],[345,270],[370,280],[400,290],[430,300],[470,310],[530,340],[600,380],[710,460],[1110,820]]
         
     aj_bore['B9']=[
     [165,140],[170,140],[186,150],[193,150],[212,160],["X","X"],["X","X"],["X","X"],["X","X"],["X","X"]]
@@ -227,7 +228,8 @@ function boreFit(){
     //ok
     aj_bore['G7']=[
     [12,2],[16,4],[20,5],[24,6],[28,7],[34,9],[40,10],[47,12],[54,14],[61,15]]
-    
+
+    //ok
     aj_bore['H5']=[
     [4,0],[5,0],[6,0],[8,0],[9,0],[11,0],[13,0],[15,0],[18,0],[20,0]]
     
@@ -251,6 +253,7 @@ function boreFit(){
     aj_bore['H11']=[
     [60,0],[75,0],[90,0],[110,0],[130,0],[160,0],[190,0],[220,0],[250,0],[290,0]]
     
+    //ok
     aj_bore['Js6']=[
     [3,-3],[4,-4],[4.5,-4.5],[5.5,-5.5],[6.5,-6.5],[8,-8],[9.5,-9.5],[11,-11],[12.5,-12.5],[14.5,-14.5]]
     
@@ -322,36 +325,48 @@ function computeClearance(){
     let sel_shaft = document.getElementById("c_select_shaft").value;
     let diam = parseFloat(document.getElementById("c_diam").value);
     
-    let index =0;
-    for(d of [3,6,10,18,30,50,80,120,180,250]){
-        if(diam>d) index += 1;
+    let res = "";
+    if(diam > 250)
+    {
+        res = T['Diameter over 250mm not supported'];
     }
-    let bore = boreFit()[sel_bore][index];
-    let shaft = shaftFit()[sel_shaft][index];
-    console.log(bore, shaft)
-    //outputs
-    
-    let max_s = diam+shaft[0]*0.001
-    let min_s = diam+shaft[1]*0.001
-    let max_b = diam+bore[0]*0.001
-    let min_b = diam+bore[1]*0.001
-    
-    document.getElementById("c_shaft_it").innerText = `${shaft[0]>0?"+":""}${shaft[0]}µm, ${shaft[1]>0?"+":""}${shaft[1]}µm`;
-    document.getElementById("c_bore_it").innerText = `${bore[0]>0?"+":""}${bore[0]}µm, ${bore[1]>0?"+":""}${bore[1]}µm`;
-    document.getElementById("c_bore_int").innerText = `Min : ${min_b}, Max : ${max_b}`;
-    document.getElementById("c_shaft_int").innerText = `Min : ${min_s}, Max : ${max_s}`;
-    
-    //radial gap
-    let min = roundDec(min_b-max_s,3); //min clearance
-    let max = roundDec(max_b-min_s,3); //max clearance
-    let avg = roundDec((min+max)/2,3); //avg clearance
-    //at least an undefined value
-    if(!isNaN(shaft[0]) && !isNaN(shaft[1]) && !isNaN(bore[0]) && !isNaN(bore[1])){
-        res = `${T['Clearance in']} µm</br><table><tr><th>Min</th><th>Avg</th><th>Max</th></tr><tr><td>${min*1000}</td><td>${avg*1000}</td><td>${max*1000}</td></tr></table>`
+    else 
+    {
+        let index =0;
+        for(d of [3,6,10,18,30,50,80,120,180,250]){
+            if(diam>d) index += 1;
+        }
+        let bore = boreFit()[sel_bore][index];
+        let shaft = shaftFit()[sel_shaft][index];
+        console.log(bore, shaft)
+        //outputs
         
-    }else{
-        res = T["At least a non normalised IT: cannot compute"]
+        let max_s = diam+shaft[0]*0.001
+        let min_s = diam+shaft[1]*0.001
+        let max_b = diam+bore[0]*0.001
+        let min_b = diam+bore[1]*0.001
+        
+        document.getElementById("c_shaft_it").innerText = `${shaft[0]>0?"+":""}${shaft[0]}µm, ${shaft[1]>0?"+":""}${shaft[1]}µm`;
+        document.getElementById("c_bore_it").innerText = `${bore[0]>0?"+":""}${bore[0]}µm, ${bore[1]>0?"+":""}${bore[1]}µm`;
+        document.getElementById("c_bore_int").innerText = `Min : ${min_b}, Max : ${max_b}`;
+        document.getElementById("c_shaft_int").innerText = `Min : ${min_s}, Max : ${max_s}`;
+        
+        //radial gap
+        let min = roundDec(min_b-max_s,3); //min clearance
+        let max = roundDec(max_b-min_s,3); //max clearance
+        let avg = roundDec((min+max)/2,3); //avg clearance
+        //at least an undefined value
+
+        if(!isNaN(shaft[0]) && !isNaN(shaft[1]) && !isNaN(bore[0]) && !isNaN(bore[1]))
+        {
+            res = `${T['Clearance in']} µm</br><table><tr><th>Min</th><th>Avg</th><th>Max</th></tr><tr><td>${min*1000}</td><td>${avg*1000}</td><td>${max*1000}</td></tr></table>`;
+        }
+        else
+        {
+            res = T["At least a non normalised IT: cannot compute"];
+        }
     }
+    
     document.getElementById("c_result").innerHTML = res;
 
     //if(document.getElementById("is_pivot").checked)
