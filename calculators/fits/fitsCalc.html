@@ -75,6 +75,11 @@
                 populateFitsSelect("c_select_shaft",shaftFit())
                 populateFitsSelect("c_select_bore",boreFit())
                 translate("fits")
+                setTimeout(function(){
+                    document.getElementById('c_select_bore').value = "H7";
+                    document.getElementById('c_select_shaft').value = "g6";
+                    computeClearance();
+                },500);
             </script>
         </div>
 
